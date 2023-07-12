@@ -1,14 +1,15 @@
 { pkgs
 , lib
 , inputs
+, outputs
 , config
 , ...
 }: {
   imports = [
-    (import .programs/yabai { inherit config; })
-    (import .programs/skhd { inherit config; })
-    (import .programs/sketchybar { inherit config; })
-    (import .programs/fish { inherit config; })
+    (import ./programs/yabai.nix { inherit config inputs lib pkgs; })
+    (import ./programs/skhd.nix { inherit config inputs lib pkgs; })
+    # (import ./programs/sketchybar.nix { inherit config inputs lib pkgs; })
+    (import ./programs/fish.nix { inherit config inputs lib pkgs; })
   ];
   system.keyboard = {
     enableKeyMapping = true;

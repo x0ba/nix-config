@@ -31,12 +31,14 @@
       "rustdesk"
       "uninstallpkg"
       "utm"
+      "wezterm"
+      "font-caskaydia-cove-nerd-font"
       (noQuarantine "easy-move-plus-resize")
       (noQuarantine "eloston-chromium")
       (skipSha "element")
       (skipSha "sizzy")
       (noQuarantine "vial")
     ];
-    taps = ["homebrew/cask" "homebrew/cask-drivers"];
+    taps = ["homebrew/cask" "wez/wezterm" "homebrew/cask-fonts" ];
   };
 }

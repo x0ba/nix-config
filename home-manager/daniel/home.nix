@@ -20,19 +20,8 @@
     (import ../shared/programs/direnv { inherit config; })
     (import ../shared/programs/exa { inherit config; })
     (import ../shared/programs/tmux { inherit config inputs lib pkgs; })
-    (import ../shared/programs/music { inherit config inputs lib pkgs; })
     (import ../shared/programs/zoxide { inherit config inputs lib pkgs; })
-
-    (import ../shared/programs/firefox {
-      inherit config pkgs;
-      package = pkgs.firefox;
-
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-        bitwarden
-        ublock-origin
-        octotree
-      ];
-    })
+    (import ../shared/programs/lf { inherit config inputs lib pkgs; })
 
     (import ../shared/programs/git { inherit config lib pkgs; })
     (import ../shared/programs/starship { inherit config; })
@@ -82,7 +71,12 @@
     activation = {
       installNvimConfig = ''
         if [ ! -d "${config.home.homeDirectory}/.config/nvim" ]; then
-          ln -s "/etc/nixos/config/nvim" "${config.home.homeDirectory}/.config/nvim" 
+          ln -s "/Users/daniel/Projects/dotfiles/config/nvim" "${config.home.homeDirectory}/.config/nvim" 
+        fi
+      '';
+      installWeztermConfig = ''
+        if [ ! -d "${config.home.homeDirectory}/.config/wezterm" ]; then
+          ln -s "/Users/daniel/Projects/dotfiles/config/wezterm" "${config.home.homeDirectory}/.config/wezterm" 
         fi
       '';
     };
@@ -135,7 +129,6 @@
         elinks
         glow
         fzf
-        cached-nix-shell
         exiftool
         sdcv
         sqlite
@@ -148,7 +141,6 @@
     ];
 
     sessionVariables = {
-      BROWSER = "${pkgs.firefox}/bin/firefox";
       EDITOR = "${pkgs.neovim}/bin/nvim";
       RUSTUP_HOME = "${config.home.homeDirectory}/.local/share/rustup";
     };

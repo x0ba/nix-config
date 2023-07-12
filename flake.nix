@@ -3,15 +3,15 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
-    nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-23.05-darwin";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     darwin.url = "github:lnl7/nix-darwin";
-    darwin.inputs.nixpkgs.follows = "nixpkgs-darwin";
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     # Home manager
     home.url = "github:nix-community/home-manager";
 
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
+    nekowinston-nur.url = "github:nekowinston/nur";
     nix-colors.url = "github:misterio77/nix-colors";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -80,7 +80,7 @@
 
   };
 
-  outputs = { self, nixpkgs, home, nixos-apple-silicon, ... }@inputs:
+  outputs = { self, nixpkgs, home, darwin, nixos-apple-silicon, ... }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
@@ -114,6 +114,7 @@
       # Reusable home-manager modules you might want to export
       # These are usually stuff you would upstream into home-manager
       homeManagerModules = import ./modules/home-manager;
+      darwinModules = import ./modules/darwin;
 
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
@@ -126,8 +127,11 @@
         };
       };
       darwinConfigurations = {
-        "nebula" = darwin.lib.darwinSystem {
-          modules = [ ./nixos/nebula/configuration.nix ];
+      	  "nebula" = darwin.lib.darwinSystem {
+	  specialArgs = { inherit inputs outputs; };
+          modules = [ 
+	    ./nixos/nebula/configuration.nix 
+          ];
         };
       };
 
@@ -141,7 +145,7 @@
             ./home-manager/aspect/home.nix
           ];
         };
-        "aspect@nebula" = home.lib.homeManagerConfiguration {
+        "daniel@nebula" = home.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.aarch64-darwin; # Home-manager requires 'pkgs' instance
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
