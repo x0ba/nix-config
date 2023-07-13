@@ -6,19 +6,24 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
+    spacebar.url = "github:cmacrae/spacebar/v1.4.0";
 
     # Home manager
     home.url = "github:nix-community/home-manager";
 
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
-    nekowinston-nur.url = "github:nekowinston/nur";
     nix-colors.url = "github:misterio77/nix-colors";
+    base16-oxocarbon = {
+      url = "github:shaunsingh/base16-oxocarbon";
+      flake = false;
+    };
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     # nixos-wsl.url = "github:nix-community/nixos-wsl";
     nixpkgs-f2k.url = "github:Aspectsides/nixpkgs-f2k";
     # nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     nur.url = "github:nix-community/NUR";
+    nekowinston-nur.url = "github:nekowinston/nur";
     vscode-server.url = "github:msteen/nixos-vscode-server";
     nixos-apple-silicon = {
       url = github:tpwrules/nixos-apple-silicon;
@@ -80,7 +85,7 @@
 
   };
 
-  outputs = { self, nixpkgs, home, darwin, nixos-apple-silicon, ... }@inputs:
+  outputs = { self, nekowinston-nur, nixpkgs, home, darwin, spacebar, nixos-apple-silicon, ... }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
@@ -131,6 +136,11 @@
           specialArgs = { inherit inputs outputs; };
           modules = [
             ./nixos/nebula/configuration.nix
+            # {
+            #   nixpkgs.overlays = [
+            #     spacebar.overlay
+            #   ];
+            # }
           ];
         };
       };

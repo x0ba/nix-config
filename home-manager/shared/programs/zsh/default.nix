@@ -1,10 +1,9 @@
-{
-  config,
-  lib,
-  inputs,
-  pkgs,
-  ...
-}: 
+{ config
+, lib
+, inputs
+, pkgs
+, ...
+}:
 let theme = config.colorScheme;
 in
 {
@@ -205,7 +204,7 @@ in
       push = "git push";
       pull = "git pull";
       m = "mkdir -p";
-      v = "${pkgs.neovim}/bin/nvim";
+      v = "${pkgs.neovide}/bin/neovide";
       t = "${pkgs.tmux}/bin/tmux";
       ta = "${pkgs.tmux}/bin/tmux attach -t";
       fcd = "cd $(find -type d | fzf)";

@@ -24,6 +24,9 @@
       # Float / Unfloat window: lalt - space
       lalt - space : yabai -m window --toggle float; sketchybar --trigger window_focus
 
+      # Close focused window:
+      lalt - q : yabai -m window --close
+
       # Make window zoom to fullscreen: shift + lalt - f
       shift + lalt - f : yabai -m window --toggle zoom-fullscreen; sketchybar --trigger window_focus
 
@@ -81,7 +84,7 @@
       ctrl + lalt - b : yabai -m config window_border off
       shift + ctrl + lalt - b : yabai -m config window_border on
 
-      lalt - return : ~/.nix-profile/bin/wezterm start
+      lalt - return : ~/.nix-profile/bin/kitty
     '';
   };
 }

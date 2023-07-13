@@ -22,6 +22,7 @@
     (import ../shared/programs/tmux { inherit config inputs lib pkgs; })
     (import ../shared/programs/zoxide { inherit config inputs lib pkgs; })
     (import ../shared/programs/lf { inherit config inputs lib pkgs; })
+    (import ../shared/programs/kitty { inherit config inputs lib pkgs; })
 
     (import ../shared/programs/git { inherit config lib pkgs; })
     (import ../shared/programs/starship { inherit config; })
@@ -63,7 +64,29 @@
     };
   };
 
-  colorScheme = inputs.nix-colors.colorSchemes.tomorrow-night;
+  colorScheme = {
+    slug = "oxocarbon";
+    name = "oxocarbon";
+    author = "Nyoom Engineering";
+    colors = {
+      base00 = "161616";
+      base01 = "262626";
+      base02 = "393939";
+      base03 = "525252";
+      base04 = "dde1e6";
+      base05 = "f2f4f8";
+      base06 = "ffffff";
+      base07 = "08bdba";
+      base08 = "3ddbd9";
+      base09 = "33b1ff";
+      base0A = "ee5396";
+      base0B = "78a9ff";
+      base0C = "ff7eb6";
+      base0D = "42be65";
+      base0E = "be95ff";
+      base0F = "82cfff";
+    };
+  };
 
   fonts.fontconfig.enable = true;
 
@@ -114,6 +137,7 @@
         file
         any-nix-shell
         rnix-lsp
+        neovide
 
         # Formatters
         black
@@ -144,7 +168,7 @@
     ];
 
     sessionVariables = {
-      EDITOR = "${pkgs.neovim}/bin/nvim";
+      EDITOR = "${pkgs.neovide}/bin/neovide";
       RUSTUP_HOME = "${config.home.homeDirectory}/.local/share/rustup";
     };
 

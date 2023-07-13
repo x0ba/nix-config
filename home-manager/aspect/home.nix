@@ -181,6 +181,7 @@
         rustfmt
         shfmt
         stylua
+        neovide
 
         psst
         zotero

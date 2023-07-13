@@ -7,6 +7,12 @@
       cleanup = "uninstall";
       upgrade = true;
     };
+    brews = [
+      {
+        name = "svim";
+        start_service = true;
+      }
+    ];
     casks =
       let
         skipSha = name: {
@@ -41,9 +47,9 @@
         (noQuarantine "easy-move-plus-resize")
         (noQuarantine "eloston-chromium")
         (skipSha "spotify")
-        (skipSha "sizzy")
+        (skipSha "steam")
         (noQuarantine "vial")
       ];
-    taps = [ "homebrew/cask" "wez/wezterm" "homebrew/cask-fonts" "FelixKratz/formulae" ];
+    taps = [ "homebrew/cask" "wez/wezterm" "homebrew/cask-fonts" "FelixKratz/formulae" "cmacrae/formulae" ];
   };
 }

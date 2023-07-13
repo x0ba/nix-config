@@ -15,11 +15,21 @@ in
 
         dynamic_padding = true;
         decorations_theme_variant = "Dark";
+        decorations = "none";
       };
 
+      mouse.hide_when_typing = true;
+      use_thin_strokes = true;
+
+
       font = {
-        size = 13;
-        builtin_box_drawing = true;
+        size = 15;
+        normal.family = "CaskaydiaCove Nerd Font";
+        normal.style = "Light";
+        bold.family = "CaskaydiaCove Nerd Font";
+        bold.style = "Bold";
+        italic.family = "CaskaydiaCove Nerd Font";
+        italic.style = "Italic";
       };
 
       cursor.style = {

@@ -8,7 +8,7 @@
   imports = [
     (import ./programs/yabai.nix { inherit config inputs lib pkgs; })
     (import ./programs/skhd.nix { inherit config inputs lib pkgs; })
-    # (import ./programs/sketchybar.nix { inherit config inputs lib pkgs; })
+    # (import ./programs/spacebar.nix { inherit config inputs lib pkgs; })
     (import ./programs/fish.nix { inherit config inputs lib pkgs; })
   ];
   system.keyboard = {
