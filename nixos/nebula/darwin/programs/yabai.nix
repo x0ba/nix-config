@@ -3,7 +3,7 @@
 , inputs
 , config
 , ...
-}: 
+}:
 let
   scripts = ../../../../config/sketchybar;
 in
@@ -21,7 +21,7 @@ in
       # Gaps
       window_gap = 18;
       top_padding = 18;
-      bottom_padding = 52;
+      bottom_padding = 18;
       left_padding = 18;
       right_padding = 18;
       # shadows and borders

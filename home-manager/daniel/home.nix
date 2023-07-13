@@ -69,17 +69,18 @@
 
   home = {
     activation = {
-      installNvimConfig = ''
-        if [ ! -d "${config.home.homeDirectory}/.config/nvim" ]; then
-          ln -s "/Users/daniel/Projects/dotfiles/config/nvim" "${config.home.homeDirectory}/.config/nvim" 
-        fi
-      '';
+      # installNvimConfig = ''
+      #   if [ ! -d "${config.home.homeDirectory}/.config/nvim" ]; then
+      #     ln -s "/Users/daniel/Projects/dotfiles/config/nvim" "${config.home.homeDirectory}/.config/nvim" 
+      #   fi
+      # '';
       installWeztermConfig = ''
         if [ ! -d "${config.home.homeDirectory}/.config/wezterm" ]; then
           ln -s "/Users/daniel/Projects/dotfiles/config/wezterm" "${config.home.homeDirectory}/.config/wezterm" 
         fi
       '';
     };
+
 
     file = {
       ".local/bin/run" = {
@@ -112,6 +113,7 @@
         trash-cli
         file
         any-nix-shell
+        rnix-lsp
 
         # Formatters
         black
@@ -123,6 +125,7 @@
 
         # Extras
         fd
+        wezterm
         imagemagick
         chafa
         jq

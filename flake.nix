@@ -127,10 +127,10 @@
         };
       };
       darwinConfigurations = {
-      	  "nebula" = darwin.lib.darwinSystem {
-	  specialArgs = { inherit inputs outputs; };
-          modules = [ 
-	    ./nixos/nebula/configuration.nix 
+        "nebula" = darwin.lib.darwinSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./nixos/nebula/configuration.nix
           ];
         };
       };

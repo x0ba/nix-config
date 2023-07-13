@@ -10,10 +10,10 @@
     skhdConfig = ''
       ## Navigation (lalt - ...)
       # Space Navigation (four spaces per display): lalt - {1, 2, 3, 4}
-      lalt - 1 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"; yabai -m space --focus $((1+4*($DISPLAY - 1)))
-      lalt - 2 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"; yabai -m space --focus $((2+4*($DISPLAY - 1)))
-      lalt - 3 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"; yabai -m space --focus $((3+4*($DISPLAY - 1)))
-      lalt - 4 : DISPLAY="$(yabai -m query --displays --display | jq '.index')"; yabai -m space --focus $((4+4*($DISPLAY - 1)))
+      lalt - 1 : yabai -m space --focus 1
+      lalt - 2 : yabai -m space --focus 2
+      lalt - 3 : yabai -m space --focus 3
+      lalt - 4 : yabai -m space --focus 4
 
       # Window Navigation (through display borders): lalt - {h, j, k, l}
       lalt - h : yabai -m window --focus west  || yabai -m display --focus west
@@ -41,21 +41,10 @@
       shift + lalt - s : yabai -m window --toggle split
 
       # Moving windows between spaces: shift + lalt - {1, 2, 3, 4, p, n } (Assumes 4 Spaces Max per Display)
-      shift + lalt - 1 : DISPLAY="$(yabai -m query --displays --display | jq '.index')";\
-                        yabai -m window --space $((1+4*($DISPLAY - 1)));\
-                        sketchybar --trigger windows_on_spaces
-
-      shift + lalt - 2 : DISPLAY="$(yabai -m query --displays --display | jq '.index')";\
-                        yabai -m window --space $((2+4*($DISPLAY - 1)));\
-                        sketchybar --trigger windows_on_spaces
-
-      shift + lalt - 3 : DISPLAY="$(yabai -m query --displays --display | jq '.index')";\
-                        yabai -m window --space $((3+4*($DISPLAY - 1)));\
-                        sketchybar --trigger windows_on_spaces
-
-      shift + lalt - 4 : DISPLAY="$(yabai -m query --displays --display | jq '.index')";\
-                        yabai -m window --space $((4+4*($DISPLAY - 1)));\
-                        sketchybar --trigger windows_on_spaces
+      shift + lalt - 1 : yabai -m window --space 1
+      shift + lalt - 2 : yabai -m window --space 2
+      shift + lalt - 3 : yabai -m window --space 3
+      shift + lalt - 4 : yabai -m window --space 4
 
       shift + lalt - p : yabai -m window --space prev; yabai -m space --focus prev; sketchybar --trigger windows_on_spaces
       shift + lalt - n : yabai -m window --space next; yabai -m space --focus next; sketchybar --trigger windows_on_spaces
@@ -92,9 +81,7 @@
       ctrl + lalt - b : yabai -m config window_border off
       shift + ctrl + lalt - b : yabai -m config window_border on
 
-      ## Misc
-      # Open new Alacritty window
-      cmd - return : alacritty msg create-window
+      lalt - return : ~/.nix-profile/bin/wezterm start
     '';
   };
 }
