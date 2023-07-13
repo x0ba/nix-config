@@ -88,8 +88,6 @@
     };
   };
 
-  fonts.fontconfig.enable = true;
-
   home = {
     activation = {
       # installNvimConfig = ''
@@ -127,6 +125,8 @@
         };
       '';
     };
+
+    home.mac-wallpaper = ../../assets/IBM_Developer_Posters.jpg;
 
     homeDirectory = "/Users/daniel";
 
