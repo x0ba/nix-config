@@ -23,7 +23,7 @@
     (import ../shared/programs/zoxide { inherit config inputs lib pkgs; })
     (import ../shared/programs/lf { inherit config inputs lib pkgs; })
     (import ../shared/programs/kitty { inherit config inputs lib pkgs; })
-
+    (import ../shared/programs/gpg { inherit config inputs lib pkgs; })
     (import ../shared/programs/git { inherit config lib pkgs; })
     (import ../shared/programs/starship { inherit config; })
 

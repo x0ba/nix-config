@@ -8,7 +8,6 @@
   imports = [
     (import ./programs/yabai.nix { inherit config inputs lib pkgs; })
     (import ./programs/skhd.nix { inherit config inputs lib pkgs; })
-    # (import ./programs/spacebar.nix { inherit config inputs lib pkgs; })
     (import ./programs/fish.nix { inherit config inputs lib pkgs; })
   ];
   system.keyboard = {
@@ -32,6 +31,8 @@
     finder = {
       AppleShowAllExtensions = true;
       QuitMenuItem = true;
+      AppleShowAllFiles = true;
+      CreateDesktop = false;
       FXEnableExtensionChangeWarning = true;
     };
     NSGlobalDomain = {

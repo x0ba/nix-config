@@ -85,7 +85,7 @@
 
   };
 
-  outputs = { self, nekowinston-nur, nur, nixpkgs, home, darwin, spacebar, nixos-apple-silicon, ... }@inputs:
+  outputs = { self, nekowinston-nur, nur, nixpkgs, home, darwin, nixos-apple-silicon, ... }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
@@ -135,11 +135,6 @@
           specialArgs = { inherit inputs outputs; };
           modules = [
             ./nixos/nebula/configuration.nix
-            # {
-            #   nixpkgs.overlays = [
-            #     spacebar.overlay
-            #   ];
-            # }
           ];
         };
       };

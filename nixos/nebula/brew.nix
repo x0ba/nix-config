@@ -47,12 +47,10 @@
         "spotify"
         "neovide"
         "arc"
+        "raycast"
         "orion"
         # "font-caskaydia-cove-nerd-font"
-        (noQuarantine "easy-move-plus-resize")
-        (noQuarantine "eloston-chromium")
         (skipSha "spotify")
-        (skipSha "steam")
         (noQuarantine "vial")
       ];
     taps = [ "homebrew/services" "homebrew/cask" "wez/wezterm" "homebrew/cask-fonts" "FelixKratz/formulae" "cmacrae/formulae" ];

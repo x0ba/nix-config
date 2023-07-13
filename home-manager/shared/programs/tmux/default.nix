@@ -13,87 +13,73 @@
       tmuxPlugins.vim-tmux-navigator
     ];
     extraConfig = with config.lib.base16.theme; ''
-      # The statusbar
-      set -g status-position bottom
+      set-option -sa terminal-overrides ',xterm*:Tc'
+      set -g mouse on
+      set -s escape-time 0
+
       set -g base-index 1
-      set -g pane-base-index 1
-      set -g status-justify centre
-      set -g status-bg colour0
-      set -g status-fg colour5
-      set -g status-left '#{prefix_highlight}#[fg=colour238]|―――――――――――――――――|'
-      set -g status-right '#[fg=colour238]|―――――――――――――――――――――――|'
-      set -g status-right-length 30
-      set -g status-left-length 30
+      setw -g pane-base-index 1
+      set-option -g renumber-windows on
 
-      # Change prefix to backtick
+      set -g visual-activity off
+      set -g visual-bell off
+      set -g visual-silence off
+      setw -g monitor-activity off
+      set -g bell-action none
+
       unbind C-b
-      set-option -g prefix `
-      bind ` send-prefix
+      set -g prefix C-\\
+      bind C-\\ send-prefix
 
-      # The Bindings
-      unbind %
-      bind h split-window -v
-      unbind '"'
-      bind v split-window -h
       bind r source-file ~/.config/tmux/tmux.conf
-      unbind [
-      bind escape copy-mode
-      unbind p
-      bind p paste-buffer
-      bind-key -T copy-mode-vi 'v' send -X begin-selection
-      bind-key -T copy-mode-vi 'y' send -X copy-pipe-and-cancel "xsel -i" \; send-keys enter
-      bind-key -T copy-mode-vi 'Y' send -X copy-pipe-and-cancel "tmux loadb -" \; send-keys enter
+
+      bind-key h select-pane -L
+      bind-key l select-pane -R
+      bind-key j select-pane -D
+      bind-key k select-pane -U
+
+      bind-key -T copy-mode-vi v send-keys -X begin-selection
+      bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+      bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+
+      bind '"' split-window -v -c "#{pane_current_path}"
+      bind % split-window -h -c "#{pane_current_path}"
+
+      bind-key -r f run-shell "tmux neww ~/.scripts/tmux-sessionizer"
+
+      bind-key -r K run-shell "~/.scripts/tmux-sessionizer ~/.dotfiles"
+      bind-key -r L run-shell "~/.scripts/tmux-sessionizer ~/programming/cp"
+
+      bind-key -r P run-shell "tmux split-pane -h \"cp2cb\""
+
+      # Theme
       
-      # The messages
-      set -g message-style fg=magenta,bg=colour236
-      set -g message-command-style fg=blue,bg=black
-      # keep window names fixed
-            
-      # loud or quiet?
-      set-option -g visual-activity off
-      set-option -g visual-bell off
-      set-option -g visual-silence off
-      set-window-option -g monitor-activity on
-      set-option -g bell-action none
+      set-option -g pane-active-border-style "bg=default fg=magenta"
+      set-option -g pane-border-style "bg=default fg=black"
       
-      # The modes
-      setw -g clock-mode-colour colour135
-      # setw -g mode-attr bold
-      # setw -g mode-fg colour196
-      # setw -g mode-bg colour238
+      # ----- Messages -----
       
-      # The panes
-      set -g pane-border-style fg=colour235
-      set -g pane-active-border-style fg=colour5
+      set-option -g mode-style 'bg=black, fg=magenta'
+      set-option -g message-style 'bg=color18, fg=magenta'
       
-      # setw -g window-status-current-fg colour2
-      # setw -g window-status-current-bg default
-      # setw -g window-status-current-attr none
-      # setw -g window-status-current-format ' #W '
+      # ----- Center -----
+      set-option -g status-justify centre
+      set-option -g status-style "bg=color18"
+      set-window-option -g window-status-current-format '#[bold]#[fg=blue, bg=color18]#[fg=color18, bg=blue]#I:#W#[fg=blue, bg=color18]'
+      set-window-option -g window-status-format '#I:#W'
+      set-window-option -g window-status-separator ' '
+      set-window-option -g window-status-style "bg=color18"
+      set-window-option -g window-status-current-style "bg=blue,fg=color18"
       
-      # setw -g window-status-fg colour236
-      # setw -g window-status-bg default
-      # setw -g window-status-attr none
-      # setw -g window-status-format '#[fg=colour8] #I #[fg=default]#W '
-      setw -g window-status-format ' #W '
+      # ----- Left -----
+      set-option -g status-left ' #S #[fg=blue, bg=color18] '
+      set-option -g status-left-style "bg=blue,fg=color18"
+      set -g status-left-length 30
       
-      # setw -g window-status-activity-bg default
-      # setw -g window-status-activity-fg colour240
-      # setw -g window-status-activity-attr none
-      
-      # setw -g window-status-bell-attr bold
-      # setw -g window-status-bell-fg colour255
-      # setw -g window-status-bell-bg colour1
-      
-      
-      # -- PLUGINS -----------------------------
-      
-      # tmux-prefix-highlight
-      set -g @prefix_highlight_fg 'colour0'
-      set -g @prefix_highlight_bg 'colour5'
-      set -g @prefix_highlight_copy_mode_attr 'fg=colour0,bg=color4'
-      set -g @prefix_highlight_prefix_prompt 'C-c'
-      set -g @prefix_highlight_show_copy_mode 'on'
+      # ----- Right -----
+      set-option -g status-right "#[fg=blue, bg=color18] #[fg=color18, bg=blue] %Y-%m-%d   %R "
+      set-option -g status-right-style "bg=color18,fg=blue"
+      set -g status-right-length 30
     '';
   };
 }
