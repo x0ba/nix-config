@@ -141,6 +141,8 @@
         any-nix-shell
         rnix-lsp
         neovide
+        just
+        nvd
 
         # Formatters
         black
@@ -157,6 +159,7 @@
         chafa
         jq
         elinks
+        gcc
         glow
         fzf
         exiftool

@@ -37,6 +37,7 @@
         "firefox"
         "iina"
         "imageoptim"
+        "nextcloud"
         "karabiner-elements"
         "obs"
         "postman"

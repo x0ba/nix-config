@@ -173,6 +173,7 @@
         file
         any-nix-shell
         xst
+        just
 
         # Formatters
         black

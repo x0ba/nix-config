@@ -1,22 +1,26 @@
 {
-  add_newline = false;
-  format = ''
-    [](blue)[  ](bg:blue fg:black)[](bg:black fg:blue)$directory[](black) $git_branch$nix_shell
-    $character
-  '';
-  directory = {
-    format = "[ $path ]($style)";
-    style = "bg:black";
-    truncate_to_repo = false;
-  };
-  git_branch = {
-    style = "bold yellow";
-  };
   character = {
-    success_symbol = "[](bold blue)";
-    error_symbol = "[](bold red)";
+    error_symbol = "[>>](bold red)";
+    success_symbol = "[>>](bold cyan)";
+    vicmd_symbol = "[>>](bold yellow)";
+    format = "$symbol ";
   };
-  nix_shell = {
-    symbol = "[](bold blue) ";
+
+  format = "$all";
+  add_newline = false;
+
+  hostname = {
+    ssh_only = true;
+    format = "[$hostname](bold blue) ";
+    disabled = false;
   };
+
+  line_break.disabled = true;
+  directory.disabled = true;
+  nodejs.disabled = true;
+  nix_shell.symbol = "[](blue) ";
+  python.symbol = "[](blue) ";
+  rust.symbol = "[](red) ";
+  lua.symbol = "[](blue) ";
+  package.symbol = "📦  ";
 }

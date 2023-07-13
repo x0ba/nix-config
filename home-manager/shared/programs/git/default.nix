@@ -30,7 +30,6 @@
       "ltex.dictionary*.txt"
       # nix-specific
       ".direnv/"
-      ".envrc"
     ];
     # disable the macOS keychain, only use gopass
     package = pkgs.git.override { osxkeychainSupport = false; };
