@@ -15,6 +15,13 @@
     enableKeyMapping = true;
     remapCapsLockToEscape = true;
   };
+  fonts = {
+    fontDir.enable = true;
+    fonts = with pkgs; [
+      maple-mono-SC-NF
+      (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+    ];
+  };
   system.defaults = {
     screencapture = { location = "/tmp"; };
     dock = {

@@ -100,6 +100,11 @@
           ln -s "/Users/daniel/Projects/dotfiles/config/wezterm" "${config.home.homeDirectory}/.config/wezterm" 
         fi
       '';
+      installSketchybarConfig = ''
+        if [ ! -d "${config.home.homeDirectory}/.config/sketchybar" ]; then
+          ln -s "/Users/daniel/Projects/dotfiles/config/sketchybar" "${config.home.homeDirectory}/.config/sketchybar" 
+        fi
+      '';
     };
 
 

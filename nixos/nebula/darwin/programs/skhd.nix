@@ -84,7 +84,7 @@
       ctrl + lalt - b : yabai -m config window_border off
       shift + ctrl + lalt - b : yabai -m config window_border on
 
-      lalt - return : ~/.nix-profile/bin/kitty ~
+      lalt - return : ~/.nix-profile/bin/kitty --single-instance ~
     '';
   };
 }

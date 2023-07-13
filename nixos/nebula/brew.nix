@@ -12,6 +12,10 @@
         name = "svim";
         start_service = true;
       }
+      {
+        name = "sketchybar";
+        start_service = true;
+      }
     ];
     casks =
       let
@@ -43,13 +47,14 @@
         "spotify"
         "neovide"
         "arc"
-        "font-caskaydia-cove-nerd-font"
+        "orion"
+        # "font-caskaydia-cove-nerd-font"
         (noQuarantine "easy-move-plus-resize")
         (noQuarantine "eloston-chromium")
         (skipSha "spotify")
         (skipSha "steam")
         (noQuarantine "vial")
       ];
-    taps = [ "homebrew/cask" "wez/wezterm" "homebrew/cask-fonts" "FelixKratz/formulae" "cmacrae/formulae" ];
+    taps = [ "homebrew/services" "homebrew/cask" "wez/wezterm" "homebrew/cask-fonts" "FelixKratz/formulae" "cmacrae/formulae" ];
   };
 }

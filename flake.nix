@@ -85,7 +85,7 @@
 
   };
 
-  outputs = { self, nekowinston-nur, nixpkgs, home, darwin, spacebar, nixos-apple-silicon, ... }@inputs:
+  outputs = { self, nekowinston-nur, nur, nixpkgs, home, darwin, spacebar, nixos-apple-silicon, ... }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [

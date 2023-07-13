@@ -9,7 +9,7 @@ in
       "--single-instance"
     ];
     font = {
-      name = "CaskaydiaCove Nerd Font";
+      name = "JetBrainsMono Nerd Font";
       size = 16;
     };
     settings = {
@@ -32,7 +32,7 @@ in
       window_border_width = 0;
       window_padding_width = 22;
       background_opacity = 1;
-      hide_window_decorations = true;
+      hide_window_decorations = false;
     };
     extraConfig = ''
       foreground #dde1e6
