@@ -30,7 +30,7 @@
       inputs.rust-overlay.overlays.default
       (_: prev:
         {
-          awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-git;
+          # awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-git;
           # mesa = inputs.nixos-apple-silicon.${pkgs.system}.mesa-asahi-edge;
         })
     ];
