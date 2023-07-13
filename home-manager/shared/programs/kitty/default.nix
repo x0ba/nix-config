@@ -9,7 +9,7 @@ in
       "--single-instance"
     ];
     font = {
-      name = "JetBrainsMono Nerd Font";
+      name = "Maple Mono SC NF";
       size = 16;
     };
     settings = {
@@ -19,6 +19,7 @@ in
       scrollback_lines = 10000;
       enable_audio_bell = false;
       update_check_interval = 0;
+      confirm_os_window_close = 0;
 
       scrollback_pager = "less +G +R";
       wheel_scroll_multiplier = 5;

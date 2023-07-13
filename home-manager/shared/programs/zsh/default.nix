@@ -204,7 +204,7 @@ in
       push = "git push";
       pull = "git pull";
       m = "mkdir -p";
-      v = "${pkgs.neovide}/bin/neovide";
+      v = "${pkgs.neovim}/bin/nvim";
       t = "${pkgs.tmux}/bin/tmux";
       ta = "${pkgs.tmux}/bin/tmux attach -t";
       fcd = "cd $(find -type d | fzf)";

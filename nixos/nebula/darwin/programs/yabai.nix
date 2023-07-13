@@ -18,13 +18,13 @@ in
       auto_balance = "off";
       split_ratio = "0.50";
       window_placement = "second_child";
-      external_bar = "all:33:0";
+      external_bar = "all:35:0";
       # Gaps
-      window_gap = 18;
-      top_padding = 18;
-      bottom_padding = 18;
-      left_padding = 18;
-      right_padding = 18;
+      window_gap = 06;
+      top_padding = 12;
+      bottom_padding = 12;
+      left_padding = 12;
+      right_padding = 12;
       # shadows and borders
       window_shadow = "float";
       # mouse
