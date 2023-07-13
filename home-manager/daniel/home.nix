@@ -126,8 +126,6 @@
       '';
     };
 
-    mac-wallpaper = ../../assets/IBM_Developer_Posters.jpg;
-
     homeDirectory = "/Users/daniel";
 
     packages = lib.attrValues {
