@@ -126,7 +126,7 @@
       '';
     };
 
-    home.mac-wallpaper = ../../assets/IBM_Developer_Posters.jpg;
+    mac-wallpaper = ../../assets/IBM_Developer_Posters.jpg;
 
     homeDirectory = "/Users/daniel";
 
