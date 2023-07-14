@@ -1,7 +1,7 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 
-{ inputs, outputs, lib, config, pkgs, ... }:
+{ inputs, outputs, lib, config, pkgs, flakePath, ... }:
 
 {
   # You can import other home-manager modules here
@@ -17,25 +17,25 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
 
-    (import ../shared/programs/bat { inherit config; })
-    (import ../shared/secrets/sops.nix { inherit config; })
-    (import ../shared/programs/direnv { inherit config; })
-    (import ../shared/programs/exa { inherit config; })
-    (import ../shared/programs/tmux { inherit config inputs lib pkgs; })
-    (import ../shared/programs/zoxide { inherit config inputs lib pkgs; })
-    (import ../shared/programs/lf { inherit config inputs lib pkgs; })
-    (import ../shared/programs/kitty { inherit config inputs lib pkgs; })
-    (import ../shared/programs/gpg { inherit config inputs lib pkgs; })
-    (import ../shared/programs/git { inherit config lib pkgs; })
-    (import ../shared/programs/music { inherit config lib pkgs; })
-    (import ../shared/programs/starship { inherit config; })
-    (import ../shared/programs/browsers { inherit config pkgs; })
-    (import ../shared/programs/newsboat { inherit config lib pkgs; })
-    (import ../shared/xdg.nix { inherit config lib pkgs; })
-    (import ../shared/programs/mail { inherit config lib pkgs; })
-    (import ../shared/programs/fonts { inherit config lib pkgs; })
-
-    (import ../shared/programs/zsh { inherit config pkgs inputs lib; colorIt = false; })
+    ../shared/programs/bat
+    ../shared/secrets/sops.nix
+    ../shared/programs/direnv
+    ../shared/programs/exa
+    ../shared/programs/tmux
+    ../shared/programs/zoxide
+    ../shared/programs/lf 
+    ../shared/programs/kitty
+    ../shared/programs/gpg
+    ../shared/programs/git
+    ../shared/programs/music
+    ../shared/programs/starship
+    ../shared/programs/browsers
+    ../shared/programs/newsboat
+    ../shared/xdg.nix
+    ../shared/programs/mail
+    ../shared/programs/fonts
+    ../shared/programs/sketchybar
+    ../shared/programs/zsh
   ];
 
   nixpkgs = {
@@ -44,9 +44,6 @@
       # Add overlays your own flake exports (from overlays and pkgs dir):
       outputs.overlays.modifications
       outputs.overlays.additions
-
-      # You can also add overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
 
       inputs.nur.overlay
 
@@ -97,21 +94,6 @@
   };
 
   home = {
-    activation = {
-      installNvimConfig = ''
-        if [ ! -d "${config.home.homeDirectory}/.config/nvim" ]; then
-          ln -s "/Users/daniel/Projects/dotfiles/config/nvim" "${config.home.homeDirectory}/.config/nvim" 
-        fi
-      '';
-      installSketchybarConfig = ''
-        if [ ! -d "${config.home.homeDirectory}/.config/sketchybar" ]; then
-          ln -s "/Users/daniel/Projects/dotfiles/config/sketchybar" "${config.home.homeDirectory}/.config/sketchybar" 
-        fi
-      '';
-    };
-
-
-
     file = {
       ".local/bin/run" = {
         # Preview script for fzf tab
@@ -139,7 +121,6 @@
 
     packages = lib.attrValues {
       inherit (pkgs)
-        neovim
         trash-cli
         file
         any-nix-shell

@@ -21,8 +21,6 @@
     # Secrets
     sops-nix.url = "github:Mic92/sops-nix";
 
-    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-
     nixpkgs-f2k.url = "github:Aspectsides/nixpkgs-f2k";
 
     nur.url = "github:nix-community/NUR";
@@ -146,14 +144,20 @@
         {
           "aspect@starfall" = home.lib.homeManagerConfiguration {
             pkgs = nixpkgs.legacyPackages.aarch64-linux; # Home-manager requires 'pkgs' instance
-            extraSpecialArgs = { inherit inputs outputs; };
+            extraSpecialArgs = { 
+              inherit inputs outputs;
+              flakePath = "/etc/nixos";
+            };
             modules = [
               ./home-manager/aspect/home.nix
             ];
           };
           "daniel@nebula" = home.lib.homeManagerConfiguration {
             pkgs = nixpkgs.legacyPackages.aarch64-darwin; # Home-manager requires 'pkgs' instance
-            extraSpecialArgs = { inherit inputs outputs; };
+            extraSpecialArgs = { 
+              inherit inputs outputs; 
+              flakePath = "/Users/daniel/.config/nixpkgs";
+            };
             modules = [
               ./home-manager/daniel/home.nix
             ];

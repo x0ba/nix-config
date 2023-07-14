@@ -11,10 +11,11 @@ in
     enable = true;
     sensibleOnTop = true;
     extraConfig = with theme.colors; ''
-      set -g prefix `
-      unbind C-b
-      bind-key `
+        set -g prefix `
+        unbind C-b
+        bind-key `
         set -g status-right-length 100
+        set -sg escape-time 0
         set -g status-left-length 100
         set -g status-left " "
         set -g status-right " "
