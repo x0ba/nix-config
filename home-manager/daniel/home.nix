@@ -35,6 +35,7 @@
     ../shared/programs/mail
     ../shared/programs/fonts
     ../shared/programs/sketchybar
+    ../shared/programs/neovim
     ../shared/programs/zsh
   ];
 
@@ -124,24 +125,13 @@
         trash-cli
         file
         any-nix-shell
-        rnix-lsp
         neovide
         just
         nvd
         git-crypt
-        nodejs
         sops
 
-        # Formatters
-        black
-        ktlint
-        nixpkgs-fmt
-        rustfmt
-        shfmt
-        stylua
-
         # Extras
-        fd
         imagemagick
         chafa
         jq
@@ -152,18 +142,12 @@
         exiftool
         sdcv
         sqlite
-        statix
-        ripgrep;
+        statix;
     };
 
     sessionPath = [
       "${config.home.homeDirectory}/.local/bin"
     ];
-
-    sessionVariables = {
-      EDITOR = "${pkgs.neovim}/bin/nvim";
-      RUSTUP_HOME = "${config.home.homeDirectory}/.local/share/rustup";
-    };
 
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     stateVersion = "23.05";

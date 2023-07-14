@@ -26,10 +26,15 @@
       fd
       ripgrep
 
+
       # python
       black
       isort
       nodePackages.pyright
+
+      # nix
+      rnix-lsp
+      nodejs
 
       # formatters
       ktlint
