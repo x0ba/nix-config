@@ -147,6 +147,7 @@
         neovide
         just
         nvd
+        git-crypt
         nodejs
         sops
 

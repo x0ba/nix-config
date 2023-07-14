@@ -1,0 +1,1 @@
+home-manager/shared/secrets/fonts/* filter=git-crypt diff=git-crypt
