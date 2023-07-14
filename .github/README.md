@@ -2,8 +2,8 @@
 
 [![NixOS Unstable](https://img.shields.io/badge/NixOS-unstable-blue.svg?style=flat-square&logo=NixOS&logoColor=white)](https://nixos.org)
 [![commit activity](https://img.shields.io/github/commit-activity/w/aspectsides/dotfiles?style=flat-square&label=commits&color=f5c2e7)](https://github.com/aspectsides/dotfiles/commits)
-[![SLOC](https://img.shields.io/tokei/lines/github/aspectsides/dotfiles?style=flat-square&color=f5c2e7)](#)
-[![MIT license](https://img.shields.io/github/license/aspectsides/dotfiles?style=flat-square&color=f5c2e7)](https://github.com/nekowinston/dotfiles/blob/main/LICENSE)
+[![SLOC](https://img.shields.io/tokei/lines/github/aspectsides/dotfiles)](#)
+[![MIT license](https://img.shields.io/github/license/aspectsides/dotfiles?style=flat-square&color=f5c2e7)](https://github.com/aspectsides/dotfiles/blob/main/LICENSE)
 
 *Here we go again.*
 
