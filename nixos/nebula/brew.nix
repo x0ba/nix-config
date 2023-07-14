@@ -43,6 +43,7 @@
         "mailspring"
         "obs"
         "postman"
+        "linearmouse"
         "rustdesk"
         "uninstallpkg"
         "utm"
