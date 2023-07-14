@@ -76,11 +76,11 @@
 
     # Default branch
     nixpkgs.follows = "nixos-unstable";
-    home.inputs.nixpkgs.follows = "nixpkgs-unstable-darwin";
+    home.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
   };
 
-  outputs = { self, nekowinston-nur, nur, nixpkgs, home, darwin, nixos-apple-silicon, ... }@inputs:
+  outputs = { self, nur, nixpkgs, home, darwin, nixos-apple-silicon, ... }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
