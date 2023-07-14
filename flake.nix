@@ -10,12 +10,16 @@
     # Home manager
     home.url = "github:nix-community/home-manager";
 
+    # Theme management
     nix-colors.url = "github:misterio77/nix-colors";
 
     base16-oxocarbon = {
       url = "github:shaunsingh/base16-oxocarbon";
       flake = false;
     };
+
+    # Secrets
+    sops-nix.url = "github:Mic92/sops-nix";
 
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
@@ -80,7 +84,7 @@
 
   };
 
-  outputs = { self, nur, nixpkgs, home, darwin, nixos-apple-silicon, ... }@inputs:
+  outputs = { self, nur, sops-nix, nixpkgs, home, darwin, nixos-apple-silicon, ... }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
@@ -122,6 +126,7 @@
           specialArgs = { inherit inputs outputs; };
           modules = [
             ./nixos/starfall/configuration.nix
+            sops-nix.nixosModules.sops
           ];
         };
       };
@@ -130,6 +135,7 @@
           specialArgs = { inherit inputs outputs; };
           modules = [
             ./nixos/nebula/configuration.nix
+            sops-nix.nixosModules.sops
           ];
         };
       };
@@ -154,4 +160,5 @@
           };
         };
     };
+    nixConfig.commit-lockfile-summary = "flake: bump inputs";
 }

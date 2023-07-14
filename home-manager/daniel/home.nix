@@ -12,11 +12,13 @@
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.discocss.hmModule
     inputs.nix-colors.homeManagerModules.default
+    inputs.sops-nix.homeManagerModules.sops
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
 
     (import ../shared/programs/bat { inherit config; })
+    (import ../shared/secrets/sops.nix { inherit config; })
     (import ../shared/programs/direnv { inherit config; })
     (import ../shared/programs/exa { inherit config; })
     (import ../shared/programs/tmux { inherit config inputs lib pkgs; })
@@ -29,6 +31,9 @@
     (import ../shared/programs/music { inherit config lib pkgs; })
     (import ../shared/programs/starship { inherit config; })
     (import ../shared/programs/browsers { inherit config pkgs; })
+    (import ../shared/programs/newsboat { inherit config lib pkgs; })
+    (import ../shared/xdg.nix { inherit config lib pkgs; })
+    (import ../shared/programs/mail { inherit config lib pkgs; })
 
     (import ../shared/programs/zsh { inherit config pkgs inputs lib; colorIt = false; })
   ];
@@ -106,6 +111,7 @@
     };
 
 
+
     file = {
       ".local/bin/run" = {
         # Preview script for fzf tab
@@ -142,6 +148,7 @@
         just
         nvd
         nodejs
+        sops
 
         # Formatters
         black
@@ -172,7 +179,7 @@
     ];
 
     sessionVariables = {
-      EDITOR = "${pkgs.neovide}/bin/neovide";
+      EDITOR = "${pkgs.neovim}/bin/nvim";
       RUSTUP_HOME = "${config.home.homeDirectory}/.local/share/rustup";
     };
 
@@ -185,6 +192,8 @@
     home-manager.enable = true;
   };
 
+  sops.secrets."wakatime-cfg".path = "${config.home.homeDirectory}/.config/wakatime/.wakatime.cfg";
+  sops.secrets."ssh-cfg".path = "${config.home.homeDirectory}/.ssh/config";
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
