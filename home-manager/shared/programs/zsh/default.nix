@@ -7,6 +7,14 @@
 let theme = config.colorScheme;
 in
 {
+  programs.atuin = {
+    enable = true;
+    flags = [ "--disable-up-arrow" ];
+    settings = {
+      inline_height = 30;
+      style = "compact";
+    };
+  };
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";

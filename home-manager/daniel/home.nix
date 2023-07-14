@@ -23,6 +23,7 @@
     (import ../shared/programs/zoxide { inherit config inputs lib pkgs; })
     (import ../shared/programs/lf { inherit config inputs lib pkgs; })
     (import ../shared/programs/kitty { inherit config inputs lib pkgs; })
+    (import ../shared/programs/wezterm { inherit config inputs lib pkgs; })
     (import ../shared/programs/gpg { inherit config inputs lib pkgs; })
     (import ../shared/programs/git { inherit config lib pkgs; })
     (import ../shared/programs/music { inherit config lib pkgs; })
@@ -97,11 +98,11 @@
       #     ln -s "/Users/daniel/Projects/dotfiles/config/nvim" "${config.home.homeDirectory}/.config/nvim" 
       #   fi
       # '';
-      installWeztermConfig = ''
-        if [ ! -d "${config.home.homeDirectory}/.config/wezterm" ]; then
-          ln -s "/Users/daniel/Projects/dotfiles/config/wezterm" "${config.home.homeDirectory}/.config/wezterm" 
-        fi
-      '';
+      # installWeztermConfig = ''
+      #   if [ ! -d "${config.home.homeDirectory}/.config/wezterm" ]; then
+      #     ln -s "/Users/daniel/Projects/dotfiles/config/wezterm" "${config.home.homeDirectory}/.config/wezterm" 
+      #   fi
+      # '';
       installSketchybarConfig = ''
         if [ ! -d "${config.home.homeDirectory}/.config/sketchybar" ]; then
           ln -s "/Users/daniel/Projects/dotfiles/config/sketchybar" "${config.home.homeDirectory}/.config/sketchybar" 
@@ -156,7 +157,6 @@
 
         # Extras
         fd
-        wezterm
         imagemagick
         chafa
         jq
