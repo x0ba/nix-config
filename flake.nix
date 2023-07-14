@@ -1,5 +1,5 @@
 {
-  description = "Daniel's Nix Config";
+  description = "Aspect's HM Flake";
 
   inputs = {
     # Nixpkgs Branches
