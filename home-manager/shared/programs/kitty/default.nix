@@ -15,7 +15,7 @@ in
     settings = {
       cursor_blink_interval = 0;
       cursor_shape = "underline";
-      adjust_line_height = 7;
+      adjust_line_height = 9;
       mouse_hide_wait = 3;
       scrollback_lines = 10000;
       enable_audio_bell = false;

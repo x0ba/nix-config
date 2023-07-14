@@ -2,35 +2,35 @@
   description = "Daniel's Nix Config";
 
   inputs = {
-    # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # Nixpkgs Branches
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
-    spicetify-nix.url = "github:the-argus/spicetify-nix";
 
     # Home manager
     home.url = "github:nix-community/home-manager";
 
-    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     nix-colors.url = "github:misterio77/nix-colors";
+
     base16-oxocarbon = {
       url = "github:shaunsingh/base16-oxocarbon";
       flake = false;
     };
+
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-    # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    # nixos-wsl.url = "github:nix-community/nixos-wsl";
+
     nixpkgs-f2k.url = "github:Aspectsides/nixpkgs-f2k";
-    # nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+
     nur.url = "github:nix-community/NUR";
-    nekowinston-nur.url = "github:nekowinston/nur";
-    vscode-server.url = "github:msteen/nixos-vscode-server";
+
     nixos-apple-silicon = {
       url = github:tpwrules/nixos-apple-silicon;
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.rust-overlay.follows = "rust-overlay";
     };
+
     eww.url = "github:elkowar/eww";
+
     rust-overlay = {
       url = github:oxalica/rust-overlay;
       inputs.nixpkgs.follows = "nixpkgs";
@@ -51,11 +51,6 @@
 
     sfmonoNerdFontLig = {
       url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
-      flake = false;
-    };
-
-    skippy-xd = {
-      url = "github:dreamcat4/skippy-xd";
       flake = false;
     };
 
@@ -81,7 +76,7 @@
 
     # Default branch
     nixpkgs.follows = "nixos-unstable";
-    home.inputs.nixpkgs.follows = "nixpkgs";
+    home.inputs.nixpkgs.follows = "nixpkgs-unstable-darwin";
 
   };
 
