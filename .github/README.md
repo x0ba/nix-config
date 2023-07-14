@@ -1,29 +1,39 @@
 # aspect's dotfiles
 
-[![GitHub stars](https://img.shields.io/github/stars/aspectsides/dotfiles?style=flat-square&color=f5c2e7)](https://github.com/aspectsides/dotfiles/stargazers)
+[![NixOS Unstable](https://img.shields.io/badge/NixOS-unstable-blue.svg?style=flat-square&logo=NixOS&logoColor=white)](https://nixos.org)
 [![commit activity](https://img.shields.io/github/commit-activity/w/aspectsides/dotfiles?style=flat-square&label=commits&color=f5c2e7)](https://github.com/aspectsides/dotfiles/commits)
 [![SLOC](https://img.shields.io/tokei/lines/github/aspectsides/dotfiles?style=flat-square&color=f5c2e7)](#)
 [![MIT license](https://img.shields.io/github/license/aspectsides/dotfiles?style=flat-square&color=f5c2e7)](https://github.com/nekowinston/dotfiles/blob/main/LICENSE)
 
-Welcome to my cross-platform dots.
-These include dots for an M1 Mac with Nix Darwin and an HP Laptop running NixOS
+*Here we go again.*
 
-### Overview
+> **DISCLAIMER:** these are my personal nix dotfiles, and as such 
+> might not work out of the box on your machine. If you want to 
+> take inspiration from my dots, feel free, just copy chunks instead
+> of the whole thing.
+ 
+<img src="/../screenshots/oxocarbon/fakebusy.png" width="100%" />
 
-Here's what you can find:
+<p align="center">
+<span><img src="/../screenshots/oxocarbon/desktop.png" height="178" /></span>
+<span><img src="/../screenshots/oxocarbon/jetbrains_supremacy.png" height="178" /></span>
+<span><img src="/../screenshots/oxocarbon/tiling.png" height="178" /></span>
+</p>
 
-- **[Kitty](https://wezfurlong.org/wezterm/)** as my terminal, with tmux-like keybindings
-- **[Neovim](https://neovim.io)** as my tui editor
-- **[Taskwarrior](https://taskwarrior.org)** for task management
-- **[Starship](https://starship.rs)** as my prompt
-- **Firefox** with privacy-centered settings
-- Other random bits of config tools I've collected over the years
-- macOS:
-  - **[Yabai](https://github.com/koekeishiya/yabai)** as my WM
-- Linux:
-  - **[awesome](https://swaywm.org)** as my WM
+------
 
-### Notes for a new install
+|                |                                                          |
+|----------------|----------------------------------------------------------|
+| **Shell:**     | zsh                                                      |
+| **WM:**        | **sway** on linux, **yabai** on macos                    |
+| **Editor:**    | Neovim                                                   |
+| **Terminal:**  | kitty                                                    |
+| **Launcher:**  | **rofi** on linux, **alfred** on macos                   |
+| **Browser:**   | firefox                                                  |
+
+-----
+
+### Quick Start
 
 #### macOS
 
@@ -49,5 +59,5 @@ sudo tmutil addexclusion -v /nix
 
 ```sh
 nix build .#darwinConfigurations.nebula.system --extra-experimental-features nix-command --extra-experimental-features flakes
-./result/sw/bin/darwin-rebuild switch --flake .
+./result/sw/bin/darwin-rebuild switch --flake .#nebula
 ```
