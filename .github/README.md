@@ -1,10 +1,9 @@
 # aspect's dotfiles
 
-[![flake check status](https://img.shields.io/github/actions/workflow/status/aspectsides/dotfiles/check.yml?label=flake%20check&logo=nixos&logoColor=%23fff&style=flat-square&color=f5c2e7)](https://github.com/nekowinston/dotfiles/actions/workflows/check.yml)
-[![GitHub stars](https://img.shields.io/github/stars/aspectsides/dotfiles?style=flat-square&color=f5c2e7)](https://github.com/nekowinston/dotfiles/stargazers)
-[![commit activity](https://img.shields.io/github/commit-activity/w/aspectsides/dotfiles?style=flat-square&label=commits&color=f5c2e7)](https://github.com/nekowinston/dotfiles/commits)
+[![GitHub stars](https://img.shields.io/github/stars/aspectsides/dotfiles?style=flat-square&color=f5c2e7)](https://github.com/aspectsides/dotfiles/stargazers)
+[![commit activity](https://img.shields.io/github/commit-activity/w/aspectsides/dotfiles?style=flat-square&label=commits&color=f5c2e7)](https://github.com/aspectsides/dotfiles/commits)
 [![SLOC](https://img.shields.io/tokei/lines/github/aspectsides/dotfiles?style=flat-square&color=f5c2e7)](#)
-[![MIT license](https://img.shields.io/github/license/nekowinston/dotfiles?style=flat-square&color=f5c2e7)](https://github.com/nekowinston/dotfiles/blob/main/LICENSE)
+[![MIT license](https://img.shields.io/github/license/aspectsides/dotfiles?style=flat-square&color=f5c2e7)](https://github.com/nekowinston/dotfiles/blob/main/LICENSE)
 
 Welcome to my cross-platform dots.
 These include dots for an M1 Mac with Nix Darwin and an HP Laptop running NixOS
