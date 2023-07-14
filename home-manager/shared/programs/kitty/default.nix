@@ -9,7 +9,7 @@ in
       "--single-instance"
     ];
     font = {
-      name = "Liga SFMono Nerd Font";
+      name = "OperatorMono Nerd Font";
       size = 16;
     };
     settings = {

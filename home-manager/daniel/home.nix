@@ -25,7 +25,6 @@
     (import ../shared/programs/zoxide { inherit config inputs lib pkgs; })
     (import ../shared/programs/lf { inherit config inputs lib pkgs; })
     (import ../shared/programs/kitty { inherit config inputs lib pkgs; })
-    (import ../shared/programs/wezterm { inherit config inputs lib pkgs; })
     (import ../shared/programs/gpg { inherit config inputs lib pkgs; })
     (import ../shared/programs/git { inherit config lib pkgs; })
     (import ../shared/programs/music { inherit config lib pkgs; })
@@ -34,6 +33,7 @@
     (import ../shared/programs/newsboat { inherit config lib pkgs; })
     (import ../shared/xdg.nix { inherit config lib pkgs; })
     (import ../shared/programs/mail { inherit config lib pkgs; })
+    (import ../shared/programs/fonts { inherit config lib pkgs; })
 
     (import ../shared/programs/zsh { inherit config pkgs inputs lib; colorIt = false; })
   ];
