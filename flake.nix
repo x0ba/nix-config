@@ -6,7 +6,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
-    spacebar.url = "github:cmacrae/spacebar/v1.4.0";
+    spicetify-nix.url = "github:the-argus/spicetify-nix";
 
     # Home manager
     home.url = "github:nix-community/home-manager";

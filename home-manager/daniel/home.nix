@@ -25,7 +25,9 @@
     (import ../shared/programs/kitty { inherit config inputs lib pkgs; })
     (import ../shared/programs/gpg { inherit config inputs lib pkgs; })
     (import ../shared/programs/git { inherit config lib pkgs; })
+    (import ../shared/programs/music { inherit config lib pkgs; })
     (import ../shared/programs/starship { inherit config; })
+    (import ../shared/programs/browsers { inherit config pkgs; })
 
     (import ../shared/programs/zsh { inherit config pkgs inputs lib; colorIt = false; })
   ];

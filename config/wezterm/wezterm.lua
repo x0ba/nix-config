@@ -12,7 +12,7 @@ local function font_with_fallback(name, params)
 	return wezterm.font_with_fallback(names, params)
 end
 
-local font_name = "CaskaydiaCove Nerd Font"
+local font_name = "Maple Mono SC NF"
 
 return {
 	-- Font config
@@ -37,7 +37,6 @@ return {
 	line_height = 1.0,
 	window_decorations = "RESIZE",
 	front_end = "WebGpu",
-	animation_fps = 1,
 
 	-- Cursor style
 	default_cursor_style = "BlinkingUnderline",

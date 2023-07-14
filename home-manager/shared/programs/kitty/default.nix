@@ -33,9 +33,10 @@ in
       window_border_width = 0;
       window_padding_width = 22;
       background_opacity = 1;
-      hide_window_decorations = false;
+      # hide_window_decorations = false;
     };
     extraConfig = ''
+      hide_window_decorations titlebar-only
       foreground #dde1e6
       background #161616
       selection_foreground #f2f4f8
