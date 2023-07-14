@@ -14,6 +14,9 @@
       lalt - 2 : yabai -m space --focus 2
       lalt - 3 : yabai -m space --focus 3
       lalt - 4 : yabai -m space --focus 4
+      lalt - 5 : yabai -m space --focus 5
+      lalt - 6 : yabai -m space --focus 6
+      lalt - 7 : yabai -m space --focus 7
 
       # Window Navigation (through display borders): lalt - {h, j, k, l}
       lalt - h : yabai -m window --focus west  || yabai -m display --focus west
@@ -48,6 +51,9 @@
       shift + lalt - 2 : yabai -m window --space 2
       shift + lalt - 3 : yabai -m window --space 3
       shift + lalt - 4 : yabai -m window --space 4
+      shift + lalt - 5 : yabai -m window --space 5
+      shift + lalt - 6 : yabai -m window --space 6
+      shift + lalt - 7 : yabai -m window --space 7
 
       shift + lalt - p : yabai -m window --space prev; yabai -m space --focus prev; sketchybar --trigger windows_on_spaces
       shift + lalt - n : yabai -m window --space next; yabai -m space --focus next; sketchybar --trigger windows_on_spaces
@@ -84,7 +90,7 @@
       ctrl + lalt - b : yabai -m config window_border off
       shift + ctrl + lalt - b : yabai -m config window_border on
 
-      lalt - return : ~/.nix-profile/bin/wezterm-gui start
+      lalt - return : ~/.nix-profile/bin/kitty -1 ~
     '';
   };
 }

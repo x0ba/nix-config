@@ -93,16 +93,11 @@
 
   home = {
     activation = {
-      # installNvimConfig = ''
-      #   if [ ! -d "${config.home.homeDirectory}/.config/nvim" ]; then
-      #     ln -s "/Users/daniel/Projects/dotfiles/config/nvim" "${config.home.homeDirectory}/.config/nvim" 
-      #   fi
-      # '';
-      # installWeztermConfig = ''
-      #   if [ ! -d "${config.home.homeDirectory}/.config/wezterm" ]; then
-      #     ln -s "/Users/daniel/Projects/dotfiles/config/wezterm" "${config.home.homeDirectory}/.config/wezterm" 
-      #   fi
-      # '';
+      installNvimConfig = ''
+        if [ ! -d "${config.home.homeDirectory}/.config/nvim" ]; then
+          ln -s "/Users/daniel/Projects/dotfiles/config/nvim" "${config.home.homeDirectory}/.config/nvim" 
+        fi
+      '';
       installSketchybarConfig = ''
         if [ ! -d "${config.home.homeDirectory}/.config/sketchybar" ]; then
           ln -s "/Users/daniel/Projects/dotfiles/config/sketchybar" "${config.home.homeDirectory}/.config/sketchybar" 
@@ -146,6 +141,7 @@
         neovide
         just
         nvd
+        nodejs
 
         # Formatters
         black

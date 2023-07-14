@@ -9,12 +9,13 @@ in
       "--single-instance"
     ];
     font = {
-      name = "Maple Mono SC NF";
+      name = "Liga SFMono Nerd Font";
       size = 16;
     };
     settings = {
       cursor_blink_interval = 0;
       cursor_shape = "underline";
+      adjust_line_height = 7;
       mouse_hide_wait = 3;
       scrollback_lines = 10000;
       enable_audio_bell = false;

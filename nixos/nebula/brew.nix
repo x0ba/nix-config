@@ -9,10 +9,6 @@
     };
     brews = [
       {
-        name = "svim";
-        start_service = true;
-      }
-      {
         name = "sketchybar";
         start_service = true;
       }
@@ -48,6 +44,7 @@
         "uninstallpkg"
         "utm"
         "discord"
+        "eloston-chromium"
         "spotify"
         "neovide"
         "arc"
@@ -57,6 +54,6 @@
         (skipSha "spotify")
         (noQuarantine "vial")
       ];
-    taps = [ "homebrew/services" "homebrew/cask" "wez/wezterm" "homebrew/cask-fonts" "FelixKratz/formulae" "cmacrae/formulae" ];
+    taps = [ "homebrew/services" "homebrew/cask" "homebrew/cask-fonts" "FelixKratz/formulae" "cmacrae/formulae" ];
   };
 }

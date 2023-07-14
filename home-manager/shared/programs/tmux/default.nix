@@ -3,83 +3,25 @@
 , inputs
 , config
 , ...
-}: {
+}:
+let theme = config.colorScheme;
+in
+{
   programs.tmux = {
     enable = true;
     sensibleOnTop = true;
-    plugins = with pkgs; [
-      tmuxPlugins.sidebar
-      tmuxPlugins.sensible
-      tmuxPlugins.vim-tmux-navigator
-    ];
-    extraConfig = with config.lib.base16.theme; ''
-      set-option -sa terminal-overrides ',xterm*:Tc'
-      set -g mouse on
-      set -s escape-time 0
-
-      set -g base-index 1
-      setw -g pane-base-index 1
-      set-option -g renumber-windows on
-
-      set -g visual-activity off
-      set -g visual-bell off
-      set -g visual-silence off
-      setw -g monitor-activity off
-      set -g bell-action none
-
+    extraConfig = with theme.colors; ''
+      set -g prefix `
       unbind C-b
-      set -g prefix C-\\
-      bind C-\\ send-prefix
-
-      bind r source-file ~/.config/tmux/tmux.conf
-
-      bind-key h select-pane -L
-      bind-key l select-pane -R
-      bind-key j select-pane -D
-      bind-key k select-pane -U
-
-      bind-key -T copy-mode-vi v send-keys -X begin-selection
-      bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
-      bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
-
-      bind '"' split-window -v -c "#{pane_current_path}"
-      bind % split-window -h -c "#{pane_current_path}"
-
-      bind-key -r f run-shell "tmux neww ~/.scripts/tmux-sessionizer"
-
-      bind-key -r K run-shell "~/.scripts/tmux-sessionizer ~/.dotfiles"
-      bind-key -r L run-shell "~/.scripts/tmux-sessionizer ~/programming/cp"
-
-      bind-key -r P run-shell "tmux split-pane -h \"cp2cb\""
-
-      # Theme
-      
-      set-option -g pane-active-border-style "bg=default fg=magenta"
-      set-option -g pane-border-style "bg=default fg=black"
-      
-      # ----- Messages -----
-      
-      set-option -g mode-style 'bg=black, fg=magenta'
-      set-option -g message-style 'bg=color18, fg=magenta'
-      
-      # ----- Center -----
-      set-option -g status-justify centre
-      set-option -g status-style "bg=color18"
-      set-window-option -g window-status-current-format '#[bold]#[fg=blue, bg=color18]#[fg=color18, bg=blue]#I:#W#[fg=blue, bg=color18]'
-      set-window-option -g window-status-format '#I:#W'
-      set-window-option -g window-status-separator ' '
-      set-window-option -g window-status-style "bg=color18"
-      set-window-option -g window-status-current-style "bg=blue,fg=color18"
-      
-      # ----- Left -----
-      set-option -g status-left ' #S #[fg=blue, bg=color18] '
-      set-option -g status-left-style "bg=blue,fg=color18"
-      set -g status-left-length 30
-      
-      # ----- Right -----
-      set-option -g status-right "#[fg=blue, bg=color18] #[fg=color18, bg=blue] %Y-%m-%d   %R "
-      set-option -g status-right-style "bg=color18,fg=blue"
-      set -g status-right-length 30
+      bind-key `
+        set -g status-right-length 100
+        set -g status-left-length 100
+        set -g status-left " "
+        set -g status-right " "
+        set -g status-justify left
+        set -g status-style fg=black,bg=default
+        set -g window-status-current-format "#[fg=#${base00},bg=#${base0C}] #I #[fg=#${base05},bg=#${base01}] [#W] #[fg=#${base03},bg=#${base01}]#{s|$HOME|~|;s|.*/||:pane_current_path} "
+        set -g window-status-format "#[fg=#{base00},bg=#{base0F}] #I #[fg=#{base04},bg=#{base01}] [#W] #[fg=#{base03},bg=#{base01}]#{s|$HOME|~|;s|.*/||:pane_current_path} "
     '';
   };
 }

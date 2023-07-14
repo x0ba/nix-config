@@ -56,21 +56,21 @@
       preview = true;
       hidden = true;
     };
-    previewer.source = "/etc/profiles/per-user/aspect/bin/preview";
+    previewer.source = "${config.home.homeDirectory}/.local/bin/preview";
     keybindings = {
-        d = "";
-        m = "";
-        gh = "cd ~";
-        gm = "cd ~/Music/";
-        gD = "cd ~/Downloads/";
-        gc = "cd /etc/nixos";
-        gp = "cd ~/Pictures";
-        au = "unarchive";
-        dd = "trash";
-        du = "trash-restore";
-        x = "cut";
-        mf = "mkfile";
-        md = "mkdir";
+      d = "";
+      m = "";
+      gh = "cd ~";
+      gm = "cd ~/Music/";
+      gD = "cd ~/Downloads/";
+      gc = "cd /etc/nixos";
+      gp = "cd ~/Pictures";
+      au = "unarchive";
+      dd = "trash";
+      du = "trash-restore";
+      x = "cut";
+      mf = "mkfile";
+      md = "mkdir";
     };
   };
 

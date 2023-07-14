@@ -10,6 +10,9 @@
     (import ./programs/skhd.nix { inherit config inputs lib pkgs; })
     (import ./programs/fish.nix { inherit config inputs lib pkgs; })
   ];
+
+  programs.zsh.enable = true;
+  system.stateVersion = 4;
   system.keyboard = {
     enableKeyMapping = true;
     remapCapsLockToEscape = true;

@@ -19,6 +19,7 @@ c.inactive_pane_hsb = {
 c.front_end = "WebGpu"
 -- etc.
 c.adjust_window_size_when_changing_font_size = false
+c.animation_fps = 1
 
 c.window_padding = {
 	left = 25,

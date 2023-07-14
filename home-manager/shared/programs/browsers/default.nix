@@ -24,6 +24,7 @@ in
       search.force = true;
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         bitwarden
+        nighttab
         clearurls
         darkreader
         decentraleyes
