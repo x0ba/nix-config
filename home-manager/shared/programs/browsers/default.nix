@@ -24,8 +24,8 @@ in
       search.force = true;
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         bitwarden
-        nighttab
         clearurls
+        tabliss
         darkreader
         decentraleyes
         i-dont-care-about-cookies
