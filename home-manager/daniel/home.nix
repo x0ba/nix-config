@@ -125,6 +125,8 @@
         (pkgs)
         trash-cli
         lutgen
+        wezterm-nightly
+        applemusicdiscordrpc
         ripgrep
         fd
         file
@@ -138,7 +140,7 @@
         wireguard-tools
         wireguard-go
         # Extras
-        
+
         imagemagick
         chafa
         jq
