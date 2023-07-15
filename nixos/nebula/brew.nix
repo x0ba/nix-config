@@ -32,6 +32,7 @@
       "iina"
       "imageoptim"
       "nextcloud"
+      "calibre"
       "jetbrains-toolbox"
       "karabiner-elements"
       "obs"

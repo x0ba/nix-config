@@ -40,8 +40,18 @@
       # nix-specific
       ".direnv/"
     ];
-    # disable the macOS keychain, only use gopass
-    package = pkgs.git.override {osxkeychainSupport = false;};
+    extraConfig = {
+      init.defaultBranch = "main";
+      push.default = "current";
+      push.gpgSign = "if-asked";
+      rebase.autosquash = true;
+      url = {
+        "https://github.com/".insteadOf = "gh:";
+        "https://github.com/nekowinston/".insteadOf = "aspect:";
+        "https://gitlab.com/".insteadOf = "gl:";
+      };
+    };
+    lfs.enable = true;
     enable = true;
     userName = "Daniel Xu";
     userEmail = "heavydenial@proton.me";
