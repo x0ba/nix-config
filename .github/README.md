@@ -62,6 +62,13 @@ nix build .#darwinConfigurations.nebula.system --extra-experimental-features nix
 ./result/sw/bin/darwin-rebuild switch --flake .#nebula
 ```
 
+##### Install home-manager configuration 
+
+```sh
+nix develop 
+home-manager --switch .#daniel@nebula
+```
+
 ## Frequently asked questions
 
 + **Why NixOS?**
