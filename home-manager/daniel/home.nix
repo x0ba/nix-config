@@ -124,6 +124,7 @@
       inherit
         (pkgs)
         trash-cli
+        lutgen
         ripgrep
         fd
         file
