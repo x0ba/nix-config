@@ -26,7 +26,7 @@
 |----------------|----------------------------------------------------------|
 | **Shell:**     | zsh                                                      |
 | **WM:**        | **sway** on linux, **yabai** on macos                    |
-| **Editor:**    | Neovim                                                   |
+| **Editor:**    | neovim                                                   |
 | **Terminal:**  | kitty                                                    |
 | **Launcher:**  | **rofi** on linux, **alfred** on macos                   |
 | **Browser:**   | firefox                                                  |
