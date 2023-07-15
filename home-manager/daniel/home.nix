@@ -158,7 +158,7 @@
     home-manager.enable = true;
   };
 
-  sops.secrets."wakatime-cfg".path = "${config.home.homeDirectory}/.config/wakatime/.wakatime.cfg";
+  sops.secrets."wakatime-cfg".path = "${config.xdg.configHome}/wakatime/.wakatime.cfg";
   sops.secrets."ssh-cfg".path = "${config.home.homeDirectory}/.ssh/config";
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
