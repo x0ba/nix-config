@@ -8,13 +8,13 @@ return {
  ███▄    █ ██▒   █▓ ██▓ ███▄ ▄███▓
  ██ ▀█   █▓██░   █▒▓██▒▓██▒▀█▀ ██▒
 ▓██  ▀█ ██▒▓██  █▒░▒██▒▓██    ▓██░
-▓██▒  ▐▌██▒ ▒██ █░░░██░▒██    ▒██ 
+▓██▒  ▐▌██▒ ▒██ █░░░██░▒██    ▒██
 ▒██░   ▓██░  ▒▀█░  ░██░▒██▒   ░██▒
 ░ ▒░   ▒ ▒   ░ ▐░  ░▓  ░ ▒░   ░  ░
 ░ ░░   ░ ▒░  ░ ░░   ▒ ░░  ░      ░
-   ░   ░ ░     ░░   ▒ ░░      ░   
-         ░      ░   ░         ░   
-               ░                  
+   ░   ░ ░     ░░   ▒ ░░      ░
+         ░      ░   ░         ░
+               ░
     ]]
 
       dashboard.section.header.val = vim.split(logo, "\n")
@@ -22,7 +22,7 @@ return {
         dashboard.button("e", "  New file", "<cmd>ene<cr>"),
         dashboard.button("f", "  Search for file", "<cmd>Telescope find_files<cr>"),
         dashboard.button("r", "  Open recent file", "<cmd>Telescope oldfiles<cr>"),
-        dashboard.button("n", "  Open file explorer", "<cmd>Oil<cr>"),
+        dashboard.button("n", "  Open file explorer", "<cmd>neotree<cr>"),
         dashboard.button("u", "  Update plugins", "<cmd>Lazy update<cr>"),
         dashboard.button("q", "  Quit NVIM", "<cmd>qa<CR>"),
       }
