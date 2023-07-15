@@ -131,6 +131,7 @@
         neovide
         just
         nvd
+        commitizen
         git-crypt
         sops
         wireguard-tools
