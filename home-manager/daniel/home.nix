@@ -129,6 +129,8 @@
         nvd
         git-crypt
         sops
+        wireguard-tools
+        wireguard-go
 
         # Extras
         imagemagick

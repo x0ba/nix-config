@@ -18,7 +18,10 @@ in {
       };
     };
     
-    zoxide.enable = true;
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+    };
 
     bat = {
       enable = true;
@@ -44,6 +47,6 @@ in {
   };
 
   xdg.configFile = {
-    "lsd" = symlink "../../../../config/lsd" {recursive = true;};
+    "lsd" = symlink "config/lsd" {recursive = true;};
   };
 }

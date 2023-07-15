@@ -6,9 +6,9 @@
 , ...
 }: {
   imports = [
-    (import ./programs/yabai.nix { inherit config inputs lib pkgs; })
-    (import ./programs/skhd.nix { inherit config inputs lib pkgs; })
-    (import ./programs/fish.nix { inherit config inputs lib pkgs; })
+    ./programs/yabai.nix
+    ./programs/skhd.nix
+    ./programs/fish.nix
   ];
 
   programs.zsh.enable = true;
@@ -17,13 +17,6 @@
     enableKeyMapping = true;
     remapCapsLockToEscape = true;
   };
-  # fonts = {
-  #   fontDir.enable = true;
-  #   fonts = with pkgs; [
-  #     maple-mono-SC-NF
-  #     (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
-  #   ];
-  # };
   system.defaults = {
     screencapture = { location = "/tmp"; };
     dock = {

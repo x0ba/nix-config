@@ -38,7 +38,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-
     # Nixpkgs branches
     master.url = "github:nixos/nixpkgs/master";
     stable.url = "github:nixos/nixpkgs/nixos-22.11";

@@ -36,11 +36,8 @@
         "nextcloud"
         "jetbrains-toolbox"
         "karabiner-elements"
-        "mailspring"
         "obs"
-        "postman"
         "linearmouse"
-        "rustdesk"
         "uninstallpkg"
         "utm"
         "discord"
@@ -48,11 +45,10 @@
         "spotify"
         "neovide"
         "arc"
-        "raycast"
         "orion"
         # "font-caskaydia-cove-nerd-font"
         (skipSha "spotify")
-        (noQuarantine "vial")
+        (skipSha "tutanota")
       ];
     taps = [ "homebrew/services" "homebrew/cask" "homebrew/cask-fonts" "FelixKratz/formulae" "cmacrae/formulae" ];
   };

@@ -16,20 +16,20 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
 
-    (import ../shared/programs/alacritty { inherit config; })
-    (import ../shared/services/picom { inherit config; })
-    (import ../shared/programs/bat { inherit config; })
-    (import ../shared/programs/direnv { inherit config; })
-    (import ../shared/programs/exa { inherit config; })
-    (import ../shared/programs/sway { inherit config inputs lib pkgs; })
-    (import ../shared/programs/lf { inherit config inputs lib pkgs; })
-    (import ../shared/programs/eww { inherit config inputs lib pkgs; })
-    (import ../shared/programs/rofi { inherit config inputs lib pkgs; })
-    (import ../shared/programs/tmux { inherit config inputs lib pkgs; })
-    (import ../shared/programs/music { inherit config inputs lib pkgs; })
-    (import ../shared/programs/zoxide { inherit config inputs lib pkgs; })
-    (import ../shared/programs/dunst { inherit config inputs lib pkgs; })
-    (import ../shared/services/kanshi.nix { inherit config inputs lib pkgs; })
+    ../shared/programs/alacritty
+    ../shared/services/picom
+    ../shared/programs/bat
+    ../shared/programs/direnv
+    ../shared/programs/exa
+    ../shared/programs/sway
+    ../shared/programs/lf 
+    ../shared/programs/eww 
+    ../shared/programs/rofi
+    ../shared/programs/tmux
+    ../shared/programs/music
+    ../shared/programs/zoxide
+    ../shared/programs/dunst 
+    ../shared/services/kanshi.nix
 
     (import ../shared/programs/firefox {
       inherit config pkgs;
@@ -42,10 +42,10 @@
       ];
     })
 
-    (import ../shared/programs/git { inherit config lib pkgs; })
-    (import ../shared/programs/starship { inherit config; })
+    ../shared/programs/git
+    ../shared/programs/starship
 
-    (import ../shared/programs/zsh { inherit config pkgs inputs lib; colorIt = false; })
+    ../shared/programs/zsh
   ];
 
   nixpkgs = {
