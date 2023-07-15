@@ -176,5 +176,5 @@
       };
     };
   };
-  nixConfig.commit-lockfile-summary = "flake: bump inputs";
+  nixConfig.commit-lockfile-summary = "chore: bump lockfiles";
 }
