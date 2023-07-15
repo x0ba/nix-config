@@ -66,7 +66,7 @@ nix build .#darwinConfigurations.nebula.system --extra-experimental-features nix
 
 ```sh
 nix develop 
-home-manager --switch .#daniel@nebula
+home-manager switch --flake .#daniel@nebula
 ```
 
 ## Frequently asked questions
