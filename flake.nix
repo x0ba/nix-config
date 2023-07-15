@@ -120,19 +120,6 @@
         import ./shell.nix {inherit pkgs;}
     );
 
-    pre-commit = {
-      check.enable = true;
-      settings.hooks = {
-        alejandra.enable = true;
-        commitizen.enable = true;
-        editorconfig-checker.enable = true;
-        luacheck.enable = true;
-        nil.enable = true;
-        shellcheck.enable = true;
-        stylua.enable = true;
-      };
-    };
-
     # Your custom packages and modifications, exported as overlays
     overlays = import ./overlays {inherit inputs;};
 
