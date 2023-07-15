@@ -9,13 +9,13 @@ in
       "--single-instance"
     ];
     font = {
-      name = "OperatorMono Nerd Font";
-      size = 16;
+      name = "MonoLisa Nerd Font";
+      size = 15;
     };
     settings = {
       cursor_blink_interval = 0;
       cursor_shape = "underline";
-      adjust_line_height = 9;
+      adjust_line_height = 5;
       mouse_hide_wait = 3;
       scrollback_lines = 10000;
       enable_audio_bell = false;

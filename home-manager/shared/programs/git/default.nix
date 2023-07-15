@@ -18,7 +18,13 @@
     };
   };
 
+
   programs.git = {
+
+    signing = {
+      signByDefault = true;
+      key = "E8325E515382CDE43B9FBE12DDC4DDB3D659ED62";
+    };
     ignores = [
       # general
       "*.log"

@@ -17,13 +17,9 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
 
-    ../shared/programs/bat
     ../shared/secrets/sops.nix
-    ../shared/programs/direnv
-    ../shared/programs/exa
     ../shared/programs/tmux
-    ../shared/programs/zoxide
-    ../shared/programs/lf 
+    ../shared/programs/lf
     ../shared/programs/kitty
     ../shared/programs/gpg
     ../shared/programs/git
@@ -31,6 +27,7 @@
     ../shared/programs/starship
     ../shared/programs/browsers
     ../shared/programs/newsboat
+    ../shared/programs/shell
     ../shared/xdg.nix
     ../shared/programs/mail
     ../shared/programs/fonts
