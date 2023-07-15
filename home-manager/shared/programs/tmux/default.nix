@@ -17,6 +17,16 @@ in
         bind-key `
         set -g status-right-length 100
         set -sg escape-time 0
+        unbind %
+        unbind z
+        is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
+            | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
+        bind z if-shell "$is_vim" "send-keys ,z" "resize-pane -Z"
+        bind Z resize-pane -Z
+        bind h split-window -v
+        unbind '"'
+        bind v split-window -h
+        set -g mouse on
         set -g status-left-length 100
         set -g status-left " "
         set -g status-right " "
