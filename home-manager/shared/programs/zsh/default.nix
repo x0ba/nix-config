@@ -77,6 +77,7 @@ in {
     envExtra = ''
       export LANG="en_US.UTF-8"
       export LC_COLLATE="en_US.UTF-8"
+      export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#4d4d4d"
       export LC_CTYPE="en_US.UTF-8"
       export LC_MESSAGES="en_US.UTF-8"
       export LC_MONETARY="en_US.UTF-8"

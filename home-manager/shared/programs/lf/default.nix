@@ -64,7 +64,7 @@
       gh = "cd ~";
       gm = "cd ~/Music/";
       gD = "cd ~/Downloads/";
-      gc = "cd /etc/nixos";
+      gc = "cd ~/.config/nixpkgs";
       gp = "cd ~/Pictures";
       au = "unarchive";
       dd = "trash";
