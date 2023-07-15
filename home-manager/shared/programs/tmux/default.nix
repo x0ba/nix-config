@@ -11,6 +11,7 @@ in
     enable = true;
     sensibleOnTop = true;
     extraConfig = with theme.colors; ''
+        set -g default-terminal "screen-256color"
         set -g prefix `
         unbind C-b
         bind-key `
