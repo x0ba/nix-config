@@ -7,13 +7,6 @@
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    # pre commit hook
-    pre-commit-hooks = {
-      url = "github:cachix/pre-commit-hooks.nix";
-      inputs.nixpkgs-stable.follows = "nixpkgs";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Home manager
     home.url = "github:nix-community/home-manager";
 
@@ -92,7 +85,6 @@
     nur,
     sops-nix,
     nixpkgs,
-    pre-commit-hooks,
     home,
     darwin,
     nixos-apple-silicon,
@@ -107,18 +99,6 @@
       "x86_64-darwin"
     ];
   in rec {
-    pre-commit = {
-      check.enable = true;
-      settings.hooks = {
-        alejandra.enable = true;
-        commitizen.enable = true;
-        editorconfig-checker.enable = true;
-        luacheck.enable = true;
-        nil.enable = true;
-        shellcheck.enable = true;
-        stylua.enable = true;
-      };
-    };
     # Your custom packages
     # Acessible through 'nix build', 'nix shell', etc
     packages = forAllSystems (
