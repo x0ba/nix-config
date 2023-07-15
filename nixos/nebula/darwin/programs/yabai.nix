@@ -30,7 +30,7 @@ in {
       mouse_follows_focus = "off";
       focus_follows_mouse = "on";
       window_opacity = "off";
-      mouse_modifier = "fn";
+      mouse_modifier = "alt";
       mouse_action1 = "move";
       mouse_action2 = "resize";
       mouse_drop_action = "swap";
