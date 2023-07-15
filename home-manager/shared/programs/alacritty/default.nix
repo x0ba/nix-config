@@ -1,8 +1,6 @@
-{ config, ... }:
-
-let theme = config.colorScheme;
-in
-{
+{config, ...}: let
+  theme = config.colorScheme;
+in {
   programs.alacritty = {
     enable = true;
 
@@ -20,7 +18,6 @@ in
 
       mouse.hide_when_typing = true;
       use_thin_strokes = true;
-
 
       font = {
         size = 15;
@@ -43,7 +40,7 @@ in
           foreground = "0x${base06}";
         };
 
-        cursor = { cursor = "0x${base07}"; };
+        cursor = {cursor = "0x${base07}";};
 
         normal = {
           black = "0x${base01}";

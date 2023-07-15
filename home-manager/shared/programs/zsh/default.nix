@@ -1,15 +1,15 @@
-{ config
-, lib
-, inputs
-, pkgs
-, ...
-}:
-let theme = config.colorScheme;
-in
 {
+  config,
+  lib,
+  inputs,
+  pkgs,
+  ...
+}: let
+  theme = config.colorScheme;
+in {
   programs.atuin = {
     enable = true;
-    flags = [ "--disable-up-arrow" ];
+    flags = ["--disable-up-arrow"];
     settings = {
       inline_height = 30;
       style = "compact";

@@ -17,7 +17,7 @@ in {
         vim_keys = true;
       };
     };
-    
+
     zoxide = {
       enable = true;
       enableZshIntegration = true;
@@ -43,7 +43,6 @@ in {
     };
 
     nix-index.enable = true;
-
   };
 
   xdg.configFile = {

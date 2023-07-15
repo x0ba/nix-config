@@ -1,139 +1,136 @@
-{ config
-, pkgs
-, inputs
-, lib
-, ...
-}:
-let
-  dependencies = with pkgs;
-    [
-      kickoff
-      brightnessctl
-      pamixer
-      coreutils
-    ];
+{
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}: let
+  dependencies = with pkgs; [
+    kickoff
+    brightnessctl
+    pamixer
+    coreutils
+  ];
   theme = config.colorScheme;
-  ewwYuck = pkgs.writeText "eww.yuck" (
-    ''
-      (defwidget bar []
-        (centerbox :orientation "v"
-                   :halign "center"
-          (box :class "segment-top"
-               :valign "start"
-               :orientation "v"
-            (tags))
-          (box :class "segment-center"
-               :valign "center"
-               :orientation "v"
-            (time)
-            (date))
-          (box :class "segment-bottom"
-               :valign "end"
-               :orientation "v"
-            (menu)
-            (brightness)
-            (volume)
-            (battery)
-            (current-tag))))
-
-      (defwidget time []
-        (box :class "time"
+  ewwYuck = pkgs.writeText "eww.yuck" ''
+    (defwidget bar []
+      (centerbox :orientation "v"
+                 :halign "center"
+        (box :class "segment-top"
+             :valign "start"
              :orientation "v"
-          hour min sec))
-
-      (defwidget date []
-        (box :class "date"
+          (tags))
+        (box :class "segment-center"
+             :valign "center"
              :orientation "v"
-          day month year))
+          (time)
+          (date))
+        (box :class "segment-bottom"
+             :valign "end"
+             :orientation "v"
+          (menu)
+          (brightness)
+          (volume)
+          (battery)
+          (current-tag))))
 
-      (defwidget menu []
-        (button :class "icon"
-                :orientation "v"
-                :onclick "''${EWW_CMD} open --toggle notifications-menu"
-           "󰍜"))
+    (defwidget time []
+      (box :class "time"
+           :orientation "v"
+        hour min sec))
 
-      (defwidget brightness []
-        (button :class "icon"
-                :orientation "v"
-          (circular-progress :value brightness-level
-                             :thickness 3)))
+    (defwidget date []
+      (box :class "date"
+           :orientation "v"
+        day month year))
 
-      (defwidget volume []
-        (button :class "icon"
-                :orientation "v"
-          (circular-progress :value volume-level
-                             :thickness 3)))
+    (defwidget menu []
+      (button :class "icon"
+              :orientation "v"
+              :onclick "''${EWW_CMD} open --toggle notifications-menu"
+         "󰍜"))
 
-      (defwidget battery []
-        (button :class "icon"
-                :orientation "v"
-                :onclick ""
-          (circular-progress :value "''${EWW_BATTERY['macsmc-battery'].capacity}"
-                             :thickness 3)))
+    (defwidget brightness []
+      (button :class "icon"
+              :orientation "v"
+        (circular-progress :value brightness-level
+                           :thickness 3)))
 
-      (defwidget current-tag []
-        (button :class "current-tag"
-                :orientation "v"
-                :onclick "kickoff & disown"
-          "''${active-tag}"))
+    (defwidget volume []
+      (button :class "icon"
+              :orientation "v"
+        (circular-progress :value volume-level
+                           :thickness 3)))
 
-      (defvar active-tag "1")
-      (defpoll hour :interval "1m" "date +%H")
-      (defpoll min  :interval "1m" "date +%M")
-      (defpoll sec  :interval "1s" "date +%S")
+    (defwidget battery []
+      (button :class "icon"
+              :orientation "v"
+              :onclick ""
+        (circular-progress :value "''${EWW_BATTERY['macsmc-battery'].capacity}"
+                           :thickness 3)))
 
-      (defpoll day   :interval "10m" "date +%d")
-      (defpoll month :interval "1h"  "date +%m")
-      (defpoll year  :interval "1h"  "date +%y")
+    (defwidget current-tag []
+      (button :class "current-tag"
+              :orientation "v"
+              :onclick "kickoff & disown"
+        "''${active-tag}"))
 
-      (defvar brightness-level 66)
-      (defvar volume-level 33)
-      (deflisten battery-level
-         `cat /sys/class/power_supply/macsmc-battery/capacity`)
+    (defvar active-tag "1")
+    (defpoll hour :interval "1m" "date +%H")
+    (defpoll min  :interval "1m" "date +%M")
+    (defpoll sec  :interval "1s" "date +%S")
 
-        (defwidget tags []
-          (box :class "tags"
-               :orientation "v"
-               :halign "center"
-            (for tag in tags
-              (box :class {active-tag == tag.tag ? "active" : "inactive"}
-                (button :onclick "swaymsg workspace ''${tag.tag} ; ''${EWW_CMD} update active-tag=''${tag.tag}"
-                  "''${tag.label}")))))
+    (defpoll day   :interval "10m" "date +%d")
+    (defpoll month :interval "1h"  "date +%m")
+    (defpoll year  :interval "1h"  "date +%y")
 
-        (defvar tags '[{ "tag": 1, "label": "一" },
-                       { "tag": 2, "label": "二" },
-                       { "tag": 3, "label": "三" },
-                       { "tag": 4, "label": "四" },
-                       { "tag": 5, "label": "五" },
-                       { "tag": 6, "label": "六" },
-                       { "tag": 7, "label": "七" },
-                       { "tag": 8, "label": "八" },
-                       { "tag": 9, "label": "九" },
-                       { "tag": 0, "label": "rM" }]')
+    (defvar brightness-level 66)
+    (defvar volume-level 33)
+    (deflisten battery-level
+       `cat /sys/class/power_supply/macsmc-battery/capacity`)
 
-      (defwindow bar
-        :monitor 0
-        :stacking "fg"
-        :geometry (geometry
-                    :x 0
-                    :y 0
-                    :height "100%"
-                    :anchor "left center")
-        :exclusive true
-        (bar))
+      (defwidget tags []
+        (box :class "tags"
+             :orientation "v"
+             :halign "center"
+          (for tag in tags
+            (box :class {active-tag == tag.tag ? "active" : "inactive"}
+              (button :onclick "swaymsg workspace ''${tag.tag} ; ''${EWW_CMD} update active-tag=''${tag.tag}"
+                "''${tag.label}")))))
 
-      (defwindow bar2
-        :monitor 1
-        :stacking "fg"
-        :geometry (geometry
-                    :x 0
-                    :y 0
-                    :height "100%"
-                    :anchor "left center")
-        :exclusive true
-        (bar))
-    ''
-  );
+      (defvar tags '[{ "tag": 1, "label": "一" },
+                     { "tag": 2, "label": "二" },
+                     { "tag": 3, "label": "三" },
+                     { "tag": 4, "label": "四" },
+                     { "tag": 5, "label": "五" },
+                     { "tag": 6, "label": "六" },
+                     { "tag": 7, "label": "七" },
+                     { "tag": 8, "label": "八" },
+                     { "tag": 9, "label": "九" },
+                     { "tag": 0, "label": "rM" }]')
+
+    (defwindow bar
+      :monitor 0
+      :stacking "fg"
+      :geometry (geometry
+                  :x 0
+                  :y 0
+                  :height "100%"
+                  :anchor "left center")
+      :exclusive true
+      (bar))
+
+    (defwindow bar2
+      :monitor 1
+      :stacking "fg"
+      :geometry (geometry
+                  :x 0
+                  :y 0
+                  :height "100%"
+                  :anchor "left center")
+      :exclusive true
+      (bar))
+  '';
 
   ewwScss = pkgs.writeText "eww.scss" (with theme.colors; ''
     $base00: #${base00};
@@ -219,8 +216,7 @@ let
       path = ewwYuck;
     }
   ];
-in
-{
+in {
   programs.eww = {
     enable = true;
     package = pkgs.eww-wayland;
@@ -229,13 +225,13 @@ in
   systemd.user.services.eww = {
     Unit = {
       Description = "Eww daemon";
-      PartOf = [ "graphical-session.target" ];
+      PartOf = ["graphical-session.target"];
     };
     Service = {
       Environment = "PATH=/run/wrappers/bin:${lib.makeBinPath dependencies}";
       ExecStart = "${config.programs.eww.package}/bin/eww daemon --no-daemonize";
       Restart = "on-failure";
     };
-    Install.WantedBy = [ "graphical-session.target" ];
+    Install.WantedBy = ["graphical-session.target"];
   };
 }

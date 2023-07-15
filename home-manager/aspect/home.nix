@@ -1,9 +1,13 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-
-{ inputs, outputs, lib, config, pkgs, ... }:
-
 {
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   # You can import other home-manager modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
@@ -22,13 +26,13 @@
     ../shared/programs/direnv
     ../shared/programs/exa
     ../shared/programs/sway
-    ../shared/programs/lf 
-    ../shared/programs/eww 
+    ../shared/programs/lf
+    ../shared/programs/eww
     ../shared/programs/rofi
     ../shared/programs/tmux
     ../shared/programs/music
     ../shared/programs/zoxide
-    ../shared/programs/dunst 
+    ../shared/programs/dunst
     ../shared/services/kanshi.nix
 
     (import ../shared/programs/firefox {
@@ -67,12 +71,11 @@
       #   });
       # })
 
-      (final: prev:
-        {
-          neovim = inputs.neovim-nightly.packages.${final.system}.default;
-          ripgrep = prev.ripgrep.override { withPCRE2 = true; };
-          # picom = inputs.nixpkgs-f2k.packages.${pkgs.system}.picom-git;
-        })
+      (final: prev: {
+        neovim = inputs.neovim-nightly.packages.${final.system}.default;
+        ripgrep = prev.ripgrep.override {withPCRE2 = true;};
+        # picom = inputs.nixpkgs-f2k.packages.${pkgs.system}.picom-git;
+      })
     ];
 
     # Configure your nixpkgs instance
@@ -93,7 +96,7 @@
     font.name = "sans-serif";
 
     gtk3 = {
-      extraConfig = { gtk-decoration-layout = "menu:"; };
+      extraConfig = {gtk-decoration-layout = "menu:";};
 
       extraCss = ''
         vte-terminal {
@@ -109,7 +112,7 @@
 
     theme = {
       name = "tomorrow-night";
-      package = (inputs.nix-colors.lib-contrib { inherit pkgs; }).gtkThemeFromScheme {
+      package = (inputs.nix-colors.lib-contrib {inherit pkgs;}).gtkThemeFromScheme {
         scheme = config.colorScheme;
       };
     };
@@ -119,44 +122,42 @@
     activation = {
       installAwesomeConfig = ''
         if [ ! -d "${config.home.homeDirectory}/.config/awesome" ]; then
-          ln -s "/etc/nixos/config/awesome" "${config.home.homeDirectory}/.config/awesome" 
+          ln -s "/etc/nixos/config/awesome" "${config.home.homeDirectory}/.config/awesome"
         fi
       '';
       installNvimConfig = ''
         if [ ! -d "${config.home.homeDirectory}/.config/nvim" ]; then
-          ln -s "/etc/nixos/config/nvim" "${config.home.homeDirectory}/.config/nvim" 
+          ln -s "/etc/nixos/config/nvim" "${config.home.homeDirectory}/.config/nvim"
         fi
       '';
     };
 
     file = {
       # Amazing Phinger Icons
-      ".icons/default".source =
-        "${pkgs.phinger-cursors}/share/icons/phinger-cursors";
+      ".icons/default".source = "${pkgs.phinger-cursors}/share/icons/phinger-cursors";
 
       ".local/bin/run" = {
         # Preview script for fzf tab
         executable = true;
-        text = import ../shared/bin/run.nix { inherit pkgs; };
+        text = import ../shared/bin/run.nix {inherit pkgs;};
       };
 
       ".local/bin/preview" = {
         # Preview script for fzf tab
         executable = true;
-        text = import ../shared/bin/preview.nix { inherit pkgs; };
+        text = import ../shared/bin/preview.nix {inherit pkgs;};
       };
 
       ".local/bin/appmenu" = {
         # Preview script for fzf tab
         executable = true;
-        text = import ../shared/bin/appmenu.nix { inherit pkgs; };
+        text = import ../shared/bin/appmenu.nix {inherit pkgs;};
       };
 
-      ".tree-sitter".source = pkgs.runCommand "grammars" { } ''
+      ".tree-sitter".source = pkgs.runCommand "grammars" {} ''
         mkdir -p $out/bin
         ${
-          lib.concatStringsSep "\n" (lib.mapAttrsToList (name: src:
-            "name=${name}; ln -s ${src}/parser $out/bin/\${name#tree-sitter-}.so")
+          lib.concatStringsSep "\n" (lib.mapAttrsToList (name: src: "name=${name}; ln -s ${src}/parser $out/bin/\${name#tree-sitter-}.so")
             pkgs.tree-sitter.builtGrammars)
         };
       '';
@@ -165,7 +166,8 @@
     homeDirectory = "/home/aspect";
 
     packages = lib.attrValues {
-      inherit (pkgs)
+      inherit
+        (pkgs)
         neovim
         playerctl
         trash-cli
@@ -174,8 +176,8 @@
         any-nix-shell
         xst
         just
-
         # Formatters
+        
         black
         ktlint
         nixpkgs-fmt
@@ -183,7 +185,6 @@
         shfmt
         stylua
         neovide
-
         psst
         zotero
         komikku
@@ -194,8 +195,8 @@
         vscode
         font-manager
         transmission-gtk
-
         # Extras
+        
         fd
         gnutls
         imagemagick
@@ -209,7 +210,8 @@
         sdcv
         sqlite
         statix
-        ripgrep;
+        ripgrep
+        ;
     };
 
     sessionPath = [
@@ -251,16 +253,11 @@
     enable = true;
 
     configFile = {
-      "nvim/parser/c.so".source =
-        "${pkgs.tree-sitter.builtGrammars.tree-sitter-c}/parser";
-      "nvim/parser/lua.so".source =
-        "${pkgs.tree-sitter.builtGrammars.tree-sitter-lua}/parser";
-      "nvim/parser/rust.so".source =
-        "${pkgs.tree-sitter.builtGrammars.tree-sitter-rust}/parser";
-      "nvim/parser/python.so".source =
-        "${pkgs.tree-sitter.builtGrammars.tree-sitter-python}/parser";
-      "nvim/parser/nix.so".source =
-        "${pkgs.tree-sitter.builtGrammars.tree-sitter-nix}/parser";
+      "nvim/parser/c.so".source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-c}/parser";
+      "nvim/parser/lua.so".source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-lua}/parser";
+      "nvim/parser/rust.so".source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-rust}/parser";
+      "nvim/parser/python.so".source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-python}/parser";
+      "nvim/parser/nix.so".source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-nix}/parser";
     };
 
     userDirs = {
@@ -271,5 +268,5 @@
       videos = "${config.home.homeDirectory}/Videos";
     };
   };
-  xresources.extraConfig = import ../shared/x/resources.nix { theme = config.colorScheme; };
+  xresources.extraConfig = import ../shared/x/resources.nix {theme = config.colorScheme;};
 }

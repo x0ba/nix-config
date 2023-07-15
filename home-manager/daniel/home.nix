@@ -1,9 +1,14 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-
-{ inputs, outputs, lib, config, pkgs, flakePath, ... }:
-
 {
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  flakePath,
+  ...
+}: {
   # You can import other home-manager modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
@@ -52,10 +57,9 @@
       #   });
       # })
 
-      (final: prev:
-        {
-          # picom = inputs.nixpkgs-f2k.packages.${pkgs.system}.picom-git;
-        })
+      (final: prev: {
+        # picom = inputs.nixpkgs-f2k.packages.${pkgs.system}.picom-git;
+      })
     ];
 
     # Configure your nixpkgs instance
@@ -96,20 +100,19 @@
       ".local/bin/run" = {
         # Preview script for fzf tab
         executable = true;
-        text = import ../shared/bin/run.nix { inherit pkgs; };
+        text = import ../shared/bin/run.nix {inherit pkgs;};
       };
 
       ".local/bin/preview" = {
         # Preview script for fzf tab
         executable = true;
-        text = import ../shared/bin/preview.nix { inherit pkgs; };
+        text = import ../shared/bin/preview.nix {inherit pkgs;};
       };
 
-      ".tree-sitter".source = pkgs.runCommand "grammars" { } ''
+      ".tree-sitter".source = pkgs.runCommand "grammars" {} ''
         mkdir -p $out/bin
         ${
-          lib.concatStringsSep "\n" (lib.mapAttrsToList (name: src:
-            "name=${name}; ln -s ${src}/parser $out/bin/\${name#tree-sitter-}.so")
+          lib.concatStringsSep "\n" (lib.mapAttrsToList (name: src: "name=${name}; ln -s ${src}/parser $out/bin/\${name#tree-sitter-}.so")
             pkgs.tree-sitter.builtGrammars)
         };
       '';
@@ -118,9 +121,10 @@
     homeDirectory = "/Users/daniel";
 
     packages = lib.attrValues {
-      inherit (pkgs)
+      inherit
+        (pkgs)
         trash-cli
-        ripgrep 
+        ripgrep
         fd
         file
         any-nix-shell
@@ -131,8 +135,8 @@
         sops
         wireguard-tools
         wireguard-go
-
         # Extras
+        
         imagemagick
         chafa
         jq
@@ -143,7 +147,8 @@
         exiftool
         sdcv
         sqlite
-        statix;
+        statix
+        ;
     };
 
     sessionPath = [
@@ -163,5 +168,4 @@
   sops.secrets."ssh-cfg".path = "${config.home.homeDirectory}/.ssh/config";
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
-
 }

@@ -1,8 +1,9 @@
-{ pkgs
-, lib
-, inputs
-, config
-, ...
+{
+  pkgs,
+  lib,
+  inputs,
+  config,
+  ...
 }: {
   system.activationScripts.postActivation.text = ''
     # Set the default shell as fish for the user. MacOS doesn't do this like nixOS does

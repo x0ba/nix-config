@@ -1,7 +1,10 @@
-{ inputs, config, lib, pkgs, ... }:
-
 {
-
+  inputs,
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   console.keyMap = "us";
 
   networking.networkmanager.enable = true;
@@ -34,16 +37,14 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals =
-      [
-        pkgs.xdg-desktop-portal-gtk
-      ];
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+    ];
   };
 
   environment = {
     binsh = "${pkgs.bash}/bin/bash";
-    shells = with pkgs; [ zsh ];
-
+    shells = with pkgs; [zsh];
 
     sessionVariables = {
       # These are the defaults, and xdg.enable does set them, but due to load
@@ -56,13 +57,42 @@
     };
 
     systemPackages = lib.attrValues {
-      inherit (pkgs)
-        alsa-tools alsa-utils cmake coreutils curl fd ffmpeg fzf gcc git glib
-        gnumake gnutls home-manager imagemagick iw libtool lm_sensors man-pages
-        man-pages-posix pamixer psmisc pulseaudio ripgrep unrar unzip vim
-        wget wirelesstools xarchiver xclip zip;
+      inherit
+        (pkgs)
+        alsa-tools
+        alsa-utils
+        cmake
+        coreutils
+        curl
+        fd
+        ffmpeg
+        fzf
+        gcc
+        git
+        glib
+        gnumake
+        gnutls
+        home-manager
+        imagemagick
+        iw
+        libtool
+        lm_sensors
+        man-pages
+        man-pages-posix
+        pamixer
+        psmisc
+        pulseaudio
+        ripgrep
+        unrar
+        unzip
+        vim
+        wget
+        wirelesstools
+        xarchiver
+        xclip
+        zip
+        ;
     };
-
 
     variables = {
       EDITOR = "${pkgs.neovim}/bin/nvim";
@@ -92,39 +122,41 @@
 
   fonts = {
     fonts = lib.attrValues {
-      inherit (pkgs)
+      inherit
+        (pkgs)
         cantarell-fonts
         emacs-all-the-icons-fonts
         material-icons
         ibm-plex
         liberation_ttf
         noto-fonts-emoji-blob-bin
-        sarasa-gothic;
+        sarasa-gothic
+        ;
 
-      nerdfonts = pkgs.nerdfonts.override { fonts = [ "CascadiaCode" ]; };
+      nerdfonts = pkgs.nerdfonts.override {fonts = ["CascadiaCode"];};
     };
 
     fontconfig = {
       enable = true;
 
       defaultFonts = {
-        serif = [ "DejaVu Serif" ];
-        sansSerif = [ "Sarasa Term K" ];
-        monospace = [ "CaskaydiaCove Nerd Font Mono" ];
-        emoji = [ "Blobmoji" ];
+        serif = ["DejaVu Serif"];
+        sansSerif = ["Sarasa Term K"];
+        monospace = ["CaskaydiaCove Nerd Font Mono"];
+        emoji = ["Blobmoji"];
       };
     };
   };
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
-    supportedLocales = [ "en_US.UTF-8/UTF-8" ];
+    supportedLocales = ["en_US.UTF-8/UTF-8"];
   };
 
   nix = {
     # This will add each flake input as a registry
     # To make nix commands consistent with your flake
-    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
+    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
@@ -207,8 +239,7 @@
       isNormalUser = true;
       home = "/home/aspect";
 
-      extraGroups =
-        [ "wheel" "networkmanager" "sudo" "video" "audio" "adbusers" ];
+      extraGroups = ["wheel" "networkmanager" "sudo" "video" "audio" "adbusers"];
     };
   };
 }

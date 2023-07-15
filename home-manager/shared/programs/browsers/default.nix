@@ -1,9 +1,11 @@
-{ pkgs, config, ... }:
-let
+{
+  pkgs,
+  config,
+  ...
+}: let
   inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
   theme = config.colorScheme;
-in
-{
+in {
   programs.chromium = {
     enable = isLinux;
     package =
@@ -11,7 +13,7 @@ in
       then pkgs.ungoogled-chromium
       else (pkgs.writeScriptBin "__dummy-chromium" "");
     extensions = [
-      { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }
+      {id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";}
     ];
   };
   programs.firefox = {
@@ -351,7 +353,7 @@ in
           .search-wrapper input {
             display: none !important;
           }
-        } 
+        }
       '';
     };
   };

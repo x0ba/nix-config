@@ -1,6 +1,4 @@
-{ pkgs }:
-
-''
+{pkgs}: ''
   #> Syntax: bash
 
   rofi -show drun \

@@ -1,12 +1,12 @@
-{ pkgs
-, lib
-, inputs
-, config
-, ...
-}:
-let theme = config.colorScheme;
-in
 {
+  pkgs,
+  lib,
+  inputs,
+  config,
+  ...
+}: let
+  theme = config.colorScheme;
+in {
   wayland.windowManager.sway = {
     enable = true;
     package = pkgs.sway;
@@ -55,23 +55,22 @@ in
       #     background = "#${config.lib.base16.theme.baseDARK-hex} solid_color";
       #   };
       # };
-      bars = lib.mkForce [ ];
+      bars = lib.mkForce [];
       gaps.outer = 7;
       gaps.inner = 7;
       defaultWorkspace = "workspace 1";
-      keybindings =
-        let
-          modifier = "Mod4";
-          concatAttrs = lib.fold (x: y: x // y) { };
-          tagBinds =
-            concatAttrs
-              (map
-                (i: {
-                  "${modifier}+${toString i}" = "exec 'swaymsg workspace ${toString i} && ${pkgs.eww-wayland}/bin/eww update active-tag=${toString i}'";
-                  "${modifier}+Shift+${toString i}" = "exec 'swaymsg move container to workspace ${toString i}'";
-                })
-                (lib.range 0 9));
-        in
+      keybindings = let
+        modifier = "Mod4";
+        concatAttrs = lib.fold (x: y: x // y) {};
+        tagBinds =
+          concatAttrs
+          (map
+            (i: {
+              "${modifier}+${toString i}" = "exec 'swaymsg workspace ${toString i} && ${pkgs.eww-wayland}/bin/eww update active-tag=${toString i}'";
+              "${modifier}+Shift+${toString i}" = "exec 'swaymsg move container to workspace ${toString i}'";
+            })
+            (lib.range 0 9));
+      in
         tagBinds
         // {
           "${modifier}+Return" = "exec ${pkgs.foot}/bin/foot";
@@ -142,7 +141,7 @@ in
 
       # Remove text on decorations
       # for_window [title="."] title_format " "
-      # font pango:monospace 18px 
+      # font pango:monospace 18px
       # default_border normal 0
       # default_floating_border normal 0
       default_border pixel 2

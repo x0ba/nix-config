@@ -1,8 +1,5 @@
-{ pkgs }:
-
-with pkgs;
-
-''
+{pkgs}:
+with pkgs; ''
   #> Syntax: bash
 
   # Add this script to $PATH. Then use this by: fzf --preview='preview {}'.
@@ -17,16 +14,16 @@ with pkgs;
   # - atool for viewing zips
   # - exiftool for videos and gifs
   # - readelf for viewing binaries
-  
+
   [ "$1" = "" ] && exit 1
-  
+
   handle_image() {
     case "$1" in
       image/jpeg|image/png) chafa "$2" ;;
       *) exiftool -All "$2" ;;
     esac
   }
-  
+
   handle_text() {
     case "$2" in
       *.md) glow --style=auto "$2" ;;
@@ -34,7 +31,7 @@ with pkgs;
       *) bat --theme=base16 --color=always --paging=never --number --italic-text=never --tabs=2 --wrap=never "$2" ;;
     esac
   }
-  
+
   mime="$(file --brief --mime-type "$1")"
   case "$mime" in
     text/*) handle_text "$mime" "$1" ;;

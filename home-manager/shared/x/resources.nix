@@ -1,8 +1,5 @@
-{ theme }:
-
-with theme.colors;
-
-''
+{theme}:
+with theme.colors; ''
   ! special
   *.foreground:       #${base06}
   *.background:       #${base00}

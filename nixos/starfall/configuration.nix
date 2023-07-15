@@ -1,6 +1,11 @@
-{ inputs, outputs, lib, config, pkgs, ... }:
-
 {
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     # auto generated
     ./hardware-configuration.nix
@@ -28,11 +33,10 @@
       #   });
       # })
       inputs.rust-overlay.overlays.default
-      (_: prev:
-        {
-          # awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-git;
-          # mesa = inputs.nixos-apple-silicon.${pkgs.system}.mesa-asahi-edge;
-        })
+      (_: prev: {
+        # awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-git;
+        # mesa = inputs.nixos-apple-silicon.${pkgs.system}.mesa-asahi-edge;
+      })
     ];
 
     # Configure your nixpkgs instance
@@ -80,7 +84,7 @@
 
       libinput = {
         enable = true;
-        touchpad = { naturalScrolling = true; };
+        touchpad = {naturalScrolling = true;};
       };
 
       windowManager = {
@@ -96,7 +100,8 @@
   };
 
   environment.systemPackages = lib.attrValues {
-    inherit (pkgs)
+    inherit
+      (pkgs)
       acpi
       brightnessctl
       inotify-tools
@@ -104,16 +109,19 @@
       pavucontrol
       pciutils
       skippy-xd
-      xlockmore;
+      xlockmore
+      ;
 
-    inherit (pkgs.xfce)
+    inherit
+      (pkgs.xfce)
       orage
       ristretto
       xfce4-appfinder
       xfce4-clipman-plugin
       xfce4-screenshooter
       xfce4-taskmanager
-      xfce4-terminal;
+      xfce4-terminal
+      ;
   };
 
   programs = {

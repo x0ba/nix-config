@@ -1,8 +1,6 @@
-{ config, ...}:
-
-let theme = config.colorScheme;
-in
-{
+{config, ...}: let
+  theme = config.colorScheme;
+in {
   programs.foot = {
     enable = true;
 

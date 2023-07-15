@@ -1,13 +1,12 @@
-{ pkgs
-, lib
-, inputs
-, config
-, ...
-}:
-let
-  scripts = ../../../../config/sketchybar;
-in
 {
+  pkgs,
+  lib,
+  inputs,
+  config,
+  ...
+}: let
+  scripts = ../../../../config/sketchybar;
+in {
   services.yabai = {
     enable = true;
     enableScriptingAddition = true;

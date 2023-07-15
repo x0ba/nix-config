@@ -1,9 +1,6 @@
-{ config, ... }:
-
-let theme = config.colorScheme;
-in
-
-{
+{config, ...}: let
+  theme = config.colorScheme;
+in {
   services.dunst = {
     enable = true;
     settings = with theme.colors; {
@@ -34,7 +31,7 @@ in
       };
 
       # disable notifs in fullscreen
-      fullscreen_delay_everything = { fullscreen = "delay"; };
+      fullscreen_delay_everything = {fullscreen = "delay";};
 
       # colors
       urgency_low = with theme.colors; {
@@ -49,7 +46,7 @@ in
         foreground = "#${base04}";
         highlight = "#${base08}";
       };
-      urgency_critical =  with theme.colors; {
+      urgency_critical = with theme.colors; {
         timeout = 0;
         background = "#${base00}";
         foreground = "#${base04}";

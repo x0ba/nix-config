@@ -1,8 +1,5 @@
-{ pkgs }:
-
-with pkgs;
-
-''
+{pkgs}:
+with pkgs; ''
   #> Syntax: bash
   command="$@"
   program=$(echo "$command" | awk '{print $1}')

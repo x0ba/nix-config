@@ -1,8 +1,9 @@
-{ pkgs
-, lib
-, inputs
-, config
-, ...
+{
+  pkgs,
+  lib,
+  inputs,
+  config,
+  ...
 }: {
   programs.lf = {
     enable = true;
@@ -73,5 +74,4 @@
       md = "mkdir";
     };
   };
-
 }

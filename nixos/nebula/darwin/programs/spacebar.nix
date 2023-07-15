@@ -1,10 +1,10 @@
-{ pkgs
-, lib
-, inputs
-, config
-, ...
-}:
 {
+  pkgs,
+  lib,
+  inputs,
+  config,
+  ...
+}: {
   services.spacebar.enable = true;
   services.spacebar.package = pkgs.spacebar;
   services.spacebar.config = {

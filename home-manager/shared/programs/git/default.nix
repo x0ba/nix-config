@@ -1,14 +1,19 @@
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   programs.gh = {
     enable = true;
 
     extensions = lib.attrValues {
-      inherit (pkgs)
+      inherit
+        (pkgs)
         gh-cal
         gh-dash
-        gh-eco;
+        gh-eco
+        ;
     };
 
     settings = {
@@ -18,9 +23,7 @@
     };
   };
 
-
   programs.git = {
-
     signing = {
       signByDefault = true;
       key = "E8325E515382CDE43B9FBE12DDC4DDB3D659ED62";
@@ -38,7 +41,7 @@
       ".direnv/"
     ];
     # disable the macOS keychain, only use gopass
-    package = pkgs.git.override { osxkeychainSupport = false; };
+    package = pkgs.git.override {osxkeychainSupport = false;};
     enable = true;
     userName = "Daniel Xu";
     userEmail = "heavydenial@proton.me";
