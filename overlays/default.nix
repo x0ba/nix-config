@@ -7,7 +7,7 @@
   # You can change versions, add patches, set compilation flags, anything really.
   # https://nixos.wiki/wiki/Overlays
   modifications = final: prev: {
-    lutgen = prev.callPackage ../pkgs/lutgen.nix { };
+    lutgen = prev.callPackage ../pkgs/lutgen.nix {};
     asahi-alsa-utils = prev.alsa-utils.override {
       alsa-lib = prev.alsa-lib.override {
         alsa-ucm-conf = prev.alsa-ucm-conf.overrideAttrs (_: rec {
@@ -29,7 +29,6 @@
       };
     };
   };
-
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will
   # be accessible through 'pkgs.unstable'

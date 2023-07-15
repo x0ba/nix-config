@@ -1,4 +1,9 @@
-{ lib, fetchFromGitHub, rustPlatform, pkgs }:
+{
+  lib,
+  fetchFromGitHub,
+  rustPlatform,
+  pkgs,
+}:
 rustPlatform.buildRustPackage rec {
   pname = "lutgen";
   name = "lutgen";
@@ -9,7 +14,7 @@ rustPlatform.buildRustPackage rec {
     rev = "621db41b10e5a1a923ef67094ce1fc05c618d6ae";
     sha256 = "0dwj3cksf62z89ihqnhhxj1wgzjqqwlc40hwdfw18yqwr3byzfxf";
   };
-  nativeBuildInputs = with pkgs;[
+  nativeBuildInputs = with pkgs; [
     cargo
     rustc
   ];
