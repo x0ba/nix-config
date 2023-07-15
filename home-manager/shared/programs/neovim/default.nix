@@ -22,11 +22,6 @@
     };
 
     extraPackages = with pkgs; [
-      # external deps
-      fd
-      ripgrep
-
-
       # python
       black
       isort

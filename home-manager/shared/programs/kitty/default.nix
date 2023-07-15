@@ -30,7 +30,7 @@ in
       initial_window_height = 600;
       repaint_delay = 10;
       input_delay = 3;
-      term = "xterm-kitty";
+      term = "xterm-256color";
       window_border_width = 0;
       window_padding_width = 22;
       background_opacity = 1;

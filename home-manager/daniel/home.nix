@@ -123,6 +123,8 @@
     packages = lib.attrValues {
       inherit (pkgs)
         trash-cli
+        ripgrep 
+        fd
         file
         any-nix-shell
         neovide
