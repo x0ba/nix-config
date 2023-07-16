@@ -170,16 +170,6 @@
         };
         modules = [
           ./home-manager/daniel/home.nix
-          {
-            nixpkgs.overlays = [
-              # Check flake.nix or clone and use `nix flake show` for available subsets of overlays
-
-              nixpkgs-aspect.overlays.applications
-              nixpkgs-aspect.overlays.editors
-              nixpkgs-aspect.overlays.terminal-emulators
-              # nixpkgs-f2k.overlays.default # for all packages
-            ];
-          }
         ];
       };
     };

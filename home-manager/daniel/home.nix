@@ -47,7 +47,7 @@
       # Add overlays your own flake exports (from overlays and pkgs dir):
       outputs.overlays.modifications
       outputs.overlays.additions
-
+      inputs.nixpkgs-aspect.overlays.default
       inputs.nur.overlay
 
       # Or define it inline, for example:
@@ -58,7 +58,7 @@
       # })
 
       (final: prev: {
-        # picom = inputs.nixpkgs-f2k.packages.${pkgs.system}.picom-git;
+        lutgen = inputs.nixpkgs-aspect.packages.${pkgs.system}.lutgen;
       })
     ];
 
@@ -126,8 +126,8 @@
         (pkgs)
         trash-cli
         lutgen
-        applemusicdiscordrpc
         ripgrep
+        wezterm-git
         fd
         file
         any-nix-shell

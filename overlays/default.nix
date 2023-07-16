@@ -7,8 +7,6 @@
   # You can change versions, add patches, set compilation flags, anything really.
   # https://nixos.wiki/wiki/Overlays
   modifications = final: prev: {
-    lutgen = prev.callPackage ../pkgs/lutgen.nix {};
-    applemusicdiscordrpc = prev.callPackage ../pkgs/applemusicdiscordrpc.nix {};
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will
