@@ -39,6 +39,7 @@
     ../shared/programs/sketchybar
     ../shared/programs/neovim
     ../shared/programs/zsh
+    ../shared/programs/wezterm
   ];
 
   nixpkgs = {
@@ -58,7 +59,6 @@
       # })
 
       (final: prev: {
-        lutgen = inputs.nixpkgs-aspect.packages.${pkgs.system}.lutgen;
       })
     ];
 
@@ -126,8 +126,8 @@
         (pkgs)
         trash-cli
         lutgen
-        ripgrep
         wezterm-git
+        ripgrep
         fd
         file
         any-nix-shell
