@@ -91,7 +91,8 @@
       ctrl + lalt - b : yabai -m config window_border off
       shift + ctrl + lalt - b : yabai -m config window_border on
 
-      lalt - return : ~/.nix-profile/bin/kitty -1 ~
+
+      lalt - return : open -na "''${HOME}/Applications/Home Manager Apps/WezTerm.app"
     '';
   };
 }
