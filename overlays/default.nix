@@ -9,7 +9,7 @@
         nurpkgs = prev;
         pkgs = prev;
         repoOverrides = {
-          nekowinston = import inputs.nekowinston-nur { inherit (prev) pkgs; };
+          nekowinston = import inputs.nekowinston-nur {inherit (prev) pkgs;};
         };
       };
     })

@@ -140,7 +140,7 @@
         wireguard-tools
         wireguard-go
         # Extras
-
+        
         imagemagick
         chafa
         jq
