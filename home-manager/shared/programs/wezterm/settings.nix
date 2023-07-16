@@ -2,6 +2,21 @@
 with theme.colors; ''
   local wezterm = require('wezterm')
 
+  local act = wezterm.action
+
+  local shortcuts = {}
+
+  local map = function(key, mods, action)
+    if type(mods) == "string" then
+      table.insert(shortcuts, { key = key, mods = mods, action = action })
+    elseif type(mods) == "table" then
+      for _, mod in pairs(mods) do
+        table.insert(shortcuts, { key = key, mods = mod, action = action })
+      end
+    end
+  end
+
+
   local scheme = wezterm.get_builtin_color_schemes()['Tomorrow Night']
   scheme.background = '#${base00}'
 

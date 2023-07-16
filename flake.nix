@@ -27,13 +27,13 @@
     nekowinston-nur.url = "github:nekowinston/nur";
 
     nixos-apple-silicon = {
-      url = github:tpwrules/nixos-apple-silicon;
+      url = "github:tpwrules/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.rust-overlay.follows = "rust-overlay";
     };
 
     rust-overlay = {
-      url = github:oxalica/rust-overlay;
+      url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
