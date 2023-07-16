@@ -6,7 +6,7 @@ source "$HOME/.config/sketchybar/icons.sh"  # Loads all defined icons
 ITEM_DIR="$HOME/.config/sketchybar/items"
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
 
-FONT="FiraCode Nerd Font"
+FONT="CaskaydiaCove Nerd Font"
 
 PADDINGS=3 # All paddings use this value (icon, label, background)
 

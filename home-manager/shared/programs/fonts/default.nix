@@ -18,7 +18,7 @@
       '';
   };
   home.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "FiraCode"];})
+    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "FiraCode" "CascadiaCode"];})
     victor-mono
     ibm-plex
     xkcd-font
