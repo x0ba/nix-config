@@ -1,6 +1,7 @@
 # aspect's dotfiles
 
 [![NixOS Unstable](https://img.shields.io/badge/NixOS-unstable-blue.svg?style=flat-square&logo=NixOS&logoColor=white)](https://nixos.org)
+[![flake check status](https://img.shields.io/github/actions/workflow/status/aspectsides/dotfiles/check.yml?label=flake%20check&logo=nixos&logoColor=%23fff&style=flat-square&color=f5c2e7)](https://github.com/aspectsides/dotfiles/actions/workflows/check.yml)
 [![commit activity](https://img.shields.io/github/commit-activity/w/aspectsides/dotfiles?style=flat-square&label=commits&color=f5c2e7)](https://github.com/aspectsides/dotfiles/commits)
 [![SLOC](https://img.shields.io/tokei/lines/github/aspectsides/dotfiles)](#)
 [![MIT license](https://img.shields.io/github/license/aspectsides/dotfiles?style=flat-square&color=f5c2e7)](https://github.com/aspectsides/dotfiles/blob/main/LICENSE)
