@@ -1,8 +1,5 @@
-{ theme }:
-
-with theme.colors;
-
-''
+{theme}:
+with theme.colors; ''
   local wezterm = require('wezterm')
 
   local scheme = wezterm.get_builtin_color_schemes()['Tomorrow Night']

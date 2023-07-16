@@ -11,7 +11,7 @@ in {
     enable = true;
     sensibleOnTop = true;
     extraConfig = with theme.colors; ''
-      set -g default-terminal "screen-256color"
+      set-option -ga terminal-overrides ",xterm-256color:Tc"
       set -g prefix `
       unbind C-b
       bind-key `

@@ -22,8 +22,20 @@ in {
     # to still manage it via home-manager
     package = pkgs.lib.mkIf isDarwin (pkgs.writeScriptBin "__dummy-firefox" "");
     profiles.default = {
-      search.default = "DuckDuckGo";
-      search.force = true;
+      search = {
+        default = "Ecosia";
+        force = true;
+        engines = {
+          "Ecosia" = {
+            urls = [{template = "https://www.ecosia.org/search?method=index&q={searchTerms}";}];
+            definedAliases = ["@eco"];
+          };
+          "searx" = {
+            urls = [{template = "http://searxng.nicfab.eu/searxng/search?q={searchTerms}";}];
+            definedAliases = ["@searx"];
+          };
+        };
+      };
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         bitwarden
         clearurls
