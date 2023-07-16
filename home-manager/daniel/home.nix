@@ -126,21 +126,22 @@
         (pkgs)
         trash-cli
         lutgen
+        cargo
         wezterm-git
         ripgrep
         fd
+        nil
+        deadnix
         file
         any-nix-shell
         neovide
-        just
-        nvd
         commitizen
         git-crypt
         sops
         wireguard-tools
         wireguard-go
+
         # Extras
-        
         imagemagick
         chafa
         jq
