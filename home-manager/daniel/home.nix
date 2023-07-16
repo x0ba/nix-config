@@ -140,9 +140,8 @@
         wireguard-tools
         wireguard-go
         # Extras
-        
+
         imagemagick
-        wezterm-git
         chafa
         jq
         elinks
