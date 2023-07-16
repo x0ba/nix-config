@@ -32,8 +32,6 @@
       inputs.rust-overlay.follows = "rust-overlay";
     };
 
-    eww.url = "github:elkowar/eww";
-
     rust-overlay = {
       url = github:oxalica/rust-overlay;
       inputs.nixpkgs.follows = "nixpkgs";
