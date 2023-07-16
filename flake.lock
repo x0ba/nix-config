@@ -424,11 +424,11 @@
         "parts": "parts"
       },
       "locked": {
-        "lastModified": 1689535096,
-        "narHash": "sha256-hRaIwwLW0CNuikbPYlt9EicNzpIdu1mnkMdZjP3LSdI=",
+        "lastModified": 1689535291,
+        "narHash": "sha256-O/1Or790STd+st4Pf1Iwkdh/++rFr/4Xyyb4vmybtyk=",
         "owner": "Aspectsides",
         "repo": "nixpkgs-aspect",
-        "rev": "48c95dec2b8b1c1f4d358f1124e48cf75d3c5eb6",
+        "rev": "d858299e5a5f8352137cd578442420ae1f4713eb",
         "type": "github"
       },
       "original": {
