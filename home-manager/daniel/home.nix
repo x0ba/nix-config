@@ -140,8 +140,9 @@
         wireguard-tools
         wireguard-go
         # Extras
-        
+
         imagemagick
+        wezterm-git
         chafa
         jq
         elinks
@@ -173,4 +174,5 @@
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
+
 }
