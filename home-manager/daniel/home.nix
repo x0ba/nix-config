@@ -1,13 +1,12 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{
-  inputs,
-  outputs,
-  lib,
-  config,
-  pkgs,
-  flakePath,
-  ...
+{ inputs
+, outputs
+, lib
+, config
+, pkgs
+, flakePath
+, ...
 }: {
   # You can import other home-manager modules here
   imports = [
@@ -60,6 +59,7 @@
 
       (final: prev: {
         wezterm = inputs.nekowinston-nur.packages.${pkgs.system}.wezterm-nightly;
+        apple-fonts = inputs.nekowinston-nur.packages.${pkgs.system}.apple-fonts;
       })
     ];
 
@@ -101,18 +101,36 @@
   home = {
     file = {
       ".local/bin/run" = {
-        # Preview script for fzf tab
+        # Script to run any program inside nix-shell
         executable = true;
-        text = import ../shared/bin/run.nix {inherit pkgs;};
+        text = import ../shared/bin/run.nix { inherit pkgs; };
+      };
+
+      ".local/bin/updoot" = {
+        # Upload any file to 0x0.st
+        executable = true;
+        text = import ../shared/bin/updoot.nix { inherit pkgs; };
+      };
+
+      ".local/bin/nix-search" = {
+        # search nixpkgs with fzf
+        executable = true;
+        text = import ../shared/bin/nix-search.nix { inherit pkgs; };
+      };
+
+      ".local/bin/panes" = {
+        # eyecandy
+        executable = true;
+        text = import ../shared/bin/panes.nix { inherit pkgs; };
       };
 
       ".local/bin/preview" = {
         # Preview script for fzf tab
         executable = true;
-        text = import ../shared/bin/preview.nix {inherit pkgs;};
+        text = import ../shared/bin/preview.nix { inherit pkgs; };
       };
 
-      ".tree-sitter".source = pkgs.runCommand "grammars" {} ''
+      ".tree-sitter".source = pkgs.runCommand "grammars" { } ''
         mkdir -p $out/bin
         ${
           lib.concatStringsSep "\n" (lib.mapAttrsToList (name: src: "name=${name}; ln -s ${src}/parser $out/bin/\${name#tree-sitter-}.so")
@@ -133,6 +151,7 @@
         fd
         nil
         deadnix
+        stylua
         file
         any-nix-shell
         neovide
@@ -143,7 +162,7 @@
         wireguard-tools
         wireguard-go
         # Extras
-        
+
         imagemagick
         chafa
         jq
