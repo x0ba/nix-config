@@ -6,7 +6,7 @@ with pkgs; ''
   # Requirements:
   # - chafa for image
   # - jq for json
-  # - exa for directory
+  # - lsd for directory
   # - elinks for html
   # - glow for markdown
   # - transmission-show for torrent
@@ -35,7 +35,7 @@ with pkgs; ''
   mime="$(file --brief --mime-type "$1")"
   case "$mime" in
     text/*) handle_text "$mime" "$1" ;;
-    inode/directory) exa --long --icons --color=always "$1" ;;
+    inode/directory) lsd --long --icons --color=always "$1" ;;
     inode/symlink) printf "Symbolic link to: \e[34m%s\e[0m." "$(readlink "$1")" ;;
     application/json) jq --color-output < "$1" ;;
     application/x-bittorrent) transmission-show --unsorted "$1" ;;
