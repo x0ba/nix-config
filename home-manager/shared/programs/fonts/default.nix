@@ -18,8 +18,10 @@
       '';
   };
   home.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "FiraCode" "CascadiaCode"];})
+    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "CascadiaCode"];})
     victor-mono
+    iosevka
+    recursive
     ibm-plex
     xkcd-font
   ];
