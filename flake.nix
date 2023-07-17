@@ -24,7 +24,7 @@
     nixpkgs-aspect.url = "github:Aspectsides/nixpkgs-aspect";
 
     nur.url = "github:nix-community/NUR";
-    nekowinston-nur.url = "github:nekowinston/nur";
+    nekowinston-nur.url = "github:nekowinston/nur/0a622868523d8438fee3d83ad25164e361be148f";
 
     nixos-apple-silicon = {
       url = "github:tpwrules/nixos-apple-silicon";
