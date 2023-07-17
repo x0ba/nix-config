@@ -5,7 +5,7 @@
 }: {
   programs.wezterm = {
     enable = true;
-    package = pkgs.wezterm;
+    # package = pkgs.wezterm;
   };
   # disable the default config created by Home-Manager
   xdg.configFile."wezterm/wezterm.lua".enable = false;

@@ -58,7 +58,7 @@
       # })
 
       (final: prev: {
-        # wezterm = inputs.nekowinston-nur.packages.${pkgs.system}.wezterm-nightly;
+        wezterm = inputs.nekowinston-nur.packages.${pkgs.system}.wezterm-nightly;
       })
     ];
 
