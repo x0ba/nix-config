@@ -1,12 +1,13 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{ inputs
-, outputs
-, lib
-, config
-, pkgs
-, flakePath
-, ...
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  flakePath,
+  ...
 }: {
   # You can import other home-manager modules here
   imports = [
@@ -102,16 +103,16 @@
       ".local/bin/run" = {
         # Preview script for fzf tab
         executable = true;
-        text = import ../shared/bin/run.nix { inherit pkgs; };
+        text = import ../shared/bin/run.nix {inherit pkgs;};
       };
 
       ".local/bin/preview" = {
         # Preview script for fzf tab
         executable = true;
-        text = import ../shared/bin/preview.nix { inherit pkgs; };
+        text = import ../shared/bin/preview.nix {inherit pkgs;};
       };
 
-      ".tree-sitter".source = pkgs.runCommand "grammars" { } ''
+      ".tree-sitter".source = pkgs.runCommand "grammars" {} ''
         mkdir -p $out/bin
         ${
           lib.concatStringsSep "\n" (lib.mapAttrsToList (name: src: "name=${name}; ln -s ${src}/parser $out/bin/\${name#tree-sitter-}.so")
@@ -142,7 +143,7 @@
         wireguard-tools
         wireguard-go
         # Extras
-
+        
         imagemagick
         chafa
         jq

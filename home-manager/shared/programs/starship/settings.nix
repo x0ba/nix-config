@@ -6,8 +6,8 @@
   line_break.disabled = true;
   directory.style = "cyan";
   character = {
-    success_symbol = "[λ](green)";
-    error_symbol = "[λ](red)";
+    success_symbol = "[∆](green)";
+    error_symbol = "[∆](red)";
   };
   # git
   git_branch = {
