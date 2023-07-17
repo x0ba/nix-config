@@ -136,6 +136,7 @@
         any-nix-shell
         neovide
         commitizen
+        sumneko-lua-language-server
         git-crypt
         sops
         wireguard-tools

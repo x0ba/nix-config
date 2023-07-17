@@ -68,7 +68,6 @@ map("l", "LEADER|SHIFT", act.AdjustPaneSize({ "Right", 5 }))
 -- spawn & close
 map("c", "LEADER", act.SpawnTab("CurrentPaneDomain"))
 map("x", "LEADER", act.CloseCurrentPane({ confirm = true }))
-map("t", "LEADER", changeCtpFlavor)
 map("t", { "SHIFT|CTRL", "SUPER" }, act.SpawnTab("CurrentPaneDomain"))
 map("w", { "SHIFT|CTRL", "SUPER" }, act.CloseCurrentTab({ confirm = true }))
 map("n", { "SHIFT|CTRL", "SUPER" }, act.SpawnWindow)
