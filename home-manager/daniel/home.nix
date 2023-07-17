@@ -1,13 +1,12 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{
-  inputs,
-  outputs,
-  lib,
-  config,
-  pkgs,
-  flakePath,
-  ...
+{ inputs
+, outputs
+, lib
+, config
+, pkgs
+, flakePath
+, ...
 }: {
   # You can import other home-manager modules here
   imports = [
@@ -59,6 +58,7 @@
       # })
 
       (final: prev: {
+        # wezterm = inputs.nekowinston-nur.packages.${pkgs.system}.wezterm-nightly;
       })
     ];
 
@@ -71,46 +71,47 @@
     };
   };
 
-  # colorScheme = {
-  #   slug = "oxocarbon";
-  #   name = "oxocarbon";
-  #   author = "Nyoom Engineering";
-  #   colors = {
-  #     base00 = "161616";
-  #     base01 = "262626";
-  #     base02 = "393939";
-  #     base03 = "525252";
-  #     base04 = "dde1e6";
-  #     base05 = "f2f4f8";
-  #     base06 = "ffffff";
-  #     base07 = "08bdba";
-  #     base08 = "3ddbd9";
-  #     base09 = "33b1ff";
-  #     base0A = "ee5396";
-  #     base0B = "78a9ff";
-  #     base0C = "ff7eb6";
-  #     base0D = "42be65";
-  #     base0E = "be95ff";
-  #     base0F = "82cfff";
-  #   };
-  # };
-  colorScheme = inputs.nix-colors.colorSchemes.tomorrow-night;
+  colorScheme = {
+    slug = "oxocarbon";
+    name = "oxocarbon";
+    author = "Nyoom Engineering";
+    colors = {
+      base00 = "161616";
+      base01 = "262626";
+      base02 = "393939";
+      base03 = "525252";
+      base04 = "dde1e6";
+      base05 = "f2f4f8";
+      base06 = "ffffff";
+      base07 = "08bdba";
+      base08 = "3ddbd9";
+      base09 = "33b1ff";
+      base0A = "ee5396";
+      base0B = "78a9ff";
+      base0C = "ff7eb6";
+      base0D = "42be65";
+      base0E = "be95ff";
+      base0F = "82cfff";
+    };
+  };
+
+  # colorScheme = inputs.nix-colors.colorSchemes.tomorrow-night;
 
   home = {
     file = {
       ".local/bin/run" = {
         # Preview script for fzf tab
         executable = true;
-        text = import ../shared/bin/run.nix {inherit pkgs;};
+        text = import ../shared/bin/run.nix { inherit pkgs; };
       };
 
       ".local/bin/preview" = {
         # Preview script for fzf tab
         executable = true;
-        text = import ../shared/bin/preview.nix {inherit pkgs;};
+        text = import ../shared/bin/preview.nix { inherit pkgs; };
       };
 
-      ".tree-sitter".source = pkgs.runCommand "grammars" {} ''
+      ".tree-sitter".source = pkgs.runCommand "grammars" { } ''
         mkdir -p $out/bin
         ${
           lib.concatStringsSep "\n" (lib.mapAttrsToList (name: src: "name=${name}; ln -s ${src}/parser $out/bin/\${name#tree-sitter-}.so")
@@ -127,7 +128,6 @@
         trash-cli
         lutgen
         cargo
-        wezterm-git
         ripgrep
         fd
         nil
@@ -140,8 +140,8 @@
         sops
         wireguard-tools
         wireguard-go
-
         # Extras
+
         imagemagick
         chafa
         jq
