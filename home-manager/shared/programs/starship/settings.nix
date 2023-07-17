@@ -6,7 +6,7 @@
   line_break.disabled = true;
   directory.style = "cyan";
   character = {
-    success_symbol = "[∆](green)";
+    success_symbol = "[∆](blue)";
     error_symbol = "[∆](red)";
   };
   # git
