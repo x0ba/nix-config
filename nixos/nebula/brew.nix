@@ -9,6 +9,12 @@
     };
     brews = [
       {
+        name = "jq";
+      }
+      {
+        name = "switchaudio-osx";
+      }
+      {
         name = "sketchybar";
         start_service = true;
       }
@@ -30,6 +36,7 @@
       "docker"
       "firefox"
       "iina"
+      "sf-symbols"
       "imageoptim"
       "nextcloud"
       "calibre"

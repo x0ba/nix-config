@@ -41,6 +41,9 @@ in {
       # bar
       ${scripts}/create_spaces.sh
       # Automatically focus window under mouse after closing
+      yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
+      yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
+      yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
       yabai -m signal --add event=window_destroyed action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
       yabai -m signal --add event=application_terminated action="yabai -m query --windows --window &> /dev/null || yabai -m window --focus mouse"
       # rules

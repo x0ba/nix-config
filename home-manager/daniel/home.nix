@@ -59,7 +59,6 @@
 
       (final: prev: {
         wezterm = inputs.nekowinston-nur.packages.${pkgs.system}.wezterm-nightly;
-        apple-fonts = inputs.nekowinston-nur.packages.${pkgs.system}.apple-fonts;
       })
     ];
 
