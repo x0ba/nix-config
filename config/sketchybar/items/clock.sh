@@ -6,7 +6,7 @@ sketchybar --add item clock right \
 	icon.color="$BLACK" \
 	label.color=$BLACK \
 	label.padding_right=5 \
-	label.width=78 \
+	label.width=58 \
 	align=center \
 	script="$PLUGIN_DIR/clock.sh" \
 	background.height=26 \
