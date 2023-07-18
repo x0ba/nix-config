@@ -183,7 +183,6 @@
       "https://cache.ngi0.nixos.org/"
       "https://nix-community.cachix.org"
       "https://aspect.cachix.org"
-      "https://nekowinston.cachix.org"
     ];
 
     extra-trusted-public-keys = [
@@ -191,7 +190,6 @@
       "cache.ngi0.nixos.org-1:KqH5CBLNSyX184S9BKZJo1LxrxJ9ltnY2uAs5c/f1MA="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "aspect.cachix.org-1:HCNx0CCWqGPQzmSZiZLTiUZ/s4FUaufrSi85ZiKjS98="
-      "nekowinston.cachix.org-1:lucpmaO+JwtoZj16HCO1p1fOv68s/RL1gumpVzRHRDs="
     ];
   };
 }
