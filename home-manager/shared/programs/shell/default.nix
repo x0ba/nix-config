@@ -18,6 +18,8 @@ in {
       };
     };
 
+    nix-index.enable = true;
+
     zoxide = {
       enable = true;
       enableZshIntegration = true;
@@ -42,8 +44,6 @@ in {
       enable = true;
       enableAliases = true;
     };
-
-    nix-index.enable = true;
   };
 
   xdg.configFile = {

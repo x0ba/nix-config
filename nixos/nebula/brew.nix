@@ -9,12 +9,6 @@
     };
     brews = [
       {
-        name = "jq";
-      }
-      {
-        name = "switchaudio-osx";
-      }
-      {
         name = "sketchybar";
         start_service = true;
       }

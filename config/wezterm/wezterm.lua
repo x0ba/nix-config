@@ -12,7 +12,7 @@ c.font_size = 16.0
 c.line_height = 1.3
 -- window
 c.window_decorations = "RESIZE"
-c.window_padding = { left = 25, right = 25, top = 25, bottom = 25 }
+c.window_padding = { left = 35, right = 35, top = 35, bottom = 35 }
 -- dim unfocused panes
 c.inactive_pane_hsb = {
 	saturation = 1.0,

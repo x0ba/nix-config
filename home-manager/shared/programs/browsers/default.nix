@@ -38,9 +38,7 @@ in {
       };
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         bitwarden
-        new-tab-override
         clearurls
-        tabliss
         darkreader
         decentraleyes
         i-dont-care-about-cookies

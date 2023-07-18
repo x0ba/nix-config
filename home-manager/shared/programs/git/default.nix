@@ -57,7 +57,7 @@
       rebase.autosquash = true;
       url = {
         "https://github.com/".insteadOf = "gh:";
-        "https://github.com/aspectsides/".insteadOf = "aspect:";
+        "https://github.com/mkshift/".insteadOf = "shift:";
         "https://gitlab.com/".insteadOf = "gl:";
       };
     };
