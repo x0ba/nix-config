@@ -4,7 +4,7 @@ return {
   --   priority = 1000,
   -- },
   {
-    'nyoom-engineering/oxocarbon.nvim'
+    "nyoom-engineering/oxocarbon.nvim",
   },
   {
     "LazyVim/LazyVim",
