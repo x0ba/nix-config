@@ -39,8 +39,9 @@ in
         ublock-origin
         vimium
       ];
+      settings = import ./userjs.nix;
       userChrome = import ./userchrome.nix;
-      extraConfig = import ./userjs.nix;
+      userContent = import ./usercontent.nix;
     };
   };
   xdg.mimeApps.defaultApplications = {
