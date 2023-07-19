@@ -81,13 +81,10 @@
 
   outputs = {
     self,
-    nixpkgs-aspect,
-    nur,
     sops-nix,
     nixpkgs,
     home,
     darwin,
-    nixos-apple-silicon,
     ...
   } @ inputs: let
     inherit (self) outputs;

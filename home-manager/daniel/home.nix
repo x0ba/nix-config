@@ -6,7 +6,6 @@
   lib,
   config,
   pkgs,
-  flakePath,
   ...
 }: {
   # You can import other home-manager modules here

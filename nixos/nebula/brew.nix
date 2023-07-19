@@ -33,6 +33,7 @@
       "sf-symbols"
       "imageoptim"
       "nextcloud"
+      "mullvad-browser"
       "calibre"
       "jetbrains-toolbox"
       "karabiner-elements"
