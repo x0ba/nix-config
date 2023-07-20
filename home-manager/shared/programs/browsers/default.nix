@@ -33,17 +33,12 @@ in
         decentraleyes
         i-dont-care-about-cookies
         libredirect
-        multi-account-containers
         refined-github
-        temporary-containers
         ublock-origin
         vimium
       ];
-      settings = import ./userjs.nix;
+      extraConfig = import ./userjs.nix;
       userChrome = import ./userchrome.nix {
-          theme = config.colorScheme;
-      };
-      userContent = import ./usercontent.nix {
           theme = config.colorScheme;
       };
     };
