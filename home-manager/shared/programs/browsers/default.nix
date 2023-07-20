@@ -4,6 +4,7 @@
 }:
 let
   inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
+  theme = config.colorScheme;
 in
 {
   programs.firefox = {
@@ -29,7 +30,6 @@ in
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         bitwarden
         clearurls
-        darkreader
         decentraleyes
         i-dont-care-about-cookies
         libredirect
@@ -40,8 +40,12 @@ in
         vimium
       ];
       settings = import ./userjs.nix;
-      userChrome = import ./userchrome.nix;
-      userContent = import ./usercontent.nix;
+      userChrome = import ./userchrome.nix {
+          theme = config.colorScheme;
+      };
+      userContent = import ./usercontent.nix {
+          theme = config.colorScheme;
+      };
     };
   };
   xdg.mimeApps.defaultApplications = {

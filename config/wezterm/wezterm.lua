@@ -12,7 +12,7 @@ c.font_size = 16.0
 c.line_height = 1.3
 -- window
 c.window_decorations = "RESIZE"
-c.window_padding = { left = 35, right = 35, top = 35, bottom = 35 }
+c.window_padding = { left = 25, right = 25, top = 25, bottom = 25 }
 -- dim unfocused panes
 c.inactive_pane_hsb = {
 	saturation = 1.0,
@@ -31,7 +31,7 @@ c.window_frame = { font_size = 13.0 }
 c.window_background_opacity = 1.0
 c.animation_fps = 10
 
-c.color_scheme = "Oxocarbon Dark"
+c.color_scheme = "Catppuccin Mocha"
 wezterm.plugin.require("https://github.com/nekowinston/wezterm-bar").apply_to_config(c, {
 	position = "bottom",
 	max_width = 32,
