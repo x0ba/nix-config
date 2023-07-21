@@ -32,7 +32,7 @@ in {
       window_border_blur = "off";
       window_border_width = 02;
       window_border_hidpi = "true";
-      window_border = "on";
+      window_border = "off";
       # mouse
       mouse_follows_focus = "off";
       focus_follows_mouse = "on";

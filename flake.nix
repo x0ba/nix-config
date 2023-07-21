@@ -26,8 +26,6 @@
       flake = false;
     };
 
-
-
     nur.url = "github:nix-community/NUR";
     nekowinston-nur.url = "github:nekowinston/nur/87527a607514deaff82f393720da6f697e61b08d";
 
@@ -76,114 +74,99 @@
     };
   };
 
-  outputs =
-    { self
-    , sops-nix
-    , nixpkgs
-    , home
-    , darwin
-    , ...
-    } @ inputs:
-    let
-      inherit (self) outputs;
-      forAllSystems = nixpkgs.lib.genAttrs [
-        "aarch64-linux"
-        "i686-linux"
-        "x86_64-linux"
-        "aarch64-darwin"
-        "x86_64-darwin"
-      ];
-    in
-    rec {
-      # Your custom packages
-      # Acessible through 'nix build', 'nix shell', etc
-      packages = forAllSystems (
-        system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        import ./pkgs { inherit pkgs; }
-      );
-      # Devshell for bootstrapping
-      # Acessible through 'nix develop' or 'nix-shell' (legacy)
-      devShells = forAllSystems (
-        system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        import ./shell.nix { inherit pkgs; }
-      );
+  outputs = {
+    self,
+    sops-nix,
+    nixpkgs,
+    home,
+    nix-index-database,
+    darwin,
+    ...
+  } @ inputs: let
+    inherit (self) outputs;
+    forAllSystems = nixpkgs.lib.genAttrs [
+      "aarch64-linux"
+      "i686-linux"
+      "x86_64-linux"
+      "aarch64-darwin"
+      "x86_64-darwin"
+    ];
+  in rec {
+    # Your custom packages
+    # Acessible through 'nix build', 'nix shell', etc
+    packages = forAllSystems (
+      system: let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in
+        import ./pkgs {inherit pkgs;}
+    );
+    # Devshell for bootstrapping
+    # Acessible through 'nix develop' or 'nix-shell' (legacy)
+    devShells = forAllSystems (
+      system: let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in
+        import ./shell.nix {inherit pkgs;}
+    );
 
-      # Your custom packages and modifications, exported as overlays
-      overlays = import ./overlays { inherit inputs; };
+    # Your custom packages and modifications, exported as overlays
+    overlays = import ./overlays {inherit inputs;};
 
-      # Reusable nixos modules you might want to export
-      # These are usually stuff you would upstream into nixpkgs
-      nixosModules = import ./modules/nixos;
-      # Reusable home-manager modules you might want to export
-      # These are usually stuff you would upstream into home-manager
-      homeManagerModules = import ./modules/home-manager;
+    # Reusable nixos modules you might want to export
+    # These are usually stuff you would upstream into nixpkgs
+    nixosModules = import ./modules/nixos;
+    # Reusable home-manager modules you might want to export
+    # These are usually stuff you would upstream into home-manager
+    homeManagerModules = import ./modules/home-manager;
 
-      # NixOS configuration entrypoint
-      # Available through 'nixos-rebuild --flake .#your-hostname'
-      nixosConfigurations = {
-        starfall = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [
-            ./nixos/starfall/configuration.nix
-            sops-nix.nixosModules.sops
-          ];
-        };
-      };
-      darwinConfigurations = {
-        "nebula" = darwin.lib.darwinSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [
-            ./nixos/nebula/configuration.nix
-            sops-nix.nixosModules.sops
-          ];
-        };
-      };
-
-      # Standalone home-manager configuration entrypoint
-      # Available through 'home-manager --flake .#your-username@your-hostname'
-      homeConfigurations = {
-        "aspect@starfall" = home.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.aarch64-linux; # Home-manager requires 'pkgs' instance
-          extraSpecialArgs = {
-            inherit inputs outputs;
-            flakePath = "/etc/nixos";
-          };
-          modules = [
-            ./home-manager/aspect/home.nix
-          ];
-        };
-        "daniel@nebula" = home.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.aarch64-darwin; # Home-manager requires 'pkgs' instance
-          extraSpecialArgs = {
-            inherit inputs outputs;
-            flakePath = "/Users/daniel/.config/nixpkgs";
-          };
-          modules = [
-            ./home-manager/daniel/home.nix
-          ];
-        };
+    # NixOS configuration entrypoint
+    # Available through 'nixos-rebuild --flake .#your-hostname'
+    nixosConfigurations = {
+      starfall = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./nixos/starfall/configuration.nix
+          sops-nix.nixosModules.sops
+        ];
       };
     };
-  nixConfig.commit-lockfile-summary = "chore: bump lockfiles";
-  nixConfig = {
-    extra-trusted-substituters = [
-      "https://cache.nixos.org?priority=10"
-      "https://cache.ngi0.nixos.org/"
-      "https://nix-community.cachix.org"
-      "https://aspect.cachix.org"
-    ];
+    darwinConfigurations = {
+      "nebula" = darwin.lib.darwinSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./nixos/nebula/configuration.nix
+          sops-nix.nixosModules.sops
+        ];
+      };
+    };
 
-    extra-trusted-public-keys = [
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      "cache.ngi0.nixos.org-1:KqH5CBLNSyX184S9BKZJo1LxrxJ9ltnY2uAs5c/f1MA="
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "aspect.cachix.org-1:HCNx0CCWqGPQzmSZiZLTiUZ/s4FUaufrSi85ZiKjS98="
-    ];
+    # Standalone home-manager configuration entrypoint
+    # Available through 'home-manager --flake .#your-username@your-hostname'
+    homeConfigurations = {
+      "aspect@starfall" = home.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.aarch64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {
+          inherit inputs outputs;
+          flakePath = "/etc/nixos";
+        };
+        modules = [
+          ./home-manager/aspect/home.nix
+        ];
+      };
+      "daniel@nebula" = home.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.aarch64-darwin; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {
+          inherit inputs outputs;
+          flakePath = "/Users/daniel/.config/nixpkgs";
+        };
+        modules = [
+          ./home-manager/daniel/home.nix
+          nix-index-database.hmModules.nix-index
+          # optional to also wrap and install comma
+          {programs.nix-index-database.comma.enable = true;}
+        ];
+      };
+    };
   };
+  nixConfig.commit-lockfile-summary = "chore: bump lockfiles";
 }

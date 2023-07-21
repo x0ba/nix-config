@@ -89,7 +89,6 @@
   # colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
   home = {
-
     file = {
       ".local/bin/run" = {
         # Script to run any program inside nix-shell

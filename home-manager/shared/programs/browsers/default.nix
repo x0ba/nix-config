@@ -1,12 +1,11 @@
-{ pkgs
-, config
-, ...
-}:
-let
+{
+  pkgs,
+  config,
+  ...
+}: let
   inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
   theme = config.colorScheme;
-in
-{
+in {
   programs.firefox = {
     enable = true;
     # since I'm using firefox from brew on darwin, I need to build a dummy package
@@ -18,12 +17,12 @@ in
         force = true;
         engines = {
           "Ecosia" = {
-            urls = [{ template = "https://www.ecosia.org/search?method=index&q={searchTerms}"; }];
-            definedAliases = [ "@eco" ];
+            urls = [{template = "https://www.ecosia.org/search?method=index&q={searchTerms}";}];
+            definedAliases = ["@eco"];
           };
           "Searx Belgium" = {
-            urls = [{ template = "https://searx.be/search?q={searchTerms}"; }];
-            definedAliases = [ "@searx" ];
+            urls = [{template = "https://searx.be/search?q={searchTerms}";}];
+            definedAliases = ["@searx"];
           };
         };
       };
@@ -38,9 +37,9 @@ in
         vimium
       ];
       extraConfig = import ./userjs.nix;
-      # userChrome = import ./userchrome.nix {
-      #     theme = config.colorScheme;
-      # };
+      userChrome = import ./userchrome.nix {
+        theme = config.colorScheme;
+      };
     };
   };
   xdg.mimeApps.defaultApplications = {
