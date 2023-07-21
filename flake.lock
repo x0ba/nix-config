@@ -575,13 +575,13 @@
       "locked": {
         "lastModified": 1689704038,
         "narHash": "sha256-pOd75hu63o73WyhdTRkZgAioOGiiYmGxiumLLMtZDjk=",
-        "owner": "mkshift",
+        "owner": "x0ba",
         "repo": "nixpkgs-aspect",
         "rev": "c1733298af25ecc99b97155559202294b5f0c28f",
         "type": "github"
       },
       "original": {
-        "owner": "mkshift",
+        "owner": "x0ba",
         "repo": "nixpkgs-aspect",
         "type": "github"
       }

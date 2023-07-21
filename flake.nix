@@ -1,5 +1,5 @@
 {
-  description = "mkshift's HM Flake";
+  description = "x0ba's HM Flake";
 
   inputs = {
     # Nixpkgs Branches
@@ -21,7 +21,7 @@
     # Secrets
     sops-nix.url = "github:Mic92/sops-nix";
 
-    nixpkgs-aspect.url = "github:mkshift/nixpkgs-aspect";
+    nixpkgs-aspect.url = "github:x0ba/nixpkgs-aspect";
 
     nur.url = "github:nix-community/NUR";
     nekowinston-nur.url = "github:nekowinston/nur/87527a607514deaff82f393720da6f697e61b08d";
