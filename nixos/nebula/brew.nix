@@ -27,6 +27,7 @@
       "notion"
       "blender"
       "discord"
+      "vscodium"
       "docker"
       "firefox"
       "iina"
