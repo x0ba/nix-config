@@ -26,6 +26,7 @@
       in
       [
         "bitwarden"
+        "notion"
         "blender"
         "discord"
         "docker"
