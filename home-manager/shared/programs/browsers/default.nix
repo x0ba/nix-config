@@ -38,9 +38,9 @@ in
         vimium
       ];
       extraConfig = import ./userjs.nix;
-      userChrome = import ./userchrome.nix {
-          theme = config.colorScheme;
-      };
+      # userChrome = import ./userchrome.nix {
+      #     theme = config.colorScheme;
+      # };
     };
   };
   xdg.mimeApps.defaultApplications = {
