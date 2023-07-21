@@ -1,12 +1,11 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{
-  inputs,
-  outputs,
-  lib,
-  config,
-  pkgs,
-  ...
+{ inputs
+, outputs
+, lib
+, config
+, pkgs
+, ...
 }: {
   # You can import other home-manager modules here
   imports = [
@@ -47,7 +46,6 @@
       # Add overlays your own flake exports (from overlays and pkgs dir):
       outputs.overlays.modifications
       outputs.overlays.additions
-      inputs.nixpkgs-aspect.overlays.default
       inputs.nur.overlay
 
       (final: prev: {
@@ -64,65 +62,65 @@
     };
   };
 
-  # colorScheme = {
-  #   slug = "oxocarbon";
-  #   name = "oxocarbon";
-  #   author = "Nyoom Engineering";
-  #   colors = {
-  #     base00 = "161616";
-  #     base01 = "262626";
-  #     base02 = "393939";
-  #     base03 = "525252";
-  #     base04 = "dde1e6";
-  #     base05 = "f2f4f8";
-  #     base06 = "ffffff";
-  #     base07 = "08bdba";
-  #     base08 = "3ddbd9";
-  #     base09 = "33b1ff";
-  #     base0A = "ee5396";
-  #     base0B = "78a9ff";
-  #     base0C = "ff7eb6";
-  #     base0D = "42be65";
-  #     base0E = "be95ff";
-  #     base0F = "82cfff";
-  #   };
-  # };
+  colorScheme = {
+    slug = "oxocarbon";
+    name = "oxocarbon";
+    author = "Nyoom Engineering";
+    colors = {
+      base00 = "161616";
+      base01 = "262626";
+      base02 = "393939";
+      base03 = "525252";
+      base04 = "dde1e6";
+      base05 = "f2f4f8";
+      base06 = "ffffff";
+      base07 = "08bdba";
+      base08 = "3ddbd9";
+      base09 = "33b1ff";
+      base0A = "ee5396";
+      base0B = "78a9ff";
+      base0C = "ff7eb6";
+      base0D = "42be65";
+      base0E = "be95ff";
+      base0F = "82cfff";
+    };
+  };
 
-  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
+  # colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
   home = {
     file = {
       ".local/bin/run" = {
         # Script to run any program inside nix-shell
         executable = true;
-        text = import ../shared/bin/run.nix {inherit pkgs;};
+        text = import ../shared/bin/run.nix { inherit pkgs; };
       };
 
       ".local/bin/updoot" = {
         # Upload any file to 0x0.st
         executable = true;
-        text = import ../shared/bin/updoot.nix {inherit pkgs;};
+        text = import ../shared/bin/updoot.nix { inherit pkgs; };
       };
 
       ".local/bin/nix-search" = {
         # search nixpkgs with fzf
         executable = true;
-        text = import ../shared/bin/nix-search.nix {inherit pkgs;};
+        text = import ../shared/bin/nix-search.nix { inherit pkgs; };
       };
 
       ".local/bin/panes" = {
         # eyecandy
         executable = true;
-        text = import ../shared/bin/panes.nix {inherit pkgs;};
+        text = import ../shared/bin/panes.nix { inherit pkgs; };
       };
 
       ".local/bin/preview" = {
         # Preview script for fzf tab
         executable = true;
-        text = import ../shared/bin/preview.nix {inherit pkgs;};
+        text = import ../shared/bin/preview.nix { inherit pkgs; };
       };
 
-      ".tree-sitter".source = pkgs.runCommand "grammars" {} ''
+      ".tree-sitter".source = pkgs.runCommand "grammars" { } ''
         mkdir -p $out/bin
         ${
           lib.concatStringsSep "\n" (lib.mapAttrsToList (name: src: "name=${name}; ln -s ${src}/parser $out/bin/\${name#tree-sitter-}.so")
@@ -137,8 +135,8 @@
       inherit
         (pkgs)
         trash-cli
-        neovide
         lutgen
+        neovide
         cargo
         ripgrep
         fd
@@ -154,7 +152,7 @@
         wireguard-tools
         wireguard-go
         # Extras
-        
+
         imagemagick
         chafa
         jq

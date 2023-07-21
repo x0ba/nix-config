@@ -1,10 +1,9 @@
-{
-  pkgs,
-  lib,
-  inputs,
-  outputs,
-  config,
-  ...
+{ pkgs
+, lib
+, inputs
+, outputs
+, config
+, ...
 }: {
   imports = [
     ./programs/yabai.nix
@@ -13,13 +12,12 @@
   ];
 
   programs.zsh.enable = true;
-  system.stateVersion = 4;
   system.keyboard = {
     enableKeyMapping = true;
     remapCapsLockToEscape = true;
   };
   system.defaults = {
-    screencapture = {location = "/tmp";};
+    screencapture = { location = "/tmp"; };
     dock = {
       autohide = true;
       showhidden = true;

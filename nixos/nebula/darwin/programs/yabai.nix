@@ -27,7 +27,7 @@ in {
       # shadows and borders
       window_shadow = "float";
       active_window_border_color = "0xffb4befe";
-      normal_window_border_color = "0xff1e1e2e";
+      normal_window_border_color = "0xff161616";
       window_border_radius = 11;
       window_border_blur = "off";
       window_border_width = 02;
@@ -46,7 +46,6 @@ in {
       # Unload the macOS WindowManager process
       launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist > /dev/null 2>&1 &
       # bar
-      ${scripts}/create_spaces.sh
       # Automatically focus window under mouse after closing
       yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
       yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
