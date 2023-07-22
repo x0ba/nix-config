@@ -1,8 +1,9 @@
-{ inputs
-, config
-, lib
-, pkgs
-, ...
+{
+  inputs,
+  config,
+  lib,
+  pkgs,
+  ...
 }: {
   imports = [
     ./brew.nix
@@ -10,7 +11,7 @@
     ./nix.nix
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
   networking.computerName = "nebula";
   system.stateVersion = 4;
   services.nix-daemon.enable = true;

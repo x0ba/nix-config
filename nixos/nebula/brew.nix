@@ -8,13 +8,10 @@
       upgrade = true;
     };
     brews = [
-      {
-        name = "sketchybar";
-        start_service = true;
-      }
-      {
-          name = "font-monocraft";
-      }
+      # {
+      #   name = "sketchybar";
+      #   start_service = false;
+      # }
     ];
     casks = let
       skipSha = name: {
@@ -27,35 +24,28 @@
       };
     in [
       "bitwarden"
+      "opera"
       "notion"
-      "blender"
       "discord"
       "vscodium"
       "docker"
       "firefox"
       "iina"
-      "sf-symbols"
       "imageoptim"
       "nextcloud"
-      "mullvad-browser"
       "calibre"
-      "jetbrains-toolbox"
       "karabiner-elements"
-      "obs"
       "linearmouse"
-      "uninstallpkg"
-      "utm"
       "discord"
       "eloston-chromium"
       "raycast"
       "spotify"
-      "neovide"
       "arc"
       "orion"
       # "font-caskaydia-cove-nerd-font"
       (skipSha "spotify")
       (skipSha "tutanota")
     ];
-    taps = ["homebrew/services" "homebrew/cask" "homebrew/cask-fonts" "FelixKratz/formulae" "cmacrae/formulae"];
+    taps = ["homebrew/services" "d12frosted/emacs-plus" "homebrew/cask" "homebrew/cask-fonts" "FelixKratz/formulae" "cmacrae/formulae"];
   };
 }
