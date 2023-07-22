@@ -12,6 +12,9 @@
         name = "sketchybar";
         start_service = true;
       }
+      {
+          name = "font-monocraft";
+      }
     ];
     casks = let
       skipSha = name: {

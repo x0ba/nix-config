@@ -133,7 +133,7 @@
         sarasa-gothic
         ;
 
-      nerdfonts = pkgs.nerdfonts.override {fonts = ["CascadiaCode"];};
+      nerdfonts = pkgs.nerdfonts.override {fonts = ["CascadiaCode" "IBM-Plex"];};
     };
 
     fontconfig = {

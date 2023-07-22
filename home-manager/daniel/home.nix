@@ -136,7 +136,6 @@
         (pkgs)
         trash-cli
         lutgen
-        neovide
         cargo
         ripgrep
         fd
