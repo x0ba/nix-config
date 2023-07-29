@@ -1,8 +1,8 @@
-# aspect's dotfiles
-
-[![NixOS Unstable](https://img.shields.io/badge/NixOS-unstable-blue.svg?style=flat-square&logo=NixOS&logoColor=white)](https://nixos.org)
-[![flake check status](https://img.shields.io/github/actions/workflow/status/aspectsides/dotfiles/check.yml?label=flake%20check&logo=nixos&logoColor=%23fff&style=flat-square&color=f5c2e7)](https://github.com/aspectsides/dotfiles/actions/workflows/check.yml)
-[![commit activity](https://img.shields.io/github/commit-activity/w/aspectsides/dotfiles?style=flat-square&label=commits&color=f5c2e7)](https://github.com/aspectsides/dotfiles/commits)
+<h1 align="center">
+  x0ba/dotfiles
+  
+  [![built with nix](https://img.shields.io/static/v1?logo=nixos&logoColor=white&label=&message=Built%20with%20Nix&color=41439a)](https://builtwithnix.org)
+</h1>
 
 *Here we go again.*
 
