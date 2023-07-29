@@ -24,7 +24,6 @@
       };
     in [
       "bitwarden"
-      "opera"
       "notion"
       "discord"
       "vscodium"
@@ -44,9 +43,6 @@
       "spotify"
       "arc"
       "orion"
-      # "font-caskaydia-cove-nerd-font"
-      (skipSha "spotify")
-      (skipSha "tutanota")
     ];
     taps = ["homebrew/services" "d12frosted/emacs-plus" "homebrew/cask" "homebrew/cask-fonts" "FelixKratz/formulae" "cmacrae/formulae"];
   };

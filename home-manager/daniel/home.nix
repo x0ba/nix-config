@@ -27,7 +27,7 @@
     ../shared/programs/gpg
     ../shared/programs/git
     ../shared/programs/music
-    # ../shared/programs/starship
+    ../shared/programs/starship
     ../shared/programs/browsers
     ../shared/programs/newsboat
     ../shared/programs/shell

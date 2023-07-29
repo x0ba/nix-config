@@ -1,45 +1,28 @@
 {
-  add_newline = true;
+  scan_timeout = 10;
   # prompt
-  format = ''
-    ($username)[@](bold white)($hostname)
-    ($directory)
-  '';
-
-  right_format = "$all";
+  format = "$directory $git_branch$nix_shell\n$character";
+  add_newline = false;
+  line_break.disabled = true;
   character = {
-    success_symbol = "";
-    error_symbol = "[](bold red)";
+    success_symbol = "[](blue)";
+    error_symbol = "[](red)";
   };
-  username = {
-    disabled = false;
-    show_always = true;
-    style_user = "bold white";
-    format = "[$user]($style)";
-  };
-  hostname = {
-    disabled = false;
-    ssh_only = false;
-    style = "bold white";
-    format =  "[$hostname]($style)";
+  # git
+  git_branch = {
+    style = "purple";
+    symbol = "";
   };
   directory = {
+    style = "bg:#262626";
+    format = "[ $path ]($style)";
+  };
+  git_metrics = {
     disabled = false;
-    truncation_length = 1;
-    home_symbol = "~";
-    format = "[$path](bold cyan)[/](bold green) ";
+    added_style = "bold yellow";
+    deleted_style = "bold red";
   };
-  git_branch = {
-    symbol = " ";
-    style = "bold blue";
-  };
-  git_commit = {
-    commit_hash_length = 4;
-    tag_symbol = "🔖 ";
-  };
-  git_state = {
-    format = "[\($state( $progress_current of $progress_total)\)]($style) ";
-    cherry_pick = "[🍒 PICKING](bold red)";
-  };
-  cmd_duration.disabled = true;
+  # package management
+  package.format = "version [$version](bold green) ";
+  nix_shell.symbol = " ";
 }

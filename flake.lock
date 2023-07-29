@@ -689,6 +689,22 @@
         "type": "github"
       }
     },
+    "powerlevel10k": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1690392292,
+        "narHash": "sha256-mKtAj8yo/Qwu10ljWx65QmmXGgfDgzply8dgSqVeJzs=",
+        "owner": "romkatv",
+        "repo": "powerlevel10k",
+        "rev": "9bb15e9ffbf43663a77949ea31d6f18c74e8981c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "romkatv",
+        "repo": "powerlevel10k",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat_3",
@@ -727,6 +743,7 @@
         "nixos-apple-silicon": "nixos-apple-silicon",
         "nixpkgs": "nixpkgs_5",
         "nur": "nur",
+        "powerlevel10k": "powerlevel10k",
         "pre-commit-hooks": "pre-commit-hooks",
         "rust-overlay": "rust-overlay",
         "sfmonoNerdFontLig": "sfmonoNerdFontLig",

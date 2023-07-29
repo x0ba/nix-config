@@ -20,7 +20,6 @@ in
     };
 
     nix-index.enable = true;
-    starship.enable = true;
 
     zoxide = {
       enable = true;
@@ -50,6 +49,5 @@ in
 
   xdg.configFile = {
     "lsd" = symlink "config/lsd" { recursive = true; };
-    "starship.toml" = symlink "config/starship.toml" { };
   };
 }

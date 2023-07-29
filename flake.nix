@@ -68,6 +68,11 @@
       flake = false;
     };
 
+    powerlevel10k = {
+      url = "github:romkatv/powerlevel10k";
+      flake = false;
+    };
+
     zsh-autosuggestions = {
       url = "github:zsh-users/zsh-autosuggestions";
       flake = false;
