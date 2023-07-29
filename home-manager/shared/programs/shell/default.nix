@@ -1,14 +1,15 @@
-{
-  config,
-  flakePath,
-  pkgs,
-  ...
-}: let
-  symlink = fileName: {recursive ? false}: {
+{ config
+, flakePath
+, pkgs
+, ...
+}:
+let
+  symlink = fileName: { recursive ? false }: {
     source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/${fileName}";
     recursive = recursive;
   };
-in {
+in
+{
   programs = {
     btop = {
       enable = true;
@@ -19,11 +20,12 @@ in {
     };
 
     nix-index.enable = true;
+    starship.enable = true;
 
     zoxide = {
       enable = true;
       enableZshIntegration = true;
-      options = ["--cmd cd"];
+      options = [ "--cmd cd" ];
     };
 
     bat = {
@@ -47,6 +49,7 @@ in {
   };
 
   xdg.configFile = {
-    "lsd" = symlink "config/lsd" {recursive = true;};
+    "lsd" = symlink "config/lsd" { recursive = true; };
+    "starship.toml" = symlink "config/starship.toml" { };
   };
 }
