@@ -32,6 +32,7 @@
       "discord"
       "vscodium"
       "obsidian"
+      "aldente"
       "docker"
       "todoist"
       "pomodone"
