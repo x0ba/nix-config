@@ -41,6 +41,7 @@
     };
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    nyoom.url = "github:ryanccn/nyoom";
 
     # Non Flakes
     fzf-tab = {

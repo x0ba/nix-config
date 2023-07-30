@@ -35,7 +35,7 @@ with pkgs; ''
   mime="$(file --brief --mime-type "$1")"
   case "$mime" in
     text/*) handle_text "$mime" "$1" ;;
-    inode/directory) lsd --long --icons --color=always "$1" ;;
+    inode/directory) lsd --long --icon --color=always "$1" ;;
     inode/symlink) printf "Symbolic link to: \e[34m%s\e[0m." "$(readlink "$1")" ;;
     application/json) jq --color-output < "$1" ;;
     application/x-bittorrent) transmission-show --unsorted "$1" ;;

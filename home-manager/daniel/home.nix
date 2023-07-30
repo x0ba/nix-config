@@ -136,6 +136,7 @@
         (pkgs)
         trash-cli
         lutgen
+        just
         cargo
         ripgrep
         fd
@@ -150,8 +151,8 @@
         sops
         wireguard-tools
         wireguard-go
+        
         # Extras
-
         imagemagick
         chafa
         jq

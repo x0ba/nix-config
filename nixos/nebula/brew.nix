@@ -10,8 +10,11 @@
     brews = [
       # {
       #   name = "sketchybar";
-      #   start_service = false;
+      #   start_service = true;
       # }
+      {
+        name = "emacs-plus";
+      }
     ];
     casks = let
       skipSha = name: {
@@ -25,10 +28,13 @@
     in [
       "bitwarden"
       "notion"
+      "uninstallpkg"
       "discord"
       "vscodium"
+      "obsidian"
       "docker"
-      "dozer"
+      "todoist"
+      "pomodone"
       "firefox"
       "iina"
       "imageoptim"
