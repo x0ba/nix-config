@@ -11,14 +11,6 @@
 > take inspiration from my dots, feel free, just copy chunks instead
 > of the whole thing.
  
-<img src="/../screenshots/oxocarbon/fakebusy.png" width="100%" />
-
-<p align="center">
-<span><img src="./assets/desktop.png" height="178" /></span>
-<span><img src="./assets/jetbrains_supremacy.png" height="178" /></span>
-<span><img src="./assets/tiling.png" height="178" /></span>
-</p>
-
 ------
 
 |                |                                                          |
