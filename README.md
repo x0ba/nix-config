@@ -14,9 +14,9 @@
 <img src="/../screenshots/oxocarbon/fakebusy.png" width="100%" />
 
 <p align="center">
-<span><img src="/../screenshots/oxocarbon/desktop.png" height="178" /></span>
-<span><img src="/../screenshots/oxocarbon/jetbrains_supremacy.png" height="178" /></span>
-<span><img src="/../screenshots/oxocarbon/tiling.png" height="178" /></span>
+<span><img src="./assets/desktop.png" height="178" /></span>
+<span><img src="./assets/jetbrains_supremacy.png" height="178" /></span>
+<span><img src="./assets/tiling.png" height="178" /></span>
 </p>
 
 ------
