@@ -135,10 +135,12 @@
       inherit
         (pkgs)
         trash-cli
+        libtool
         lutgen
         just
         cargo
         ripgrep
+        cmake
         fd
         nil
         deadnix

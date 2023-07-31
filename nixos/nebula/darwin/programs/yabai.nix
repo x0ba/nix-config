@@ -35,7 +35,7 @@ in {
       window_border = "off";
       # mouse
       mouse_follows_focus = "off";
-      focus_follows_mouse = "on";
+      focus_follows_mouse = "autofocus";
       window_opacity = "off";
       mouse_modifier = "fn";
       mouse_action1 = "move";

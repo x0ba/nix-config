@@ -16,6 +16,13 @@
         name = "emacs-plus";
         start_service = true;
       }
+
+      {
+        name = "libtool";
+      }
+      {
+        name = "libvterm";
+      }
     ];
     casks = let
       skipSha = name: {
