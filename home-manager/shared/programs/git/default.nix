@@ -63,7 +63,7 @@
     };
     lfs.enable = true;
     enable = true;
-    userName = "Daniel Xu";
-    userEmail = "heavydenial@proton.me";
+    userName = "x0ba";
+    userEmail = "x0ba@proton.me";
   };
 }
