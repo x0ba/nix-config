@@ -1,14 +1,16 @@
-{ inputs, pkgs, ... }:
-
 {
-  imports = [ ./languages.nix ];
+  inputs,
+  pkgs,
+  ...
+}: {
+  imports = [./languages.nix];
 
   programs.helix = {
     enable = true;
     package = inputs.helix.packages.${pkgs.system}.default.overrideAttrs (self: {
       makeWrapperArgs = with pkgs;
         self.makeWrapperArgs
-          or [ ]
+        or []
         ++ [
           "--suffix"
           "PATH"
@@ -41,7 +43,7 @@
         };
         lsp.display-inlay-hints = true;
         rainbow-brackets = true;
-        statusline.center = [ "position-percentage" ];
+        statusline.center = ["position-percentage"];
         true-color = true;
         whitespace.characters = {
           newline = "↴";

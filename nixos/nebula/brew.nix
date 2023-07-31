@@ -36,6 +36,7 @@
     in [
       "bitwarden"
       "notion"
+      "ticktick"
       "uninstallpkg"
       "discord"
       "vscodium"
