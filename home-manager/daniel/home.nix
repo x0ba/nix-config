@@ -135,6 +135,8 @@
       inherit
         (pkgs)
         trash-cli
+        nixfmt
+        shellcheck
         libtool
         lutgen
         just
