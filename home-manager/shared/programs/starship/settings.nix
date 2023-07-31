@@ -1,21 +1,18 @@
 {
   scan_timeout = 10;
   # prompt
-  format = "$directory $git_branch$nix_shell\n$character";
+  format = "$directory$git_branch$git_metrics$nix_shell$package$character";
   add_newline = false;
   line_break.disabled = true;
+  directory.style = "cyan";
   character = {
-    success_symbol = "[](blue)";
-    error_symbol = "[](red)";
+    success_symbol = "[λ](green)";
+    error_symbol = "[λ](red)";
   };
   # git
   git_branch = {
     style = "purple";
     symbol = "";
-  };
-  directory = {
-    style = "bg:#262626";
-    format = "[ $path ]($style)";
   };
   git_metrics = {
     disabled = false;

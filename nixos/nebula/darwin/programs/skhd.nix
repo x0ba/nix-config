@@ -1,8 +1,5 @@
 {
   pkgs,
-  lib,
-  inputs,
-  config,
   ...
 }: {
   services.skhd = {
@@ -11,6 +8,7 @@
     skhdConfig = ''
       ## Navigation (lalt - ...)
       # Space Navigation (four spaces per display): lalt - {1, 2, 3, 4}
+
       lalt - 1 : yabai -m space --focus 1
       lalt - 2 : yabai -m space --focus 2
       lalt - 3 : yabai -m space --focus 3
@@ -93,6 +91,8 @@
 
 
       lalt - return : open -na "''${HOME}/Applications/Home Manager Apps/WezTerm.app"
+      lalt - w : open -na "/Applications/Orion.app"
+      lalt - e : /opt/homebrew/bin/emacsclient -c
     '';
   };
 }
