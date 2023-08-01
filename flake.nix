@@ -15,10 +15,6 @@
     sops-nix.inputs.nixpkgs-stable.follows = "nixpkgs";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    flake-utils.url = "github:numtide/flake-utils";
-    pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
-
     nix-colors.url = "github:misterio77/nix-colors";
 
     base16-oxocarbon = {
@@ -39,9 +35,6 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    nyoom.url = "github:ryanccn/nyoom";
 
     # Non Flakes
     fzf-tab = {
