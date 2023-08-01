@@ -34,7 +34,6 @@
         args = {no_quarantine = true;};
       };
     in [
-      "bitwarden"
       "notion"
       "ticktick"
       "uninstallpkg"
