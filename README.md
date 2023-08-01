@@ -1,8 +1,36 @@
-<h1 align="center">
-  x0ba/dotfiles
-  
-  [![built with nix](https://img.shields.io/static/v1?logo=nixos&logoColor=white&label=&message=Built%20with%20Nix&color=41439a)](https://builtwithnix.org)
-</h1>
+<!--x0ba's flake-->
+<!-- https://git.aspectsides.site/x0ba/dotfiles -->
+
+<p align="center">
+<a href="https://github.com/nixos/nixpkgs"><img src="https://img.shields.io/badge/NixOS-unstable-informational.svg?style=flat&logo=nixos&logoColor=CAD3F5&colorA=24273A&colorB=8AADF4"></a> <a href="https://awesomewm.org"><img src="https://img.shields.io/static/v1?label=AwesomeWM&message=master&style=flat&logo=awesomewm&colorA=24273A&colorB=8AADF4&logoColor=CAD3F5"/></a>
+</p>
+
+<div align="justify">
+<div align="center">
+
+```ocaml
+x0ba's Dotfiles
+```
+
+<br>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nixos-white.png" width="500px" alt="NixOS logo"/>
+</p>
+
+<br>
+
+```ocaml
+NixOS / Home-Manager / Flake
+```
+
+</div>
+
+<br>
+<br>
+<br>
+
+## :snowflake: <samp>Information</samp>
 
 *Here we go again.*
 

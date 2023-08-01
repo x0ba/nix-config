@@ -13,8 +13,7 @@
           args = ["-i" "2" "-"];
         };
       }
-      {
-        name = "clojure";
+      { name = "clojure";
         injection-regex = "(clojure|clj|edn|boot|yuck)";
         file-types = ["clj" "cljs" "cljc" "clje" "cljr" "cljx" "edn" "boot" "yuck"];
       }
