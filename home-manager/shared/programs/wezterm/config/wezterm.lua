@@ -5,15 +5,17 @@ local c = wezterm.config_builder()
 require("keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-	"Berkeley Mono",
+	"Liga SFMono Nerd Font",
 	"Symbols Nerd Font",
 })
 c.font_size = 16.0
 c.line_height = 1.3
 c.hide_tab_bar_if_only_one_tab = true
+
 -- window
 c.window_decorations = "RESIZE"
 c.window_padding = { left = 35, right = 35, top = 35, bottom = 25 }
+
 -- dim unfocused panes
 c.inactive_pane_hsb = {
 	saturation = 1.0,
@@ -32,6 +34,6 @@ c.window_frame = { font_size = 13.0 }
 c.window_background_opacity = 1.0
 c.animation_fps = 10
 
-c.color_scheme = "Nord (Gogh)"
+c.color_scheme = "Mountain"
 
 return c

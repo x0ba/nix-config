@@ -26,6 +26,7 @@
     ../shared/programs/direnv
     ../shared/programs/exa
     ../shared/programs/sway
+    ../shared/programs/neovim
     ../shared/programs/lf
     ../shared/programs/eww
     ../shared/programs/rofi
@@ -35,16 +36,7 @@
     ../shared/programs/dunst
     ../shared/services/kanshi.nix
 
-    (import ../shared/programs/firefox {
-      inherit config pkgs;
-      package = pkgs.firefox;
-
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-        bitwarden
-        ublock-origin
-        octotree
-      ];
-    })
+    ../shared/programs/firefox
 
     ../shared/programs/git
     ../shared/programs/starship
@@ -119,19 +111,6 @@
   };
 
   home = {
-    activation = {
-      installAwesomeConfig = ''
-        if [ ! -d "${config.home.homeDirectory}/.config/awesome" ]; then
-          ln -s "/etc/nixos/config/awesome" "${config.home.homeDirectory}/.config/awesome"
-        fi
-      '';
-      installNvimConfig = ''
-        if [ ! -d "${config.home.homeDirectory}/.config/nvim" ]; then
-          ln -s "/etc/nixos/config/nvim" "${config.home.homeDirectory}/.config/nvim"
-        fi
-      '';
-    };
-
     file = {
       # Amazing Phinger Icons
       ".icons/default".source = "${pkgs.phinger-cursors}/share/icons/phinger-cursors";

@@ -20,6 +20,8 @@
   home.packages = with pkgs; [
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "CascadiaCode"];})
     victor-mono
+    ibm-plex
+    roboto
     iosevka
     recursive
   ];

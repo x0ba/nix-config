@@ -1,7 +1,6 @@
 {
   config,
   flakePath,
-  pkgs,
   ...
 }: {
   programs.wezterm = {
@@ -12,7 +11,7 @@
   xdg.configFile."wezterm/wezterm.lua".enable = false;
   # and use my own config instead
   xdg.configFile."wezterm" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/config/wezterm";
+    source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/home-manager/shared/programs/wezterm/config";
     recursive = true;
   };
   programs.zsh.initExtra = ''

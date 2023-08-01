@@ -9,7 +9,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tomorrow_night",
+      colorscheme = "mountain",
     },
   },
 }

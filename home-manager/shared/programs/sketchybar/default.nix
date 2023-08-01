@@ -1,14 +1,10 @@
 {
-  inputs,
-  outputs,
-  lib,
   config,
-  pkgs,
   flakePath,
   ...
 }: {
   xdg.configFile."sketchybar" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/config/sketchybar";
+    source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/home-manager/shared/programs/sketchybar/config";
     recursive = true;
   };
 }

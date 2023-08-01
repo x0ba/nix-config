@@ -32,7 +32,7 @@
     ../shared/programs/browsers
     ../shared/programs/newsboat
     ../shared/programs/shell
-    ../shared/xdg.nix
+    ../shared/programs/xdg
     ../shared/programs/mail
     ../shared/programs/fonts
     ../shared/programs/sketchybar
@@ -87,7 +87,7 @@
   #   };
   # };
 
-  colorScheme = inputs.nix-colors.colorSchemes.nord;
+  colorScheme = inputs.nix-colors.colorSchemes.tomorrow-night;
 
   home = {
     file = {
