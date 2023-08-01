@@ -1,67 +1,54 @@
-{config, ...}: let
+{ pkgs
+, lib
+, inputs
+, config
+, ...
+}: let
   theme = config.colorScheme;
 in {
   programs.alacritty = {
     enable = true;
-
-    settings = {
-      window = {
-        padding = {
-          x = 20;
-          y = 20;
-        };
-
-        dynamic_padding = true;
-        decorations_theme_variant = "Dark";
-        decorations = "none";
-      };
-
+    settings = with theme.colors; {
+      window.padding.x = 45;
+      window.padding.y = 45;
+      window.decorations = "none";
       mouse.hide_when_typing = true;
       use_thin_strokes = true;
+      cursor.style = "Beam";
 
       font = {
-        size = 15;
-        normal.family = "CaskaydiaCove Nerd Font";
-        normal.style = "Light";
-        bold.family = "CaskaydiaCove Nerd Font";
+        size = 17;
+        normal.family = "AestheticIosevka Nerd Font";
+        normal.style = "Regular";
+        bold.family = "AestheticIosevka Nerd Font";
         bold.style = "Bold";
-        italic.family = "CaskaydiaCove Nerd Font";
+        italic.family = "AestheticIosevka Nerd Font";
         italic.style = "Italic";
       };
 
-      cursor.style = {
-        shape = "Beam";
-        blinking = "On";
-      };
-
       colors = with theme.colors; {
-        primary = {
-          background = "0x${base00}";
-          foreground = "0x${base06}";
-        };
-
-        cursor = {cursor = "0x${base07}";};
-
+        cursor.cursor = "#${base04}";
+        primary.background = "#${base00}";
+        primary.foreground = "#${base06}";
         normal = {
-          black = "0x${base01}";
-          red = "0x${base08}";
-          green = "0x${base0B}";
-          yellow = "0x${base0A}";
-          blue = "0x${base0D}";
-          magenta = "0x${base0E}";
-          cyan = "0x${base0C}";
-          white = "0x${base06}";
+          black = "#${base00}";
+          red = "#${base0B}";
+          green = "#${base0C}";
+          yellow = "#${base0D}";
+          blue = "#${base07}";
+          magenta = "#${base0F}";
+          cyan = "#${base09}";
+          white = "#${base04}";
         };
-
         bright = {
-          black = "0x${base02}";
-          red = "0x${base08}";
-          green = "0x${base0B}";
-          yellow = "0x${base0A}";
-          blue = "0x${base0D}";
-          magenta = "0x${base0E}";
-          cyan = "0x${base0C}";
-          white = "0x${base07}";
+          black = "#${base03}";
+          red = "#${base0B}";
+          green = "#${base0C}";
+          yellow = "#${base0D}";
+          blue = "#${base07}";
+          magenta = "#${base0F}";
+          cyan = "#${base09}";
+          white = "#${base06}";
         };
       };
     };

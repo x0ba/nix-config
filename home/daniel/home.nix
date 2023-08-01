@@ -24,6 +24,7 @@
     ../shared/secrets/sops.nix
     ../shared/programs/tmux
     ../shared/programs/lf
+    ../shared/programs/alacritty
     ../shared/programs/kitty
     ../shared/programs/gpg
     ../shared/programs/git
@@ -63,31 +64,7 @@
     };
   };
 
-  # colorScheme = {
-  #   slug = "oxocarbon";
-  #   name = "oxocarbon";
-  #   author = "Nyoom Engineering";
-  #   colors = {
-  #     base00 = "161616";
-  #     base01 = "262626";
-  #     base02 = "393939";
-  #     base03 = "525252";
-  #     base04 = "dde1e6";
-  #     base05 = "f2f4f8";
-  #     base06 = "ffffff";
-  #     base07 = "08bdba";
-  #     base08 = "3ddbd9";
-  #     base09 = "33b1ff";
-  #     base0A = "ee5396";
-  #     base0B = "78a9ff";
-  #     base0C = "ff7eb6";
-  #     base0D = "42be65";
-  #     base0E = "be95ff";
-  #     base0F = "82cfff";
-  #   };
-  # };
-
-  colorScheme = inputs.nix-colors.colorSchemes.tomorrow-night;
+  colorScheme = inputs.nix-colors.colorSchemes.mountain;
 
   home = {
     file = {

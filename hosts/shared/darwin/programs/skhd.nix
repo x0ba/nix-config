@@ -87,9 +87,8 @@
       shift + ctrl + lalt - b : yabai -m config window_border on
 
 
-      lalt - return : open -na "''${HOME}/Applications/Home Manager Apps/WezTerm.app"
+      lalt - return : open -na "''${HOME}/Applications/Home Manager Apps/Alacritty.app"
       lalt - w : open -na "/Applications/Orion.app"
-      lalt - e : /opt/homebrew/bin/emacsclient -c
     '';
   };
 }

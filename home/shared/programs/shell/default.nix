@@ -47,6 +47,6 @@ in {
   };
 
   xdg.configFile = {
-    "lsd" = symlink "${flakePath}/home-manager/shared/programs/shell/lsd" {recursive = true;};
+    "lsd" = symlink "${flakePath}/home/shared/programs/shell/lsd" {recursive = true;};
   };
 }
