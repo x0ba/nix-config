@@ -10,9 +10,20 @@
     ./programs/yabai.nix
     ./programs/skhd.nix
     ./programs/fish.nix
+    ./brew.nix
+    ./nix.nix
   ];
 
+
+  system.stateVersion = 4;
+  services.nix-daemon.enable = true;
+  nixpkgs.hostPlatform = "aarch64-darwin";
+
+
   programs.zsh.enable = true;
+
+  security.pam.enableSudoTouchIdAuth = true;
+
   system.keyboard = {
     enableKeyMapping = true;
     remapCapsLockToEscape = true;

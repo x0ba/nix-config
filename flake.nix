@@ -124,7 +124,7 @@
       starfall = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          ./nixos/starfall/configuration.nix
+          ./hosts/starfall/configuration.nix
           sops-nix.nixosModules.sops
         ];
       };
@@ -133,7 +133,7 @@
       "nebula" = darwin.lib.darwinSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          ./nixos/nebula/configuration.nix
+          ./hosts/nebula/configuration.nix
           sops-nix.nixosModules.sops
         ];
       };
@@ -149,7 +149,7 @@
           flakePath = "/etc/nixos";
         };
         modules = [
-          ./home-manager/aspect/home.nix
+          ./home/aspect/home.nix
         ];
       };
       "daniel@nebula" = home.lib.homeManagerConfiguration {
@@ -159,7 +159,7 @@
           flakePath = "/Users/daniel/.config/nixpkgs";
         };
         modules = [
-          ./home-manager/daniel/home.nix
+          ./home/daniel/home.nix
           nix-index-database.hmModules.nix-index
           # optional to also wrap and install comma
           {programs.nix-index-database.comma.enable = true;}
@@ -167,5 +167,20 @@
       };
     };
   };
-  nixConfig.commit-lockfile-summary = "chore: bump lockfiles";
+  nixConfig = {
+    extra-substituters = [
+      "https://cache.garnix.io"
+      "https://mic92.cachix.org"
+      "https://nekowinston.cachix.org"
+      "https://nix-community.cachix.org"
+      "https://pre-commit-hooks.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+      "mic92.cachix.org-1:gi8IhgiT3CYZnJsaW7fxznzTkMUOn1RY4GmXdT/nXYQ="
+      "nekowinston.cachix.org-1:lucpmaO+JwtoZj16HCO1p1fOv68s/RL1gumpVzRHRDs="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "pre-commit-hooks.cachix.org-1:Pkk3Panw5AW24TOv6kz3PvLhlH8puAsJTBbOPmBo7Rc="
+    ];
+  };
 }

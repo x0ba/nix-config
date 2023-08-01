@@ -9,7 +9,7 @@
   imports = [
     # auto generated
     ./hardware-configuration.nix
-    ../shared/configuration.nix
+    ../shared/nixos
     inputs.nixos-apple-silicon.nixosModules.apple-silicon-support
   ];
 
