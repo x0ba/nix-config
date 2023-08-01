@@ -406,6 +406,10 @@ in {
       zstyle ':fzf-tab:complete:_zlua:*' query-string input
       zstyle ':fzf-tab:complete:*:*' fzf-preview 'preview $realpath'
 
+      command_not_found_handler() {
+        ${pkgs.comma}/bin/comma "$@"
+      }
+
       ZSH_AUTOSUGGEST_USE_ASYNC="true"
       ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp root line)
       ZSH_HIGHLIGHT_MAXLENGTH=512

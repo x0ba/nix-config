@@ -1,8 +1,10 @@
-_: ''
-  #> Syntax: bash
+# ----------------------- #
+# -- Colorpanes Script -- #
+# ----------------------- #
 
-  # Author: GekkoP
-  # Source: http://linuxbbq.org/bbs/viewtopic.php?f=4&t=1656#p33189
+_:
+''
+  #> Syntax: bash
 
   f=3 b=4
   for j in f b; do
@@ -13,7 +15,6 @@ _: ''
   d=$'\e[1m'
   t=$'\e[0m'
   v=$'\e[7m'
-
 
   cat << EOF
 

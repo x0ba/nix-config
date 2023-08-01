@@ -17,6 +17,8 @@
     # inputs.discocss.hmModule
     inputs.nix-colors.homeManagerModules.default
     inputs.sops-nix.homeManagerModules.sops
+    inputs.nix-index-database.hmModules.nix-index
+    {programs.nix-index-database.comma.enable = true;}
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
@@ -116,7 +118,6 @@
         nixfmt
         shellcheck
         git-lfs
-        libtool
         lutgen
         just
         cargo
