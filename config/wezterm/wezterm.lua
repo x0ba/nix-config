@@ -32,6 +32,6 @@ c.window_frame = { font_size = 13.0 }
 c.window_background_opacity = 1.0
 c.animation_fps = 10
 
-c.color_scheme = "Tomorrow Night"
+c.color_scheme = "DoomOne"
 
 return c
