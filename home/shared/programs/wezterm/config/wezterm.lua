@@ -5,16 +5,16 @@ local c = wezterm.config_builder()
 require("keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-	"Liga SFMono Nerd Font",
+	"AestheticIosevka Nerd Font",
 	"Symbols Nerd Font",
 })
-c.font_size = 16.0
-c.line_height = 1.3
+c.font_size = 17.0
+c.line_height = 1.1
 c.hide_tab_bar_if_only_one_tab = true
 
 -- window
 c.window_decorations = "RESIZE"
-c.window_padding = { left = 35, right = 35, top = 35, bottom = 25 }
+c.window_padding = { left = 45, right = 45, top = 45, bottom = 45 }
 
 -- dim unfocused panes
 c.inactive_pane_hsb = {
@@ -25,7 +25,7 @@ c.inactive_pane_hsb = {
 c.adjust_window_size_when_changing_font_size = false
 c.audible_bell = "Disabled"
 c.clean_exit_codes = { 130 }
-c.default_cursor_style = "SteadyBlock"
+c.default_cursor_style = "SteadyUnderline"
 c.launch_menu = {
 	{ label = "Music player", args = { "ncmpcpp" } },
 }
