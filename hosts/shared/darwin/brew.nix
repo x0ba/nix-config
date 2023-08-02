@@ -8,10 +8,6 @@
       upgrade = true;
     };
     brews = [
-      {
-        name = "emacs-plus";
-        start_service = true;
-      }
     ];
     casks = let
       skipSha = name: {
