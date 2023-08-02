@@ -8,6 +8,10 @@
       upgrade = true;
     };
     brews = [
+      {
+        name = "sketchybar";
+        start_service = true;
+      }
     ];
     casks = let
       skipSha = name: {
@@ -21,6 +25,7 @@
     in [
       "notion"
       "ticktick"
+      "sip"
       "uninstallpkg"
       "discord"
       "vscodium"

@@ -1,1 +1,7 @@
-/nix/store/70k3rvwvc1jfhvjc8sw1dp2vv808q81z-home-manager-files/.config/sketchybar/plugins/front_app.sh
+#!/usr/bin/env sh
+
+case "$SENDER" in
+    "front_app_switched")
+        sketchybar --set $NAME label="$INFO"
+        ;;
+esac

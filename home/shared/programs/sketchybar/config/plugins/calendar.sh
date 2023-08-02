@@ -1,1 +1,3 @@
-/nix/store/70k3rvwvc1jfhvjc8sw1dp2vv808q81z-home-manager-files/.config/sketchybar/plugins/calendar.sh
+#!/usr/bin/env sh
+
+sketchybar --set $NAME icon="" label="$(date '+%a %d. %b')"

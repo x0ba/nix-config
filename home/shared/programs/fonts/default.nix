@@ -21,6 +21,7 @@
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "CascadiaCode"];})
     victor-mono
     ibm-plex
+    dosis
     roboto
     iosevka
     recursive

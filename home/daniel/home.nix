@@ -32,7 +32,7 @@
     ../shared/programs/git
     ../shared/programs/music
     # ../shared/programs/starship
-    ../shared/programs/browsers
+    ../shared/programs/firefox
     ../shared/programs/newsboat
     ../shared/programs/shell
     ../shared/programs/xdg

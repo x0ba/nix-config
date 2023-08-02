@@ -1,1 +1,61 @@
-/nix/store/70k3rvwvc1jfhvjc8sw1dp2vv808q81z-home-manager-files/.config/sketchybar/sketchybarrc
+#!/usr/bin/env sh
+
+source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
+source "$HOME/.config/sketchybar/icons.sh"  # Loads all defined icons
+
+ITEM_DIR="$HOME/.config/sketchybar/items"
+PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
+
+FONT="Dosis"
+ICON_FONT="Symbols Nerd Font"
+
+PADDINGS=3 # All paddings use this value (icon, label, background)
+
+POPUP_BORDER_WIDTH=2
+POPUP_CORNER_RADIUS=11
+
+CORNER_RADIUS=15
+
+SHADOW=off
+
+# General bar and defaults
+
+sketchybar --bar height=40 \
+  color=$BAR_COLOR \
+  shadow=$SHADOW \
+  position=bottom \
+  --default updates=when_shown \
+  icon.font="$FONT:Bold:15.0" \
+  icon.color=$ICON_COLOR \
+  icon.padding_left=$PADDINGS \
+  icon.padding_right=$PADDINGS \
+  label.font="$FONT:SemiBold:15.0" \
+  label.color=$LABEL_COLOR \
+  label.padding_left=$PADDINGS \
+  label.padding_right=$PADDINGS \
+  background.padding_right=$PADDINGS \
+  background.padding_left=$PADDINGS \
+  popup.background.border_width=2 \
+  popup.background.corner_radius=11 \
+  popup.background.border_color=$POPUP_BORDER_COLOR \
+  popup.background.color=$POPUP_BACKGROUND_COLOR \
+  popup.background.shadow.drawing=$SHADOW
+
+# Left
+source "$ITEM_DIR/spaces.sh"
+
+# Center
+source "$ITEM_DIR/front_app.sh"
+
+# Right
+# source "$ITEM_DIR/clock.sh"
+# source "$ITEM_DIR/calendar.sh"
+# source "$ITEM_DIR/battery.sh"
+# source "$ITEM_DIR/brew.sh"
+# source "$ITEM_DIR/network.sh"
+
+#################### Finalizing Setup ####################
+
+sketchybar --update
+
+echo "sketchybar configuration loaded.."
