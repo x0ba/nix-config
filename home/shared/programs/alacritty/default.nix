@@ -18,12 +18,12 @@ in {
       cursor.style = "Beam";
 
       font = {
-        size = 17;
-        normal.family = "AestheticIosevka Nerd Font";
-        normal.style = "Regular";
-        bold.family = "AestheticIosevka Nerd Font";
+        size = 16;
+        normal.family = "Liga SFMono Nerd Font";
+        normal.style = "Light";
+        bold.family = "Liga SFMono Nerd Font";
         bold.style = "Bold";
-        italic.family = "AestheticIosevka Nerd Font";
+        italic.family = "Liga SFMono Nerd Font";
         italic.style = "Italic";
       };
 

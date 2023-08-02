@@ -13,7 +13,7 @@ for i in "${!SPACE_ICONS[@]}"; do
     icon=${SPACE_ICONS[i]} \
     icon.padding_left=22 \
     icon.padding_right=22 \
-    icon.highlight_color=$BLUE \
+    icon.highlight_color=$RED \
     background.padding_left=-11 \
     background.padding_right=-11 \
     background.height=26 \

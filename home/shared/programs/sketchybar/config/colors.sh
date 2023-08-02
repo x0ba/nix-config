@@ -2,7 +2,7 @@
 
 # Color Palette
 BLACK=0xff262626
-WHITE=0xffffffff
+WHITE=0xfff0f0f0
 MAGENTA=0xffbb9af7
 BLUE=0xff78a9ff
 CYAN=0xff7dcfff
@@ -14,7 +14,7 @@ GREY=0xff939ab7
 TRANSPARENT=0x00000000
 
 # General bar colors
-BAR_COLOR=0xff161616
+BAR_COLOR=0xff0f0f0f
 # BAR_COLOR=0x801a1b26
 ICON_COLOR=$WHITE  # Color of all icons
 LABEL_COLOR=$WHITE # Color of all labels

@@ -16,7 +16,6 @@ in {
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         bitwarden
         clearurls
-        darkreader
         decentraleyes
         i-dont-care-about-cookies
         multi-account-containers

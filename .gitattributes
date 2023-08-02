@@ -1,2 +1,2 @@
-home-manager/shared/secrets/fonts/* filter=git-crypt diff=git-crypt
+home/shared/secrets/fonts/* filter=git-crypt diff=git-crypt
 *.ttf filter=lfs diff=lfs merge=lfs -text
