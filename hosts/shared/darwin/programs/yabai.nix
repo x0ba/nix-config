@@ -26,13 +26,13 @@ in {
       right_padding = 12;
       # shadows and borders
       window_shadow = "float";
-      active_window_border_color = "0xffb4befe";
-      normal_window_border_color = "0xff161616";
+      active_window_border_color = "0xffb3888b";
+      normal_window_border_color = "0xff262626";
       window_border_radius = 11;
       window_border_blur = "off";
       window_border_width = 02;
-      window_border_hidpi = "true";
-      window_border = "off";
+      window_border_hidpi = "false";
+      window_border = "on";
       # mouse
       mouse_follows_focus = "off";
       focus_follows_mouse = "autofocus";
