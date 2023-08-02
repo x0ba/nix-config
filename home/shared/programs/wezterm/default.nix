@@ -11,7 +11,7 @@
   xdg.configFile."wezterm/wezterm.lua".enable = false;
   # and use my own config instead
   xdg.configFile."wezterm" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/shared/programs/wezterm/config";
+    source = ./config;
     recursive = true;
   };
   programs.zsh.initExtra = ''

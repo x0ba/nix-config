@@ -4,7 +4,7 @@
   ...
 }: {
   xdg.configFile."sketchybar" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/shared/programs/sketchybar/config";
+    source = ./config;
     recursive = true;
   };
 }

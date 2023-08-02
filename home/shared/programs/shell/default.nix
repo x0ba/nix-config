@@ -47,7 +47,7 @@ in {
   };
 
   xdg.configFile."lsd" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/shared/programs/shell/lsd_config";
+    source = ./lsd_config;
     recursive = true;
   };
 }

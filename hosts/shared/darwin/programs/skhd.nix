@@ -89,6 +89,7 @@
 
       lalt - return : open -na "''${HOME}/Applications/Home Manager Apps/WezTerm.app"
       lalt - w : open -na "/Applications/Orion.app"
+      lalt - e : /opt/homebrew/bin/emacsclient -c
     '';
   };
 }

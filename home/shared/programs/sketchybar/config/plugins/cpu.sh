@@ -1,3 +1,1 @@
-#!/usr/bin/env sh
-
-sketchybar --set $NAME icon="" label="$(ps -A -o %cpu | awk '{s+=$1} END {print s "%"}')"
+/nix/store/70k3rvwvc1jfhvjc8sw1dp2vv808q81z-home-manager-files/.config/sketchybar/plugins/cpu.sh
