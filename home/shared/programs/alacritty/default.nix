@@ -1,7 +1,4 @@
 {
-  pkgs,
-  lib,
-  inputs,
   config,
   ...
 }: let
@@ -10,20 +7,20 @@ in {
   programs.alacritty = {
     enable = true;
     settings = with theme.colors; {
-      window.padding.x = 45;
-      window.padding.y = 45;
+      window.padding.x = 25;
+      window.padding.y = 25;
       window.decorations = "none";
       mouse.hide_when_typing = true;
       use_thin_strokes = true;
       cursor.style = "Beam";
 
       font = {
-        size = 16;
-        normal.family = "Liga SFMono Nerd Font";
-        normal.style = "Light";
-        bold.family = "Liga SFMono Nerd Font";
+        size = 17;
+        normal.family = "AestheticIosevka Nerd Font";
+        normal.style = "Regular";
+        bold.family = "AestheticIosevka Nerd Font";
         bold.style = "Bold";
-        italic.family = "Liga SFMono Nerd Font";
+        italic.family = "AestheticIosevka Nerd Font";
         italic.style = "Italic";
       };
 

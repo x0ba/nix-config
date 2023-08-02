@@ -73,7 +73,7 @@ in {
           state_file          "${baseDir}/state"
           log_file            "${baseDir}/log"
           auto_update "yes"
-          port                "6600"
+          port                "8000"
           bind_to_address     "127.0.0.1"
           audio_output {
             type "osx"

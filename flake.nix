@@ -23,7 +23,7 @@
     };
 
     nur.url = "github:nix-community/NUR";
-    nekowinston-nur.url = "github:nekowinston/nur/87527a607514deaff82f393720da6f697e61b08d";
+    nekowinston-nur.url = "github:nekowinston/nur/27e21897b5358920709e5a45a4e031fd3dcd7abb";
 
     nixos-apple-silicon = {
       url = "github:tpwrules/nixos-apple-silicon";

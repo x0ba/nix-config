@@ -45,7 +45,7 @@ in {
         "browser.formfill.enable" = false;
         "browser.newtab.preload" = false;
         "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
-        "browser.newtabpage.enabled" = false;
+        "browser.newtabpage.enabled" = true;
         "browser.newtabpage.enhanced" = false;
         "browser.newtabpage.introShown" = true;
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;

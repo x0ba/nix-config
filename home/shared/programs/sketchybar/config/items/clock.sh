@@ -2,11 +2,11 @@
 
 sketchybar --add item clock right \
 	--set clock update_freq=1 \
-	icon.padding_left=0 \
+	icon.padding_left=2 \
 	icon.color="$WHITE" \
 	label.color=$WHITE \
 	label.padding_right=0 \
-	label.width=58 \
+	label.width=50 \
 	align=center \
 	script="$PLUGIN_DIR/clock.sh" \
 	background.height=26 \

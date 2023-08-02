@@ -6,7 +6,7 @@ source "$HOME/.config/sketchybar/icons.sh"  # Loads all defined icons
 ITEM_DIR="$HOME/.config/sketchybar/items"
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
 
-FONT="Liga SFMono Nerd Font"
+FONT="Product Sans"
 ICON_FONT="Symbols Nerd Font"
 
 PADDINGS=3 # All paddings use this value (icon, label, background)
@@ -30,7 +30,7 @@ sketchybar --bar height=40 \
   icon.color=$ICON_COLOR \
   icon.padding_left=$PADDINGS \
   icon.padding_right=$PADDINGS \
-  label.font="$FONT:SemiBold:15.0" \
+  label.font="$FONT:Bold:15.0" \
   label.color=$LABEL_COLOR \
   label.padding_left=$PADDINGS \
   label.padding_right=$PADDINGS \
@@ -49,9 +49,9 @@ source "$ITEM_DIR/spaces.sh"
 source "$ITEM_DIR/front_app.sh"
 
 # Right
-# source "$ITEM_DIR/clock.sh"
-# source "$ITEM_DIR/calendar.sh"
-# source "$ITEM_DIR/battery.sh"
+source "$ITEM_DIR/clock.sh"
+source "$ITEM_DIR/calendar.sh"
+source "$ITEM_DIR/battery.sh"
 # source "$ITEM_DIR/brew.sh"
 # source "$ITEM_DIR/network.sh"
 

@@ -4,7 +4,7 @@ sketchybar --add item battery right \
 	--set battery \
 	update_freq=3 \
 	icon.color=$WHITE \
-	icon.padding_left=12 \
+	icon.padding_left=14 \
 	label.color=$WHITE \
 	label.padding_right=10 \
 	background.color=$BLACK \
