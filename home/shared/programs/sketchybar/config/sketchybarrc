@@ -6,7 +6,7 @@ source "$HOME/.config/sketchybar/icons.sh"  # Loads all defined icons
 ITEM_DIR="$HOME/.config/sketchybar/items"
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
 
-FONT="Dosis"
+FONT="Liga SFMono Nerd Font"
 ICON_FONT="Symbols Nerd Font"
 
 PADDINGS=3 # All paddings use this value (icon, label, background)
@@ -22,6 +22,7 @@ SHADOW=off
 
 sketchybar --bar height=40 \
   color=$BAR_COLOR \
+  shadow=on \
   shadow=$SHADOW \
   position=bottom \
   --default updates=when_shown \

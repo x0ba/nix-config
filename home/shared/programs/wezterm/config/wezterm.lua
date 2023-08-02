@@ -5,10 +5,10 @@ local c = wezterm.config_builder()
 require("keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-	"AestheticIosevka Nerd Font",
+	"Berkeley Mono",
 	"Symbols Nerd Font",
 })
-c.font_size = 17.0
+c.font_size = 16.0
 c.line_height = 1.2
 c.hide_tab_bar_if_only_one_tab = true
 
@@ -34,6 +34,6 @@ c.window_frame = { font_size = 13.0 }
 c.window_background_opacity = 1.0
 c.animation_fps = 10
 
-c.color_scheme = "Mountain"
+c.color_scheme = "Oxocarbon Dark"
 
 return c

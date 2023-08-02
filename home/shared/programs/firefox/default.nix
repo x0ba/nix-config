@@ -39,6 +39,10 @@ in {
         "browser.crashReports.unsubmittedCheck.autoSubmit2" = false;
         "browser.crashReports.unsubmittedCheck.enabled" = false;
         "browser.disableResetPrompt" = true;
+        "signon.formlessCapture.enabled" = false;
+        "signon.privateBrowsingCapture.enabled" = false;
+        "signon.autofillForms" = false;
+        "signon.rememberSignons" = false;
         "browser.formfill.enable" = false;
         "browser.newtab.preload" = false;
         "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
@@ -125,7 +129,6 @@ in {
         "privacy.usercontext.about_newtab_segregation.enabled" = true;
         "security.ssl.disable_session_identifiers" = true;
         "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSite" = false;
-        "signon.autofillForms" = false;
         "toolkit.telemetry.archive.enabled" = false;
         "toolkit.telemetry.bhrPing.enabled" = false;
         "toolkit.telemetry.cachedClientID" = "";
