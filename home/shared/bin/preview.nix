@@ -1,47 +1,48 @@
-{pkgs}:
-with pkgs; ''
-  #> Syntax: bash
+{pkgs, ...}:
+with pkgs;
+  writeScriptBin "preview" ''
+    #!/usr/bin/env bash
 
-  # Add this script to $PATH. Then use this by: fzf --preview='preview {}'.
-  # Requirements:
-  # - chafa for image
-  # - jq for json
-  # - lsd for directory
-  # - elinks for html
-  # - glow for markdown
-  # - transmission-show for torrent
-  # - bat for text files
-  # - atool for viewing zips
-  # - exiftool for videos and gifs
-  # - readelf for viewing binaries
+      # Add this script to $PATH. Then use this by: fzf --preview='preview {}'.
+      # Requirements:
+      # - chafa for image
+      # - jq for json
+      # - lsd for directory
+      # - elinks for html
+      # - glow for markdown
+      # - transmission-show for torrent
+      # - bat for text files
+      # - atool for viewing zips
+      # - exiftool for videos and gifs
+      # - readelf for viewing binaries
 
-  [ "$1" = "" ] && exit 1
+      [ "$1" = "" ] && exit 1
 
-  handle_image() {
-    case "$1" in
-      image/jpeg|image/png) chafa "$2" ;;
-      *) exiftool -All "$2" ;;
-    esac
-  }
+      handle_image() {
+        case "$1" in
+          image/jpeg|image/png) chafa "$2" ;;
+          *) exiftool -All "$2" ;;
+        esac
+      }
 
-  handle_text() {
-    case "$2" in
-      *.md) glow --style=auto "$2" ;;
-      *.htm|*.html) elinks -dump "$2" ;;
-      *) bat --theme=base16 --color=always --paging=never --number --italic-text=never --tabs=2 --wrap=never "$2" ;;
-    esac
-  }
+      handle_text() {
+        case "$2" in
+          *.md) glow --style=auto "$2" ;;
+          *.htm|*.html) elinks -dump "$2" ;;
+          *) bat --theme=base16 --color=always --paging=never --number --italic-text=never --tabs=2 --wrap=never "$2" ;;
+        esac
+      }
 
-  mime="$(file --brief --mime-type "$1")"
-  case "$mime" in
-    text/*) handle_text "$mime" "$1" ;;
-    inode/directory) lsd --long --icon=always --color=always "$1" ;;
-    inode/symlink) printf "Symbolic link to: \e[34m%s\e[0m." "$(readlink "$1")" ;;
-    application/json) jq --color-output < "$1" ;;
-    application/x-bittorrent) transmission-show --unsorted "$1" ;;
-    application/x-executable|application/x-pie-executable|application/x-sharedlib) readelf --wide --demangle=auto --all "$1" ;;
-    application/zip) atool --list "$1" ;;
-    image/*|video/*) handle_image "$mime" "$1" ;;
-    *) exit 1 ;;
-  esac
-''
+      mime="$(file --brief --mime-type "$1")"
+      case "$mime" in
+        text/*) handle_text "$mime" "$1" ;;
+        inode/directory) lsd --long --icon=always --color=always "$1" ;;
+        inode/symlink) printf "Symbolic link to: \e[34m%s\e[0m." "$(readlink "$1")" ;;
+        application/json) jq --color-output < "$1" ;;
+        application/x-bittorrent) transmission-show --unsorted "$1" ;;
+        application/x-executable|application/x-pie-executable|application/x-sharedlib) readelf --wide --demangle=auto --all "$1" ;;
+        application/zip) atool --list "$1" ;;
+        image/*|video/*) handle_image "$mime" "$1" ;;
+        *) exit 1 ;;
+      esac
+  ''

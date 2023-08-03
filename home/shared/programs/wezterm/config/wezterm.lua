@@ -8,7 +8,7 @@ c.font = wezterm.font_with_fallback({
   "Iosevka",
   "Symbols Nerd Font",
 })
-c.font_size = 16.0
+c.font_size = 17.0
 c.line_height = 1.2
 c.hide_tab_bar_if_only_one_tab = true
 

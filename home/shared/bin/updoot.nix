@@ -1,12 +1,14 @@
-{pkgs, ...}: ''
-  #> Syntax: bash
+{pkgs, ...}:
+with pkgs;
+  writeScriptBin "updoot" ''
+    #!/usr/bin/env bash
 
-  # Send to host
+      # Send to host
 
-  [ -f "$1" ] && op="cat"
-  ''${op:-echo} "''${@:-$(cat -)}" \
-      | ${pkgs.curl}/bin/curl -sF file='@-' 'http://0x0.st' \
-      | tee /dev/stderr \
-      | tr -d '\n'      \
-      | ${pkgs.xclip}/bin/xclip -sel clip
-''
+      [ -f "$1" ] && op="cat"
+      ''${op:-echo} "''${@:-$(cat -)}" \
+          | ${pkgs.curl}/bin/curl -sF file='@-' 'http://0x0.st' \
+          | tee /dev/stderr \
+          | tr -d '\n'      \
+          | ${pkgs.xclip}/bin/xclip -sel clip
+  ''
