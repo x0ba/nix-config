@@ -13,28 +13,23 @@
         start_service = true;
       }
     ];
-    casks = let
-      skipSha = name: {
-        inherit name;
-        args = {require_sha = false;};
-      };
-      noQuarantine = name: {
-        inherit name;
-        args = {no_quarantine = true;};
-      };
-    in [
-      "ticktick"
-      "aldente"
-      "uninstallpkg"
-      "firefox"
-      "iina"
-      "imageoptim"
-      "calibre"
-      "linearmouse"
-      "raycast"
-      "arc"
-      "orion"
-    ];
-    taps = ["homebrew/services" "d12frosted/emacs-plus" "homebrew/cask" "homebrew/cask-fonts" "FelixKratz/formulae" "cmacrae/formulae"];
+    casks =
+      let
+        skipSha = name: {
+          inherit name;
+          args = { require_sha = false; };
+        };
+        noQuarantine = name: {
+          inherit name;
+          args = { no_quarantine = true; };
+        };
+      in
+      [
+        "ticktick"
+        "firefox"
+        "raycast"
+        "arc"
+      ];
+    taps = [ "homebrew/services" "d12frosted/emacs-plus" "homebrew/cask" "homebrew/cask-fonts" "FelixKratz/formulae" "cmacrae/formulae" ];
   };
 }

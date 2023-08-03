@@ -1,12 +1,11 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{
-  inputs,
-  outputs,
-  lib,
-  config,
-  pkgs,
-  ...
+{ inputs
+, outputs
+, lib
+, config
+, pkgs
+, ...
 }: {
   # You can import other home-manager modules here
   imports = [
@@ -18,7 +17,7 @@
     inputs.nix-colors.homeManagerModules.default
     inputs.sops-nix.homeManagerModules.sops
     inputs.nix-index-database.hmModules.nix-index
-    {programs.nix-index-database.comma.enable = true;}
+    { programs.nix-index-database.comma.enable = true; }
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
@@ -72,58 +71,82 @@
     slug = "onedark";
     name = "onedark";
     colors = {
-      base00= "181b21";
-      base01= "353b45";
-      base02= "3e4451";
-      base03= "545862";
-      base04= "565c64";
-      base05= "abb2bf";
-      base06= "b6bdca";
-      base07= "c8ccd4";
-      base08= "e06c75";
-      base09= "d19a66";
-      base0A= "e5c07b";
-      base0B= "98c379";
-      base0C= "56b6c2";
-      base0D= "61afef";
-      base0E= "c678dd";
-      base0F= "be5046";
+      base00 = "181b21";
+      base01 = "353b45";
+      base02 = "3e4451";
+      base03 = "545862";
+      base04 = "565c64";
+      base05 = "abb2bf";
+      base06 = "b6bdca";
+      base07 = "c8ccd4";
+      base08 = "e06c75";
+      base09 = "d19a66";
+      base0A = "e5c07b";
+      base0B = "98c379";
+      base0C = "56b6c2";
+      base0D = "61afef";
+      base0E = "c678dd";
+      base0F = "be5046";
     };
   };
 
+
+  disabledModules = [ "targets/darwin/linkapps.nix" ];
   home = {
+    activation = lib.mkIf pkgs.stdenv.isDarwin {
+      copyApplications =
+        let
+          apps = pkgs.buildEnv {
+            name = "home-manager-applications";
+            paths = config.home.packages;
+            pathsToLink = "/Applications";
+          };
+        in
+        lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+          baseDir="$HOME/Applications/Home Manager Apps"
+          if [ -d "$baseDir" ]; then
+            rm -rf "$baseDir"
+          fi
+          mkdir -p "$baseDir"
+          for appFile in ${apps}/Applications/*; do
+            target="$baseDir/$(basename "$appFile")"
+            $DRY_RUN_CMD cp ''${VERBOSE_ARG:+-v} -fHRL "$appFile" "$baseDir"
+            $DRY_RUN_CMD chmod ''${VERBOSE_ARG:+-v} -R +w "$target"
+          done
+        '';
+    };
     file = {
       ".local/bin/run" = {
         # Script to run any program inside nix-shell
         executable = true;
-        text = import ../shared/bin/run.nix {inherit pkgs;};
+        text = import ../shared/bin/run.nix { inherit pkgs; };
       };
 
       ".local/bin/updoot" = {
         # Upload any file to 0x0.st
         executable = true;
-        text = import ../shared/bin/updoot.nix {inherit pkgs;};
+        text = import ../shared/bin/updoot.nix { inherit pkgs; };
       };
 
       ".local/bin/nix-search" = {
         # search nixpkgs with fzf
         executable = true;
-        text = import ../shared/bin/nix-search.nix {inherit pkgs;};
+        text = import ../shared/bin/nix-search.nix { inherit pkgs; };
       };
 
       ".local/bin/panes" = {
         # eyecandy
         executable = true;
-        text = import ../shared/bin/panes.nix {inherit pkgs;};
+        text = import ../shared/bin/panes.nix { inherit pkgs; };
       };
 
       ".local/bin/preview" = {
         # Preview script for fzf tab
         executable = true;
-        text = import ../shared/bin/preview.nix {inherit pkgs;};
+        text = import ../shared/bin/preview.nix { inherit pkgs; };
       };
 
-      ".tree-sitter".source = pkgs.runCommand "grammars" {} ''
+      ".tree-sitter".source = pkgs.runCommand "grammars" { } ''
         mkdir -p $out/bin
         ${
           lib.concatStringsSep "\n" (lib.mapAttrsToList (name: src: "name=${name}; ln -s ${src}/parser $out/bin/\${name#tree-sitter-}.so")
@@ -160,7 +183,7 @@
         wireguard-tools
         wireguard-go
         # Extras
-        
+
         imagemagick
         chafa
         jq
@@ -180,6 +203,7 @@
         neovide
         karabiner-elements
         spotify
+        iina
         ;
     };
 
