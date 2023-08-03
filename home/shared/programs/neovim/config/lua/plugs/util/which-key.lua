@@ -37,17 +37,6 @@ local mappings = {
     s = { ":SymbolsOutline<cr>", "Overview of file" },
     w = { ":SessionSave<cr>", "Save this session" }
   },
-  h = {
-    name = "Hop",
-    c = { ":HopChar1<cr>", "Single Character" },
-    C = { ":HopChar2<cr>", "Double Characters" },
-    a = { ":HopAnywhere<cr>", "Anywhere" },
-    l = { ":HopLine<cr>", "Line" },
-    L = { ":HopLineStart<cr>", "Line Start" },
-    v = { ":HopVertical<cr>", "Vertically" },
-    w = { ":HopWord<cr>", "Word" },
-
-  }
 }
 
 local opts = { prefix = '<leader>' }

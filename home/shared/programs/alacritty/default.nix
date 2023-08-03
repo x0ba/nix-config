@@ -1,6 +1,8 @@
-{config, ...}: let
+{ config, ... }:
+let
   theme = config.colorScheme;
-in {
+in
+{
   programs.alacritty = {
     enable = true;
     settings = with theme.colors; {
@@ -13,11 +15,11 @@ in {
 
       font = {
         size = 17;
-        normal.family = "AestheticIosevka Nerd Font";
-        normal.style = "Regular";
-        bold.family = "AestheticIosevka Nerd Font";
+        normal.family = "Fairfax";
+        normal.style = "Medium";
+        bold.family = "Fairfax";
         bold.style = "Bold";
-        italic.family = "AestheticIosevka Nerd Font";
+        italic.family = "Fairfax";
         italic.style = "Italic";
       };
 

@@ -7,6 +7,9 @@ map('n', '<C-l>', '<C-w>l', { noremap = true, silent = false })
 map('n', '<C-j>', '<C-w>j', { noremap = true, silent = false })
 map('n', '<C-k>', '<C-w>k', { noremap = true, silent = false })
 
+map('n', 'j', 'gj', { noremap = false, silent = false })
+map('n', 'k', 'gk', { noremap = false, silent = false })
+
 map('n', '<C-b>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 map('n', '<C-f>', ':lua vim.lsp.buf.format()<CR>', { noremap = true, silent = true })
 map('n', '<C-\\>', ':ToggleTerm<CR>', { noremap = true, silent = true })
