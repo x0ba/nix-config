@@ -23,27 +23,15 @@
         args = {no_quarantine = true;};
       };
     in [
-      "notion"
       "ticktick"
       "aldente"
-      "sip"
       "uninstallpkg"
-      "discord"
-      "vscodium"
-      "obsidian"
-      "docker"
       "firefox"
       "iina"
       "imageoptim"
-      "neovide"
-      "nextcloud"
       "calibre"
-      "karabiner-elements"
       "linearmouse"
-      "discord"
-      "eloston-chromium"
       "raycast"
-      "spotify"
       "arc"
       "orion"
     ];

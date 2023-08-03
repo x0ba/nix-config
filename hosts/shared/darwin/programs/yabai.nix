@@ -1,12 +1,13 @@
-{
-  pkgs,
-  lib,
-  inputs,
-  config,
-  ...
-}: let
+{ pkgs
+, lib
+, inputs
+, config
+, ...
+}:
+let
   scripts = ../../../../config/sketchybar;
-in {
+in
+{
   services.yabai = {
     enable = true;
     enableScriptingAddition = true;
@@ -26,8 +27,8 @@ in {
       right_padding = 12;
       # shadows and borders
       window_shadow = "float";
-      active_window_border_color = "0xffb3888b";
-      normal_window_border_color = "0xff262626";
+      active_window_border_color = "0xff7095db";
+      normal_window_border_color = "0xff181b21";
       window_border_radius = 11;
       window_border_blur = "off";
       window_border_width = 02;

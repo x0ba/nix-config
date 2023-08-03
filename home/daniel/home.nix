@@ -66,31 +66,30 @@
     };
   };
 
-  colorScheme = inputs.nix-colors.colorSchemes.mountain;
+  # colorScheme = inputs.nix-colors.colorSchemes.mountain;
 
-  # colorScheme = {
-  #   slug = "oxocarbon";
-  #   name = "oxocarbon";
-  #   author = "Nyoom Engineering";
-  #   colors = {
-  #     base00 = "161616";
-  #     base01 = "262626";
-  #     base02 = "393939";
-  #     base03 = "525252";
-  #     base04 = "dde1e6";
-  #     base05 = "f2f4f8";
-  #     base06 = "ffffff";
-  #     base07 = "08bdba";
-  #     base08 = "3ddbd9";
-  #     base09 = "33b1ff";
-  #     base0A = "ee5396";
-  #     base0B = "78a9ff";
-  #     base0C = "ff7eb6";
-  #     base0D = "42be65";
-  #     base0E = "be95ff";
-  #     base0F = "82cfff";
-  #   };
-  # };
+  colorScheme = {
+    slug = "onedark";
+    name = "onedark";
+    colors = {
+      base00= "181b21";
+      base01= "353b45";
+      base02= "3e4451";
+      base03= "545862";
+      base04= "565c64";
+      base05= "abb2bf";
+      base06= "b6bdca";
+      base07= "c8ccd4";
+      base08= "e06c75";
+      base09= "d19a66";
+      base0A= "e5c07b";
+      base0B= "98c379";
+      base0C= "56b6c2";
+      base0D= "61afef";
+      base0E= "c678dd";
+      base0F= "be5046";
+    };
+  };
 
   home = {
     file = {
@@ -145,6 +144,7 @@
         lutgen
         just
         cargo
+        rnix-lsp
         ripgrep
         cmake
         fd
@@ -172,6 +172,14 @@
         sdcv
         sqlite
         statix
+
+        # general apps
+        obsidian
+        discord
+        vscodium
+        neovide
+        karabiner-elements
+        spotify
         ;
     };
 
