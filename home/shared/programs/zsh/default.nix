@@ -48,7 +48,7 @@ in {
 
     initExtra = with theme.colors; ''
       FZF_TAB_COMMAND=(
-        ${lib.getExe pkgs.fzf}
+        ${pkgs.fzf}/bin/fzf
         --ansi
         --expect='$continuous_trigger'
         --nth=2,3 --delimiter='\x00'
@@ -92,14 +92,8 @@ in {
       t = "${pkgs.tmux}/bin/tmux";
       ta = "${pkgs.tmux}/bin/tmux attach -t";
       fcd = "cd $(find -type d | fzf)";
-      grep = lib.getExe ripgrep;
-      du = lib.getExe du-dust;
-      ps = lib.getExe procs;
-      rm = lib.getExe trash-cli;
-      cat = "${lib.getExe bat} --style=plain";
-      ytmp3 = ''
-        ${lib.getExe yt-dlp} -x --continue --add-metadata --embed-thumbnail --audio-format mp3 --audio-quality 0 --metadata-from-title="%(artist)s - %(title)s" --prefer-ffmpeg -o "%(title)s.%(ext)s"
-      '';
+      rm = "${pkgs.trash-cli}/bin/trash-put";
+      cat = "${pkgs.bat}/bin/bat --style=plain";
     };
 
     plugins = [

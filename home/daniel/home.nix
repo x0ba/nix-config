@@ -1,12 +1,11 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{
-  inputs,
-  outputs,
-  lib,
-  config,
-  pkgs,
-  ...
+{ inputs
+, outputs
+, lib
+, config
+, pkgs
+, ...
 }: {
   # You can import other home-manager modules here
   imports = [
@@ -16,7 +15,7 @@
     inputs.nix-colors.homeManagerModules.default
     inputs.sops-nix.homeManagerModules.sops
     inputs.nix-index-database.hmModules.nix-index
-    {programs.nix-index-database.comma.enable = true;}
+    { programs.nix-index-database.comma.enable = true; }
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
@@ -67,17 +66,18 @@
 
   colorScheme = inputs.nix-colors.colorSchemes.mountain;
 
-  disabledModules = ["targets/darwin/linkapps.nix"];
+  disabledModules = [ "targets/darwin/linkapps.nix" ];
   home = {
     activation = lib.mkIf pkgs.stdenv.isDarwin {
-      copyApplications = let
-        apps = pkgs.buildEnv {
-          name = "home-manager-applications";
-          paths = config.home.packages;
-          pathsToLink = "/Applications";
-        };
-      in
-        lib.hm.dag.entryAfter ["writeBoundary"] ''
+      copyApplications =
+        let
+          apps = pkgs.buildEnv {
+            name = "home-manager-applications";
+            paths = config.home.packages;
+            pathsToLink = "/Applications";
+          };
+        in
+        lib.hm.dag.entryAfter [ "writeBoundary" ] ''
           baseDir="$HOME/Applications/Home Manager Apps"
           if [ -d "$baseDir" ]; then
             rm -rf "$baseDir"
@@ -93,10 +93,52 @@
 
     homeDirectory = "/Users/daniel";
 
+  packages = lib.attrValues {
+    inherit
+      (pkgs)
+      trash-cli
+      nixfmt
+      shellcheck
+      git-lfs
+      lutgen
+      just
+      cargo
+      ripgrep
+      cmake
+      fd
+      nil
+      deadnix
+      stylua
+      file
+      any-nix-shell
+      commitizen
+      sumneko-lua-language-server
+      git-crypt
+      sops
+      wireguard-tools
+      wireguard-go
+      # Extras
+
+      imagemagick
+      chafa
+      jq
+      elinks
+      gcc
+      glow
+      fzf
+      exiftool
+      sdcv
+      sqlite
+      statix
+      ;
+  };
+
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     stateVersion = "23.05";
     username = "daniel";
   };
+
+
 
   programs = {
     home-manager.enable = true;
