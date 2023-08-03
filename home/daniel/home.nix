@@ -25,6 +25,7 @@
     ../shared/programs/lf
     ../shared/programs/alacritty
     ../shared/programs/kitty
+    ../shared/programs/helix
     ../shared/programs/gpg
     ../shared/programs/git
     ../shared/programs/neofetch
@@ -97,22 +98,15 @@
     inherit
       (pkgs)
       trash-cli
-      nixfmt
-      shellcheck
       git-lfs
       lutgen
       just
-      cargo
       ripgrep
       cmake
       fd
-      nil
-      deadnix
-      stylua
       file
       any-nix-shell
       commitizen
-      sumneko-lua-language-server
       git-crypt
       sops
       wireguard-tools

@@ -1,8 +1,7 @@
-{
-  config,
-  pkgs,
-  flakePath,
-  ...
+{ config
+, pkgs
+, flakePath
+, ...
 }: {
   programs.neovim = {
     enable = true;
@@ -14,74 +13,54 @@
 
     withNodeJs = true;
 
-    extraPackages = with pkgs; [
-      # python
-      black
-      isort
-      nodePackages.pyright
-
-      # nix
-      rnix-lsp
-      nodejs
-
-      # formatters
-      ktlint
-      nixpkgs-fmt
-      rustfmt
-      shfmt
-
-      # lua
-      stylua
-      lua-language-server
-      luaPackages.tl
-      luaPackages.teal-language-server
-
-      # data
-      taplo
-
-      # go
-      go
-
-      # webdev
-      nodePackages."@astrojs/language-server"
-      nodePackages."@tailwindcss/language-server"
-      nodePackages.alex
-      nodePackages.bash-language-server
-      nodePackages.dockerfile-language-server-nodejs
-      nodePackages.graphql
-      nodePackages.graphql-language-service-cli
-      nodePackages.intelephense
-      nodePackages.typescript-language-server
-      nodePackages.vscode-langservers-extracted
-      nodePackages.yaml-language-server
-      yarn
-
-      # rust
-      cargo
-      rust-analyzer
-      rustc
-      rustfmt
-
-      # etc
-      alejandra
-      deno
-      ltex-ls
-      nil
-      nodePackages.prettier
-      proselint
-      shellcheck
-      shfmt
-      tree-sitter
-
-      # nvim-spectre
-      gnused
-      (writeShellScriptBin "gsed" "exec ${gnused}/bin/sed")
-
-      # needed for some plugin build steps
-      gnumake
-      unzip
-    ];
   };
+
+  home.packages = with pkgs; [
+    # Dev tools
+    alejandra
+    asmfmt
+    black
+    ccls
+    cargo
+    delve
+    elixir_ls
+    gawk
+    go
+    gocode-gomod
+    gomodifytags
+    gopkgs
+    gopls
+    gotests
+    go-outline
+    go-tools
+    java-language-server
+    kotlin-language-server
+    ktlint
+    lldb
+    nodejs
+    rust-analyzer
+    rustfmt
+    rnix-lsp
+    selene
+    shellcheck
+    shfmt
+    solc
+    sumneko-lua-language-server
+    texlab
+    uncrustify
+    zls
+    nodePackages.jsonlint
+    nodePackages.jsonlint
+    nodePackages.node2nix
+    nodePackages.prettier
+    nodePackages.pyright
+    nodePackages.stylelint
+    nodePackages.typescript-language-server
+    nodePackages.vls
+    nodePackages.vscode-langservers-extracted
+    nodePackages.yaml-language-server
+    nodePackages.yarn
+  ];
 
   xdg.configFile."nvim" = {
     source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/shared/programs/neovim/config";
