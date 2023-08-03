@@ -25,6 +25,7 @@
     in [
       "notion"
       "ticktick"
+      "aldente"
       "sip"
       "uninstallpkg"
       "discord"

@@ -25,6 +25,7 @@ in {
         vimium
       ];
       userChrome = import ./userchrome.nix;
+      userContent = import ./usercontent.nix;
       settings = {
         "app.normandy.api_url" = "";
         "app.normandy.enabled" = false;

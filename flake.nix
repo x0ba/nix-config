@@ -117,6 +117,9 @@
     # Reusable home-manager modules you might want to export
     # These are usually stuff you would upstream into home-manager
     homeManagerModules = import ./modules/home-manager;
+    # Reusable darwin modules you might want to export
+    # These are usually stuff you would upstream into darwin
+    darwinModules = import ./modules/darwin;
 
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
@@ -167,18 +170,16 @@
   nixConfig = {
     commit-lockfile-summary = "flake: bump inputs";
     substituters = [
-      "https://cache.garnix.io"
+      "https://cache.nixos.org"
       "https://mic92.cachix.org"
       "https://fortuneteller2k.cachix.org"
       "https://nix-community.cachix.org"
-      "https://pre-commit-hooks.cachix.org"
     ];
     trusted-public-keys = [
-      "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "mic92.cachix.org-1:gi8IhgiT3CYZnJsaW7fxznzTkMUOn1RY4GmXdT/nXYQ="
       "fortuneteller2k.cachix.org-1:kXXNkMV5yheEQwT0I4XYh1MaCSz+qg72k8XAi2PthJI="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "pre-commit-hooks.cachix.org-1:Pkk3Panw5AW24TOv6kz3PvLhlH8puAsJTBbOPmBo7Rc="
     ];
   };
 }
