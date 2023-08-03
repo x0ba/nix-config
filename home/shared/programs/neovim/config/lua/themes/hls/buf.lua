@@ -9,7 +9,7 @@ return {
   BuffLineBufOffClose = { fg = colors.color9, bg = themes.darken(colors.color9, colors.cursorline, 0.1) },
   BuffLineTree = { bg = colors.darker, fg = colors.white },
   BuffLineEmpty = { bg = colors.background, fg = colors.white },
-  BuffLineEmptyColor = { bg = colors.cursorline, fg = colors.white },
+  BuffLineEmptyColor = { bg = colors.background, fg = colors.white },
   BuffLineButton = { bg = themes.darken(colors.color4, colors.cursorline, 0.12), fg = colors.color4 },
   BuffLineCloseButton = { bg = colors.color9, fg = colors.background }
 }

@@ -12,10 +12,6 @@
         name = "sketchybar";
         start_service = true;
       }
-      {
-        name = "emacs-plus";
-        start_service = true;
-      }
     ];
     casks = let
       skipSha = name: {
