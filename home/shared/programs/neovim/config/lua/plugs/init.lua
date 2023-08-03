@@ -200,19 +200,11 @@ lazy.setup({
     }
   },
   {
-    'phaazon/hop.nvim',
-    branch = 'v2',
-    lazy = true,
-    cmd = {
-      "HopAnywhere",
-      "HopChar1",
-      "HopChar2",
-      "HopLine",
-      "HopLineStart",
-      "HopVertical",
-      "HopWord"
-    },
-    config = function() require("plugs.util.hop") end
+    "ggandor/leap.nvim",
+    dependencies = { "tpope/vim-repeat" },
+    config = function()
+      require('leap').add_default_mappings()
+    end
   },
   {
     "goolord/alpha-nvim",
