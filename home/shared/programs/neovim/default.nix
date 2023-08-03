@@ -84,7 +84,7 @@
   };
 
   xdg.configFile."nvim" = {
-    source = ./config;
+    source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/shared/programs/neovim/config";
     recursive = true;
   };
 }

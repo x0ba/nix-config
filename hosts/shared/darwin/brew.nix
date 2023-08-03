@@ -12,24 +12,26 @@
         name = "sketchybar";
         start_service = true;
       }
+      {
+        name = "emacs-plus";
+        start_service = true;
+      }
     ];
-    casks =
-      let
-        skipSha = name: {
-          inherit name;
-          args = { require_sha = false; };
-        };
-        noQuarantine = name: {
-          inherit name;
-          args = { no_quarantine = true; };
-        };
-      in
-      [
-        "ticktick"
-        "firefox"
-        "raycast"
-        "arc"
-      ];
-    taps = [ "homebrew/services" "d12frosted/emacs-plus" "homebrew/cask" "homebrew/cask-fonts" "FelixKratz/formulae" "cmacrae/formulae" ];
+    casks = let
+      skipSha = name: {
+        inherit name;
+        args = {require_sha = false;};
+      };
+      noQuarantine = name: {
+        inherit name;
+        args = {no_quarantine = true;};
+      };
+    in [
+      "ticktick"
+      "firefox"
+      "arc"
+      "calibre"
+    ];
+    taps = ["homebrew/services" "d12frosted/emacs-plus" "homebrew/cask" "homebrew/cask-fonts" "FelixKratz/formulae" "cmacrae/formulae"];
   };
 }

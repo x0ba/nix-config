@@ -339,7 +339,7 @@
   user_pref("browser.urlbar.suggest.engines", false);
   // -------------------------------------
   // Disable search and form history
-  user_pref("browser.formfill.enable", false);
+  user_pref("browser.formfill.enable", true);
   // -------------------------------------
   // Disable coloring of visited links
   user_pref("layout.css.visited_links_enabled", false);
@@ -652,8 +652,8 @@
   // Set/enforce what items to clear on shutdown [SETUP-CHROME]
   user_pref("privacy.clearOnShutdown.cache", true);
   user_pref("privacy.clearOnShutdown.downloads", true); // [DEFAULT: true]
-  user_pref("privacy.clearOnShutdown.formdata", true); // [DEFAULT: true]
-  user_pref("privacy.clearOnShutdown.history", true); // [DEFAULT: true]
+  user_pref("privacy.clearOnShutdown.formdata", false); // [DEFAULT: true]
+  user_pref("privacy.clearOnShutdown.history", false); // [DEFAULT: true]
   user_pref("privacy.clearOnShutdown.sessions", true); // [DEFAULT: true]
   // user_pref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT: false]
   // -------------------------------------
@@ -849,12 +849,12 @@
   //
   // Disable Firefox blocklist
   user_pref("extensions.blocklist.enabled", false); // [DEFAULT: true]
-  user_pref("extensions.blocklist.addonItemURL", "");	
+  user_pref("extensions.blocklist.addonItemURL", "");
   user_pref("extensions.blocklist.detailsURL", "");
   user_pref("extensions.blocklist.itemURL", "");
   user_pref("services.blocklist.addons.collection", "");
   user_pref("services.blocklist.addons.signer", "");
-  user_pref("services.blocklist.plugins.collection", "");	
+  user_pref("services.blocklist.plugins.collection", "");
   user_pref("services.blocklist.plugins.signer", "");
   user_pref("services.blocklist.gfx.collection", "");
   user_pref("services.blocklist.gfx.signer", "");

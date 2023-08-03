@@ -1,13 +1,12 @@
-{ pkgs
-, lib
-, inputs
-, config
-, ...
-}:
-let
-  scripts = ../../../../config/sketchybar;
-in
 {
+  pkgs,
+  lib,
+  inputs,
+  config,
+  ...
+}: let
+  scripts = ../../../../config/sketchybar;
+in {
   services.yabai = {
     enable = true;
     enableScriptingAddition = true;
@@ -33,7 +32,7 @@ in
       window_border_blur = "off";
       window_border_width = 02;
       window_border_hidpi = "false";
-      window_border = "on";
+      window_border = "off";
       # mouse
       mouse_follows_focus = "off";
       focus_follows_mouse = "autofocus";

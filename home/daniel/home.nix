@@ -29,8 +29,8 @@
     ../shared/programs/kitty
     ../shared/programs/gpg
     ../shared/programs/git
-    ../shared/programs/music
-    # ../shared/programs/starship
+    ../shared/programs/neofetch
+    ../shared/programs/starship
     ../shared/programs/firefox
     ../shared/programs/newsboat
     ../shared/programs/shell
@@ -89,7 +89,6 @@
       base0F = "be5046";
     };
   };
-
 
   disabledModules = [ "targets/darwin/linkapps.nix" ];
   home = {
@@ -195,8 +194,8 @@
         sdcv
         sqlite
         statix
-
         # general apps
+
         obsidian
         discord
         vscodium
