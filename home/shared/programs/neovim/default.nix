@@ -1,7 +1,8 @@
-{ config
-, pkgs
-, flakePath
-, ...
+{
+  config,
+  pkgs,
+  flakePath,
+  ...
 }: {
   programs.neovim = {
     enable = true;
@@ -12,7 +13,6 @@
     vimdiffAlias = true;
 
     withNodeJs = true;
-
   };
 
   home.packages = with pkgs; [

@@ -1,9 +1,8 @@
-{ config
-, pkgs
-, ...
-}:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   programs.helix = {
     enable = true;
     settings = {
@@ -13,8 +12,8 @@
         space.space = "file_picker";
         space.w = ":w";
         space.q = ":q";
-        "C-d" = [ "half_page_down" "align_view_center" ];
-        "C-u" = [ "half_page_up" "align_view_center" ];
+        "C-d" = ["half_page_down" "align_view_center"];
+        "C-u" = ["half_page_up" "align_view_center"];
         "C-q" = ":bc";
         space.u = {
           f = ":format"; # format using LSP formatter
@@ -37,12 +36,12 @@
         indent-guides = {
           render = true;
         };
-        gutters = [ "diagnostics" "line-numbers" "spacer" "diff" ];
+        gutters = ["diagnostics" "line-numbers" "spacer" "diff"];
         statusline = {
           separator = "|";
-          left = [ "mode" "selections" "spinner" "file-name" "total-line-numbers" ];
-          center = [ ];
-          right = [ "diagnostics" "file-encoding" "file-line-ending" "file-type" "position-percentage" "position" ];
+          left = ["mode" "selections" "spinner" "file-name" "total-line-numbers"];
+          center = [];
+          right = ["diagnostics" "file-encoding" "file-line-ending" "file-type" "position-percentage" "position"];
           mode = {
             normal = "NORMAL";
             insert = "INSERT";
@@ -64,7 +63,5 @@
         };
       };
     };
-
   };
-
 }

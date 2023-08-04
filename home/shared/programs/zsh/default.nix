@@ -1,16 +1,15 @@
-{ config
-, lib
-, inputs
-, pkgs
-, ...
-}:
-let
-  theme = config.colorScheme;
-in
 {
+  config,
+  lib,
+  inputs,
+  pkgs,
+  ...
+}: let
+  theme = config.colorScheme;
+in {
   programs.atuin = {
     enable = true;
-    flags = [ "--disable-up-arrow" ];
+    flags = ["--disable-up-arrow"];
     settings = {
       inline_height = 30;
       style = "compact";
@@ -63,8 +62,6 @@ in
       zstyle ':fzf-tab:*' switch-group ',' '.'
       zstyle ':fzf-tab:complete:_zlua:*' query-string input
       zstyle ':fzf-tab:complete:*:*' fzf-preview 'preview $realpath'
-
-      export NNN_OPTS="H"
 
       ZSH_AUTOSUGGEST_USE_ASYNC="true"
       ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp root line)

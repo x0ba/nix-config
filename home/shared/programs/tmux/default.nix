@@ -1,13 +1,10 @@
-{ pkgs
-, lib
-, inputs
-, config
-, ...
-}:
-let
-  theme = config.colorScheme;
-in
 {
+  pkgs,
+  lib,
+  inputs,
+  config,
+  ...
+}: {
   programs.tmux = {
     enable = true;
     sensibleOnTop = true;
