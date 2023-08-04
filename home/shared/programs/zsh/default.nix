@@ -1,15 +1,16 @@
-{
-  config,
-  lib,
-  inputs,
-  pkgs,
-  ...
-}: let
+{ config
+, lib
+, inputs
+, pkgs
+, ...
+}:
+let
   theme = config.colorScheme;
-in {
+in
+{
   programs.atuin = {
     enable = true;
-    flags = ["--disable-up-arrow"];
+    flags = [ "--disable-up-arrow" ];
     settings = {
       inline_height = 30;
       style = "compact";
@@ -28,10 +29,6 @@ in {
     sessionVariables = {
       SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
     };
-
-    completionInit = ''
-      autoload -Uz colors && colors
-    '';
 
     envExtra = ''
       export LANG="en_US.UTF-8"
@@ -67,7 +64,6 @@ in {
       zstyle ':fzf-tab:complete:_zlua:*' query-string input
       zstyle ':fzf-tab:complete:*:*' fzf-preview 'preview $realpath'
 
-      PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
       export NNN_OPTS="H"
 
       ZSH_AUTOSUGGEST_USE_ASYNC="true"
@@ -100,6 +96,16 @@ in {
       {
         name = "zsh-completions";
         src = inputs.zsh-completions;
+      }
+      {
+        name = "powerlevel10k";
+        src = pkgs.zsh-powerlevel10k;
+        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      }
+      {
+        name = "powerlevel10k-config";
+        src = lib.cleanSource ./conf;
+        file = "powerlevel.zsh";
       }
       {
         name = "zsh-autosuggestions";

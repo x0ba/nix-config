@@ -1,24 +1,32 @@
-{config, ...}: let
+{ config, ... }:
+let
   theme = config.colorScheme;
-in {
+in
+{
   programs.alacritty = {
     enable = true;
     settings = with theme.colors; {
-      window.padding.x = 25;
-      window.padding.y = 25;
+      window.padding.x = 15;
+      window.padding.y = 10;
+      window.dynamic_padding = true;
       window.decorations = "none";
       mouse.hide_when_typing = true;
       use_thin_strokes = true;
-      cursor.style = "Beam";
+      cursor.style = "Block";
 
       font = {
         size = 17;
-        normal.family = "Fairfax";
-        normal.style = "Medium";
-        bold.family = "Fairfax";
+        normal.family = "Iosevka Nerd Font";
+        normal.style = "Regular";
+        bold.family = "Iosevka Nerd Font";
         bold.style = "Bold";
-        italic.family = "Fairfax";
+        italic.family = "Iosevka Nerd Font";
         italic.style = "Italic";
+        offset.x = 0;
+        offset.y = 5;
+        glyph_offset.x = 0;
+        glyph_offset.y = 3;
+        builtin_box_drawing = true;
       };
 
       colors = with theme.colors; {

@@ -26,9 +26,9 @@ local M = function(m)
     end
   else
     if (m == 'minimal') then
-      return "%#StalineFilename#  Kodo "
+      return "%#StalineFilename#  Neovim "
     elseif m == "fancy" then
-      return "%#StalineFilenameFancy#" .. "  Kodo  " .. "%#StalineFilenameSep#" .. " %#StalineEmptySpace#"
+      return "%#StalineFilenameFancy#" .. "  Neovim  " .. "%#StalineFilenameSep#" .. " %#StalineEmptySpace#"
     end
   end
 end

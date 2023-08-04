@@ -94,38 +94,38 @@
 
     homeDirectory = "/Users/daniel";
 
-  packages = lib.attrValues {
-    inherit
-      (pkgs)
-      trash-cli
-      git-lfs
-      lutgen
-      just
-      ripgrep
-      cmake
-      fd
-      file
-      any-nix-shell
-      commitizen
-      git-crypt
-      sops
-      wireguard-tools
-      wireguard-go
-      # Extras
+    packages = lib.attrValues {
+      inherit
+        (pkgs)
+        trash-cli
+        git-lfs
+        lutgen
+        just
+        ripgrep
+        cmake
+        fd
+        file
+        any-nix-shell
+        commitizen
+        git-crypt
+        sops
+        wireguard-tools
+        wireguard-go
+        # Extras
 
-      imagemagick
-      chafa
-      jq
-      elinks
-      gcc
-      glow
-      fzf
-      exiftool
-      sdcv
-      sqlite
-      statix
-      ;
-  };
+        imagemagick
+        chafa
+        jq
+        elinks
+        gcc
+        glow
+        fzf
+        exiftool
+        sdcv
+        sqlite
+        statix
+        ;
+    };
 
     # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
     stateVersion = "23.05";

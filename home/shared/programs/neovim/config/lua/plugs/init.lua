@@ -207,6 +207,9 @@ lazy.setup({
     end
   },
   {
+    "christoomey/vim-tmux-navigator",
+  },
+  {
     "goolord/alpha-nvim",
     lazy = true,
     cmd = {

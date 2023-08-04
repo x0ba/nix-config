@@ -18,7 +18,7 @@
       '';
   };
   home.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "CascadiaCode"];})
+    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "Iosevka"];})
     victor-mono
     ibm-plex
     cozette
