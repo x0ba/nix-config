@@ -1,14 +1,26 @@
+{ pkgs
+, lib
+, inputs
+, config
+, ...
+}:
+let
+  t-smart-tmux-session-manager = pkgs.tmuxPlugins.mkTmuxPlugin {
+    pluginName = "t-smart-tmux-session-manager";
+    version = "2023-08-04";
+    src = pkgs.fetchFromGitHub {
+      owner = "joshmedeski";
+      repo = "t-smart-tmux-session-manager";
+      rev = "8c887534d0f59cdde2aef873052d59efacdb7b2a";
+      sha256 = "sha256-PGemYYjyWbHmNvEflK51PdY8oKI/1DZMU5OBjKH9DLw=";
+    };
+  };
+in
 {
-  pkgs,
-  lib,
-  inputs,
-  config,
-  ...
-}: {
   programs.tmux = {
     enable = true;
     sensibleOnTop = true;
-    extraConfig = with theme.colors; ''
+    extraConfig = ''
       set -g history-file "~/.cache/tmux/.tmuxhistory"
       set -g repeat-time 700
       set -g mouse on
@@ -35,6 +47,8 @@
       set -g prefix C-a
       unbind C-b
       bind-key C-a send-prefix
+      bind-key x kill-pane
+      set -g detach-on-destroy off
 
       unbind-key up
       unbind-key down
@@ -43,15 +57,11 @@
       unbind-key x
       unbind-key <
       unbind-key >
-      unbind-key C-|
-      unbind-key C-\
 
       unbind %
       bind-key - split-window -v
       unbind '"'
       bind-key | split-window -h
-
-      bind-key x kill-pane
 
       bind-key > swap-pane -D
       bind-key < swap-pane -U
@@ -99,8 +109,14 @@
         '';
       }
       {
+        plugin = t-smart-tmux-session-manager;
+      }
+      {
         plugin = tmuxPlugins.vim-tmux-navigator;
       }
     ];
   };
+  home.packages = with pkgs; [
+    t-smart-tmux-session-manager.src
+  ];
 }

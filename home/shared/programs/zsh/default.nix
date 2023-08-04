@@ -1,15 +1,16 @@
-{
-  config,
-  lib,
-  inputs,
-  pkgs,
-  ...
-}: let
+{ config
+, lib
+, inputs
+, pkgs
+, ...
+}:
+let
   theme = config.colorScheme;
-in {
+in
+{
   programs.atuin = {
     enable = true;
-    flags = ["--disable-up-arrow"];
+    flags = [ "--disable-up-arrow" ];
     settings = {
       inline_height = 30;
       style = "compact";
@@ -43,6 +44,12 @@ in {
     '';
 
     initExtra = with theme.colors; ''
+      if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+        source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+      fi
+
+      cl
+
       FZF_TAB_COMMAND=(
         ${pkgs.fzf}/bin/fzf
         --ansi
@@ -82,8 +89,6 @@ in {
       pull = "git pull";
       m = "mkdir -p";
       v = "${pkgs.neovim}/bin/nvim";
-      t = "${pkgs.tmux}/bin/tmux";
-      ta = "${pkgs.tmux}/bin/tmux attach -t";
       fcd = "cd $(find -type d | fzf)";
       rm = "${pkgs.trash-cli}/bin/trash-put";
       cat = "${pkgs.bat}/bin/bat --style=plain";

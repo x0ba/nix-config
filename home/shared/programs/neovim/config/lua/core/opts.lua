@@ -29,6 +29,7 @@ opt.timeoutlen = 100
 opt.clipboard = "unnamedplus"
 opt.hlsearch = true
 opt.ignorecase = true
+opt.relativenumber = true
 opt.scrolloff = 0
 opt.sidescrolloff = 5
 opt.foldcolumn = '0' -- '0' is not bad
@@ -63,10 +64,6 @@ local builtins = {
   "getscriptPlugin",
   "gzip",
   "logipat",
-  "netrw",
-  "netrwPlugin",
-  "netrwSettings",
-  "netrwFileHandlers",
   "matchit",
   "matchparen",
   "tar",
