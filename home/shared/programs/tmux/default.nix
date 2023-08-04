@@ -1,10 +1,10 @@
-{ pkgs
-, lib
-, inputs
-, config
-, ...
-}:
-let
+{
+  pkgs,
+  lib,
+  inputs,
+  config,
+  ...
+}: let
   t-smart-tmux-session-manager = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "t-smart-tmux-session-manager";
     version = "2023-08-04";
@@ -15,8 +15,7 @@ let
       sha256 = "sha256-PGemYYjyWbHmNvEflK51PdY8oKI/1DZMU5OBjKH9DLw=";
     };
   };
-in
-{
+in {
   programs.tmux = {
     enable = true;
     sensibleOnTop = true;
@@ -47,7 +46,6 @@ in
       set -g prefix C-a
       unbind C-b
       bind-key C-a send-prefix
-      bind-key x kill-pane
       set -g detach-on-destroy off
 
       unbind-key up
@@ -62,6 +60,9 @@ in
       bind-key - split-window -v
       unbind '"'
       bind-key | split-window -h
+
+      bind-key x kill-pane
+      bind-key & kill-window
 
       bind-key > swap-pane -D
       bind-key < swap-pane -U
@@ -113,6 +114,7 @@ in
       }
       {
         plugin = tmuxPlugins.vim-tmux-navigator;
+        extraConfig = "set -g @t-bind ' K '";
       }
     ];
   };

@@ -38,6 +38,8 @@ NixOS / Home-Manager / Flake
 > might not work out of the box on your machine. If you want to 
 > take inspiration from my dots, feel free, just copy chunks instead
 > of the whole thing.
+
+![screeny](/../screenshots/mountain/mountain.png)
  
 ------
 

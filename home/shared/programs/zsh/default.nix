@@ -61,10 +61,25 @@ in
         '--header-lines=$#headers'
       )
 
-        export FZF_DEFAULT_OPTS='
-        --color fg:#${base06},bg:#${base00},hl:#${base04},fg+:#${base07},bg+:#${base00},hl+:#${base04},border:#${base03}
-      --color pointer:#${base08},info:#${base03},spinner:#${base03},header:#${base03},prompt:#${base0B},marker:#${base0B}
-      '
+      export FZF_DEFAULT_OPTS="
+        $FZF_DEFAULT_OPTS
+        --color='border:#161B20,preview-bg:#161B20'
+        --color='scrollbar:#24292E,gutter:#161B20'
+        --color='bg+:#24292E,fg+:#D4D4D5,spinner:#79DCAA'
+        --color='pointer:#C397D8,marker:#F87070'
+        --color='info:#70C0BA,bg:#11161B'
+        --scrollbar='░'
+        --border='none'
+        --separator='▓'
+        --marker=' '
+        --ellipsis='… '
+        --prompt='  '
+        --pointer=' λ'
+        --layout=reverse
+        --bind='ctrl-v:execute($EDITOR {}),shift-up:preview-page-up,shift-down:preview-page-down'
+        --cycle
+        --height=40"
+
       zstyle ':fzf-tab:*' command $FZF_TAB_COMMAND
       zstyle ':fzf-tab:*' switch-group ',' '.'
       zstyle ':fzf-tab:complete:_zlua:*' query-string input
