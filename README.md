@@ -46,8 +46,8 @@ NixOS / Home-Manager / Flake
 | **Shell:**     | zsh                                                      |
 | **WM:**        | **sway** on linux, **yabai** on macos                    |
 | **Editor:**    | neovim                                                   |
-| **Terminal:**  | kitty                                                    |
-| **Launcher:**  | **rofi** on linux, **alfred** on macos                   |
+| **Terminal:**  | alacritty                                                |
+| **Launcher:**  | **rofi** on linux, **spotlight** on macos                |
 | **Browser:**   | firefox                                                  |
 
 -----
@@ -84,7 +84,7 @@ nix build .#darwinConfigurations.nebula.system --extra-experimental-features nix
 ##### Install home-manager configuration 
 
 ```sh
-nix develop 
+nix develop
 home-manager switch --flake .#daniel@nebula
 ```
 
