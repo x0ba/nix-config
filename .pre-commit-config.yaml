@@ -12,3 +12,4 @@ repos:
     hooks:
       # Requires Nix to be previously installed in the system
       - id: alejandra
+
