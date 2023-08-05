@@ -1,8 +1,7 @@
-{
-  config,
-  pkgs,
-  flakePath,
-  ...
+{ config
+, pkgs
+, flakePath
+, ...
 }: {
   programs.neovim = {
     enable = true;
@@ -20,8 +19,7 @@
     alejandra
     asmfmt
     black
-    ccls
-    cargo
+    # cargo
     delve
     elixir_ls
     gawk
@@ -39,7 +37,6 @@
     lldb
     nodejs
     rust-analyzer
-    rustfmt
     rnix-lsp
     selene
     shellcheck
@@ -47,6 +44,7 @@
     solc
     sumneko-lua-language-server
     texlab
+    nil
     uncrustify
     zls
     nodePackages.jsonlint

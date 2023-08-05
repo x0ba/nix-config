@@ -1,12 +1,11 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{
-  inputs,
-  outputs,
-  lib,
-  config,
-  pkgs,
-  ...
+{ inputs
+, outputs
+, lib
+, config
+, pkgs
+, ...
 }: {
   # You can import other home-manager modules here
   imports = [
@@ -64,7 +63,7 @@
 
       (final: prev: {
         neovim = inputs.neovim-nightly.packages.${final.system}.default;
-        ripgrep = prev.ripgrep.override {withPCRE2 = true;};
+        ripgrep = prev.ripgrep.override { withPCRE2 = true; };
         # picom = inputs.nixpkgs-f2k.packages.${pkgs.system}.picom-git;
       })
     ];
@@ -87,7 +86,7 @@
     font.name = "sans-serif";
 
     gtk3 = {
-      extraConfig = {gtk-decoration-layout = "menu:";};
+      extraConfig = { gtk-decoration-layout = "menu:"; };
 
       extraCss = ''
         vte-terminal {
@@ -103,7 +102,7 @@
 
     theme = {
       name = "tomorrow-night";
-      package = (inputs.nix-colors.lib-contrib {inherit pkgs;}).gtkThemeFromScheme {
+      package = (inputs.nix-colors.lib-contrib { inherit pkgs; }).gtkThemeFromScheme {
         scheme = config.colorScheme;
       };
     };
@@ -117,22 +116,22 @@
       ".local/bin/run" = {
         # Preview script for fzf tab
         executable = true;
-        text = import ../shared/bin/run.nix {inherit pkgs;};
+        text = import ../shared/bin/run.nix { inherit pkgs; };
       };
 
       ".local/bin/preview" = {
         # Preview script for fzf tab
         executable = true;
-        text = import ../shared/bin/preview.nix {inherit pkgs;};
+        text = import ../shared/bin/preview.nix { inherit pkgs; };
       };
 
       ".local/bin/appmenu" = {
         # Preview script for fzf tab
         executable = true;
-        text = import ../shared/bin/appmenu.nix {inherit pkgs;};
+        text = import ../shared/bin/appmenu.nix { inherit pkgs; };
       };
 
-      ".tree-sitter".source = pkgs.runCommand "grammars" {} ''
+      ".tree-sitter".source = pkgs.runCommand "grammars" { } ''
         mkdir -p $out/bin
         ${
           lib.concatStringsSep "\n" (lib.mapAttrsToList (name: src: "name=${name}; ln -s ${src}/parser $out/bin/\${name#tree-sitter-}.so")
@@ -155,11 +154,10 @@
         xst
         just
         # Formatters
-        
+
         black
         ktlint
         nixpkgs-fmt
-        rustfmt
         shfmt
         stylua
         neovide
@@ -174,7 +172,7 @@
         font-manager
         transmission-gtk
         # Extras
-        
+
         fd
         gnutls
         imagemagick
@@ -246,5 +244,5 @@
       videos = "${config.home.homeDirectory}/Videos";
     };
   };
-  xresources.extraConfig = import ../shared/x/resources.nix {theme = config.colorScheme;};
+  xresources.extraConfig = import ../shared/x/resources.nix { theme = config.colorScheme; };
 }

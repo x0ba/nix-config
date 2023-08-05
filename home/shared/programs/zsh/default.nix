@@ -1,15 +1,16 @@
-{
-  config,
-  lib,
-  inputs,
-  pkgs,
-  ...
-}: let
+{ config
+, lib
+, inputs
+, pkgs
+, ...
+}:
+let
   theme = config.colorScheme;
-in {
+in
+{
   programs.atuin = {
     enable = true;
-    flags = ["--disable-up-arrow"];
+    flags = [ "--disable-up-arrow" ];
     settings = {
       inline_height = 30;
       style = "compact";
@@ -48,6 +49,8 @@ in {
       fi
 
       cl
+
+      source "$HOME/.cargo/env"
 
       FZF_TAB_COMMAND=(
         ${pkgs.fzf}/bin/fzf
@@ -90,7 +93,7 @@ in {
 
       any-nix-shell zsh --info-right | source /dev/stdin
 
-      PATH=/opt/homebrew/bin:$PATH
+      PATH=/usr/bin:/opt/homebrew/bin:~/.local/share/nvim/mason/bin:/opt/homebrew/opt/libiconv/bin:$PATH
 
     '';
 

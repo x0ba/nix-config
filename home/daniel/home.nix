@@ -1,22 +1,21 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{
-  inputs,
-  outputs,
-  lib,
-  config,
-  pkgs,
-  ...
+{ inputs
+, outputs
+, lib
+, config
+, pkgs
+, ...
 }: {
   # You can import other home-manager modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
-    # outputs.homeManagerModules.example
+    outputs.homeManagerModules.mac-wallpaper
 
     inputs.nix-colors.homeManagerModules.default
     inputs.sops-nix.homeManagerModules.sops
     inputs.nix-index-database.hmModules.nix-index
-    {programs.nix-index-database.comma.enable = true;}
+    { programs.nix-index-database.comma.enable = true; }
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
@@ -38,7 +37,7 @@
     ../shared/programs/xdg
     ../shared/programs/mail
     ../shared/programs/fonts
-    ../shared/programs/sketchybar
+    # ../shared/programs/sketchybar
     ../shared/programs/neovim
     ../shared/programs/zsh
     ../shared/programs/wezterm
@@ -51,6 +50,7 @@
       outputs.overlays.modifications
       outputs.overlays.additions
       inputs.nur.overlay
+      inputs.rust-overlay.overlays.default
 
       (_final: _prev: {
         wezterm = inputs.nekowinston-nur.packages.${pkgs.system}.wezterm-nightly;
@@ -68,17 +68,19 @@
 
   colorScheme = inputs.nix-colors.colorSchemes.mountain;
 
-  disabledModules = ["targets/darwin/linkapps.nix"];
+  disabledModules = [ "targets/darwin/linkapps.nix" ];
   home = {
+    mac-wallpaper = ../shared/wallpapers/background.jpg;
     activation = lib.mkIf pkgs.stdenv.isDarwin {
-      copyApplications = let
-        apps = pkgs.buildEnv {
-          name = "home-manager-applications";
-          paths = config.home.packages;
-          pathsToLink = "/Applications";
-        };
-      in
-        lib.hm.dag.entryAfter ["writeBoundary"] ''
+      copyApplications =
+        let
+          apps = pkgs.buildEnv {
+            name = "home-manager-applications";
+            paths = config.home.packages;
+            pathsToLink = "/Applications";
+          };
+        in
+        lib.hm.dag.entryAfter [ "writeBoundary" ] ''
           baseDir="$HOME/Applications/Home Manager Apps"
           if [ -d "$baseDir" ]; then
             rm -rf "$baseDir"
@@ -99,6 +101,7 @@
         (pkgs)
         trash-cli
         git-lfs
+        # cargo
         lutgen
         just
         ripgrep
@@ -112,15 +115,15 @@
         wireguard-tools
         wireguard-go
         # Extras
-        
+
         shellcheck
         imagemagick
         chafa
         jq
         elinks
-        gcc
         glow
         fzf
+        luarocks
         exiftool
         sdcv
         sqlite

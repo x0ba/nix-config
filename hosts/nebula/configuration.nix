@@ -1,4 +1,4 @@
-{...}: {
+{ outputs, ... }: {
   imports = [
     ../shared/darwin/default.nix
   ];

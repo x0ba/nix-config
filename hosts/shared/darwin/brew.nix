@@ -8,9 +8,12 @@
       upgrade = true;
     };
     brews = [
+      # {
+      #   name = "sketchybar";
+      #   start_service = true;
+      # }
       {
-        name = "sketchybar";
-        start_service = true;
+        name = "libiconv";
       }
     ];
     casks = [
@@ -18,8 +21,8 @@
       "firefox"
       "arc"
       "calibre"
-      "vivaldi"
+      "brave-browser"
     ];
-    taps = ["homebrew/services" "d12frosted/emacs-plus" "homebrew/cask" "homebrew/cask-fonts" "FelixKratz/formulae" "cmacrae/formulae"];
+    taps = [ "homebrew/services" "d12frosted/emacs-plus" "homebrew/cask" "homebrew/cask-fonts" "FelixKratz/formulae" "cmacrae/formulae" ];
   };
 }
