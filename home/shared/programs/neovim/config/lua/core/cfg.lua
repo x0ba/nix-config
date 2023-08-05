@@ -1,8 +1,8 @@
 local M = {}
 local stats = require("lazy").stats()
-M.statusstyle = 'fancy'
+M.statusstyle = "fancy"
 local logos = setmetatable({
-    TEXT = [[
+  TEXT = [[
 ██╗  ██╗ ██████╗       ██████╗  ██████╗
 ██║ ██╔╝██╔═══██╗      ██╔══██╗██╔═══██╗
 █████╔╝ ██║   ██║█████╗██║  ██║██║   ██║
@@ -10,7 +10,7 @@ local logos = setmetatable({
 ██║  ██╗╚██████╔╝      ██████╔╝╚██████╔╝
 ╚═╝  ╚═╝ ╚═════╝       ╚═════╝  ╚═════╝
   ]],
-    UWU = [[
+  UWU = [[
       ⡆⣸⡟⣼⣯⠏⣾⣿⢸⣿⢸⣿⣿⣿⣿⣿⣿⡟⠸⠁⢹⡿⣿⣿⢻⣿⣿⣿⣿⠄
       ⡇⡟⣸⢟⣫⡅⣶⢆⡶⡆⣿⣿⣿⣿⣿⢿⣛⠃⠰⠆⠈⠁⠈⠙⠈⠻⣿⢹⡏⠄
       ⣧⣱⡷⣱⠿⠟⠛⠼⣇⠇⣿⣿⣿⣿⣿⣿⠃⣰⣿⣿⡆⠄⠄⠄⠄⠄⠉⠈⠄⠄
@@ -20,7 +20,7 @@ local logos = setmetatable({
       ⢀⠄⠄⣿⣿⣷⣬⣵⣿⣿⣿⣿⣿⣿⣿⣷⣟⢷⡶⢗⡰⣿⣿⠇⠘⠄⠄⠄⠄⠄
       ⣿⠄⠄⠘⢿⣿⣿⣿⣿⣿⣿⢛⣿⣿⣿⣿⣿⣿⣿⣿⣿⣟⢄⡆⠄⢀⣪⡆⠄⣿
       ]],
-    UWU2 = [[
+  UWU2 = [[
              █████████████████
          ████▌█████▌█ ████████▐▀██▀
        ▄█████ █████▌ █ ▀██████▌█▄▄▀▄
@@ -32,13 +32,11 @@ local logos = setmetatable({
           ▌█▌█▄         ▄▄████▀ ▀
             █▀██▄▄▄ ▄▄▀▀▒█▀█
       ]],
-  },
-  {
-    __index = function(logos, key)
-      return logos[key]
-    end,
-  }
-)
+}, {
+  __index = function(logos, key)
+    return logos[key]
+  end,
+})
 -- the keybinds for buttons better work
 M.dashboard = {
   header = vim.split(logos.TEXT, "\n"),
@@ -52,8 +50,8 @@ M.dashboard = {
   },
   footer = {
     "Loaded " .. stats.count .. " plugins",
-  }
+  },
 }
 
-M.colorscheme = 'mountain'
+M.colorscheme = "mountain"
 return M

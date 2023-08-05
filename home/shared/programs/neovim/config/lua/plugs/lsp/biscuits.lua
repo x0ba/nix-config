@@ -1,4 +1,4 @@
-require('nvim-biscuits').setup({
+require("nvim-biscuits").setup({
   default_config = {
     max_length = 6,
     min_distance = 5,
@@ -7,6 +7,6 @@ require('nvim-biscuits').setup({
   language_config = {
     markdown = {
       disabled = true,
-    }
-  }
+    },
+  },
 })

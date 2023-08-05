@@ -1,5 +1,5 @@
-local saga = require 'lspsaga'
-saga.setup {
+local saga = require("lspsaga")
+saga.setup({
   lightbulb = {
     enable = true,
     enable_in_insert = true,
@@ -17,4 +17,4 @@ saga.setup {
     respect_root = false,
     color_mode = true,
   },
-}
+})

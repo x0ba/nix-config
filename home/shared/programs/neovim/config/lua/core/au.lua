@@ -9,19 +9,19 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
         return
       end
     end
-  end
+  end,
 })
 vim.api.nvim_create_autocmd({ "ColorScheme" }, {
   callback = function()
     require("themes").load()
-  end
+  end,
 })
 
 vim.api.nvim_create_autocmd({ "UIEnter" }, {
   callback = function()
     require("themes").load()
     local should_skip = false
-    if vim.fn.argc() > 0 or vim.fn.line2byte "$" ~= -1 or not vim.o.modifiable then
+    if vim.fn.argc() > 0 or vim.fn.line2byte("$") ~= -1 or not vim.o.modifiable then
       should_skip = true
     else
       for _, arg in pairs(vim.v.argv) do
@@ -31,6 +31,8 @@ vim.api.nvim_create_autocmd({ "UIEnter" }, {
         end
       end
     end
-    if not should_skip then vim.cmd("Alpha") end
-  end
+    if not should_skip then
+      vim.cmd("Alpha")
+    end
+  end,
 })

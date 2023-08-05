@@ -9,15 +9,24 @@ local M = function(m)
   local changed = (git_status.changed and git_status.changed ~= 0) and (" ~ " .. git_status.changed) or ""
   local removed = (git_status.removed and git_status.removed ~= 0) and (" - " .. git_status.removed) or ""
   if git_status.added > 0 or git_status.changed > 0 or git_status.removed > 0 then
-    if (m == 'minimal') then
-      return " " ..
-          "%#StalineDiffAdd#" .. added .. "%#StalineDiffChange#" .. changed .. "%#StalineDiffRemove#" .. removed
-    elseif (m == 'fancy') then
-      return " " ..
-          "%#StalineDiffAddFancy#" ..
-          added ..
-          " " ..
-          "%#StalineDiffChangeFancy#" .. changed .. " %#StalineDiffRemoveFancy#" .. removed .. " %#StalineEmptySpace#"
+    if m == "minimal" then
+      return " "
+        .. "%#StalineDiffAdd#"
+        .. added
+        .. "%#StalineDiffChange#"
+        .. changed
+        .. "%#StalineDiffRemove#"
+        .. removed
+    elseif m == "fancy" then
+      return " "
+        .. "%#StalineDiffAddFancy#"
+        .. added
+        .. " "
+        .. "%#StalineDiffChangeFancy#"
+        .. changed
+        .. " %#StalineDiffRemoveFancy#"
+        .. removed
+        .. " %#StalineEmptySpace#"
     else
       return "F"
     end

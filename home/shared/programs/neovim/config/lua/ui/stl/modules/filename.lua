@@ -1,7 +1,7 @@
 local fn = vim.fn
 local M = function(m)
   local icon = "  "
-  local filename = (fn.expand "%" == "" and "Empty ") or fn.expand "%:t"
+  local filename = (fn.expand("%") == "" and "Empty ") or fn.expand("%:t")
   if filename ~= "Empty " then
     local devicons = require("nvim-web-devicons")
     local ft_icon, icon_hl = devicons.get_icon(filename)
@@ -18,14 +18,19 @@ local M = function(m)
     if string.find(filename, "toggleterm") then
       filename = "Terminal"
     end
-    if (m == 'minimal') then
+    if m == "minimal" then
       return "%#StalineFilenameIcon#" .. "%#" .. icon_hl .. "# " .. icon .. "  %#StalineFilename#" .. filename .. "  "
     elseif m == "fancy" then
-      return "%#StalineFilenameFancy#" ..
-          icon .. "  " .. filename .. "   " .. "%#StalineFilenameSep#" .. " %#StalineEmptySpace#"
+      return "%#StalineFilenameFancy#"
+        .. icon
+        .. "  "
+        .. filename
+        .. "   "
+        .. "%#StalineFilenameSep#"
+        .. " %#StalineEmptySpace#"
     end
   else
-    if (m == 'minimal') then
+    if m == "minimal" then
       return "%#StalineFilename#  Neovim "
     elseif m == "fancy" then
       return "%#StalineFilenameFancy#" .. "  Neovim  " .. "%#StalineFilenameSep#" .. " %#StalineEmptySpace#"

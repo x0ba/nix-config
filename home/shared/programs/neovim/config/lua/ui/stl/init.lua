@@ -7,7 +7,7 @@ local run = function(STYLE)
   local position = require("ui.stl.modules.position")
   local diagnostics = require("ui.stl.modules.diagnostics")
   local lsp = require("ui.stl.modules.lsp")
-  return table.concat {
+  return table.concat({
     mode(STYLE),
     filename(STYLE),
     branch(),
@@ -17,7 +17,7 @@ local run = function(STYLE)
     folder(STYLE),
     lsp(STYLE) or "",
     position(STYLE),
-  };
+  })
 end
 
 local setup = function(STYLE)
@@ -25,7 +25,7 @@ local setup = function(STYLE)
   vim.api.nvim_create_autocmd({ "ModeChanged", "LspAttach" }, {
     callback = function()
       vim.opt.statusline = run(STYLE)
-    end
+    end,
   })
 end
 

@@ -98,6 +98,8 @@ in {
       cleanup = "sudo nix-collect-garbage --delete-older-than 7d";
       bloat = "nix path-info -Sh /run/current-system";
       g = "git";
+      gaa = "git add .";
+      cls = "clear";
       commit = "git add . && git commit -m";
       push = "git push";
       pull = "git pull";

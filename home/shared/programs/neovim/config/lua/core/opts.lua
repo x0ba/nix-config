@@ -4,20 +4,20 @@ local diagnostic = vim.diagnostic
 local g = vim.g
 local config = require("core.cfg")
 opt.hidden = true
-g.code_action_menu_window_border = 'single'
+g.code_action_menu_window_border = "single"
 opt.ch = 0
 g.currentTheme = config.colorscheme
-g.theme_cache = vim.fn.stdpath "data" .. "/colors_data/"
+g.theme_cache = vim.fn.stdpath("data") .. "/colors_data/"
 g.statusStyle = config.statusstyle
 opt.pumheight = 10
-opt.fileencoding = 'utf-8'
+opt.fileencoding = "utf-8"
 opt.splitbelow = true
 opt.list = true
 opt.splitright = true
 opt.termguicolors = true
 opt.conceallevel = 0
 opt.showtabline = 3
-opt.tabline = ' '
+opt.tabline = " "
 opt.showmode = false
 opt.backup = false
 opt.number = true
@@ -32,8 +32,8 @@ opt.ignorecase = true
 opt.relativenumber = true
 opt.scrolloff = 0
 opt.sidescrolloff = 5
-opt.foldcolumn = '0' -- '0' is not bad
-opt.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
+opt.foldcolumn = "0" -- '0' is not bad
+opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 opt.foldlevelstart = 99
 opt.foldenable = true
 opt.mouse = "a" -- Mouse support for noobs
@@ -43,16 +43,16 @@ opt.softtabstop = 2
 opt.shiftwidth = 0
 opt.autoindent = true
 opt.expandtab = true
-opt.fillchars:append('eob: ')
-opt.listchars:append "space: "
-cmd('set lazyredraw')
-opt.laststatus = 0                  -- Global Status
-diagnostic.config { signs = false } -- Removing diagnostic column
+opt.fillchars:append("eob: ")
+opt.listchars:append("space: ")
+cmd("set lazyredraw")
+opt.laststatus = 0 -- Global Status
+diagnostic.config({ signs = false }) -- Removing diagnostic column
 opt.updatetime = 250
 opt.shadafile = "NONE"
 opt.shadafile = ""
 opt.swapfile = false
-opt.shortmess:append "sI"
+opt.shortmess:append("sI")
 
 --local color = require("core.cfg").colorscheme
 --vim.cmd.colorscheme(color)
@@ -88,7 +88,7 @@ local builtins = {
   "fzf",
   "tutor_mode_plugin",
   "sleuth",
-  "vimgrep"
+  "vimgrep",
 }
 
 for _, plugin in ipairs(builtins) do

@@ -124,10 +124,7 @@ local key_tables = {
 for k, _ in pairs(key_tables) do
   table.insert(key_tables[k], { key = "Escape", action = "PopKeyTable" })
   table.insert(key_tables[k], { key = "Enter", action = "PopKeyTable" })
-  table.insert(
-    key_tables[k],
-    { key = "c", mods = "CTRL", action = "PopKeyTable" }
-  )
+  table.insert(key_tables[k], { key = "c", mods = "CTRL", action = "PopKeyTable" })
 end
 
 local M = {}

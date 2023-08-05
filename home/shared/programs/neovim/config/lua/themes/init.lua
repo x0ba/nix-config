@@ -1,6 +1,6 @@
 -- Thanks nvchad/base46
-local M        = {}
-local hl_files = vim.fn.stdpath "config" .. "/lua/themes/hls"
+local M = {}
+local hl_files = vim.fn.stdpath("config") .. "/lua/themes/hls"
 local function hexToRgb(c)
   c = string.lower(c)
   return { tonumber(c:sub(2, 3), 16), tonumber(c:sub(4, 5), 16), tonumber(c:sub(6, 7), 16) }
@@ -10,7 +10,7 @@ M.getCurrentTheme = function()
   local theme = require(path).get_colors()
   return theme
 end
-M.blend           = function(foreground, background, alpha)
+M.blend = function(foreground, background, alpha)
   alpha = type(alpha) == "string" and (tonumber(alpha, 16) / 0xff) or alpha
   local bg = hexToRgb(background)
   local fg = hexToRgb(foreground)
@@ -23,24 +23,24 @@ M.blend           = function(foreground, background, alpha)
   return string.format("#%02x%02x%02x", blendChannel(1), blendChannel(2), blendChannel(3))
 end
 
-M.darken          = function(hex, bg, amount)
+M.darken = function(hex, bg, amount)
   return M.blend(hex, bg, amount)
 end
 
-M.lighten         = function(hex, fg, amount)
+M.lighten = function(hex, fg, amount)
   return M.blend(hex, fg, amount)
 end
 
-M.mergeTb         = function(...)
+M.mergeTb = function(...)
   return vim.tbl_deep_extend("force", ...)
 end
 
-M.loadTb          = function(g)
+M.loadTb = function(g)
   g = require("themes.hls." .. g)
   return g
 end
 
-M.tableToStr      = function(tb)
+M.tableToStr = function(tb)
   local result = ""
 
   for hlgroupName, hlgroup_vals in pairs(tb) do
@@ -49,7 +49,7 @@ M.tableToStr      = function(tb)
 
     for optName, optVal in pairs(hlgroup_vals) do
       local valueInStr = ((type(optVal)) == "boolean" or type(optVal) == "number") and tostring(optVal)
-          or '"' .. optVal .. '"'
+        or '"' .. optVal .. '"'
       opts = opts .. optName .. "=" .. valueInStr .. ","
     end
 
@@ -59,7 +59,7 @@ M.tableToStr      = function(tb)
   return result
 end
 
-M.toCache         = function(filename, tb)
+M.toCache = function(filename, tb)
   local lines = "return string.dump(function()" .. M.tableToStr(tb) .. "end, true)"
   local file = io.open(vim.g.theme_cache .. filename, "wb")
 
@@ -69,7 +69,7 @@ M.toCache         = function(filename, tb)
     file:close()
   end
 end
-M.compile         = function()
+M.compile = function()
   if not vim.loop.fs_stat(vim.g.theme_cache) then
     vim.fn.mkdir(vim.g.theme_cache, "p")
   end
@@ -80,17 +80,17 @@ M.compile         = function()
   end
 end
 
-M.load            = function()
+M.load = function()
   M.compile()
   for _, file in ipairs(vim.fn.readdir(vim.g.theme_cache)) do
     dofile(vim.g.theme_cache .. file)
   end
 end
 
-M.themes          = {}
+M.themes = {}
 
-M.toggleTheme     = function()
-  local files = vim.fn.stdpath "config" .. "/colors/"
+M.toggleTheme = function()
+  local files = vim.fn.stdpath("config") .. "/colors/"
   for _, file in ipairs(vim.fn.readdir(files)) do
     local integration = vim.fn.fnamemodify(file, ":r")
     table.insert(M.themes, integration)
@@ -99,6 +99,5 @@ M.toggleTheme     = function()
   local t = M.themes[math.random(#M.themes)]
   vim.cmd("colorscheme " .. t)
 end
-
 
 return M

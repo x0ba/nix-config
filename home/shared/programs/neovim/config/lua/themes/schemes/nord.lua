@@ -3,11 +3,11 @@ local M = {}
 function M.get_colors()
   return {
     background = "#242832",
-    contrast = '#262a35',
+    contrast = "#262a35",
     foreground = "#c7ccd6",
-    cursorline = '#262a35',
-    comment = '#79818f',
-    darker = '#1b1e25',
+    cursorline = "#262a35",
+    comment = "#79818f",
+    darker = "#1b1e25",
     cursor = "#c7ccd6",
     black = "#242832",
     color0 = "#2a2e3a",
