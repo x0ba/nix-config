@@ -1,6 +1,6 @@
 local M = {}
 local stats = require("lazy").stats()
-M.statusstyle = 'minimal'
+M.statusstyle = 'fancy'
 local logos = setmetatable({
     TEXT = [[
 ██╗  ██╗ ██████╗       ██████╗  ██████╗

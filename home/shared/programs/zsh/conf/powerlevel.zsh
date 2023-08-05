@@ -91,7 +91,7 @@ typeset -g PS3='%K{4} %K{0}%B select %b%k '
   #################################[ os_icon: os identifier ]##################################
   # OS identifier color.
   typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=0
-  typeset -g POWERLEVEL9K_OS_ICON_BACKGROUND=3
+  typeset -g POWERLEVEL9K_OS_ICON_BACKGROUND=#8f8aac
   # Custom icon. הּ ﮼  
   typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='󰘧'
 
