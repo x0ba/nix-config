@@ -3,7 +3,7 @@ repos:
     rev: v1.2.0
     hooks:
       - id: deadnix
-        #args: [--edit] # Uncomment to automatically modify files
+        args: [--edit] # Uncomment to automatically modify files
         stages: [commit]
   - repo: https://github.com/kamadorueda/alejandra
     rev: 1.3.0
@@ -12,7 +12,3 @@ repos:
     hooks:
       # Requires Nix to be previously installed in the system
       - id: alejandra
-  - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
-    rev: 2.7.2  # pick a git hash / tag to point to
-    hooks:
-      - id: editorconfig-checker
