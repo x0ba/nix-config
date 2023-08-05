@@ -1,5 +1,5 @@
 {
-  description = "x0ba's HM Flake";
+  description = "i have no idea what the fuck i'm doing.";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -66,10 +66,8 @@
 
   outputs = {
     self,
-    sops-nix,
     nixpkgs,
     home,
-    nix-index-database,
     darwin,
     ...
   } @ inputs: let
@@ -119,7 +117,6 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./hosts/starfall/configuration.nix
-          sops-nix.nixosModules.sops
         ];
       };
     };
@@ -128,7 +125,6 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           ./hosts/nebula/configuration.nix
-          sops-nix.nixosModules.sops
         ];
       };
     };
