@@ -4,7 +4,7 @@ with pkgs;
     #!/usr/bin/env bash
 
       rofi -show drun \
-           -modi drun,run \
-           -show-icons \
-           -theme ~/.config/rofi/appmenu.rasi
+          -modi drun,run \
+          -show-icons \
+          -theme ~/.config/rofi/appmenu.rasi
   ''

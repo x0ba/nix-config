@@ -13,16 +13,7 @@
         start_service = true;
       }
     ];
-    casks = let
-      skipSha = name: {
-        inherit name;
-        args = {require_sha = false;};
-      };
-      noQuarantine = name: {
-        inherit name;
-        args = {no_quarantine = true;};
-      };
-    in [
+    casks = [
       "ticktick"
       "firefox"
       "arc"

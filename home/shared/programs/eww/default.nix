@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  inputs,
   lib,
   ...
 }: let
@@ -15,19 +14,19 @@
   ewwYuck = pkgs.writeText "eww.yuck" ''
     (defwidget bar []
       (centerbox :orientation "v"
-                 :halign "center"
+                :halign "center"
         (box :class "segment-top"
-             :valign "start"
-             :orientation "v"
+            :valign "start"
+            :orientation "v"
           (tags))
         (box :class "segment-center"
-             :valign "center"
-             :orientation "v"
+            :valign "center"
+            :orientation "v"
           (time)
           (date))
         (box :class "segment-bottom"
-             :valign "end"
-             :orientation "v"
+            :valign "end"
+            :orientation "v"
           (menu)
           (brightness)
           (volume)
@@ -36,38 +35,38 @@
 
     (defwidget time []
       (box :class "time"
-           :orientation "v"
+          :orientation "v"
         hour min sec))
 
     (defwidget date []
       (box :class "date"
-           :orientation "v"
+          :orientation "v"
         day month year))
 
     (defwidget menu []
       (button :class "icon"
               :orientation "v"
               :onclick "''${EWW_CMD} open --toggle notifications-menu"
-         "󰍜"))
+        "󰍜"))
 
     (defwidget brightness []
       (button :class "icon"
               :orientation "v"
         (circular-progress :value brightness-level
-                           :thickness 3)))
+                          :thickness 3)))
 
     (defwidget volume []
       (button :class "icon"
               :orientation "v"
         (circular-progress :value volume-level
-                           :thickness 3)))
+                          :thickness 3)))
 
     (defwidget battery []
       (button :class "icon"
               :orientation "v"
               :onclick ""
         (circular-progress :value "''${EWW_BATTERY['macsmc-battery'].capacity}"
-                           :thickness 3)))
+                          :thickness 3)))
 
     (defwidget current-tag []
       (button :class "current-tag"
@@ -87,27 +86,27 @@
     (defvar brightness-level 66)
     (defvar volume-level 33)
     (deflisten battery-level
-       `cat /sys/class/power_supply/macsmc-battery/capacity`)
+      `cat /sys/class/power_supply/macsmc-battery/capacity`)
 
       (defwidget tags []
         (box :class "tags"
-             :orientation "v"
-             :halign "center"
+            :orientation "v"
+            :halign "center"
           (for tag in tags
             (box :class {active-tag == tag.tag ? "active" : "inactive"}
               (button :onclick "swaymsg workspace ''${tag.tag} ; ''${EWW_CMD} update active-tag=''${tag.tag}"
                 "''${tag.label}")))))
 
       (defvar tags '[{ "tag": 1, "label": "一" },
-                     { "tag": 2, "label": "二" },
-                     { "tag": 3, "label": "三" },
-                     { "tag": 4, "label": "四" },
-                     { "tag": 5, "label": "五" },
-                     { "tag": 6, "label": "六" },
-                     { "tag": 7, "label": "七" },
-                     { "tag": 8, "label": "八" },
-                     { "tag": 9, "label": "九" },
-                     { "tag": 0, "label": "rM" }]')
+                    { "tag": 2, "label": "二" },
+                    { "tag": 3, "label": "三" },
+                    { "tag": 4, "label": "四" },
+                    { "tag": 5, "label": "五" },
+                    { "tag": 6, "label": "六" },
+                    { "tag": 7, "label": "七" },
+                    { "tag": 8, "label": "八" },
+                    { "tag": 9, "label": "九" },
+                    { "tag": 0, "label": "rM" }]')
 
     (defwindow bar
       :monitor 0

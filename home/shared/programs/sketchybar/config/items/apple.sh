@@ -20,16 +20,16 @@ sketchybar --add item apple.logo left \
     --set apple.prefs icon="" \
     label="Preferences" \
     click_script="open -a 'System Preferences';
-                                              $POPUP_OFF" \
+                                            $POPUP_OFF" \
     \
     --add item apple.activity popup.apple.logo \
     --set apple.activity icon="" \
     label="Activity" \
     click_script="open -a 'Activity Monitor';
-                                              $POPUP_OFF" \
+                                            $POPUP_OFF" \
     \
     --add item apple.lock popup.apple.logo \
     --set apple.lock icon="" \
     label="Lock Screen" \
     click_script="pmset displaysleepnow;
-                                              $POPUP_OFF"
+                                            $POPUP_OFF"

@@ -5,45 +5,45 @@ local act = wezterm.action
 local shortcuts = {}
 
 local map = function(key, mods, action)
-  if type(mods) == "string" then
-    table.insert(shortcuts, { key = key, mods = mods, action = action })
-  elseif type(mods) == "table" then
-    for _, mod in pairs(mods) do
-      table.insert(shortcuts, { key = key, mods = mod, action = action })
+    if type(mods) == "string" then
+        table.insert(shortcuts, { key = key, mods = mods, action = action })
+    elseif type(mods) == "table" then
+        for _, mod in pairs(mods) do
+            table.insert(shortcuts, { key = key, mods = mod, action = action })
+        end
     end
-  end
 end
 
 wezterm.GLOBAL.enable_tab_bar = true
 local toggleTabBar = wezterm.action_callback(function(window)
-  wezterm.GLOBAL.enable_tab_bar = not wezterm.GLOBAL.enable_tab_bar
-  window:set_config_overrides({
-    enable_tab_bar = wezterm.GLOBAL.enable_tab_bar,
-  })
+    wezterm.GLOBAL.enable_tab_bar = not wezterm.GLOBAL.enable_tab_bar
+    window:set_config_overrides({
+        enable_tab_bar = wezterm.GLOBAL.enable_tab_bar,
+    })
 end)
 
 local openUrl = act.QuickSelectArgs({
-  label = "open url",
-  patterns = { "https?://\\S+" },
-  action = wezterm.action_callback(function(window, pane)
-    local url = window:get_selection_text_for_pane(pane)
-    wezterm.open_with(url)
-  end),
+    label = "open url",
+    patterns = { "https?://\\S+" },
+    action = wezterm.action_callback(function(window, pane)
+        local url = window:get_selection_text_for_pane(pane)
+        wezterm.open_with(url)
+    end),
 })
 
 local changeCtpFlavor = act.InputSelector({
-  title = "Change Catppuccin flavor",
-  choices = {
-    { label = "Mocha" },
-    { label = "Macchiato" },
-    { label = "Frappe" },
-    { label = "Latte" },
-  },
-  action = wezterm.action_callback(function(window, _, _, label)
-    if label then
-      window:set_config_overrides({ color_scheme = "Catppuccin " .. label })
-    end
-  end),
+    title = "Change Catppuccin flavor",
+    choices = {
+        { label = "Mocha" },
+        { label = "Macchiato" },
+        { label = "Frappe" },
+        { label = "Latte" },
+    },
+    action = wezterm.action_callback(function(window, _, _, label)
+        if label then
+            window:set_config_overrides({ color_scheme = "Catppuccin " .. label })
+        end
+    end),
 })
 
 -- use 'Backslash' to split horizontally
@@ -52,7 +52,7 @@ map("\\", "LEADER", act.SplitHorizontal({ domain = "CurrentPaneDomain" }))
 map("-", "LEADER", act.SplitVertical({ domain = "CurrentPaneDomain" }))
 -- map 1-9 to switch to tab 1-9, 0 for the last tab
 for i = 1, 9 do
-  map(tostring(i), { "LEADER", "SUPER" }, act.ActivateTab(i - 1))
+    map(tostring(i), { "LEADER", "SUPER" }, act.ActivateTab(i - 1))
 end
 map("0", { "LEADER", "SUPER" }, act.ActivateTab(-1))
 -- 'hjkl' to move between panes
@@ -99,55 +99,55 @@ map("f", "LEADER", act.EmitEvent("switch-font"))
 map("l", "SHIFT|CTRL", act.ShowDebugOverlay)
 
 map(
-  "r",
-  { "LEADER", "SUPER" },
-  act.ActivateKeyTable({
-    name = "resize_mode",
-    one_shot = false,
-  })
+    "r",
+    { "LEADER", "SUPER" },
+    act.ActivateKeyTable({
+        name = "resize_mode",
+        one_shot = false,
+    })
 )
 
 local key_tables = {
-  resize_mode = {
-    { key = "h", action = act.AdjustPaneSize({ "Left", 1 }) },
-    { key = "j", action = act.AdjustPaneSize({ "Down", 1 }) },
-    { key = "k", action = act.AdjustPaneSize({ "Up", 1 }) },
-    { key = "l", action = act.AdjustPaneSize({ "Right", 1 }) },
-    { key = "LeftArrow", action = act.AdjustPaneSize({ "Left", 1 }) },
-    { key = "DownArrow", action = act.AdjustPaneSize({ "Down", 1 }) },
-    { key = "UpArrow", action = act.AdjustPaneSize({ "Up", 1 }) },
-    { key = "RightArrow", action = act.AdjustPaneSize({ "Right", 1 }) },
-  },
+    resize_mode = {
+        { key = "h", action = act.AdjustPaneSize({ "Left", 1 }) },
+        { key = "j", action = act.AdjustPaneSize({ "Down", 1 }) },
+        { key = "k", action = act.AdjustPaneSize({ "Up", 1 }) },
+        { key = "l", action = act.AdjustPaneSize({ "Right", 1 }) },
+        { key = "LeftArrow", action = act.AdjustPaneSize({ "Left", 1 }) },
+        { key = "DownArrow", action = act.AdjustPaneSize({ "Down", 1 }) },
+        { key = "UpArrow", action = act.AdjustPaneSize({ "Up", 1 }) },
+        { key = "RightArrow", action = act.AdjustPaneSize({ "Right", 1 }) },
+    },
 }
 
 -- add a common escape sequence to all key tables
 for k, _ in pairs(key_tables) do
-  table.insert(key_tables[k], { key = "Escape", action = "PopKeyTable" })
-  table.insert(key_tables[k], { key = "Enter", action = "PopKeyTable" })
-  table.insert(key_tables[k], { key = "c", mods = "CTRL", action = "PopKeyTable" })
+    table.insert(key_tables[k], { key = "Escape", action = "PopKeyTable" })
+    table.insert(key_tables[k], { key = "Enter", action = "PopKeyTable" })
+    table.insert(key_tables[k], { key = "c", mods = "CTRL", action = "PopKeyTable" })
 end
 
 local M = {}
 M.apply = function(c)
-  c.leader = {
-    key = "s",
-    mods = "CTRL",
-    timeout_milliseconds = math.maxinteger,
-  }
-  c.keys = shortcuts
-  c.disable_default_key_bindings = true
-  c.key_tables = key_tables
-  c.mouse_bindings = {
-    {
-      event = { Down = { streak = 1, button = { WheelUp = 1 } } },
-      mods = "NONE",
-      action = wezterm.action.ScrollByLine(5),
-    },
-    {
-      event = { Down = { streak = 1, button = { WheelDown = 1 } } },
-      mods = "NONE",
-      action = wezterm.action.ScrollByLine(-5),
-    },
-  }
+    c.leader = {
+        key = "s",
+        mods = "CTRL",
+        timeout_milliseconds = math.maxinteger,
+    }
+    c.keys = shortcuts
+    c.disable_default_key_bindings = true
+    c.key_tables = key_tables
+    c.mouse_bindings = {
+        {
+            event = { Down = { streak = 1, button = { WheelUp = 1 } } },
+            mods = "NONE",
+            action = wezterm.action.ScrollByLine(5),
+        },
+        {
+            event = { Down = { streak = 1, button = { WheelDown = 1 } } },
+            mods = "NONE",
+            action = wezterm.action.ScrollByLine(-5),
+        },
+    }
 end
 return M

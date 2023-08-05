@@ -1,8 +1,4 @@
-{
-  config,
-  flakePath,
-  ...
-}: {
+{config, ...}: {
   programs.wezterm = {
     enable = true;
     # package = pkgs.wezterm;

@@ -52,7 +52,7 @@
       outputs.overlays.additions
       inputs.nur.overlay
 
-      (final: prev: {
+      (_final: _prev: {
         wezterm = inputs.nekowinston-nur.packages.${pkgs.system}.wezterm-nightly;
       })
     ];

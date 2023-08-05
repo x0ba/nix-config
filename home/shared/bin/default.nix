@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: let
+{pkgs, ...}: let
   preview = import ./preview.nix {inherit pkgs;};
   run = import ./run.nix {inherit pkgs;};
   updoot = import ./updoot.nix {inherit pkgs;};

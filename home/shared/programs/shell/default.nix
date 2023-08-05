@@ -1,14 +1,4 @@
-{
-  config,
-  flakePath,
-  pkgs,
-  ...
-}: let
-  symlink = fileName: {recursive ? false}: {
-    source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/${fileName}";
-    recursive = recursive;
-  };
-in {
+{config, ...}: {
   programs = {
     btop = {
       enable = true;

@@ -1,10 +1,4 @@
-{
-  pkgs,
-  lib,
-  inputs,
-  config,
-  ...
-}: {
+{...}: {
   services.kanshi = {
     enable = true;
     profiles = {

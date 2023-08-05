@@ -1,10 +1,4 @@
-{
-  pkgs,
-  lib,
-  inputs,
-  config,
-  ...
-}: let
+{pkgs, ...}: let
   t-smart-tmux-session-manager = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "t-smart-tmux-session-manager";
     version = "2023-08-04";

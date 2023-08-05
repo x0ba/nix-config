@@ -1,11 +1,4 @@
-{
-  pkgs,
-  lib,
-  inputs,
-  outputs,
-  config,
-  ...
-}: {
+{...}: {
   imports = [
     ./programs/yabai.nix
     ./programs/skhd.nix

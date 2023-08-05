@@ -1,4 +1,4 @@
-final: prev: {
+_final: prev: {
   alacritty-ligatures = prev.alacritty.overrideAttrs (old: rec {
     pname = "alacritty-ligatures";
 
