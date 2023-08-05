@@ -70,6 +70,12 @@ lazy.setup({
     cmd = "ToggleTerm",
   },
   {
+    "nvim-lualine/lualine.nvim",
+    config = function()
+      require("plugs.ui.lualine")
+    end,
+  },
+  {
     "lewis6991/gitsigns.nvim",
     lazy = true,
     event = "CursorHold",
@@ -208,6 +214,16 @@ lazy.setup({
     lazy = true,
   },
   {
+    'stevearc/oil.nvim',
+    lazy = true,
+    config = function()
+      require("plugs.util.oil")
+    end,
+    cmd = "Oil",
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+  {
     "kevinhwang91/nvim-ufo",
     lazy = true,
     event = "CursorHold",
@@ -251,57 +267,10 @@ lazy.setup({
     },
   },
   {
-    "folke/flash.nvim",
-    event = "VeryLazy",
-    opts = {
-      modes = {
-        char = {
-          enabled = false,
-        },
-      },
-    },
-    keys = {
-      {
-        "s",
-        mode = { "n", "x", "o" },
-        function()
-          require("flash").jump()
-        end,
-        desc = "Flash",
-      },
-      {
-        "S",
-        mode = { "n", "o", "x" },
-        function()
-          require("flash").treesitter()
-        end,
-        desc = "Flash Treesitter",
-      },
-      {
-        "r",
-        mode = "o",
-        function()
-          require("flash").remote()
-        end,
-        desc = "Remote Flash",
-      },
-      {
-        "R",
-        mode = { "o", "x" },
-        function()
-          require("flash").treesitter_search()
-        end,
-        desc = "Treesitter Search",
-      },
-      {
-        "<c-s>",
-        mode = { "c" },
-        function()
-          require("flash").toggle()
-        end,
-        desc = "Toggle Flash Search",
-      },
-    },
+    "ggandor/leap.nvim",
+    config = function()
+      require('leap').add_default_mappings()
+    end
   },
   {
     "christoomey/vim-tmux-navigator",

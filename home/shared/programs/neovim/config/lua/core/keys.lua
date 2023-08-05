@@ -16,6 +16,8 @@ map("n", "<leader>gg", ":Neogit<CR>", { noremap = true, silent = true })
 map("n", "zR", ':lua require("ufo").openAllFolds<CR>', { noremap = true, silent = true })
 map("n", "zM", ':lua require("ufo").closeAllFolds<CR>', { noremap = true, silent = true })
 
+vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" })
+
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 

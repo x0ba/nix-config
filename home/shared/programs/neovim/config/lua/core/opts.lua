@@ -5,6 +5,7 @@ local g = vim.g
 local config = require("core.cfg")
 opt.hidden = true
 g.code_action_menu_window_border = "single"
+vim.g.termguicolors = true
 opt.ch = 0
 g.currentTheme = config.colorscheme
 g.theme_cache = vim.fn.stdpath("data") .. "/colors_data/"
@@ -67,6 +68,10 @@ local builtins = {
   "getscriptPlugin",
   "gzip",
   "logipat",
+  "netrw",
+  "netrwPlugin",
+  "netrwSettings",
+  "netrwFileHandlers",
   "matchit",
   "matchparen",
   "tar",
@@ -91,7 +96,7 @@ local builtins = {
   "fzf",
   "tutor_mode_plugin",
   "sleuth",
-  "vimgrep",
+  "vimgrep"
 }
 
 for _, plugin in ipairs(builtins) do
