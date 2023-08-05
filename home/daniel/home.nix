@@ -37,7 +37,7 @@
     ../shared/programs/xdg
     ../shared/programs/mail
     ../shared/programs/fonts
-    # ../shared/programs/sketchybar
+    ../shared/programs/sketchybar
     ../shared/programs/neovim
     ../shared/programs/zsh
     ../shared/programs/wezterm
@@ -102,6 +102,7 @@
         trash-cli
         git-lfs
         # cargo
+
         lutgen
         just
         ripgrep
