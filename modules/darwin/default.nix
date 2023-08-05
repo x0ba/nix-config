@@ -3,4 +3,5 @@
 {
   # List your module files here
   sketchybar = import ./sketchybar.nix;
+  yabai = import ./yabai.nix;
 }

@@ -30,14 +30,9 @@
       nix-direnv.enable = true;
     };
 
-    lsd = {
+    exa = {
       enable = true;
       enableAliases = true;
     };
-  };
-
-  xdg.configFile."lsd" = {
-    source = ./lsd_config;
-    recursive = true;
   };
 }

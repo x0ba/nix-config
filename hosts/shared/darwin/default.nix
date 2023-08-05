@@ -1,5 +1,6 @@
-{ ... }: {
+{outputs, ...}: {
   imports = [
+    outputs.darwinModules.yabai
     ./programs/yabai.nix
     ./programs/skhd.nix
     ./programs/fish.nix
@@ -20,7 +21,7 @@
     remapCapsLockToEscape = true;
   };
   system.defaults = {
-    screencapture = { location = "/tmp"; };
+    screencapture = {location = "/tmp";};
 
     dock = {
       autohide = true;

@@ -144,6 +144,9 @@ lazy.setup({
   -- The funs begins
   {
     "neovim/nvim-lspconfig",
+    event = { "BufReadPost", "BufNewFile", "CursorHold" },
+    lazy = true,
+    cmd = { "LspInfo", "LspInstall", "LspUninstall", "LspStart" },
     config = function()
       require("plugs.lsp.lspconfig")
     end,
