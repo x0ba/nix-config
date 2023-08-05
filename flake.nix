@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
-    home.url = "github:nix-community/home-manager/release-23.05";
+    home-manager.url = "github:nix-community/home-manager/release-23.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
@@ -64,7 +64,7 @@
   outputs = {
     self,
     nixpkgs,
-    home,
+    home-manager,
     darwin,
     ...
   } @ inputs: let
@@ -128,7 +128,7 @@
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
-      "aspect@starfall" = home.lib.homeManagerConfiguration {
+      "aspect@starfall" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.aarch64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {
           inherit inputs outputs;
@@ -138,7 +138,7 @@
           ./home/aspect/home.nix
         ];
       };
-      "daniel@nebula" = home.lib.homeManagerConfiguration {
+      "daniel@nebula" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.aarch64-darwin; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {
           inherit inputs outputs;

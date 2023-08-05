@@ -5,11 +5,11 @@ local c = wezterm.config_builder()
 require("keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-    "Iosevka",
-    "Symbols Nerd Font",
+  "Iosevka",
+  "Symbols Nerd Font",
 })
 c.font_size = 17.0
-c.line_height = 1.2
+c.line_height = 1.1
 c.hide_tab_bar_if_only_one_tab = true
 
 -- window
@@ -18,8 +18,8 @@ c.window_padding = { left = 45, right = 45, top = 45, bottom = 45 }
 
 -- dim unfocused panes
 c.inactive_pane_hsb = {
-    saturation = 1.0,
-    brightness = 0.8,
+  saturation = 1.0,
+  brightness = 0.8,
 }
 -- etc.
 c.adjust_window_size_when_changing_font_size = false
@@ -27,7 +27,7 @@ c.audible_bell = "Disabled"
 c.clean_exit_codes = { 130 }
 c.default_cursor_style = "SteadyBlock"
 c.launch_menu = {
-    { label = "Music player", args = { "ncmpcpp" } },
+  { label = "Music player", args = { "ncmpcpp" } },
 }
 c.command_palette_font_size = 13.0
 c.window_frame = { font_size = 13.0 }

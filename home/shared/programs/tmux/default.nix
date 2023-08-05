@@ -45,6 +45,7 @@ in {
       unbind-key up
       unbind-key down
       unbind-key left
+      unbind-key t
       unbind-key up
       unbind-key x
       unbind-key <
@@ -105,10 +106,10 @@ in {
       }
       {
         plugin = t-smart-tmux-session-manager;
+        extraConfig = "set -g @t-bind 'T'";
       }
       {
         plugin = tmuxPlugins.vim-tmux-navigator;
-        extraConfig = "set -g @t-bind ' K '";
       }
     ];
   };
