@@ -114,7 +114,7 @@
         let
           pkgs = nixpkgs.legacyPackages.${system};
         in
-        import ./shell.nix { inherit pkgs; }
+        import ./shell.nix { inherit pkgs self; }
       );
 
 
