@@ -1,12 +1,11 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{
-  inputs,
-  outputs,
-  lib,
-  config,
-  pkgs,
-  ...
+{ inputs
+, outputs
+, lib
+, config
+, pkgs
+, ...
 }: {
   # You can import other home-manager modules here
   imports = [
@@ -16,7 +15,7 @@
     inputs.nix-colors.homeManagerModules.default
     inputs.sops-nix.homeManagerModules.sops
     inputs.nix-index-database.hmModules.nix-index
-    {programs.nix-index-database.comma.enable = true;}
+    { programs.nix-index-database.comma.enable = true; }
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
@@ -30,7 +29,6 @@
     ../shared/programs/gpg
     ../shared/programs/git
     ../shared/programs/neofetch
-    ../shared/bin
     # ../shared/programs/starship
     ../shared/programs/firefox
     ../shared/programs/newsboat
@@ -47,15 +45,24 @@
   nixpkgs = {
     # You can add overlays here
     overlays = [
-      # Add overlays your own flake exports (from overlays and pkgs dir):
       outputs.overlays.modifications
       outputs.overlays.additions
       inputs.nur.overlay
       inputs.rust-overlay.overlays.default
-
-      (_final: _prev: {
-        wezterm = inputs.nekowinston-nur.packages.${pkgs.system}.wezterm-nightly;
+      (final: prev: {
+        nur = import inputs.nur {
+          nurpkgs = prev;
+          pkgs = prev;
+          repoOverrides = {
+            caarlos0 = inputs.caarlos0-nur.packages.${prev.system};
+            nekowinston = inputs.nekowinston-nur.packages.${prev.system};
+          };
+        };
+        nekowinston-nur = import inputs.nekowinston-nur { inherit (prev) pkgs; };
+        nix-vscode-extensions = inputs.nix-vscode-extensions.extensions.${prev.system};
+        sway-unwrapped = inputs.swayfx.packages.${prev.system}.default;
       })
+      inputs.nekowinston-nur.overlays.default
     ];
 
     # Configure your nixpkgs instance
@@ -69,18 +76,19 @@
 
   colorScheme = inputs.nix-colors.colorSchemes.mountain;
 
-  disabledModules = ["targets/darwin/linkapps.nix"];
+  disabledModules = [ "targets/darwin/linkapps.nix" ];
   home = {
     mac-wallpaper = ../shared/wallpapers/background.jpg;
     activation = lib.mkIf pkgs.stdenv.isDarwin {
-      copyApplications = let
-        apps = pkgs.buildEnv {
-          name = "home-manager-applications";
-          paths = config.home.packages;
-          pathsToLink = "/Applications";
-        };
-      in
-        lib.hm.dag.entryAfter ["writeBoundary"] ''
+      copyApplications =
+        let
+          apps = pkgs.buildEnv {
+            name = "home-manager-applications";
+            paths = config.home.packages;
+            pathsToLink = "/Applications";
+          };
+        in
+        lib.hm.dag.entryAfter [ "writeBoundary" ] ''
           baseDir="$HOME/Applications/Home Manager Apps"
           if [ -d "$baseDir" ]; then
             rm -rf "$baseDir"
@@ -102,7 +110,7 @@
         trash-cli
         git-lfs
         # cargo
-        
+
         lutgen
         just
         ripgrep
@@ -115,8 +123,11 @@
         sops
         wireguard-tools
         wireguard-go
-        # Extras
-        
+        # Shell Scripts
+        cl
+        preview
+        updoot
+
         shellcheck
         imagemagick
         chafa
