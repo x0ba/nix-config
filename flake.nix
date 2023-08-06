@@ -1,5 +1,5 @@
 {
-  description = "i have no idea what the fuck i'm doing.";
+  description = "I have no idea what the fuck I'm doing.";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -63,7 +63,7 @@
 
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-utils.url = "github:numtide/flake-utils";
-    pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
+    nix-pre-commit.url = "github:jmgilman/nix-pre-commit";
   };
 
   outputs =
@@ -93,21 +93,6 @@
         in
         import ./pkgs { inherit pkgs; }
       );
-      # Devshell for bootstrapping
-      # Acessible through 'nix develop' or 'nix-shell' (legacy)
-
-
-      pre-commit = {
-        check.enable = true;
-        settings.hooks = {
-          alejandra.enable = true;
-          luacheck.enable = true;
-          nil.enable = true;
-          stylua.enable = true;
-        };
-      };
-
-      imports = [ inputs.pre-commit-hooks.flakeModule ];
 
       devShells = forAllSystems (
         system:
@@ -116,8 +101,6 @@
         in
         import ./shell.nix { inherit pkgs self; }
       );
-
-
 
       # Your custom packages and modifications, exported as overlays
       overlays = import ./overlays { inherit inputs; };

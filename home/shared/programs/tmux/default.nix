@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{ pkgs, ... }: let
   t-smart-tmux-session-manager = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "t-smart-tmux-session-manager";
     version = "2023-08-04";
@@ -9,7 +9,8 @@
       sha256 = "sha256-PGemYYjyWbHmNvEflK51PdY8oKI/1DZMU5OBjKH9DLw=";
     };
   };
-in {
+in
+{
   programs.tmux = {
     enable = true;
     sensibleOnTop = true;
@@ -34,6 +35,7 @@ in {
       set -g pane-active-border-style "bg=default,fg=green"
 
       set-option -sa terminal-features ",alacritty:RGB"
+      set -g default-terminal "tmux-256color"
       bind-key R source-file "~/.config/tmux/tmux.conf" \; display-message "Reloaded configurations!"
       bind-key B set status
 

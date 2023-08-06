@@ -1,6 +1,8 @@
-{config, ...}: let
+{ config, pkgs, ... }:
+let
   theme = config.colorScheme;
-in {
+in
+{
   programs.alacritty = {
     enable = true;
     settings = with theme.colors; {

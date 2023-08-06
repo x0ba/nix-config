@@ -59,8 +59,6 @@
           };
         };
         nekowinston-nur = import inputs.nekowinston-nur { inherit (prev) pkgs; };
-        nix-vscode-extensions = inputs.nix-vscode-extensions.extensions.${prev.system};
-        sway-unwrapped = inputs.swayfx.packages.${prev.system}.default;
       })
       inputs.nekowinston-nur.overlays.default
     ];
@@ -109,9 +107,8 @@
         (pkgs)
         trash-cli
         git-lfs
-        # cargo
-
         lutgen
+        nix-inspect
         just
         ripgrep
         cmake
@@ -123,11 +120,9 @@
         sops
         wireguard-tools
         wireguard-go
-        # Shell Scripts
         cl
         preview
         updoot
-
         shellcheck
         imagemagick
         chafa
