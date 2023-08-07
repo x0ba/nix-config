@@ -20,27 +20,7 @@
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
 
-    ../shared/programs/alacritty
-    ../shared/services/picom
-    ../shared/programs/direnv
-    ../shared/programs/exa
-    ../shared/programs/sway
-    ../shared/programs/neovim
-    ../shared/programs/lf
-    ../shared/programs/eww
-    ../shared/programs/rofi
-    ../shared/programs/tmux
-    ../shared/programs/music
-    ../shared/programs/zoxide
-    ../shared/programs/dunst
-    ../shared/services/kanshi.nix
-
-    ../shared/programs/firefox
-
-    ../shared/programs/git
-    ../shared/programs/starship
-
-    ../shared/programs/zsh
+    ./services/picom
   ];
 
   nixpkgs = {

@@ -7,7 +7,6 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
@@ -20,7 +19,6 @@
     alejandra
     asmfmt
     black
-    # cargo
     delve
     elixir_ls
     gawk
@@ -38,14 +36,14 @@
     lldb
     nodejs
     rust-analyzer
-    rnix-lsp
     selene
     shellcheck
     shfmt
     solc
+    marksman
     sumneko-lua-language-server
     texlab
-    nil
+    rnix-lsp
     uncrustify
     zls
     nodePackages.jsonlint

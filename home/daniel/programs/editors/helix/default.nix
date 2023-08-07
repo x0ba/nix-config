@@ -1,8 +1,11 @@
-{ config, ... }:
-let
-  inherit (config) colorscheme;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  inherit (config) colorscheme;
+in {
   home.sessionVariables.COLORTERM = "truecolor";
   programs.helix = {
     enable = true;
@@ -19,6 +22,15 @@ in
         };
       };
     };
-    themes = import ./theme.nix { inherit colorscheme; };
+    languages = {
+      language = [
+        {
+          name = "nix";
+          formatter = {command = "${lib.getExe pkgs.alejandra}";};
+          config.nil.nix.flake.autoEvalInputs = true;
+        }
+      ];
+    };
+    themes = import ./theme.nix {inherit colorscheme;};
   };
 }

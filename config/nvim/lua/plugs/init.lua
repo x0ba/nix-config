@@ -29,7 +29,6 @@ lazy.setup({
     config = function()
       require("plugs.ui.devicons")
     end,
-    lazy = true,
   },
 
   {

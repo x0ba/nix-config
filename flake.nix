@@ -28,7 +28,6 @@
     };
 
     rust-overlay.url = "github:oxalica/rust-overlay";
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     # Non Flakes
     fzf-tab = {
@@ -60,10 +59,6 @@
       url = "github:zsh-users/zsh-autosuggestions";
       flake = false;
     };
-
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    flake-utils.url = "github:numtide/flake-utils";
-    nix-pre-commit.url = "github:jmgilman/nix-pre-commit";
   };
 
   outputs =
@@ -99,7 +94,7 @@
         let
           pkgs = nixpkgs.legacyPackages.${system};
         in
-        import ./shell.nix { inherit pkgs self; }
+        import ./shell.nix { inherit pkgs; }
       );
 
       # Your custom packages and modifications, exported as overlays
@@ -118,12 +113,13 @@
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
         starfall = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
+          specialArgs = { inherit inputs; };
           modules = [
             ./hosts/starfall/configuration.nix
           ];
         };
       };
+
       darwinConfigurations = {
         "frostbyte" = darwin.lib.darwinSystem {
           specialArgs = { inherit inputs outputs; };
@@ -136,14 +132,14 @@
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
-        "aspect@starfall" = home-manager.lib.homeManagerConfiguration {
+        "daniel@starfall" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.aarch64-linux; # Home-manager requires 'pkgs' instance
           extraSpecialArgs = {
             inherit inputs outputs;
             flakePath = "/etc/nixos";
           };
           modules = [
-            ./home/aspect/home.nix
+            ./home/daniel/starfall.nix
           ];
         };
         "daniel@frostbyte" = home-manager.lib.homeManagerConfiguration {
@@ -153,7 +149,7 @@
             flakePath = "/Users/daniel/.config/nixpkgs";
           };
           modules = [
-            ./home/daniel/home.nix
+            ./home/daniel/frostbyte.nix
           ];
         };
       };

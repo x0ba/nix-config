@@ -21,6 +21,8 @@ vim.keymap.set("n", "-", require("oil").open, { desc = "Open parent directory" }
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 
+vim.keymap.set("x", "<leader>p", [["_dP]])
+
 vim.keymap.set("n", "<leader>a", mark.add_file)
 vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
 

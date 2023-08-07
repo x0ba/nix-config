@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.wezterm = {
     enable = true;
     package = pkgs.nur.repos.nekowinston.wezterm-nightly;

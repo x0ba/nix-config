@@ -51,6 +51,8 @@ in {
 
       source "$HOME/.cargo/env"
 
+      export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
+
       FZF_TAB_COMMAND=(
         ${pkgs.fzf}/bin/fzf
         --ansi

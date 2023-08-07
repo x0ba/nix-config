@@ -20,6 +20,10 @@
       "ticktick"
       "firefox"
       "arc"
+      "karabiner-elements"
+      "brave-browser"
+      "linearmouse"
+      "discord"
       "calibre"
     ];
     taps = ["homebrew/services" "d12frosted/emacs-plus" "homebrew/cask" "homebrew/cask-fonts" "FelixKratz/formulae" "cmacrae/formulae"];
