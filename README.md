@@ -88,7 +88,7 @@ Let me know if you have any questions about them :)
 
 ## Unixpornish stuff
 ![fakebusy](https://i.imgur.com/vjU1E8l.png)
-![clean](https://i.imgur.com/T5FjqbZ.jpg)
+![clean](https://i.imgur.com/WlkhmkX.jpg)
 
 That's how my macos desktop setup look like (as of 2023 August).
 
