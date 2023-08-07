@@ -11,6 +11,7 @@
     ./features/cli
     ./features/desktop/common
     ./features/neovim
+    ./features/helix
     ./features/term/wezterm.nix
     ./features/productivity
   ];
