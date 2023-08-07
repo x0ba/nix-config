@@ -10,8 +10,9 @@
     casks = [
       "firefox"
       "arc"
+      "raycast"
       "karabiner-elements"
-      "brave-browser"
+      "orion"
       "linearmouse"
       "obsidian"
       "neovide"

@@ -1,150 +1,95 @@
-<!--x0ba's flake-->
-<!-- https://git.aspectsides.site/x0ba/dotfiles -->
+[![built with nix](https://img.shields.io/static/v1?logo=nixos&logoColor=white&label=&message=Built%20with%20Nix&color=41439a)](https://builtwithnix.org)
 
-<p align="center">
-<a href="https://github.com/nixos/nixpkgs"><img src="https://img.shields.io/badge/NixOS-unstable-informational.svg?style=flat&logo=nixos&logoColor=CAD3F5&colorA=24273A&colorB=8AADF4"></a> <a href="https://awesomewm.org"><img src="https://img.shields.io/static/v1?label=AwesomeWM&message=master&style=flat&logo=awesomewm&colorA=24273A&colorB=8AADF4&logoColor=CAD3F5"/></a>
-</p>
+# My NixOS configurations
 
-<div align="justify">
-<div align="center">
+Here's my NixOS/Nix-Darwin/home-manager config files. Requires [Nix flakes](https://nixos.wiki/wiki/Flakes).
 
-```ocaml
-x0ba's Dotfiles
+**Highlights**:
+
+- Multiple **NixOS configurations**, including **laptop** and **MacBook**
+- **Secrets** using **sops-nix**
+- Flexible **Home Manager** Configs through **feature flags**
+- Extensively configured wayland environments (**sway** and **hyprland**) and editor (**neovim**)
+- **Declarative** **themes** and with **nix-colors**
+
+## Structure
+
+- `flake.nix`: Entrypoint for hosts and home configurations. Also exposes a
+  devshell for boostrapping (`nix develop` or `nix-shell`).
+- `hosts`: NixOS Configurations, accessible via `nixos-rebuild --flake`.
+  - `shared`: Shared configurations consumed by the machine-specific ones.
+    - `nixos`: Configurations that are globally applied to all NixOS machines.
+    - `darwin`: Configurations that are globally applied to all my Mac machines.
+  - `orion`: MacBook Air M1, 8 GB RAM | Daily Driver laptop
+  - `starfall`: Same laptop running Asahi NixOS
+- `home`: My Home-manager configuration, acessible via `home-manager --flake`
+    - Each directory here is a "feature" each hm configuration can toggle, thus
+      customizing my setup for each machine (be it a server, desktop, laptop,
+      anything really).
+- `modules`: A few actual modules (with options) I haven't upstreamed yet.
+- `overlay`: Patches and version overrides for some packages. Accessible via
+  `nix build`.
+- `pkgs`: My custom packages. Also accessible via `nix build`. You can compose
+  these into your own configuration by using my flake's overlay, or consume them through NUR.
+
+
+## How to bootstrap
+
+All you need is nix (any version). Run:
+```
+nix-shell
 ```
 
-<br>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nixos-white.png" width="500px" alt="NixOS logo"/>
-</p>
-
-<br>
-
-```ocaml
-NixOS / Home-Manager / Flake
+If you already have nix 2.4+, git, and have already enabled `flakes` and
+`nix-command`, you can also use the non-legacy command:
 ```
-
-</div>
-
-<br>
-<br>
-<br>
-
-## :snowflake: <samp>Information</samp>
-
-*Here we go again.*
-
-> **DISCLAIMER:** these are my personal nix dotfiles, and as such
-> might not work out of the box on your machine. If you want to
-> take inspiration from my dots, feel free, just copy chunks instead
-> of the whole thing.
-
-![screeny](/../screenshots/mountain/mountain.png)
-
-------
-
-|                |                                                          |
-|----------------|----------------------------------------------------------|
-| **Shell:**     | zsh                                                      |
-| **WM:**        | **sway** on linux, **yabai** on macos                    |
-| **Editor:**    | neovim                                                   |
-| **Terminal:**  | alacritty                                                |
-| **Launcher:**  | **rofi** on linux, **spotlight** on macos                |
-| **Browser:**   | firefox                                                  |
-
------
-
-### Quick Start
-
-#### macOS
-
-##### Install the [Xcode Command Line Tools](https://developer.apple.com/download/all/)
-
-```sh
-xcode-select --install
-```
-
-##### [Install Brew](https://brew.sh)
-
-```sh
-curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
-```
-
-##### Exclude `/nix/` from Time Machine:
-
-```sh
-sudo tmutil addexclusion -v /nix
-```
-
-##### Initial build for the flake
-
-```sh
-nix build .#darwinConfigurations.nebula.system --extra-experimental-features nix-command --extra-experimental-features flakes
-./result/sw/bin/darwin-rebuild switch --flake .#nebula
-```
-
-##### Install home-manager configuration
-
-```sh
 nix develop
-home-manager switch --flake .#daniel@nebula
 ```
 
-## Frequently asked questions
+`nixos-rebuild --flake .` or `darwin-rebuild --flake .` To build system configurations
 
-+ **Why NixOS?**
+`home-manager --flake .` To build user configurations
 
-  Because I was bored and now I can't go back to the mess of dependency
-  hell and frequent breakage that was Arch.
+`nix build` (or shell or run) To build and use packages
 
-+ **Should I use NixOS?**
+`sops` To manage secrets
 
-  **Short answer:** no.
 
-  **Long answer:** no really. Don't.
+## Secrets
 
-  **Long long answer:** I'm not kidding. Don't.
+For deployment secrets (such as user passwords and server service secrets), I'm
+using the awesome [`sops-nix`](https://github.com/Mic92/sops-nix). All secrets
+are encrypted with my personal PGP key.
 
-  **Unsigned long long answer:** Alright alright. Here's why not:
+## Tooling and applications I use
 
-  - Its learning curve is steep.
-  - You _will_ trial and error your way to enlightenment, if you survive long
-    enough.
-  - NixOS is unlike other Linux distros. Your issues will be unique and
-    difficult to google.
-  - If the words "declarative", "generational", and "immutable" don't make you
-    _fully_ erect, you're considering NixOS for the wrong reasons.
-  - The overhead of managing a NixOS config will rarely pay for itself with
-    fewer than 3 systems (perhaps another distro with nix on top would suit you
-    better?).
-  - Official documentation for Nix(OS) is vast, but shallow.
-  - Unofficial resources and example configs are sparse and tend to be either
-    too simple or too complex (or outdated).
-  - The Nix language is obtuse and its toolchain is unintuitive. This is made
-    infinitely worse if you've never touched the shell or a functional language
-    before, but you'll _need_ to learn it to do even a fraction of what makes
-    NixOS worth all the trouble.
-  - A decent grasp of Linux and its ecosystem is a must, if only to distinguish
-    Nix(OS) issues from Linux (or upstream) issues -- as well as to debug them
-    or report them to the correct authority (and coherently).
-  - If you need somebody else to tell you whether or not you need NixOS, you
-    don't need NixOS.
+Most relevant user apps daily drivers:
 
-  If none of this has deterred you, then you didn't need my advice in the first
-  place. Stop procrastinating and try NixOS!
+- yabai
+- sketchybar
+- neovim
+- zsh + powerlevel10k
+- wezterm
+- orion
+- aerc
+- gpg
+- zathura
+- raycast
+- bat + fd + rg
 
-+ **How do you manage secrets?**
+Nixy stuff:
 
-  With sops.nix.
+- nix-colors
+- sops-nix
+- home-manager
+- and NixOS and nix itself, of course :)
 
-  + A couple flake configs that I
-    [may](https://github.com/LEXUGE/nixos)
-    [have](https://github.com/bqv/nixrc)
-    [shamelessly](https://git.sr.ht/~dunklecat/nixos-config/tree)
-    [rummaged](https://github.com/utdemir/dotfiles)
-    [through](https://github.com/purcell/dotfiles).
-  + [Some notes about using Nix](https://github.com/justinwoo/nix-shorts)
-  + [Learn from someone else's descent into madness; this journals his
-    experience digging into the NixOS
-    ecosystem](https://www.ianthehenry.com/posts/how-to-learn-nix/introduction/)
-  + [What y'all will need when Nix drives you to drink.](https://www.youtube.com/watch?v=Eni9PPPPBpg)
+Let me know if you have any questions about them :)
+
+## Unixpornish stuff
+![fakebusy](https://i.imgur.com/vjU1E8l.png)
+![clean](https://i.imgur.com/T5FjqbZ.jpg)
+
+That's how my macos desktop setup look like (as of 2023 August).
+
+

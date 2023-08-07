@@ -1,5 +1,5 @@
 {
-  description = "I have no idea what the fuck I'm doing.";
+  description = "A galactic nix configuration.";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -117,10 +117,10 @@
     };
 
     darwinConfigurations = {
-      "frostbyte" = darwin.lib.darwinSystem {
+      "orion" = darwin.lib.darwinSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          ./hosts/frostbyte/configuration.nix
+          ./hosts/orion/configuration.nix
         ];
       };
     };
@@ -145,7 +145,7 @@
           flakePath = "/Users/daniel/.config/nixpkgs";
         };
         modules = [
-          ./home/daniel/frostbyte.nix
+          ./home/daniel/orion.nix
         ];
       };
     };
