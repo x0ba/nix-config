@@ -9,7 +9,6 @@
     inputs.nix-colors.homeManagerModules.default
     inputs.sops-nix.homeManagerModules.sops
     inputs.nix-index-database.hmModules.nix-index
-    {programs.nix-index-database.comma.enable = true;}
   ];
   nixpkgs = {
     # You can add overlays here
@@ -43,5 +42,6 @@
 
   programs = {
     home-manager.enable = true;
+    nix-index-database.comma.enable = true;
   };
 }
