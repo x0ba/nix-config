@@ -1,18 +1,18 @@
-{
-  inputs,
-  outputs,
-  config,
-  ...
+{ inputs
+, outputs
+, config
+, ...
 }: {
   # You can import other home-manager modules here
   imports = [
     outputs.homeManagerModules.mac-wallpaper
-    ./global.nix
-    ./secrets/sops.nix
-    ./programs/cli
-    ./programs/desktop/common
-    ./programs/editors/neovim.nix
-    ./programs/term/wezterm.nix
+    ./global
+    ./features/secrets
+    ./features/cli
+    ./features/desktop/common
+    ./features/neovim
+    ./features/term/wezterm.nix
+    ./features/productivity
   ];
 
   colorScheme = inputs.nix-colors.colorSchemes.mountain;
@@ -23,9 +23,6 @@
     stateVersion = "23.05";
     username = "daniel";
   };
-
-  sops.secrets."wakatime-cfg".path = "${config.xdg.configHome}/wakatime/.wakatime.cfg";
-  sops.secrets."ssh-cfg".path = "${config.home.homeDirectory}/.ssh/config";
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

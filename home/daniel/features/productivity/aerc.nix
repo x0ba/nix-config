@@ -1,9 +1,8 @@
-{
-  config,
-  pkgs,
-  ...
+{ config
+, pkgs
+, ...
 }: {
-  home.packages = with pkgs; [chroma pandoc w3m];
+  home.packages = with pkgs; [ chroma pandoc w3m ];
   sops.secrets."aerc-accounts".path = "${config.xdg.configHome}/aerc/accounts.conf";
   programs = {
     aerc = {
@@ -15,6 +14,12 @@
           # sops-nix manages the accounts.conf,
           # so the permissions appear unsafe to aerc
           unsafe-accounts-conf = true;
+        };
+        ui = {
+          border-char-vertical = "│";
+          border-char-horizontal = "─";
+          spinner = "▰▱▱▱▱▱▱,▰▰▱▱▱▱▱,▰▰▰▱▱▱▱,▰▰▰▰▱▱▱,▰▰▰▰▰▱▱,▰▰▰▰▰▰▱,▰▰▰▰▰▰▰";
+          spinner-interval = "40ms";
         };
         filters = {
           "text/plain" = "colorize";

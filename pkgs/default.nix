@@ -10,4 +10,5 @@
   nix-search = pkgs.callPackage ./nix-search {};
   tidal-dl = pkgs.callPackage ./tidal-dl {};
   nix-inspect = pkgs.callPackage ./nix-inspect {};
+  trekscii = pkgs.callPackage ./trekscii {};
 }

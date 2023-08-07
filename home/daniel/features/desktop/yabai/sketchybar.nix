@@ -1,6 +1,6 @@
 {...}: {
   xdg.configFile."sketchybar" = {
-    source = ../../../../config/sketchybar;
+    source = ../../../../../config/sketchybar;
     recursive = true;
   };
 }

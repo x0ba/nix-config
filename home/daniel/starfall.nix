@@ -10,12 +10,12 @@
   # You can import other home-manager modules here
   imports = [
     ./global.nix
-    ./programs/cli
-    ./programs/desktop/sway
-    ./programs/desktop/common
-    ./programs/term/foot.nix
-    ./programs/desktop/launchers/rofi.nix
-    ./programs/editors/neovim.nix
+    ./features/cli
+    ./features/desktop/sway
+    ./features/desktop/common
+    ./features/term/foot.nix
+    ./features/desktop/launchers/rofi.nix
+    ./features/editors/neovim.nix
   ];
 
   colorScheme = inputs.nix-colors.colorSchemes.tomorrow-night;

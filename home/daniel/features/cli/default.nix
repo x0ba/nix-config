@@ -1,11 +1,9 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   imports = [
     ./lf.nix
-    ./pass.nix
     ./git.nix
     ./gpg.nix
     ./xdg.nix
-    ./aerc.nix
     ./tmux.nix
     ./tools.nix
     ./neofetch.nix
@@ -16,6 +14,7 @@
     trash-cli
     git-lfs
     lutgen
+    notmuch
     nix-inspect
     just
     ripgrep
@@ -29,6 +28,7 @@
     wireguard-tools
     wireguard-go
     cl
+    timer # To help with my ADHD paralysis
     preview
     updoot
     shellcheck
