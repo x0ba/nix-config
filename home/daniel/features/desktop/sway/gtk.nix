@@ -2,10 +2,9 @@
   inputs,
   pkgs,
   config,
-  outputs,
   ...
 }: {
-    gtk = {
+  gtk = {
     enable = true;
     font.name = "sans-serif";
 

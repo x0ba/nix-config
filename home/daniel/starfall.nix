@@ -1,11 +1,11 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{ inputs
-, outputs
-, lib
-, config
-, pkgs
-, ...
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
 }: {
   # You can import other home-manager modules here
   imports = [
@@ -23,7 +23,6 @@
   fonts.fontconfig.enable = true;
 
   home = {
-
     homeDirectory = "/home/daniel";
 
     packages = lib.attrValues {
@@ -32,7 +31,6 @@
         playerctl
         trash-cli
         xdg-user-dirs
-
         paper-icon-theme
         vscode
         font-manager

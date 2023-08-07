@@ -1,10 +1,9 @@
-{ config
-, lib
-, pkgs
-, ...
+{
+  pkgs,
+  ...
 }: {
   home.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" "Iosevka" ]; })
+    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "Iosevka"];})
     victor-mono
     ibm-plex
     cozette

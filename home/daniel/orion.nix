@@ -1,7 +1,7 @@
-{ inputs
-, outputs
-, config
-, ...
+{
+  inputs,
+  outputs,
+  ...
 }: {
   # You can import other home-manager modules here
   imports = [

@@ -1,6 +1,7 @@
-{ pkgs, lib, config, ... }:
-
-let
+{
+  config,
+  ...
+}: let
   mbsync = "${config.programs.mbsync.package}/bin/mbsync";
   pass = "${config.programs.password-store.package}/bin/pass";
 
@@ -20,46 +21,49 @@ let
       '';
     };
   };
-in
-{
+in {
   accounts.email = {
     maildirBasePath = "Mail";
     accounts = {
-      personal = rec {
-        primary = true;
-        address = "x0bas.dev@gmail.com";
-        passwordCommand = "${pass} ${smtp.host}/${address}";
+      personal =
+        rec {
+          primary = true;
+          address = "x0bas.dev@gmail.com";
+          passwordCommand = "${pass} ${smtp.host}/${address}";
 
-        imap.host = "imap.gmail.com";
-        mbsync = {
-          enable = true;
-          create = "maildir";
-          expunge = "both";
-        };
-        folders = {
-          inbox = "Inbox";
-          drafts = "Drafts";
-          sent = "Sent";
-          trash = "Trash";
-        };
-        neomutt = {
-          enable = true;
-          extraMailboxes = [ "Archive" "Drafts" "Junk" "Sent" "Trash" ];
-        };
+          imap.host = "imap.gmail.com";
+          mbsync = {
+            enable = true;
+            create = "maildir";
+            expunge = "both";
+          };
+          folders = {
+            inbox = "Inbox";
+            drafts = "Drafts";
+            sent = "Sent";
+            trash = "Trash";
+          };
+          neomutt = {
+            enable = true;
+            extraMailboxes = ["Archive" "Drafts" "Junk" "Sent" "Trash"];
+          };
 
-        msmtp.enable = true;
-        smtp.host = "smtp.gmail.com";
-        userName = address;
-      } // common;
+          msmtp.enable = true;
+          smtp.host = "smtp.gmail.com";
+          userName = address;
+        }
+        // common;
 
-      school = rec {
-        address = "dx86008@student.musd.org";
-        passwordCommand = "${pass} ${smtp.host}/${address}";
+      school =
+        rec {
+          address = "dx86008@student.musd.org";
+          passwordCommand = "${pass} ${smtp.host}/${address}";
 
-        msmtp.enable = true;
-        smtp.host = "smtp.gmail.com";
-        userName = address;
-      } // common;
+          msmtp.enable = true;
+          smtp.host = "smtp.gmail.com";
+          userName = address;
+        }
+        // common;
     };
   };
 
