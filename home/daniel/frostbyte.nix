@@ -10,8 +10,7 @@
     ./global.nix
     ./secrets/sops.nix
     ./programs/cli
-    ./programs/desktop/firefox.nix
-    ./programs/desktop/fonts.nix
+    ./programs/desktop/common
     ./programs/editors/neovim.nix
     ./programs/term/wezterm.nix
   ];
