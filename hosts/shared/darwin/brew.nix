@@ -11,6 +11,7 @@
       "firefox"
       "arc"
       "karabiner-elements"
+      "brave-browser"
       "linearmouse"
       "obsidian"
       "neovide"

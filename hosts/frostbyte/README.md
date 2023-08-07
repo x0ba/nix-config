@@ -2,7 +2,7 @@
 
 ## Overview
 
-My daily driver laptop. 
+My daily driver laptop.
 
 ## Specs
 

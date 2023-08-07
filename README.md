@@ -34,13 +34,13 @@ NixOS / Home-Manager / Flake
 
 *Here we go again.*
 
-> **DISCLAIMER:** these are my personal nix dotfiles, and as such 
-> might not work out of the box on your machine. If you want to 
+> **DISCLAIMER:** these are my personal nix dotfiles, and as such
+> might not work out of the box on your machine. If you want to
 > take inspiration from my dots, feel free, just copy chunks instead
 > of the whole thing.
 
 ![screeny](/../screenshots/mountain/mountain.png)
- 
+
 ------
 
 |                |                                                          |
@@ -83,7 +83,7 @@ nix build .#darwinConfigurations.nebula.system --extra-experimental-features nix
 ./result/sw/bin/darwin-rebuild switch --flake .#nebula
 ```
 
-##### Install home-manager configuration 
+##### Install home-manager configuration
 
 ```sh
 nix develop
@@ -96,15 +96,15 @@ home-manager switch --flake .#daniel@nebula
 
   Because I was bored and now I can't go back to the mess of dependency
   hell and frequent breakage that was Arch.
-  
+
 + **Should I use NixOS?**
 
   **Short answer:** no.
-  
+
   **Long answer:** no really. Don't.
-  
+
   **Long long answer:** I'm not kidding. Don't.
-  
+
   **Unsigned long long answer:** Alright alright. Here's why not:
 
   - Its learning curve is steep.
@@ -132,13 +132,13 @@ home-manager switch --flake .#daniel@nebula
 
   If none of this has deterred you, then you didn't need my advice in the first
   place. Stop procrastinating and try NixOS!
-  
+
 + **How do you manage secrets?**
 
   With sops.nix.
 
-  + A couple flake configs that I 
-    [may](https://github.com/LEXUGE/nixos) 
+  + A couple flake configs that I
+    [may](https://github.com/LEXUGE/nixos)
     [have](https://github.com/bqv/nixrc)
     [shamelessly](https://git.sr.ht/~dunklecat/nixos-config/tree)
     [rummaged](https://github.com/utdemir/dotfiles)
