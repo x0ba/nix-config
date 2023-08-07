@@ -23,6 +23,8 @@
       "karabiner-elements"
       "brave-browser"
       "linearmouse"
+      "obsidian"
+      "neovide"
       "discord"
       "calibre"
     ];

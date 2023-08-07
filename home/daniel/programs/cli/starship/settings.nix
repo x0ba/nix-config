@@ -1,5 +1,0 @@
-{
-  format = "$directory$git_branch$git_status$cmd_duration\n[ ](fg:blue)  ";
-  git_branch.format = "via [$symbol$branch(:$remote_branch)]($style) ";
-  command_timeout = 1000;
-}

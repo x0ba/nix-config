@@ -1,6 +1,7 @@
-{
+{pkgs, ...}: {
   imports = [
     ./lf.nix
+    ./pass.nix
     ./git.nix
     ./gpg.nix
     ./xdg.nix
@@ -10,5 +11,39 @@
     ./neofetch.nix
     ./newsboat.nix
     ./zsh
+  ];
+  home.packages = with pkgs; [
+    trash-cli
+    git-lfs
+    lutgen
+    nix-inspect
+    just
+    ripgrep
+    cmake
+    fd
+    file
+    any-nix-shell
+    commitizen
+    git-crypt
+    sops
+    wireguard-tools
+    wireguard-go
+    cl
+    preview
+    updoot
+    shellcheck
+    imagemagick
+    chafa
+    jq
+    elinks
+    glow
+    fzf
+    luarocks
+    exiftool
+    sdcv
+    sqlite
+    statix
+    pre-commit
+    deadnix
   ];
 }
