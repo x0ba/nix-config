@@ -25,7 +25,7 @@ c.inactive_pane_hsb = {
 c.adjust_window_size_when_changing_font_size = false
 c.audible_bell = "Disabled"
 c.clean_exit_codes = { 130 }
-c.default_cursor_style = "SteadyUnderline"
+c.default_cursor_style = "SteadyBlock"
 c.launch_menu = {
   { label = "Music player", args = { "ncmpcpp" } },
 }
