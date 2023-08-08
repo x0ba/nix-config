@@ -8,7 +8,7 @@
       auto_balance = "off";
       split_ratio = "0.50";
       window_placement = "second_child";
-      # external_bar = "all:0:40";
+      external_bar = "all:0:40";
       # Gaps
       window_gap = 06;
       top_padding = 12;

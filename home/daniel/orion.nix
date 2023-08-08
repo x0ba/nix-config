@@ -5,6 +5,7 @@
   # You can import other home-manager modules here
   imports = [
     ./global
+    ./features/desktop/yabai
     ./features/secrets
     ./features/desktop/common
     ./features/term/wezterm.nix

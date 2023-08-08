@@ -1,4 +1,4 @@
-home/shared/secrets/fonts/* filter=git-crypt diff=git-crypt
+/home/daniel/features/desktop/common/fonts/* filter=git-crypt diff=git-crypt
 *.ttf filter=lfs diff=lfs merge=lfs -text
 *.jpg filter=lfs diff=lfs merge=lfs -text
 *.png filter=lfs diff=lfs merge=lfs -text
