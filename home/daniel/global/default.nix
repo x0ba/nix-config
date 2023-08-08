@@ -10,6 +10,7 @@
     inputs.nix-colors.homeManagerModule
     ../features/cli
     ../features/neovim
+    ../features/vscode
     inputs.sops-nix.homeManagerModules.sops
     inputs.nix-index-database.hmModules.nix-index
   ] ++ (builtins.attrValues outputs.homeManagerModules);
@@ -24,6 +25,7 @@
       inputs.nur.overlay
       inputs.rust-overlay.overlays.default
       (_final: prev: {
+
         nur = import inputs.nur {
           nurpkgs = prev;
           pkgs = prev;
@@ -33,6 +35,7 @@
           };
         };
         nekowinston-nur = import inputs.nekowinston-nur { inherit (prev) pkgs; };
+        nix-vscode-extensions = inputs.nix-vscode-extensions.extensions.${prev.system};
       })
       inputs.nekowinston-nur.overlays.default
     ];
@@ -50,6 +53,8 @@
 
   programs = {
     home-manager.enable = true;
+    tealdeer.enable = true;
+    taskwarrior.enable = true;
     nix-index-database.comma.enable = true;
   };
 }

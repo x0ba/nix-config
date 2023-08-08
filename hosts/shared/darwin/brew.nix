@@ -15,9 +15,13 @@
     ];
     casks = [
       "firefox"
+      "brave-browser"
+      "gimp"
+      "krita"
       "arc"
       "raycast"
       "karabiner-elements"
+      "qbittorrent"
       "orion"
       "linearmouse"
       "obsidian"

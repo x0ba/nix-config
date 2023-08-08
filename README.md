@@ -70,7 +70,7 @@ Most relevant user apps daily drivers:
 - neovim
 - zsh + powerlevel10k
 - wezterm
-- orion
+- brave
 - aerc
 - gpg
 - zathura
