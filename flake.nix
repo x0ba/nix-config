@@ -153,14 +153,14 @@
   nixConfig = {
     commit-lockfile-summary = "flake: bump inputs";
     substituters = [
-      "https://nix-community.cachix.org"
+      "https://cache.garnix.io"
       "https://cache.nixos.org"
       "https://mic92.cachix.org"
       "https://fortuneteller2k.cachix.org"
       "https://pre-commit-hooks.cachix.org"
     ];
     trusted-public-keys = [
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "mic92.cachix.org-1:gi8IhgiT3CYZnJsaW7fxznzTkMUOn1RY4GmXdT/nXYQ="
       "fortuneteller2k.cachix.org-1:kXXNkMV5yheEQwT0I4XYh1MaCSz+qg72k8XAi2PthJI="

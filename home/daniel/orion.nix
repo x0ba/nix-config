@@ -1,30 +1,20 @@
-{
-  inputs,
-  outputs,
-  ...
+{ inputs
+, outputs
+, ...
 }: {
   # You can import other home-manager modules here
   imports = [
-    outputs.homeManagerModules.mac-wallpaper
     ./global
     ./features/secrets
-    ./features/cli
     ./features/desktop/common
-    ./features/neovim
-    ./features/helix
     ./features/term/wezterm.nix
     ./features/productivity
   ];
 
-  colorScheme = inputs.nix-colors.colorSchemes.mountain;
-
   home = {
-    mac-wallpaper = ./wallpapers/background.jpg;
+    mac-wallpaper = ./wallpapers/383838.png;
     homeDirectory = "/Users/daniel";
     stateVersion = "23.05";
     username = "daniel";
   };
-
-  # Nicely reload system units when changing configs
-  systemd.user.startServices = "sd-switch";
 }

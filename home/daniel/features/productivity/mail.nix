@@ -1,7 +1,7 @@
-{
-  config,
-  ...
-}: let
+{ config
+, ...
+}:
+let
   mbsync = "${config.programs.mbsync.package}/bin/mbsync";
   pass = "${config.programs.password-store.package}/bin/pass";
 
@@ -21,7 +21,8 @@
       '';
     };
   };
-in {
+in
+{
   accounts.email = {
     maildirBasePath = "Mail";
     accounts = {
@@ -45,7 +46,7 @@ in {
           };
           neomutt = {
             enable = true;
-            extraMailboxes = ["Archive" "Drafts" "Junk" "Sent" "Trash"];
+            extraMailboxes = [ "Archive" "Drafts" "Junk" "Sent" "Trash" ];
           };
 
           msmtp.enable = true;

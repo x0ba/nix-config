@@ -1,15 +1,21 @@
+{ inputs
+, pkgs
+, config
+, lib
+, outputs
+, ...
+}:
 {
-  inputs,
-  pkgs,
-  config,
-  outputs,
-  ...
-}: {
   imports = [
-    inputs.nix-colors.homeManagerModules.default
+    inputs.nix-colors.homeManagerModule
+    ../features/cli
+    ../features/neovim
     inputs.sops-nix.homeManagerModules.sops
     inputs.nix-index-database.hmModules.nix-index
-  ];
+  ] ++ (builtins.attrValues outputs.homeManagerModules);
+
+  colorScheme = inputs.nix-colors.colorSchemes.mountain;
+
   nixpkgs = {
     # You can add overlays here
     overlays = [
@@ -26,7 +32,7 @@
             nekowinston = inputs.nekowinston-nur.packages.${prev.system};
           };
         };
-        nekowinston-nur = import inputs.nekowinston-nur {inherit (prev) pkgs;};
+        nekowinston-nur = import inputs.nekowinston-nur { inherit (prev) pkgs; };
       })
       inputs.nekowinston-nur.overlays.default
     ];
@@ -41,6 +47,7 @@
   };
 
   systemd.user.startServices = "sd-switch";
+
   programs = {
     home-manager.enable = true;
     nix-index-database.comma.enable = true;

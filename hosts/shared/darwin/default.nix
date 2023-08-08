@@ -1,4 +1,4 @@
-{outputs, ...}: {
+{ outputs, ... }: {
   imports = [
     outputs.darwinModules.yabai
     ./programs/yabai.nix
@@ -21,7 +21,7 @@
     remapCapsLockToEscape = true;
   };
   system.defaults = {
-    screencapture = {location = "/tmp";};
+    screencapture = { location = "/tmp"; };
 
     dock = {
       autohide = true;
@@ -39,7 +39,7 @@
       AppleKeyboardUIMode = 3;
       ApplePressAndHoldEnabled = false;
       AppleFontSmoothing = 1;
-      _HIHideMenuBar = false;
+      _HIHideMenuBar = true;
       # InitialKeyRepeat = 10;
       # KeyRepeat = 1;
       "com.apple.mouse.tapBehavior" = 1;
