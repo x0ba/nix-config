@@ -111,7 +111,7 @@
       starfall = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-          ./hosts/starfall/configuration.nix
+          ./hosts/starfall
         ];
       };
     };
@@ -120,7 +120,7 @@
       "orion" = darwin.lib.darwinSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          ./hosts/orion/configuration.nix
+          ./hosts/orion
         ];
       };
     };
