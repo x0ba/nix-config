@@ -46,7 +46,6 @@
       flake = false;
     };
 
-
     zsh-completions = {
       url = "github:zsh-users/zsh-completions";
       flake = false;

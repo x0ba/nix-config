@@ -1,19 +1,19 @@
 { inputs
 , pkgs
 , config
-, lib
 , outputs
 , ...
-}:
-{
-  imports = [
-    inputs.nix-colors.homeManagerModule
-    ../features/cli
-    ../features/neovim
-    ../features/vscode
-    inputs.sops-nix.homeManagerModules.sops
-    inputs.nix-index-database.hmModules.nix-index
-  ] ++ (builtins.attrValues outputs.homeManagerModules);
+}: {
+  imports =
+    [
+      ../features/cli
+      ../features/neovim
+      ../features/vscode
+      inputs.sops-nix.homeManagerModules.sops
+      inputs.nix-colors.homeManagerModule
+      inputs.nix-index-database.hmModules.nix-index
+    ]
+    ++ (builtins.attrValues outputs.homeManagerModules);
 
   colorScheme = inputs.nix-colors.colorSchemes.mountain;
 
@@ -25,7 +25,6 @@
       inputs.nur.overlay
       inputs.rust-overlay.overlays.default
       (_final: prev: {
-
         nur = import inputs.nur {
           nurpkgs = prev;
           pkgs = prev;

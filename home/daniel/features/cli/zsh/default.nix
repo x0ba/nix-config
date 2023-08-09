@@ -68,7 +68,7 @@ in {
             '--query=$query'   # $query will be expanded to query string at runtime.
             '--header-lines=$#headers' # $#headers will be expanded to lines of headers at runtime
             )
-        zstyle ':fzf-tab:*' command $FZF_TAB_COMMAND
+      zstyle ':fzf-tab:*' command $FZF_TAB_COMMAND
       zstyle ':fzf-tab:*' switch-group ',' '.'
       zstyle ':fzf-tab:complete:_zlua:*' query-string input
       zstyle ':fzf-tab:complete:*:*' fzf-preview 'preview $realpath'

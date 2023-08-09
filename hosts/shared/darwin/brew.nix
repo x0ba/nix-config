@@ -7,27 +7,46 @@
       cleanup = "uninstall";
       upgrade = true;
     };
+    casks =
+      let
+        skipSha = name: {
+          inherit name;
+          args = { require_sha = false; };
+        };
+      in
+      [
+        "firefox"
+        "brave-browser"
+        "tor-browser"
+        "librewolf"
+        "utm"
+        (skipSha "affinity-designer")
+        (skipSha "affinity-photo")
+        (skipSha "affinity-publisher")
+        (skipSha "element")
+        "uninstallpkg"
+        "gimp"
+        "krita"
+        "arc"
+        "raycast"
+        "karabiner-elements"
+        "qbittorrent"
+        "orion"
+        "linearmouse"
+        "obsidian"
+        "neovide"
+        "discord"
+        "calibre"
+
+        # Drivers
+        "wacom-tablet"
+      ];
+
     brews = [
       {
         name = "sketchybar";
         start_service = true;
       }
-    ];
-    casks = [
-      "firefox"
-      "brave-browser"
-      "gimp"
-      "krita"
-      "arc"
-      "raycast"
-      "karabiner-elements"
-      "qbittorrent"
-      "orion"
-      "linearmouse"
-      "obsidian"
-      "neovide"
-      "discord"
-      "calibre"
     ];
     taps = [ "homebrew/services" "d12frosted/emacs-plus" "homebrew/cask" "homebrew/cask-fonts" "FelixKratz/formulae" "cmacrae/formulae" ];
   };

@@ -13,6 +13,8 @@
       lalt - 5 : yabai -m space --focus 5
       lalt - 6 : yabai -m space --focus 6
       lalt - 7 : yabai -m space --focus 7
+      lalt - 8 : yabai -m space --focus 8
+      lalt - 9 : yabai -m space --focus 9
 
       # Window Navigation (through display borders): lalt - {h, j, k, l}
       lalt - h : yabai -m window --focus west  || yabai -m display --focus west
@@ -50,6 +52,8 @@
       shift + lalt - 5 : yabai -m window --space 5
       shift + lalt - 6 : yabai -m window --space 6
       shift + lalt - 7 : yabai -m window --space 7
+      shift + lalt - 8 : yabai -m window --space 8
+      shift + lalt - 9 : yabai -m window --space 9
 
       shift + lalt - p : yabai -m window --space prev; yabai -m space --focus prev; sketchybar --trigger windows_on_spaces
       shift + lalt - n : yabai -m window --space next; yabai -m space --focus next; sketchybar --trigger windows_on_spaces
