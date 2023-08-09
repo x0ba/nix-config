@@ -24,7 +24,9 @@
         (skipSha "affinity-photo")
         (skipSha "affinity-publisher")
         (skipSha "element")
+        (skipSha "flow")
         "uninstallpkg"
+        "syncthing"
         "gimp"
         "krita"
         "arc"
@@ -45,6 +47,10 @@
     brews = [
       {
         name = "sketchybar";
+        start_service = true;
+      }
+      {
+        name = "emacs-plus@28";
         start_service = true;
       }
     ];

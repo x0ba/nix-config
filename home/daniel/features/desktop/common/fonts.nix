@@ -20,6 +20,7 @@
   home.packages = with pkgs; [
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "Iosevka"];})
     victor-mono
+    roboto
     ibm-plex
     gohufont
     cozette

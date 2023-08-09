@@ -23,10 +23,6 @@
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-colors.url = "github:misterio77/nix-colors";
-    sf-mono-liga-src = {
-      url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
-      flake = false;
-    };
 
     nur.url = "github:nix-community/NUR";
     nekowinston-nur.url = "github:nekowinston/nur";
