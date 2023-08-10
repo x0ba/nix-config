@@ -5,6 +5,8 @@
 }:
 let
   inherit (pkgs.stdenv.hostPlatform) isDarwin;
+  theme = config.colorScheme;
+
 in
 {
   programs.firefox = {
@@ -18,7 +20,7 @@ in
         default = "Searx";
         engines = {
           "Searx" = {
-            urls = [{ template = "http://priv.au/search?q={searchTerms}"; }];
+            urls = [{ template = " http://searxng.nicfab.eu/searxng/search?q={searchTerms}"; }];
             definedAliases = [ "@sx" ];
           };
         };
@@ -32,7 +34,13 @@ in
         ublock-origin
         vimium
       ];
-      userChrome = import ./userchrome.nix;
+          userChrome = import ./userchrome.nix {
+            theme = config.colorScheme;
+          };
+
+          userContent = import ./usercontent.nix {
+            theme = config.colorScheme;
+          };
       extraConfig = import ./userjs.nix;
     };
   };

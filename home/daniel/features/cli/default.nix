@@ -20,6 +20,7 @@
     ripgrep
     cmake
     fd
+    tetex
     file
     any-nix-shell
     commitizen

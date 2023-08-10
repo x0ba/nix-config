@@ -90,9 +90,9 @@ in {
       gaa = "git add .";
       cls = "clear";
       commit = "git add . && git commit -m";
+      m = "mkdir -p";
       push = "git push";
       pull = "git pull";
-      m = "mkdir -p";
       v = "${pkgs.neovim}/bin/nvim";
       fcd = "cd $(find -type d | fzf)";
       rm = "${pkgs.trash-cli}/bin/trash-put";

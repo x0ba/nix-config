@@ -18,7 +18,6 @@
         "firefox"
         "brave-browser"
         "tor-browser"
-        "librewolf"
         "utm"
         (skipSha "affinity-designer")
         (skipSha "affinity-photo")
@@ -26,6 +25,7 @@
         (skipSha "element")
         (skipSha "flow")
         "uninstallpkg"
+        "keka"
         "syncthing"
         "gimp"
         "krita"
@@ -51,6 +51,7 @@
       }
       {
         name = "emacs-plus@28";
+        args = ["with-native-comp"];
         start_service = true;
       }
     ];
