@@ -17,17 +17,22 @@
       [
         "firefox"
         "brave-browser"
+        "vivaldi"
         "tor-browser"
         "utm"
         (skipSha "affinity-designer")
         (skipSha "affinity-photo")
         (skipSha "affinity-publisher")
         (skipSha "element")
+        (skipSha "craft")
         (skipSha "flow")
+        (skipSha "roam-research")
+        "logseq"
         "uninstallpkg"
         "keka"
         "syncthing"
         "gimp"
+        "jetbrains-toolbox"
         "krita"
         "arc"
         "raycast"
@@ -47,11 +52,6 @@
     brews = [
       {
         name = "sketchybar";
-        start_service = true;
-      }
-      {
-        name = "emacs-plus@28";
-        args = ["with-native-comp"];
         start_service = true;
       }
     ];

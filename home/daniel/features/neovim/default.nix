@@ -1,8 +1,7 @@
-{
-  config,
-  pkgs,
-  flakePath,
-  ...
+{ config
+, pkgs
+, flakePath
+, ...
 }: {
   programs.neovim = {
     enable = true;
