@@ -33,6 +33,7 @@ in
         decentraleyes
         temporary-containers
         ublock-origin
+        onepassword-password-manager
         vimium
       ];
       userChrome = import ./userchrome.nix {

@@ -9,7 +9,7 @@ c.font = wezterm.font_with_fallback({
   "Symbols Nerd Font",
 })
 c.font_size = 18
-c.line_height = 1.1
+c.line_height = 1.0
 c.hide_tab_bar_if_only_one_tab = true
 
 -- font rendering
@@ -38,6 +38,6 @@ c.window_frame = { font_size = 13.0 }
 c.window_background_opacity = 1.0
 c.animation_fps = 10
 
-c.color_scheme = "Mountain"
+c.color_scheme = "rose-pine"
 
 return c

@@ -1,8 +1,9 @@
 { outputs, ... }: {
   imports = [
     outputs.darwinModules.yabai
-    ./programs/yabai.nix
-    ./programs/skhd.nix
+    # ./programs/yabai.nix
+    # ./programs/skhd.nix
+    ./programs/amethyst.nix
     ./programs/fish.nix
     ./brew.nix
     ./nix.nix
@@ -39,7 +40,7 @@
       AppleKeyboardUIMode = 3;
       ApplePressAndHoldEnabled = false;
       AppleFontSmoothing = 1;
-      _HIHideMenuBar = true;
+      _HIHideMenuBar = false;
       # InitialKeyRepeat = 10;
       # KeyRepeat = 1;
       "com.apple.mouse.tapBehavior" = 1;

@@ -13,13 +13,23 @@
           inherit name;
           args = { require_sha = false; };
         };
+        noQuarantine = name: {
+          inherit name;
+          args = { no_quarantine = true; };
+        };
       in
       [
         "firefox"
         "brave-browser"
+        "amethyst"
+        "1password"
         "vivaldi"
+        "stats"
         "tor-browser"
+        "rectangle"
         "utm"
+        "mullvad-browser"
+        (skipSha "spacelauncher")
         (skipSha "affinity-designer")
         (skipSha "affinity-photo")
         (skipSha "affinity-publisher")
@@ -27,6 +37,7 @@
         (skipSha "craft")
         (skipSha "flow")
         (skipSha "roam-research")
+        (noQuarantine "librewolf")
         "logseq"
         "uninstallpkg"
         "keka"
@@ -50,10 +61,10 @@
       ];
 
     brews = [
-      {
-        name = "sketchybar";
-        start_service = true;
-      }
+      # {
+      #   name = "sketchybar";
+      #   start_service = false;
+      # }
     ];
     taps = [ "homebrew/services" "d12frosted/emacs-plus" "homebrew/cask" "homebrew/cask-fonts" "FelixKratz/formulae" "cmacrae/formulae" ];
   };

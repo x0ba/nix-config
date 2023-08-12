@@ -1,5 +1,4 @@
-{
-  ...
+{ ...
 }: {
   # You can import other home-manager modules here
   imports = [
@@ -12,7 +11,7 @@
   ];
 
   home = {
-    mac-wallpaper = ./wallpapers/waves.jpg;
+    mac-wallpaper = ./wallpapers/leafy-moon.png;
     homeDirectory = "/Users/daniel";
     stateVersion = "23.05";
     username = "daniel";

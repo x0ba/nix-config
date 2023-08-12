@@ -15,7 +15,7 @@
     ]
     ++ (builtins.attrValues outputs.homeManagerModules);
 
-  colorScheme = inputs.nix-colors.colorSchemes.mountain;
+  colorScheme = inputs.nix-colors.colorSchemes.rose-pine;
 
   nixpkgs = {
     # You can add overlays here

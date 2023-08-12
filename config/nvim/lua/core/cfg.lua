@@ -59,5 +59,5 @@ M.dashboard = {
   },
 }
 
-M.colorscheme = "mountain"
+M.colorscheme = "rose"
 return M
