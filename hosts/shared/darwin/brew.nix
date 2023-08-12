@@ -26,12 +26,14 @@
         "vivaldi"
         "stats"
         "tor-browser"
+        "pomodone"
         "rectangle"
         "utm"
         "mullvad-browser"
         (skipSha "spacelauncher")
         (skipSha "affinity-designer")
         (skipSha "affinity-photo")
+        (noQuarantine "easy-move-plus-resize")
         (skipSha "affinity-publisher")
         (skipSha "element")
         (skipSha "craft")

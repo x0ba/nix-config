@@ -5,11 +5,11 @@ local c = wezterm.config_builder()
 require("keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-  "Iosevka",
+  "Comic Code Ligatures",
   "Symbols Nerd Font",
 })
-c.font_size = 18
-c.line_height = 1.0
+c.font_size = 16
+c.line_height = 1.2
 c.hide_tab_bar_if_only_one_tab = true
 
 -- font rendering
@@ -29,7 +29,7 @@ c.inactive_pane_hsb = {
 c.adjust_window_size_when_changing_font_size = false
 c.audible_bell = "Disabled"
 c.clean_exit_codes = { 130 }
-c.default_cursor_style = "SteadyBlock"
+c.default_cursor_style = "SteadyUnderline"
 c.launch_menu = {
   { label = "Music player", args = { "ncmpcpp" } },
 }
