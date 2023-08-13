@@ -1,7 +1,8 @@
-{ config
-, pkgs
-, flakePath
-, ...
+{
+  config,
+  pkgs,
+  flakePath,
+  ...
 }: {
   programs.neovim = {
     enable = true;
@@ -22,6 +23,7 @@
     elixir_ls
     gawk
     go
+    stylua
     gocode-gomod
     gomodifytags
     gopkgs
@@ -36,6 +38,7 @@
     nodejs
     rust-analyzer
     selene
+    nil
     shellcheck
     shfmt
     solc

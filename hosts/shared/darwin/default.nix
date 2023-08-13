@@ -1,4 +1,4 @@
-{ outputs, ... }: {
+{outputs, ...}: {
   imports = [
     outputs.darwinModules.yabai
     # ./programs/yabai.nix
@@ -22,7 +22,7 @@
     remapCapsLockToEscape = true;
   };
   system.defaults = {
-    screencapture = { location = "/tmp"; };
+    screencapture = {location = "/tmp";};
 
     dock = {
       autohide = true;

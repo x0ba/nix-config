@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./lf.nix
+    ./media.nix
     ./git.nix
     ./gpg.nix
     ./xdg.nix

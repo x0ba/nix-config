@@ -1,8 +1,9 @@
-{ inputs
-, pkgs
-, config
-, outputs
-, ...
+{
+  inputs,
+  pkgs,
+  config,
+  outputs,
+  ...
 }: {
   imports =
     [
@@ -15,7 +16,27 @@
     ]
     ++ (builtins.attrValues outputs.homeManagerModules);
 
-  colorScheme = inputs.nix-colors.colorSchemes.rose-pine;
+  colorScheme = {
+    slug = "oxocarbon";
+    colors = {
+      base00 = "161616";
+      base01 = "262626";
+      base02 = "393939";
+      base03 = "525252";
+      base04 = "dde1e6";
+      base05 = "f2f4f8";
+      base06 = "ffffff";
+      base07 = "08bdba";
+      base08 = "3ddbd9";
+      base09 = "33b1ff";
+      base0A = "ee5396";
+      base0B = "78a9ff";
+      base0C = "ff7eb6";
+      base0D = "42be65";
+      base0E = "be95ff";
+      base0F = "82cfff";
+    };
+  };
 
   nixpkgs = {
     # You can add overlays here
@@ -33,7 +54,7 @@
             nekowinston = inputs.nekowinston-nur.packages.${prev.system};
           };
         };
-        nekowinston-nur = import inputs.nekowinston-nur { inherit (prev) pkgs; };
+        nekowinston-nur = import inputs.nekowinston-nur {inherit (prev) pkgs;};
         nix-vscode-extensions = inputs.nix-vscode-extensions.extensions.${prev.system};
       })
       inputs.nekowinston-nur.overlays.default

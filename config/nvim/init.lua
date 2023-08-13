@@ -1,3 +1,2 @@
-require("plugs")
-require("core")
-require("ui")
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")

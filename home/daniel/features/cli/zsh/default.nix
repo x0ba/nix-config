@@ -79,7 +79,7 @@ in {
 
       any-nix-shell zsh --info-right | source /dev/stdin
 
-      PATH=/usr/bin:/opt/homebrew/bin:~/.local/share/nvim/mason/bin:/opt/homebrew/opt/libiconv/bin:$PATH
+      PATH=/usr/bin:/opt/homebrew/bin:~/.local/share/nvim/mason/bin:/opt/homebrew/opt/libiconv/bin:~/Library/Python/3.9/bin:$PATH
 
     '';
 
