@@ -1,15 +1,16 @@
-{
-  config,
-  lib,
-  inputs,
-  pkgs,
-  ...
-}: let
+{ config
+, lib
+, inputs
+, pkgs
+, ...
+}:
+let
   theme = config.colorScheme;
-in {
+in
+{
   programs.atuin = {
     enable = true;
-    flags = ["--disable-up-arrow"];
+    flags = [ "--disable-up-arrow" ];
     settings = {
       inline_height = 30;
       style = "compact";
@@ -46,8 +47,6 @@ in {
       if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
         source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
       fi
-
-      cl
 
       source "$HOME/.cargo/env"
 

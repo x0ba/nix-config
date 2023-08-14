@@ -47,6 +47,7 @@
     texlab
     rnix-lsp
     uncrustify
+    nixpkgs-fmt
     zls
     nodePackages.jsonlint
     nodePackages.jsonlint

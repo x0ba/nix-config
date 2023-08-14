@@ -5,16 +5,16 @@ local c = wezterm.config_builder()
 require("keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-  "Comic Code Ligatures",
-  "Symbols Nerd Font",
+	"Berkeley Mono",
+	"Symbols Nerd Font",
 })
 c.font_size = 16
 c.line_height = 1.2
 c.hide_tab_bar_if_only_one_tab = true
 
 -- font rendering
-c.freetype_load_flags = 'NO_HINTING'
-c.freetype_load_target = 'Normal'
+c.freetype_load_flags = "NO_HINTING"
+c.freetype_load_target = "Normal"
 
 -- window
 c.window_decorations = "RESIZE"
@@ -22,8 +22,8 @@ c.window_padding = { left = 45, right = 45, top = 45, bottom = 45 }
 
 -- dim unfocused panes
 c.inactive_pane_hsb = {
-  saturation = 1.0,
-  brightness = 0.8,
+	saturation = 1.0,
+	brightness = 0.8,
 }
 -- etc.
 c.adjust_window_size_when_changing_font_size = false
@@ -31,7 +31,7 @@ c.audible_bell = "Disabled"
 c.clean_exit_codes = { 130 }
 c.default_cursor_style = "SteadyUnderline"
 c.launch_menu = {
-  { label = "Music player", args = { "ncmpcpp" } },
+	{ label = "Music player", args = { "ncmpcpp" } },
 }
 c.command_palette_font_size = 13.0
 c.window_frame = { font_size = 13.0 }
