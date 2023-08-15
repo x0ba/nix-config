@@ -22,16 +22,14 @@
         "firefox"
         "soulseek"
         "iina"
-        "nuclear"
         "brave-browser"
-        "foobar2000"
         "amethyst"
-        "docker"
+        "dozer"
         "1password"
         "vivaldi"
         "textual"
-        "vivaldi"
         "stats"
+        "whichspace"
         "tor-browser"
         "rectangle"
         "utm"
@@ -64,9 +62,6 @@
         "neovide"
         "discord"
         "calibre"
-
-        # Drivers
-        "wacom-tablet"
       ];
 
     brews = [
