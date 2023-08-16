@@ -1,8 +1,9 @@
-{ inputs
-, pkgs
-, config
-, outputs
-, ...
+{
+  inputs,
+  pkgs,
+  config,
+  outputs,
+  ...
 }: {
   imports =
     [
@@ -13,7 +14,6 @@
       inputs.nix-index-database.hmModules.nix-index
     ]
     ++ (builtins.attrValues outputs.homeManagerModules);
-
 
   colorScheme = inputs.nix-colors.colorSchemes.tomorrow-night;
 
@@ -33,7 +33,7 @@
             nekowinston = inputs.nekowinston-nur.packages.${prev.system};
           };
         };
-        nekowinston-nur = import inputs.nekowinston-nur { inherit (prev) pkgs; };
+        nekowinston-nur = import inputs.nekowinston-nur {inherit (prev) pkgs;};
         nix-vscode-extensions = inputs.nix-vscode-extensions.extensions.${prev.system};
       })
       inputs.nekowinston-nur.overlays.default

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   inherit (pkgs.stdenv.hostPlatform) isLinux isDarwin;
   key = "0xDDC4DDB3D659ED62";
   mailvelopeConfig = builtins.toJSON {
@@ -7,10 +6,9 @@ let
     description = "JavaScript binding for GnuPG";
     path = pkgs.gpgme.dev + /bin/gpgme-json;
     type = "stdio";
-    allowed_extensions = [ "jid1-AQqSMBYb0a8ADg@jetpack" ];
+    allowed_extensions = ["jid1-AQqSMBYb0a8ADg@jetpack"];
   };
-in
-{
+in {
   home.packages = with pkgs; [
     gnupg-pkcs11-scd
     pcsclite
