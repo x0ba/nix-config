@@ -18,10 +18,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    sops-nix.url = "github:Mic92/sops-nix";
-    sops-nix.inputs.nixpkgs-stable.follows = "nixpkgs";
-    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
-
     nix-colors.url = "github:misterio77/nix-colors";
 
     nur.url = "github:nix-community/NUR";

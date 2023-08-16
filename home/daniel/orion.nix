@@ -1,8 +1,8 @@
-{...}: {
+{ ... }: {
   # You can import other home-manager modules here
   imports = [
     ./global
-    ./features/secrets
+    # ./features/secrets
     ./features/desktop/common
     ./features/term/wezterm.nix
     ./features/productivity

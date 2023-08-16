@@ -5,7 +5,7 @@ local c = wezterm.config_builder()
 require("keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-	"Comic Code Ligatures",
+	"Berkeley Mono",
 	"Symbols Nerd Font",
 })
 c.font_size = 16
@@ -38,6 +38,6 @@ c.window_frame = { font_size = 13.0 }
 c.window_background_opacity = 1.0
 c.animation_fps = 10
 
-c.color_scheme = "Oxocarbon Dark"
+c.color_scheme = "Tokyo Night"
 
 return c

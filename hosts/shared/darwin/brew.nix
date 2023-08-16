@@ -22,29 +22,16 @@
         "firefox"
         "soulseek"
         "iina"
-        "brave-browser"
         "amethyst"
         "dozer"
         "1password"
-        "vivaldi"
-        "textual"
-        "stats"
         "whichspace"
+        "appcleaner"
+        "textual"
         "tor-browser"
-        "rectangle"
         "utm"
         "mullvad-browser"
-        (skipSha "spacelauncher")
-        (skipSha "affinity-designer")
-        (skipSha "affinity-photo")
-        (noQuarantine "easy-move-plus-resize")
-        (skipSha "affinity-publisher")
         (skipSha "element")
-        (skipSha "craft")
-        (skipSha "flow")
-        (skipSha "steam")
-        (skipSha "roam-research")
-        (noQuarantine "librewolf")
         "logseq"
         "uninstallpkg"
         "keka"
