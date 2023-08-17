@@ -1,12 +1,13 @@
-{
-  lib,
-  pkgs,
-  config,
-  ...
-}: let
+{ lib
+, pkgs
+, config
+, ...
+}:
+let
   inherit (pkgs.stdenv.hostPlatform) isDarwin;
   theme = config.colorScheme;
-in {
+in
+{
   programs.firefox = {
     enable = true;
     # since I'm using firefox from brew on darwin, I need to build a dummy package
@@ -18,8 +19,8 @@ in {
         default = "Searx";
         engines = {
           "Searx" = {
-            urls = [{template = " http://searxng.nicfab.eu/searxng/search?q={searchTerms}";}];
-            definedAliases = ["@sx"];
+            urls = [{ template = " http://searxng.nicfab.eu/searxng/search?q={searchTerms}"; }];
+            definedAliases = [ "@sx" ];
           };
         };
       };
@@ -80,6 +81,7 @@ in {
         user_pref("image.cache.size", 10485760);
         user_pref("image.mem.decode_bytes_at_a_time", 131072);
         user_pref("image.mem.shared.unmap.min_expiration_ms", 120000);
+        user_pref("media.av1.enabled", true);
         user_pref("media.memory_cache_max_size", 1048576);
         user_pref("media.memory_caches_combined_limit_kb", 2560000);
         user_pref("media.cache_readahead_limit", 9000);
