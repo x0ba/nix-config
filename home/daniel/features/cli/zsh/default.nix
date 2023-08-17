@@ -30,16 +30,9 @@ in {
     };
 
     envExtra = ''
-      export LANG="en_US.UTF-8"
-      export LC_COLLATE="en_US.UTF-8"
-      export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#4d4d4d"
-      export LC_CTYPE="en_US.UTF-8"
-      export LC_MESSAGES="en_US.UTF-8"
-      export LC_MONETARY="en_US.UTF-8"
-      export LC_NUMERIC="en_US.UTF-8"
-      export LC_TIME="en_US.UTF-8"
-      export LC_ALL="en_US.UTF-8"
-      export SUDO_PROMPT=$'Password for ->\033[32;05;16m %u\033[0m  '
+      export LESSHISTFILE="-"
+      export ZVM_INIT_MODE="sourcing"
+      export ZVM_CURSOR_BLINKING_BEAM="1"
     '';
 
     initExtra = with theme.colors; ''
@@ -92,6 +85,7 @@ in {
       push = "git push";
       pull = "git pull";
       v = "${pkgs.neovim}/bin/nvim";
+      vim = "${pkgs.neovim}/bin/nvim";
       fcd = "cd $(find -type d | fzf)";
       rm = "${pkgs.trash-cli}/bin/trash-put";
       cat = "${pkgs.bat}/bin/bat --style=plain";
@@ -111,10 +105,6 @@ in {
         name = "powerlevel10k-config";
         src = lib.cleanSource ./conf;
         file = "powerlevel.zsh";
-      }
-      {
-        name = "zsh-autosuggestions";
-        src = inputs.zsh-autosuggestions;
       }
       {
         name = "fzf-tab";

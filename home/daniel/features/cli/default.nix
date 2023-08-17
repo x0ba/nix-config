@@ -2,6 +2,7 @@
   imports = [
     ./lf.nix
     ./git.nix
+    ./fish.nix
     ./gpg.nix
     ./xdg.nix
     ./tmux.nix
