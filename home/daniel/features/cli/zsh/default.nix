@@ -1,16 +1,15 @@
-{ config
-, lib
-, inputs
-, pkgs
-, ...
-}:
-let
-  theme = config.colorScheme;
-in
 {
+  config,
+  lib,
+  inputs,
+  pkgs,
+  ...
+}: let
+  theme = config.colorScheme;
+in {
   programs.atuin = {
     enable = true;
-    flags = [ "--disable-up-arrow" ];
+    flags = ["--disable-up-arrow"];
     settings = {
       inline_height = 30;
       style = "compact";
@@ -32,39 +31,45 @@ in
 
     envExtra = ''
       export LESSHISTFILE="-"
+      export BORG_REPO="ssh://gz0kg23y@gz0kg23y.repo.borgbase.com/./repo"
+      export BACKUP_NAME="$USER-macbook-air"
       export ZVM_INIT_MODE="sourcing"
       export ZVM_CURSOR_BLINKING_BEAM="1"
     '';
 
     initExtra = with theme.colors; ''
-        export FZF_DEFAULT_OPTS='
-        --color fg:#${base06},bg:#${base00},hl:#${base04},fg+:#${base07},bg+:#${base00},hl+:#${base04},border:#${base03}
-      --color pointer:#${base08},info:#${base03},spinner:#${base03},header:#${base03},prompt:#${base0B},marker:#${base0B}
-      '
 
-        FZF_TAB_COMMAND=(
-            ${pkgs.fzf}/bin/fzf
-            --ansi
-            --expect='$continuous_trigger' # For continuous completion
-            --nth=2,3 --delimiter='\x00'  # Don't search prefix
-            --layout=reverse --height="''${FZF_TMUX_HEIGHT:=50%}"
-            --tiebreak=begin -m --bind=tab:down,btab:up,change:top,ctrl-space:toggle --cycle
-            '--query=$query'   # $query will be expanded to query string at runtime.
-            '--header-lines=$#headers' # $#headers will be expanded to lines of headers at runtime
-            )
+      if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+        source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+      fi
+              export FZF_DEFAULT_OPTS='
+              --color fg:#${base06},bg:#${base00},hl:#${base04},fg+:#${base07},bg+:#${base00},hl+:#${base04},border:#${base03}
+            --color pointer:#${base08},info:#${base03},spinner:#${base03},header:#${base03},prompt:#${base0B},marker:#${base0B}
+            '
 
-      zstyle ':fzf-tab:*' command $FZF_TAB_COMMAND
-      zstyle ':fzf-tab:*' switch-group ',' '.'
-      zstyle ':fzf-tab:complete:_zlua:*' query-string input
-      zstyle ':fzf-tab:complete:*:*' fzf-preview 'preview $realpath'
+              FZF_TAB_COMMAND=(
+                  ${pkgs.fzf}/bin/fzf
+                  --ansi
+                  --expect='$continuous_trigger' # For continuous completion
+                  --nth=2,3 --delimiter='\x00'  # Don't search prefix
+                  --layout=reverse --height="''${FZF_TMUX_HEIGHT:=50%}"
+                  --tiebreak=begin -m --bind=tab:down,btab:up,change:top,ctrl-space:toggle --cycle
+                  '--query=$query'   # $query will be expanded to query string at runtime.
+                  '--header-lines=$#headers' # $#headers will be expanded to lines of headers at runtime
+                  )
 
-      ZSH_AUTOSUGGEST_USE_ASYNC="true"
-      ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp root line)
-      ZSH_HIGHLIGHT_MAXLENGTH=512
+            zstyle ':fzf-tab:*' command $FZF_TAB_COMMAND
+            zstyle ':fzf-tab:*' switch-group ',' '.'
+            zstyle ':fzf-tab:complete:_zlua:*' query-string input
+            zstyle ':fzf-tab:complete:*:*' fzf-preview 'preview $realpath'
 
-      any-nix-shell zsh --info-right | source /dev/stdin
+            ZSH_AUTOSUGGEST_USE_ASYNC="true"
+            ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp root line)
+            ZSH_HIGHLIGHT_MAXLENGTH=512
 
-      PATH=/usr/bin:/opt/homebrew/bin:~/.local/share/nvim/mason/bin:/opt/homebrew/opt/libiconv/bin:~/Library/Python/3.9/bin:$PATH
+            any-nix-shell zsh --info-right | source /dev/stdin
+
+            PATH=/usr/bin:/opt/homebrew/bin:~/.local/share/nvim/mason/bin:/opt/homebrew/opt/libiconv/bin:~/Library/Python/3.9/bin:$PATH
 
     '';
 

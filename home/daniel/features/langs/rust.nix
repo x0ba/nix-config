@@ -1,11 +1,10 @@
-{ config
-, pkgs
-, ...
-}:
-let
-  inherit (config.xdg) dataHome;
-in
 {
+  config,
+  pkgs,
+  ...
+}: let
+  inherit (config.xdg) dataHome;
+in {
   home = rec {
     packages = [
       pkgs.cargo

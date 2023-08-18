@@ -1,0 +1,26 @@
+repos:
+  - repo: https://github.com/kamadorueda/alejandra
+    rev: 1.3.0
+    # Choose either the 'alejandra' or 'alejandra-system' hook
+    # depending on what pre-requisites you have:
+    hooks:
+      - id: alejandra
+
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: 3.6.0
+    hooks:
+      - id: commitizen
+        stages: [commit-msg]
+
+  - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
+    rev: '2.7.2'  # pick a git hash / tag to point to
+    hooks:
+    -   id: editorconfig-checker
+        alias: ec
+
+  - repo: https://github.com/astro/deadnix
+    rev: v1.2.0
+    hooks:
+      - id: deadnix
+        args: [--edit] # Uncomment to automatically modify files
+        stages: [commit]

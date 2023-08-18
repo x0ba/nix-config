@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   imports = [
     ./lf.nix
     ./git.nix
@@ -27,6 +27,7 @@
     any-nix-shell
     commitizen
     git-crypt
+    luajitPackages.luacheck
     sops
     wireguard-tools
     wireguard-go
