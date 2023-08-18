@@ -21,6 +21,7 @@
   user_pref("extensions.formautofill.creditCards.enabled", false);
   user_pref("extensions.pocket.enabled", false);
   user_pref("identity.fxaccounts.enabled", false);
+  user_pref("browser.tabs.firefox-view" true);
   user_pref("layout.spellcheckDefault", 0); // Used to disable spellchecker… set to `0` for increased privacy
   user_pref("media.peerconnection.enabled", false); // Used to disable WebRTC (mitigating WebRTC leaks)… set to `true` to enable WebRTC
   user_pref("network.cookie.cookieBehavior", 1);

@@ -31,8 +31,8 @@
       (skipSha "element")
       "logseq"
       "macfuse"
+      "wacom-tablet"
       "uninstallpkg"
-      "borg-wrapper"
       "keka"
       "syncthing"
       "gimp"
@@ -52,9 +52,6 @@
 
     brews = [
       {
-        name = "borgbackup-fuse";
-      }
-      {
         name = "svim";
         start_service = true;
       }
@@ -62,6 +59,6 @@
         name = "python3";
       }
     ];
-    taps = ["homebrew/services" "d12frosted/emacs-plus" "homebrew/cask" "homebrew/cask-fonts" "FelixKratz/formulae" "cmacrae/formulae" "borgbackup/tap" "sunknudsen/tap"];
+    taps = ["homebrew/services" "d12frosted/emacs-plus" "homebrew/cask" "homebrew/cask-fonts" "FelixKratz/formulae" "cmacrae/formulae"];
   };
 }

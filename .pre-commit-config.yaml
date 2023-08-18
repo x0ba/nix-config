@@ -18,3 +18,12 @@ repos:
       - id: deadnix
         args: [--edit] # Uncomment to automatically modify files
         stages: [commit]
+
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: 3.6.0
+    hooks:
+      - id: commitizen
+        stages: [commit-msg]
+
+
+
