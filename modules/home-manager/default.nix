@@ -3,4 +3,5 @@
 {
   # List your module files here
   mac-wallpaper = import ./macwallpaper.nix;
+  shellcolor = import ./shellcolor.nix;
 }

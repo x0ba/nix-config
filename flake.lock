@@ -560,7 +560,8 @@
         "zsh-autosuggestions": "zsh-autosuggestions",
         "zsh-completions": "zsh-completions",
         "zsh-nix-shell": "zsh-nix-shell",
-        "zsh-syntax-highlighting": "zsh-syntax-highlighting"
+        "zsh-syntax-highlighting": "zsh-syntax-highlighting",
+        "zsh-vi-mode": "zsh-vi-mode"
       }
     },
     "rust-overlay": {
@@ -728,6 +729,22 @@
       "original": {
         "owner": "zsh-users",
         "repo": "zsh-syntax-highlighting",
+        "type": "github"
+      }
+    },
+    "zsh-vi-mode": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1690367287,
+        "narHash": "sha256-ylkZ4oVRxBJbk6tJ6UxkDjS+5eCr7efezuTrz8OZm+4=",
+        "owner": "jeffreytse",
+        "repo": "zsh-vi-mode",
+        "rev": "1f28e1886dc8e49f41b817634d5c7695b6abb145",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jeffreytse",
+        "repo": "zsh-vi-mode",
         "type": "github"
       }
     }

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   imports = [
     ./lf.nix
     ./git.nix
@@ -8,6 +8,7 @@
     ./tmux.nix
     ./tools.nix
     ./neofetch.nix
+    ./pfetch.nix
     ./newsboat.nix
     ./zsh
   ];

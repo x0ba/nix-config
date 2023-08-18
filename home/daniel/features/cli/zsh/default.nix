@@ -1,15 +1,16 @@
-{
-  config,
-  lib,
-  inputs,
-  pkgs,
-  ...
-}: let
+{ config
+, lib
+, inputs
+, pkgs
+, ...
+}:
+let
   theme = config.colorScheme;
-in {
+in
+{
   programs.atuin = {
     enable = true;
-    flags = ["--disable-up-arrow"];
+    flags = [ "--disable-up-arrow" ];
     settings = {
       inline_height = 30;
       style = "compact";
@@ -36,14 +37,6 @@ in {
     '';
 
     initExtra = with theme.colors; ''
-      if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-        source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-      fi
-
-      source "$HOME/.cargo/env"
-
-      export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
-
         export FZF_DEFAULT_OPTS='
         --color fg:#${base06},bg:#${base00},hl:#${base04},fg+:#${base07},bg+:#${base00},hl+:#${base04},border:#${base03}
       --color pointer:#${base08},info:#${base03},spinner:#${base03},header:#${base03},prompt:#${base0B},marker:#${base0B}
@@ -59,6 +52,7 @@ in {
             '--query=$query'   # $query will be expanded to query string at runtime.
             '--header-lines=$#headers' # $#headers will be expanded to lines of headers at runtime
             )
+
       zstyle ':fzf-tab:*' command $FZF_TAB_COMMAND
       zstyle ':fzf-tab:*' switch-group ',' '.'
       zstyle ':fzf-tab:complete:_zlua:*' query-string input
@@ -114,6 +108,10 @@ in {
         name = "zsh-syntax-highlighting";
         src = inputs.zsh-syntax-highlighting;
         file = "zsh-syntax-highlighting.zsh";
+      }
+      {
+        name = "zsh-vi-mode";
+        src = inputs.zsh-vi-mode;
       }
       {
         name = "zsh-nix-shell";

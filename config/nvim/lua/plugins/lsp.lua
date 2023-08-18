@@ -4,6 +4,7 @@ return {
     opts = {
       servers = {
         pyright = {},
+        rust_analyzer = {},
         html = {},
         cssls = {},
         tsserver = {},

@@ -1,7 +1,6 @@
-{
-  inputs,
-  outputs,
-  ...
+{ inputs
+, outputs
+, ...
 }: {
   imports =
     [
@@ -31,7 +30,7 @@
             nekowinston = inputs.nekowinston-nur.packages.${prev.system};
           };
         };
-        nekowinston-nur = import inputs.nekowinston-nur {inherit (prev) pkgs;};
+        nekowinston-nur = import inputs.nekowinston-nur { inherit (prev) pkgs; };
         nix-vscode-extensions = inputs.nix-vscode-extensions.extensions.${prev.system};
       })
       inputs.nekowinston-nur.overlays.default

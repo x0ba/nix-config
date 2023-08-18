@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   # You can import other home-manager modules here
   imports = [
     ./global
@@ -7,6 +7,8 @@
     ./features/term/wezterm.nix
     ./features/pass
     ./features/desktop/yabai
+    ./features/langs
+    ./features/helix
   ];
 
   home = {
