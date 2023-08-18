@@ -6,12 +6,6 @@ repos:
     hooks:
       - id: alejandra
 
-  - repo: https://github.com/commitizen-tools/commitizen
-    rev: 3.6.0
-    hooks:
-      - id: commitizen
-        stages: [commit-msg]
-
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
     rev: '2.7.2'  # pick a git hash / tag to point to
     hooks:
