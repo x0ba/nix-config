@@ -23,7 +23,6 @@ repos:
     rev: 3.6.0
     hooks:
       - id: commitizen
-        stages: [commit-msg]
 
 
 
