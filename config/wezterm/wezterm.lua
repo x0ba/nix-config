@@ -35,39 +35,14 @@ c.launch_menu = {
 c.command_palette_font_size = 13.0
 c.window_frame = { font_size = 13.0 }
 c.window_background_opacity = 1.0
-c.animation_fps = 10
 
 c.color_scheme = "Tomorrow Night"
 
 wezterm.plugin.require("https://github.com/nekowinston/wezterm-bar").apply_to_config(c, {
 	position = "bottom",
-	max_width = 32,
 	dividers = false, -- or "slant_left", "arrows", "rounded", false
-	indicator = {
-		leader = {
-			enabled = true,
-			off = " ",
-			on = " ",
-		},
-		mode = {
-			enabled = true,
-			names = {
-				resize_mode = "RESIZE",
-				copy_mode = "VISUAL",
-				search_mode = "SEARCH",
-			},
-		},
-	},
-	tabs = {
-		numerals = "arabic", -- or "roman"
-		pane_count = "superscript", -- or "subscript", false
-		brackets = {
-			active = { "", ":" },
-			inactive = { "", ":" },
-		},
-	},
 	clock = { -- note that this overrides the whole set_right_status
-		enabled = true,
+		enabled = false,
 		format = "%H:%M", -- use https://wezfurlong.org/wezterm/config/lua/wezterm.time/Time/format.html
 	},
 })

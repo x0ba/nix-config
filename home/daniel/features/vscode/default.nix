@@ -1,34 +1,28 @@
-{
-  config,
-  flakePath,
-  lib,
-  pkgs,
-  ...
-}: let
+{ config
+, flakePath
+, lib
+, pkgs
+, ...
+}:
+let
   inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
 
   settingsJSON = config.lib.file.mkOutOfStoreSymlink "${flakePath}/config/vscode/settings.json";
   keybindingsJSON = config.lib.file.mkOutOfStoreSymlink "${flakePath}/config/vscode/keybindings.json";
-in {
+in
+{
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
     extensions = with pkgs.nix-vscode-extensions.vscode-marketplace; [
-      adrianwilczynski.alpine-js-intellisense
-      astro-build.astro-vscode
-      bradlc.vscode-tailwindcss
       catppuccin.catppuccin-vsc-icons
       denoland.vscode-deno
-      eamodio.gitlens
       esbenp.prettier-vscode
       github.vscode-pull-request-github
-      gitlab.gitlab-workflow
       jnoortheen.nix-ide
       kamadorueda.alejandra
       leonardssh.vscord
-      lunuan.kubernetes-templates
       mkhl.direnv
-      ms-kubernetes-tools.vscode-kubernetes-tools
       pkief.material-icon-theme
       redhat.vscode-yaml
       rust-lang.rust-analyzer

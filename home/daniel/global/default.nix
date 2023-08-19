@@ -1,7 +1,9 @@
-{
-  inputs,
-  outputs,
-  ...
+{ inputs
+, outputs
+, lib
+, pkgs
+, config
+, ...
 }: {
   imports =
     [
@@ -14,6 +16,31 @@
     ++ (builtins.attrValues outputs.homeManagerModules);
 
   colorScheme = inputs.nix-colors.colorSchemes.tomorrow-night;
+
+  # symlinks don't work with finder + spotlight, copy them instead
+  disabledModules = [ "targets/darwin/linkapps.nix" ];
+  home.activation = lib.mkIf pkgs.stdenv.isDarwin {
+    copyApplications =
+      let
+        apps = pkgs.buildEnv {
+          name = "home-manager-applications";
+          paths = config.home.packages;
+          pathsToLink = "/Applications";
+        };
+      in
+      lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+        baseDir="$HOME/Applications/Home Manager Apps"
+        if [ -d "$baseDir" ]; then
+          rm -rf "$baseDir"
+        fi
+        mkdir -p "$baseDir"
+        for appFile in ${apps}/Applications/*; do
+          target="$baseDir/$(basename "$appFile")"
+          $DRY_RUN_CMD cp ''${VERBOSE_ARG:+-v} -fHRL "$appFile" "$baseDir"
+          $DRY_RUN_CMD chmod ''${VERBOSE_ARG:+-v} -R +w "$target"
+        done
+      '';
+  };
 
   nixpkgs = {
     # You can add overlays here
@@ -31,7 +58,7 @@
             nekowinston = inputs.nekowinston-nur.packages.${prev.system};
           };
         };
-        nekowinston-nur = import inputs.nekowinston-nur {inherit (prev) pkgs;};
+        nekowinston-nur = import inputs.nekowinston-nur { inherit (prev) pkgs; };
         nix-vscode-extensions = inputs.nix-vscode-extensions.extensions.${prev.system};
       })
       inputs.nekowinston-nur.overlays.default

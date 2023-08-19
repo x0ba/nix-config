@@ -1,15 +1,16 @@
-{
-  config,
-  lib,
-  inputs,
-  pkgs,
-  ...
-}: let
+{ config
+, lib
+, inputs
+, pkgs
+, ...
+}:
+let
   theme = config.colorScheme;
-in {
+in
+{
   programs.atuin = {
     enable = true;
-    flags = ["--disable-up-arrow"];
+    flags = [ "--disable-up-arrow" ];
     settings = {
       inline_height = 30;
       style = "compact";
@@ -31,8 +32,7 @@ in {
 
     envExtra = ''
       export LESSHISTFILE="-"
-      export BORG_REPO="ssh://gz0kg23y@gz0kg23y.repo.borgbase.com/./repo"
-      export BACKUP_NAME="$USER-macbook-air"
+      export BACKUP_VOLUME_PATH="/Volumes/Lexar/backup"
       export ZVM_INIT_MODE="sourcing"
       export ZVM_CURSOR_BLINKING_BEAM="1"
     '';
