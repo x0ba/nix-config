@@ -31,7 +31,6 @@
         "signal"
         "tor-browser"
         "utm"
-        "mullvad-browser"
         (skipSha "element")
         "logseq"
         "macfuse"
