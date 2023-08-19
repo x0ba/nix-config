@@ -36,7 +36,7 @@ c.command_palette_font_size = 13.0
 c.window_frame = { font_size = 13.0 }
 c.window_background_opacity = 1.0
 
-c.color_scheme = "Tomorrow Night"
+c.color_scheme = "Oxocarbon Dark"
 
 wezterm.plugin.require("https://github.com/nekowinston/wezterm-bar").apply_to_config(c, {
 	position = "bottom",

@@ -1,12 +1,15 @@
 return {
-	{ -- Theme inspired by Atom
-		"notken12/base46-colors",
-		priority = 1000,
-	},
-	{
-		"LazyVim/LazyVim",
-		opts = {
-			colorscheme = "tomorrow_night",
-		},
-	},
+  -- { -- Theme inspired by Atom
+  --   "notken12/base46-colors",
+  --   priority = 1000,
+  -- },
+  {
+    "nyoom-engineering/oxocarbon.nvim",
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "oxocarbon",
+    },
+  },
 }
