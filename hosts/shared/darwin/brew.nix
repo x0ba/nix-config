@@ -19,6 +19,7 @@
         "stats"
         "soulseek"
         "brave-browser"
+        "lulu"
         "flux"
         "iina"
         "amethyst"

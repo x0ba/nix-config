@@ -32,9 +32,6 @@ in
 
     envExtra = ''
       export LESSHISTFILE="-"
-      export BACKUP_VOLUME_PATH="/Volumes/Lexar/backup"
-      export ZVM_INIT_MODE="sourcing"
-      export ZVM_CURSOR_BLINKING_BEAM="1"
     '';
 
     initExtra = with theme.colors; ''
@@ -95,16 +92,16 @@ in
         name = "zsh-completions";
         src = inputs.zsh-completions;
       }
-      {
-        name = "powerlevel10k";
-        src = pkgs.zsh-powerlevel10k;
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
-      {
-        name = "powerlevel10k-config";
-        src = lib.cleanSource ./conf;
-        file = "powerlevel.zsh";
-      }
+      # {
+      #   name = "powerlevel10k";
+      #   src = pkgs.zsh-powerlevel10k;
+      #   file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      # }
+      # {
+      #   name = "powerlevel10k-config";
+      #   src = lib.cleanSource ./conf;
+      #   file = "powerlevel.zsh";
+      # }
       {
         name = "fzf-tab";
         src = inputs.fzf-tab;

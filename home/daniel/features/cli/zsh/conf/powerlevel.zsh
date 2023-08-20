@@ -91,13 +91,13 @@ typeset -g PS3='%K{4} %K{0}%B select %b%k '
   #################################[ os_icon: os identifier ]##################################
   # OS identifier color.
   typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=0
-  typeset -g POWERLEVEL9K_OS_ICON_BACKGROUND=4
+  typeset -g POWERLEVEL9K_OS_ICON_BACKGROUND=#7796d9
   # Custom icon. הּ ﮼  
   typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='󰘧'
 
   ##################################[ dir: current directory ]##################################
   # Current directory background color.
-  typeset -g POWERLEVEL9K_DIR_BACKGROUND=0
+  typeset -g POWERLEVEL9K_DIR_BACKGROUND=#363a45
   # Default current directory foreground color.
   typeset -g POWERLEVEL9K_DIR_FOREGROUND=7
   # If directory is too long, shorten some of its segments to the shortest possible unique
