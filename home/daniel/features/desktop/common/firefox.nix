@@ -16,7 +16,6 @@ in
     profiles.default = {
       search.default = "DuckDuckGo";
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-        nighttab
         multi-account-containers
         temporary-containers
         ublock-origin

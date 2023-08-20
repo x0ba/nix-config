@@ -21,8 +21,8 @@
     name = "darkppuccin";
     author = "x0ba (https://github.com/x0ba)";
     colors = {
-      base00 = "11111b"; # base
-      base01 = "181825"; # mantle
+      base00 = "020202"; # base
+      base01 = "010101"; # mantle
       base02 = "313244"; # surface0
       base03 = "45475a"; # surface1
       base04 = "585b70"; # surface2

@@ -1,6 +1,7 @@
 ''
   // Firefox hardening using preferences (automated)
   user_pref("app.normandy.first_run", false);
+  user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
   user_pref("app.shield.optoutstudies.enabled", false);
   user_pref("app.update.auto", false);
   user_pref("browser.contentblocking.category", "custom");
