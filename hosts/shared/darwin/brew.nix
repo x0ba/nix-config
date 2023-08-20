@@ -23,13 +23,12 @@
         "stats"
         "soulseek"
         "brave-browser"
-        "flux"
         "iina"
+        "lulu"
         "amethyst"
         "dozer"
         "1password"
         "whichspace"
-        "borg-wrapper"
         "appcleaner"
         "textual"
         "signal"
@@ -62,16 +61,9 @@
 
     brews = [
       {
-        name = "svim";
-        start_service = true;
-      }
-      {
-        name = "borgbackup-fuse";
-      }
-      {
         name = "python3";
       }
     ];
-    taps = [ "homebrew/services" "d12frosted/emacs-plus" "homebrew/cask" "homebrew/cask-fonts" "FelixKratz/formulae" "cmacrae/formulae" "borgbackup/tap" "sunknudsen/tap" ];
+    taps = [ "homebrew/services" "homebrew/cask" ];
   };
 }

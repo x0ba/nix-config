@@ -1,7 +1,6 @@
-{
-  lib,
-  pkgs,
-  ...
+{ lib
+, pkgs
+, ...
 }: {
   programs.gh = {
     enable = true;
@@ -23,10 +22,10 @@
   };
 
   programs.git = {
-    # signing = {
-    #   signByDefault = true;
-    #   key = "E8325E515382CDE43B9FBE12DDC4DDB3D659ED62";
-    # };
+    signing = {
+      signByDefault = true;
+      key = "5F13BA9E4C17CC5C6D68165625A91EBFCE11AF5D";
+    };
     diff-so-fancy.enable = true;
     aliases = {
       # get plain text diffs for patches
