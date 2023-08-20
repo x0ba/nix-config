@@ -49,8 +49,6 @@
       ];
     in
     rec {
-      # Your custom packages
-      # Acessible through 'nix build', 'nix shell', etc
       packages = forAllSystems (
         system:
         let
@@ -67,20 +65,12 @@
         import ./shell.nix { inherit pkgs; }
       );
 
-      # Your custom packages and modifications, exported as overlays
       overlays = import ./overlays { inherit inputs; };
 
-      # Reusable nixos modules you might want to export
-      # These are usually stuff you would upstream into nixpkgs
       nixosModules = import ./modules/nixos;
-      # Reusable home-manager modules you might want to export
-      # These are usually stuff you would upstream into home-manager
       homeManagerModules = import ./modules/home-manager;
-
       darwinModules = import ./modules/darwin;
 
-      # NixOS configuration entrypoint
-      # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
         starfall = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
@@ -99,11 +89,9 @@
         };
       };
 
-      # Standalone home-manager configuration entrypoint
-      # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
         "daniel@starfall" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.aarch64-linux; # Home-manager requires 'pkgs' instance
+          pkgs = nixpkgs.legacyPackages.aarch64-linux;
           extraSpecialArgs = {
             inherit inputs outputs;
             flakePath = "/etc/nixos";
@@ -113,7 +101,7 @@
           ];
         };
         "daniel@orion" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.aarch64-darwin; # Home-manager requires 'pkgs' instance
+          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
           extraSpecialArgs = {
             inherit inputs outputs;
             flakePath = "/Users/daniel/.config/nixpkgs";

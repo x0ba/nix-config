@@ -11,7 +11,7 @@
     ./neofetch.nix
     ./pfetch.nix
     ./newsboat.nix
-    ./zsh
+    ./zsh.nix
   ];
   home.packages = with pkgs; [
     trash-cli
