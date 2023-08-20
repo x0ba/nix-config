@@ -5,6 +5,7 @@
     # ./features/secrets
     ./features/desktop/common
     ./features/term/wezterm.nix
+    ./features/music
     ./features/term/alacritty.nix
     ./features/pass
     ./features/desktop/yabai

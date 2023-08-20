@@ -33,7 +33,7 @@
       AppleShowAllExtensions = true;
       QuitMenuItem = true;
       AppleShowAllFiles = true;
-      CreateDesktop = true;
+      CreateDesktop = false;
       FXEnableExtensionChangeWarning = true;
     };
     NSGlobalDomain = {

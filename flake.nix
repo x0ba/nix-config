@@ -13,8 +13,6 @@
 
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
-      inputs.flake-compat.follows = "";
-      inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -31,41 +29,6 @@
     };
 
     rust-overlay.url = "github:oxalica/rust-overlay";
-
-    # Non Flakes
-    fzf-tab = {
-      url = "github:Aloxaf/fzf-tab";
-      flake = false;
-    };
-
-    zsh-completions = {
-      url = "github:zsh-users/zsh-completions";
-      flake = false;
-    };
-
-    zsh-nix-shell = {
-      url = "github:chisui/zsh-nix-shell";
-      flake = false;
-    };
-
-    zsh-syntax-highlighting = {
-      url = "github:zsh-users/zsh-syntax-highlighting";
-      flake = false;
-    };
-
-    zsh-autosuggestions = {
-      url = "github:zsh-users/zsh-autosuggestions";
-      flake = false;
-    };
-
-    zsh-vi-mode = {
-      url = "github:jeffreytse/zsh-vi-mode";
-      flake = false;
-    };
-
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    flake-utils.url = "github:numtide/flake-utils";
-    pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
   };
 
   outputs =

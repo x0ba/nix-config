@@ -1,11 +1,16 @@
 { config
-, lib
 , inputs
 , pkgs
 , ...
 }:
 let
   theme = config.colorScheme;
+  zshPlugins = plugins: (map
+    (plugin: rec {
+      name = src.name;
+      inherit (plugin) file src;
+    })
+    plugins);
 in
 {
   programs.atuin = {
@@ -32,13 +37,11 @@ in
 
     envExtra = ''
       export LESSHISTFILE="-"
+      export HISTFILE="${config.xdg.dataHome}/zsh/history"
     '';
 
     initExtra = with theme.colors; ''
 
-      if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-        source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-      fi
               export FZF_DEFAULT_OPTS='
               --color fg:#${base06},bg:#${base00},hl:#${base04},fg+:#${base07},bg+:#${base00},hl+:#${base04},border:#${base03}
             --color pointer:#${base08},info:#${base03},spinner:#${base03},header:#${base03},prompt:#${base0B},marker:#${base0B}
@@ -60,17 +63,16 @@ in
             zstyle ':fzf-tab:complete:_zlua:*' query-string input
             zstyle ':fzf-tab:complete:*:*' fzf-preview 'preview $realpath'
 
-            ZSH_AUTOSUGGEST_USE_ASYNC="true"
             ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp root line)
             ZSH_HIGHLIGHT_MAXLENGTH=512
 
             any-nix-shell zsh --info-right | source /dev/stdin
 
-            PATH=/usr/bin:/opt/homebrew/bin:~/.local/share/nvim/mason/bin:/opt/homebrew/opt/libiconv/bin:~/Library/Python/3.9/bin:$PATH
+            PATH=/usr/bin:/opt/homebrew/bin:/opt/homebrew/opt/libiconv/bin:~/Library/Python/3.9/bin:$PATH
 
     '';
 
-    shellAliases = with pkgs; {
+    shellAliases = {
       cleanup = "sudo nix-collect-garbage --delete-older-than 7d";
       bloat = "nix path-info -Sh /run/current-system";
       g = "git";
@@ -87,39 +89,30 @@ in
       cat = "${pkgs.bat}/bin/bat --style=plain";
     };
 
-    plugins = [
+    plugins = with pkgs; (zshPlugins [
       {
-        name = "zsh-completions";
-        src = inputs.zsh-completions;
-      }
-      # {
-      #   name = "powerlevel10k";
-      #   src = pkgs.zsh-powerlevel10k;
-      #   file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      # }
-      # {
-      #   name = "powerlevel10k-config";
-      #   src = lib.cleanSource ./conf;
-      #   file = "powerlevel.zsh";
-      # }
-      {
-        name = "fzf-tab";
-        src = inputs.fzf-tab;
+        src = zsh-vi-mode;
+        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
       }
       {
-        name = "zsh-syntax-highlighting";
-        src = inputs.zsh-syntax-highlighting;
-        file = "zsh-syntax-highlighting.zsh";
+        src = zsh-nix-shell;
+        file = "share/zsh-nix-shell/nix-shell.plugin.zsh";
       }
       {
-        name = "zsh-vi-mode";
-        src = inputs.zsh-vi-mode;
+        src = zsh-fzf-tab;
+        file = "share/fzf-tab/fzf-tab.plugin.zsh";
       }
       {
-        name = "zsh-nix-shell";
-        src = inputs.zsh-nix-shell;
-        file = "nix-shell.plugin.zsh";
+        src = zsh-fast-syntax-highlighting.overrideAttrs (old: {
+          src = fetchFromGitHub {
+            owner = "zdharma-continuum";
+            repo = "fast-syntax-highlighting";
+            rev = "cf318e06a9b7c9f2219d78f41b46fa6e06011fd9";
+            hash = "sha256-RVX9ZSzjBW3LpFs2W86lKI6vtcvDWP6EPxzeTcRZua4=";
+          };
+        });
+        file = "share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh";
       }
-    ];
+    ]);
   };
 }

@@ -13,13 +13,16 @@
           inherit name;
           args = { require_sha = false; };
         };
+        noQuarantine = name: {
+          inherit name;
+          args = { no_quarantine = true; };
+        };
       in
       [
         "firefox"
         "stats"
         "soulseek"
         "brave-browser"
-        "lulu"
         "flux"
         "iina"
         "amethyst"
@@ -31,9 +34,12 @@
         "textual"
         "signal"
         "tor-browser"
+        "vorta"
         "utm"
         (skipSha "element")
+        (noQuarantine "librewolf")
         "logseq"
+        "itsycal"
         "macfuse"
         "wacom-tablet"
         "uninstallpkg"

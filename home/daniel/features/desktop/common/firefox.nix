@@ -15,8 +15,10 @@ in
     package = pkgs.lib.mkIf isDarwin (pkgs.writeScriptBin "__dummy-firefox" "");
     profiles.default = {
       search.default = "DuckDuckGo";
+      search.force = true;
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         multi-account-containers
+        keepassxc-browser
         temporary-containers
         ublock-origin
         onepassword-password-manager
