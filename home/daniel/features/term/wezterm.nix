@@ -1,7 +1,6 @@
-{
-  config,
-  pkgs,
-  ...
+{ config
+, pkgs
+, ...
 }: {
   programs.wezterm = {
     enable = true;
@@ -11,15 +10,36 @@
 
       return {
       	-- Font
-      	font = wezterm.font("Iosevka Nerd Font"),
+        font = wezterm.font_with_fallback { 'IBM Plex Mono', 'Symbols Nerd Font' },
+        bold_brightens_ansi_colors = true,
       	-- Font size
-      	font_size = 18.0,
-      	line_height = 1.1,
+      	font_size = 16.0,
+      	line_height = 1.15,
 
       	-- window
       	window_decorations = "RESIZE",
-      	window_padding = { left = 45, right = 45, top = 45, bottom = 45 },
+        window_padding = {
+          left = "24pt", right = "24pt",
+          bottom = "24pt", top = "24pt"
+        },
       	hide_tab_bar_if_only_one_tab = true,
+
+        default_cursor_style = "SteadyUnderline",
+
+        -- Tabbar
+        ---------
+        enable_tab_bar               = true,
+        use_fancy_tab_bar            = false,
+        hide_tab_bar_if_only_one_tab = true,
+        show_tab_index_in_tab_bar    = false,
+
+
+        -- Miscelaneous
+        ---------------
+        window_close_confirmation = "NeverPrompt",
+        inactive_pane_hsb         = {
+          saturation = 1.0, brightness = 0.8
+        },
 
       	-- Tab Colors
       	colors = {

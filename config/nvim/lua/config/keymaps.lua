@@ -29,3 +29,6 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- This is going to get me cancelled
 vim.keymap.set("i", "<C-c>", "<Esc>")
+
+-- Undotree remap
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)

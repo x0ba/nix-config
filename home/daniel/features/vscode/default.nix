@@ -12,9 +12,9 @@
 in {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium;
     extensions = with pkgs.nix-vscode-extensions.vscode-marketplace; [
-      catppuccin.catppuccin-vsc-icons
+      decaycs.decay
+      vscjava.vscode-java-pack
       denoland.vscode-deno
       esbenp.prettier-vscode
       github.vscode-pull-request-github
@@ -34,12 +34,12 @@ in {
   };
 
   home.file = lib.mkIf isDarwin {
-    "Library/Application Support/VSCodium/User/keybindings.json".source = keybindingsJSON;
-    "Library/Application Support/VSCodium/User/settings.json".source = settingsJSON;
+    "Library/Application Support/Code/User/keybindings.json".source = keybindingsJSON;
+    "Library/Application Support/Code/User/settings.json".source = settingsJSON;
   };
   xdg.configFile = lib.mkIf isLinux {
-    "VSCodium/User/keybindings.json".source = keybindingsJSON;
-    "VSCodium/User/settings.json".source = settingsJSON;
+    "Code/User/keybindings.json".source = keybindingsJSON;
+    "Code/User/settings.json".source = settingsJSON;
   };
   xdg.mimeApps.defaultApplications."text/plain" = "codium.desktop";
 }
