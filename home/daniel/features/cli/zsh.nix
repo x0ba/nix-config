@@ -1,9 +1,8 @@
-{ config
-, inputs
-, pkgs
-, ...
-}:
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   theme = config.colorScheme;
   zshPlugins = plugins: (map
     (plugin: rec {
@@ -11,12 +10,11 @@ let
       inherit (plugin) file src;
     })
     plugins);
-in
-{
+in {
   programs.atuin = {
     enable = true;
     enableZshIntegration = true;
-    flags = [ "--disable-up-arrow" ];
+    flags = ["--disable-up-arrow"];
     settings = {
       inline_height = 30;
       style = "compact";
@@ -113,7 +111,7 @@ in
         file = "share/fzf-tab/fzf-tab.plugin.zsh";
       }
       {
-        src = zsh-fast-syntax-highlighting.overrideAttrs (old: {
+        src = zsh-fast-syntax-highlighting.overrideAttrs (_old: {
           src = fetchFromGitHub {
             owner = "zdharma-continuum";
             repo = "fast-syntax-highlighting";

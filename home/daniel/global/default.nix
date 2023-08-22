@@ -1,9 +1,10 @@
-{ inputs
-, outputs
-, lib
-, pkgs
-, config
-, ...
+{
+  inputs,
+  outputs,
+  lib,
+  pkgs,
+  config,
+  ...
 }: {
   imports =
     [
@@ -41,17 +42,16 @@
   # };
 
   # symlinks don't work with finder + spotlight, copy them instead
-  disabledModules = [ "targets/darwin/linkapps.nix" ];
+  disabledModules = ["targets/darwin/linkapps.nix"];
   home.activation = lib.mkIf pkgs.stdenv.isDarwin {
-    copyApplications =
-      let
-        apps = pkgs.buildEnv {
-          name = "home-manager-applications";
-          paths = config.home.packages;
-          pathsToLink = "/Applications";
-        };
-      in
-      lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    copyApplications = let
+      apps = pkgs.buildEnv {
+        name = "home-manager-applications";
+        paths = config.home.packages;
+        pathsToLink = "/Applications";
+      };
+    in
+      lib.hm.dag.entryAfter ["writeBoundary"] ''
         baseDir="$HOME/Applications/Home Manager Apps"
         if [ -d "$baseDir" ]; then
           rm -rf "$baseDir"
@@ -81,7 +81,7 @@
             nekowinston = inputs.nekowinston-nur.packages.${prev.system};
           };
         };
-        nekowinston-nur = import inputs.nekowinston-nur { inherit (prev) pkgs; };
+        nekowinston-nur = import inputs.nekowinston-nur {inherit (prev) pkgs;};
         nix-vscode-extensions = inputs.nix-vscode-extensions.extensions.${prev.system};
       })
       inputs.nekowinston-nur.overlays.default
