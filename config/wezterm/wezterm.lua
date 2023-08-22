@@ -10,11 +10,11 @@ custom.tab_bar.new_tab.bg_color = "#080808"
 require("keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-	"Rec Mono Duotone",
+	"Iosevka",
 	"Symbols Nerd Font",
 })
-c.font_size = 16
-c.line_height = 1.2
+c.font_size = 18
+c.line_height = 1.1
 
 -- font rendering
 c.freetype_load_flags = "NO_HINTING"
