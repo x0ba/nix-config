@@ -1,9 +1,9 @@
-{
-  config,
-  inputs,
-  pkgs,
-  ...
-}: let
+{ config
+, inputs
+, pkgs
+, ...
+}:
+let
   theme = config.colorScheme;
   zshPlugins = plugins: (map
     (plugin: rec {
@@ -11,11 +11,12 @@
       inherit (plugin) file src;
     })
     plugins);
-in {
+in
+{
   programs.atuin = {
     enable = true;
     enableZshIntegration = true;
-    flags = ["--disable-up-arrow"];
+    flags = [ "--disable-up-arrow" ];
     settings = {
       inline_height = 30;
       style = "compact";
@@ -41,34 +42,47 @@ in {
     '';
 
     initExtra = with theme.colors; ''
+      export FZF_DEFAULT_OPTS="
+        $FZF_DEFAULT_OPTS
+        --color='border:#161B20,preview-bg:#161B20'
+        --color='scrollbar:#24292E,gutter:#161B20'
+        --color='bg+:#24292E,fg+:#D4D4D5,spinner:#79DCAA'
+        --color='pointer:#C397D8,marker:#F87070'
+        --color='info:#70C0BA,bg:#11161B'
+        --scrollbar='░'
+        --border='none'
+        --separator='▓'
+        --marker=' '
+        --ellipsis='… '
+        --prompt='  '
+        --pointer=' λ'
+        --layout=reverse
+        --bind='ctrl-v:execute($EDITOR {}),shift-up:preview-page-up,shift-down:preview-page-down'
+        --cycle
+        --height=40"
 
-        export FZF_DEFAULT_OPTS='
-        --color fg:#${base06},bg:#${base00},hl:#${base04},fg+:#${base07},bg+:#${base00},hl+:#${base04},border:#${base03}
-      --color pointer:#${base08},info:#${base03},spinner:#${base03},header:#${base03},prompt:#${base0B},marker:#${base0B}
-      '
+              FZF_TAB_COMMAND=(
+                  ${pkgs.fzf}/bin/fzf
+                  --ansi
+                  --expect='$continuous_trigger' # For continuous completion
+                  --nth=2,3 --delimiter='\x00'  # Don't search prefix
+                  --layout=reverse --height="''${FZF_TMUX_HEIGHT:=50%}"
+                  --tiebreak=begin -m --bind=tab:down,btab:up,change:top,ctrl-space:toggle --cycle
+                  '--query=$query'   # $query will be expanded to query string at runtime.
+                  '--header-lines=$#headers' # $#headers will be expanded to lines of headers at runtime
+                  )
 
-        FZF_TAB_COMMAND=(
-            ${pkgs.fzf}/bin/fzf
-            --ansi
-            --expect='$continuous_trigger' # For continuous completion
-            --nth=2,3 --delimiter='\x00'  # Don't search prefix
-            --layout=reverse --height="''${FZF_TMUX_HEIGHT:=50%}"
-            --tiebreak=begin -m --bind=tab:down,btab:up,change:top,ctrl-space:toggle --cycle
-            '--query=$query'   # $query will be expanded to query string at runtime.
-            '--header-lines=$#headers' # $#headers will be expanded to lines of headers at runtime
-            )
+            zstyle ':fzf-tab:*' command $FZF_TAB_COMMAND
+            zstyle ':fzf-tab:*' switch-group ',' '.'
+            zstyle ':fzf-tab:complete:_zlua:*' query-string input
+            zstyle ':fzf-tab:complete:*:*' fzf-preview 'preview $realpath'
 
-      zstyle ':fzf-tab:*' command $FZF_TAB_COMMAND
-      zstyle ':fzf-tab:*' switch-group ',' '.'
-      zstyle ':fzf-tab:complete:_zlua:*' query-string input
-      zstyle ':fzf-tab:complete:*:*' fzf-preview 'preview $realpath'
+            ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp root line)
+            ZSH_HIGHLIGHT_MAXLENGTH=512
 
-      ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp root line)
-      ZSH_HIGHLIGHT_MAXLENGTH=512
+            any-nix-shell zsh --info-right | source /dev/stdin
 
-      any-nix-shell zsh --info-right | source /dev/stdin
-
-      PATH=/usr/bin:/opt/homebrew/bin:/opt/homebrew/opt/libiconv/bin:~/Library/Python/3.9/bin:$PATH
+            PATH=/usr/bin:/opt/homebrew/bin:/opt/homebrew/opt/libiconv/bin:~/Library/Python/3.9/bin:$PATH
 
     '';
 

@@ -1,54 +1,64 @@
----@type wezterm
 local wezterm = require("wezterm")
-local c = wezterm.config_builder()
-local custom = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
-custom.background = "#000000"
-custom.tab_bar.background = "#040404"
-custom.tab_bar.inactive_tab.bg_color = "#0f0f0f"
-custom.tab_bar.new_tab.bg_color = "#080808"
 
-require("keys").apply(c)
+return {
+	-- Font
+	font = wezterm.font("Iosevka Nerd Font"),
+	-- Font size
+	font_size = 18.0,
+	line_height = 1.1,
 
-c.font = wezterm.font_with_fallback({
-	"Iosevka",
-	"Symbols Nerd Font",
-})
-c.font_size = 18
-c.line_height = 1.1
+	-- window
+	window_decorations = "RESIZE",
+	window_padding = { left = 45, right = 45, top = 45, bottom = 45 },
+	hide_tab_bar_if_only_one_tab = true,
 
--- font rendering
-c.freetype_load_flags = "NO_HINTING"
-c.freetype_load_target = "Normal"
+	-- Tab Colors
+	colors = {
+		indexed = { [16] = "#f1cf8a", [17] = "#dee1e6" },
 
--- window
-c.window_decorations = "RESIZE"
-c.window_padding = { left = 45, right = 45, top = 45, bottom = 45 }
+		scrollbar_thumb = "#384148",
+		split = "#22262e",
 
-c.color_schemes = {
-	["OLEDppuccin"] = custom,
+		tab_bar = {
+			background = "#22262e",
+			active_tab = {
+				bg_color = "#70a5eb",
+				fg_color = "#fafdff",
+			},
+			inactive_tab = {
+				bg_color = "#22262e",
+				fg_color = "#fafdff",
+			},
+			inactive_tab_hover = {
+				bg_color = "#384148",
+				fg_color = "#fafdff",
+			},
+			new_tab = {
+				bg_color = "#22262e",
+				fg_color = "#fafdff",
+			},
+			new_tab_hover = {
+				bg_color = "#384148",
+				fg_color = "#fafdff",
+				italic = true,
+			},
+		},
+
+		visual_bell = "#384148",
+
+		-- nightbuild only
+		compose_cursor = "#f1cf8a",
+
+		-- Theme Colors (Decay)
+		foreground = "#b6beca",
+		background = "#171a1f",
+		cursor_bg = "#dee1e6",
+		cursor_border = "#fafdff",
+		cursor_fg = "#22262e",
+		selection_bg = "#575268",
+		selection_fg = "#D9E0EE",
+
+		ansi = { "#1c252c", "#e05f65", "#78dba9", "#f1cf8a", "#70a5eb", "#c68aee", "#74bee9", "#dee1e6" },
+		brights = { "#384148", "#fc7b81", "#94f7c5", "#ffeba6", "#8cc1ff", "#e2a6ff", "#90daff", "#fafdff" },
+	},
 }
-
-c.hide_tab_bar_if_only_one_tab = true
-
--- dim unfocused panes
-c.inactive_pane_hsb = {
-	brightness = 0.8,
-	saturation = 1.0,
-}
--- etc.
-c.adjust_window_size_when_changing_font_size = false
-c.audible_bell = "Disabled"
-c.clean_exit_codes = { 130 }
-c.default_cursor_style = "SteadyUnderline"
-c.launch_menu = {
-	{ label = "Music player", args = { "ncmpcpp" } },
-}
-c.command_palette_font_size = 13.0
-c.window_frame = { font_size = 13.0 }
-c.window_background_opacity = 1.0
-
-c.color_scheme = "OLEDppuccin"
-
--- wezterm.plugin.require("https://github.com/nekowinston/wezterm-bar").apply_to_config(c, {})
-
-return c
