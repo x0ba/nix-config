@@ -1,17 +1,19 @@
-{
-  config,
-  flakePath,
-  lib,
-  pkgs,
-  ...
-}: let
+{ config
+, flakePath
+, lib
+, pkgs
+, ...
+}:
+let
   inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
 
   settingsJSON = config.lib.file.mkOutOfStoreSymlink "${flakePath}/config/vscode/settings.json";
   keybindingsJSON = config.lib.file.mkOutOfStoreSymlink "${flakePath}/config/vscode/keybindings.json";
-in {
+in
+{
   programs.vscode = {
     enable = true;
+    package = pkgs.vscodium;
     extensions = with pkgs.nix-vscode-extensions.vscode-marketplace; [
       decaycs.decay
       vscjava.vscode-java-pack
@@ -21,6 +23,7 @@ in {
       jnoortheen.nix-ide
       kamadorueda.alejandra
       leonardssh.vscord
+      vscjava.vscode-java-debug
       mkhl.direnv
       pkief.material-icon-theme
       redhat.vscode-yaml
@@ -34,8 +37,8 @@ in {
   };
 
   home.file = lib.mkIf isDarwin {
-    "Library/Application Support/Code/User/keybindings.json".source = keybindingsJSON;
-    "Library/Application Support/Code/User/settings.json".source = settingsJSON;
+    "Library/Application Support/VSCodium/User/keybindings.json".source = keybindingsJSON;
+    "Library/Application Support/VSCodium/User/settings.json".source = settingsJSON;
   };
   xdg.configFile = lib.mkIf isLinux {
     "Code/User/keybindings.json".source = keybindingsJSON;

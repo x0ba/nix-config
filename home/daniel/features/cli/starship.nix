@@ -1,31 +1,35 @@
-{...}: {
+{ pkgs
+, lib
+, inputs
+, config
+, ...
+}: {
   programs.starship = {
     enable = true;
     settings = {
-      character = {
-        error_symbol = "[>>](bold red)";
-        success_symbol = "[>>](bold cyan)";
-        vicmd_symbol = "[>>](bold yellow)";
-        format = "$symbol ";
-      };
-
-      format = "$all";
+      scan_timeout = 10;
+      # prompt
+      format = "$directory$git_branch$git_metrics$nix_shell$package$character";
       add_newline = false;
-
-      hostname = {
-        ssh_only = true;
-        format = "[$hostname](bold blue) ";
-        disabled = false;
-      };
-
       line_break.disabled = true;
-      directory.disabled = true;
-      nodejs.disabled = true;
-      nix_shell.symbol = "[](blue) ";
-      python.symbol = "[](blue) ";
-      rust.symbol = "[](red) ";
-      lua.symbol = "[](blue) ";
-      package.symbol = "📦  ";
+      directory.style = "cyan";
+      character = {
+        success_symbol = "[λ](green)";
+        error_symbol = "[λ](red)";
+      };
+      # git
+      git_branch = {
+        style = "purple";
+        symbol = "";
+      };
+      git_metrics = {
+        disabled = false;
+        added_style = "bold yellow";
+        deleted_style = "bold red";
+      };
+      # package management
+      package.format = "version [$version](bold green) ";
+      nix_shell.symbol = " ";
     };
   };
 }
