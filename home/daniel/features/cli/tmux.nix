@@ -33,8 +33,9 @@ in {
       set -g pane-border-style "bg=default,fg=black"
       set -g pane-active-border-style "bg=default,fg=green"
 
-      set-option -sa terminal-features ",alacritty:RGB"
-      set -g default-terminal "tmux-256color"
+
+      set-option -g default-terminal "tmux-256color"
+      set -g default-terminal "screen-256color"
       bind-key R source-file "~/.config/tmux/tmux.conf" \; display-message "Reloaded configurations!"
       bind-key B set status
 
@@ -51,6 +52,12 @@ in {
       unbind-key x
       unbind-key <
       unbind-key >
+
+
+      bind -T copy-mode-vi v send -X begin-selection
+      bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "pbcopy"
+      bind P paste-buffer
+      bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "pbcopy"
 
       unbind %
       bind-key - split-window -v
@@ -114,7 +121,7 @@ in {
       }
     ];
   };
-  home.packages = with pkgs; [
+  home.packages = [
     t-smart-tmux-session-manager.src
   ];
 }

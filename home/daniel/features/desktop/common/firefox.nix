@@ -17,8 +17,8 @@ in {
       search.force = true;
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         multi-account-containers
-        keepassxc-browser
         temporary-containers
+        simplelogin
         ublock-origin
         onepassword-password-manager
         vimium

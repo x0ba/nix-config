@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   imports = [
     ./lf.nix
     ./starship.nix
@@ -17,6 +17,8 @@
     trash-cli
     git-lfs
     lutgen
+    gopass
+    borgmatic
     notmuch
     nix-inspect
     just

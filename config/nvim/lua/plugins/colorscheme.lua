@@ -1,8 +1,4 @@
 return {
-  { -- Theme inspired by Atom
-    "notken12/base46-colors",
-    priority = 1000,
-  },
   {
     "catppuccin/nvim",
     name = "catppuccin",
@@ -14,7 +10,7 @@ return {
         no_italic = false,
         no_bold = false,
         styles = {
-          comments = {},
+          comments = { "italic" }, -- Change the style of comments
           conditionals = {},
           loops = {},
           functions = {},
@@ -49,7 +45,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "decay",
+      colorscheme = "catppuccin",
     },
   },
 }
