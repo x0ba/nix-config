@@ -1,8 +1,8 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{ config
+, pkgs
+, ...
+}:
+let
   theme = config.colorScheme;
   zshPlugins = plugins: (map
     (plugin: rec {
@@ -10,11 +10,12 @@
       inherit (plugin) file src;
     })
     plugins);
-in {
+in
+{
   programs.atuin = {
     enable = true;
     enableZshIntegration = true;
-    flags = ["--disable-up-arrow"];
+    flags = [ "--disable-up-arrow" ];
     settings = {
       inline_height = 30;
       style = "compact";
@@ -73,6 +74,7 @@ in {
       gaa = "git add .";
       cls = "clear";
       commit = "git add . && git commit -m";
+      nv = "neovide --frame buttonless";
       m = "mkdir -p";
       push = "git push";
       pull = "git pull";

@@ -66,3 +66,9 @@ end
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
+
+-- Neovide Settings
+if vim.g.neovide then
+  vim.o.guifont = "VictorMono Nerd Font:h18" -- Set the font
+  vim.opt.linespace = 1
+end

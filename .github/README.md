@@ -6,8 +6,7 @@ Here's my NixOS/Nix-Darwin/home-manager config files. Requires [Nix flakes](http
 
 **Highlights**:
 
-- Multiple **NixOS configurations**, including **laptop** and **MacBook**
-- **Secrets** using **sops-nix**
+- Multiple **NixOS configurations**, including **ThinkPad** and **MacBook**
 - Flexible **Home Manager** Configs through **feature flags**
 - Extensively configured wayland environments (**sway** and **hyprland**) and editor (**neovim**)
 - **Declarative** **themes** and with **nix-colors**
