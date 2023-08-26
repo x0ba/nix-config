@@ -1,26 +1,34 @@
-{
-  lib,
-  pkgs,
-  config,
-  ...
-}: let
+{ lib
+, pkgs
+, config
+, ...
+}:
+let
   inherit (pkgs.stdenv.hostPlatform) isDarwin;
   theme = config.colorScheme;
-in {
+in
+{
   programs.firefox = {
     enable = true;
     # since I'm using firefox from brew on darwin, I need to build a dummy package
     # to still manage it via home-manager
     package = pkgs.lib.mkIf isDarwin (pkgs.writeScriptBin "__dummy-firefox" "");
     profiles.default = {
-      search.default = "DuckDuckGo";
-      search.force = true;
+      search = {
+        default = "SearxNG";
+        engines = {
+          "SearxNG" = {
+            urls = [{ template = "http://searxng.nicfab.eu/searxng/search?q={searchTerms}"; }];
+          };
+        };
+        force = true;
+      };
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         multi-account-containers
         temporary-containers
         simplelogin
         ublock-origin
-        onepassword-password-manager
+        bitwarden
         vimium
       ];
       userChrome = import ./userchrome.nix {

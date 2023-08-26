@@ -48,6 +48,7 @@
         "raycast"
         "karabiner-elements"
         "qbittorrent"
+        "bitwarden"
         "orion"
         "linearmouse"
         "obsidian"

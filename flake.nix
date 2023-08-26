@@ -28,96 +28,98 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    darwin,
-    ...
-  } @ inputs: let
-    inherit (self) outputs;
-    forAllSystems = nixpkgs.lib.genAttrs [
-      "aarch64-linux"
-      "i686-linux"
-      "x86_64-linux"
-      "aarch64-darwin"
-      "x86_64-darwin"
-    ];
-  in rec {
-    packages = forAllSystems (
-      system: let
-        pkgs = nixpkgs.legacyPackages.${system};
-      in
-        import ./pkgs {inherit pkgs;}
-    );
+  outputs =
+    { self
+    , nixpkgs
+    , home-manager
+    , darwin
+    , ...
+    } @ inputs:
+    let
+      inherit (self) outputs;
+      forAllSystems = nixpkgs.lib.genAttrs [
+        "aarch64-linux"
+        "i686-linux"
+        "x86_64-linux"
+        "aarch64-darwin"
+        "x86_64-darwin"
+      ];
+    in
+    rec {
+      packages = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        import ./pkgs { inherit pkgs; }
+      );
 
-    devShells = forAllSystems (
-      system: let
-        pkgs = nixpkgs.legacyPackages.${system};
-      in
-        import ./shell.nix {inherit pkgs;}
-    );
+      devShells = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        import ./shell.nix { inherit pkgs; }
+      );
 
-    overlays = import ./overlays {inherit inputs;};
+      overlays = import ./overlays { inherit inputs; };
 
-    nixosModules = import ./modules/nixos;
-    homeManagerModules = import ./modules/home-manager;
-    darwinModules = import ./modules/darwin;
+      nixosModules = import ./modules/nixos;
+      homeManagerModules = import ./modules/home-manager;
+      darwinModules = import ./modules/darwin;
 
-    nixosConfigurations = {
-      starfall = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./hosts/starfall
-        ];
-      };
-    };
-
-    darwinConfigurations = {
-      "orion" = darwin.lib.darwinSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [
-          ./hosts/orion
-        ];
-      };
-    };
-
-    homeConfigurations = {
-      "daniel@starfall" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.aarch64-linux;
-        extraSpecialArgs = {
-          inherit inputs outputs;
-          flakePath = "/etc/nixos";
+      nixosConfigurations = {
+        starfall = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/starfall
+          ];
         };
-        modules = [
-          ./home/daniel/starfall.nix
-        ];
       };
-      "daniel@orion" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-        extraSpecialArgs = {
-          inherit inputs outputs;
-          flakePath = "/Users/daniel/.config/nixpkgs";
+
+      darwinConfigurations = {
+        "orion" = darwin.lib.darwinSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./hosts/orion
+          ];
         };
-        modules = [
-          ./home/daniel/orion.nix
-        ];
+      };
+
+      homeConfigurations = {
+        "daniel@starfall" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.aarch64-linux;
+          extraSpecialArgs = {
+            inherit inputs outputs;
+            flakePath = "/etc/nixos";
+          };
+          modules = [
+            ./home/daniel/starfall.nix
+          ];
+        };
+        "daniel@orion" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+          extraSpecialArgs = {
+            inherit inputs outputs;
+            flakePath = "/Users/daniel/.config/nixpkgs";
+          };
+          modules = [
+            ./home/daniel/orion.nix
+          ];
+        };
       };
     };
-  };
   nixConfig = {
     commit-lockfile-summary = "flake: bump inputs";
     substituters = [
       "https://cache.garnix.io"
       "https://cache.nixos.org"
       "https://mic92.cachix.org"
-      "https://fortuneteller2k.cachix.org"
     ];
     trusted-public-keys = [
       "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "mic92.cachix.org-1:gi8IhgiT3CYZnJsaW7fxznzTkMUOn1RY4GmXdT/nXYQ="
-      "fortuneteller2k.cachix.org-1:kXXNkMV5yheEQwT0I4XYh1MaCSz+qg72k8XAi2PthJI="
     ];
   };
 }
