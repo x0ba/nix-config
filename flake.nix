@@ -9,7 +9,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nur.url = "github:nix-community/NUR";
-    nekowinston-nur.url = "github:nekowinston/nur";
+    nekowinston-nur.url = "github:nekowinston/nur/c994b2a594cab20bedf7697351ae7353ef74a54e";
     caarlos0-nur.url = "github:caarlos0/nur";
     rust-overlay.url = "github:oxalica/rust-overlay";
     nix-vscode-extensions = {

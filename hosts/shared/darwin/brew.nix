@@ -20,7 +20,6 @@
       in
       [
         "firefox"
-        "stats"
         "soulseek"
         "brave-browser"
         "iina"
@@ -28,7 +27,6 @@
         "amethyst"
         "hiddenbar"
         "1password"
-        (skipSha "megasync")
         "rectangle"
         "easy-move-plus-resize"
         "appcleaner"
@@ -49,13 +47,14 @@
         "karabiner-elements"
         "qbittorrent"
         "bitwarden"
-        "orion"
+        "shottr"
         "linearmouse"
         "obsidian"
         "neovide"
         "discord"
         "calibre"
         (skipSha "element")
+        (skipSha "megasync")
 
         # Drivers
         "wacom-tablet"

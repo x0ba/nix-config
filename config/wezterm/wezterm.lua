@@ -10,15 +10,17 @@ custom.tab_bar.new_tab.bg_color = "#080808"
 require("keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-  "Comic Code Ligatures",
+  "Iosevka Nerd Font",
   "Symbols Nerd Font",
 })
-c.font_size = 16
-c.line_height = 1.2
+c.font_size = 18
+c.line_height = 1.1
 
 -- font rendering
 c.freetype_load_flags = "NO_HINTING"
 c.freetype_load_target = "Normal"
+
+c.hide_tab_bar_if_only_one_tab = true
 
 -- window
 c.window_decorations = "RESIZE"
@@ -45,10 +47,10 @@ c.command_palette_font_size = 13.0
 c.window_frame = { font_size = 13.0 }
 c.window_background_opacity = 1.0
 
-c.color_scheme = "OLEDppuccin"
+c.color_scheme = "Mountain"
 
-wezterm.plugin
-  .require("https://github.com/nekowinston/wezterm-bar")
-  .apply_to_config(c, {})
+-- wezterm.plugin
+--   .require("https://github.com/nekowinston/wezterm-bar")
+--   .apply_to_config(c, {})
 
 return c
