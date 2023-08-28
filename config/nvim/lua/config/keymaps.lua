@@ -32,3 +32,5 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 
 -- Undotree remap
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+
+vim.keymap.set("n", "<leader>e", ":RnvimrToggle<CR>")

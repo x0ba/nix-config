@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   # You can import other home-manager modules here
   imports = [
     ./global
@@ -7,6 +7,7 @@
     ./features/term/alacritty.nix
     ./features/pass
     ./features/desktop/yabai
+    ./features/music
     ./features/langs
     ./features/helix
   ];

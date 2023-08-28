@@ -1,11 +1,6 @@
 ---@type wezterm
 local wezterm = require("wezterm")
 local c = wezterm.config_builder()
-local custom = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
-custom.background = "#000000"
-custom.tab_bar.background = "#040404"
-custom.tab_bar.inactive_tab.bg_color = "#0f0f0f"
-custom.tab_bar.new_tab.bg_color = "#080808"
 
 require("keys").apply(c)
 
@@ -16,19 +11,11 @@ c.font = wezterm.font_with_fallback({
 c.font_size = 18
 c.line_height = 1.1
 
--- font rendering
-c.freetype_load_flags = "NO_HINTING"
-c.freetype_load_target = "Normal"
-
 c.hide_tab_bar_if_only_one_tab = true
 
 -- window
 c.window_decorations = "RESIZE"
 c.window_padding = { left = 30, right = 30, top = 30, bottom = 30 }
-
-c.color_schemes = {
-  ["OLEDppuccin"] = custom,
-}
 
 -- dim unfocused panes
 c.inactive_pane_hsb = {
@@ -39,7 +26,7 @@ c.inactive_pane_hsb = {
 c.adjust_window_size_when_changing_font_size = false
 c.audible_bell = "Disabled"
 c.clean_exit_codes = { 130 }
-c.default_cursor_style = "SteadyUnderline"
+c.default_cursor_style = "BlinkingBar"
 c.launch_menu = {
   { label = "Music player", args = { "ncmpcpp" } },
 }
@@ -48,9 +35,5 @@ c.window_frame = { font_size = 13.0 }
 c.window_background_opacity = 1.0
 
 c.color_scheme = "Mountain"
-
--- wezterm.plugin
---   .require("https://github.com/nekowinston/wezterm-bar")
---   .apply_to_config(c, {})
 
 return c

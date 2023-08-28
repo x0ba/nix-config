@@ -1,9 +1,10 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   imports = [
     ./lf.nix
     # ./starship.nix
     ./git.nix
     ./fish.nix
+    ./ranger.nix
     ./gpg.nix
     ./xdg.nix
     ./tmux.nix
@@ -17,6 +18,7 @@
     trash-cli
     git-lfs
     lutgen
+    ranger
     gopass
     borgmatic
     notmuch
