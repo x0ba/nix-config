@@ -1,7 +1,6 @@
-{
-  lib,
-  pkgs,
-  ...
+{ lib
+, pkgs
+, ...
 }: {
   programs.gh = {
     enable = true;
@@ -56,13 +55,13 @@
       rebase.autosquash = true;
       url = {
         "https://github.com/".insteadOf = "gh:";
-        "https://github.com/mkshift/".insteadOf = "shift:";
+        "https://github.com/x0ba/".insteadOf = "x0ba:";
         "https://gitlab.com/".insteadOf = "gl:";
       };
     };
     lfs.enable = true;
     enable = true;
     userName = "x0ba";
-    userEmail = "danielxu.dev@proton.me";
+    userEmail = "hey@aspectside.site";
   };
 }
