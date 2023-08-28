@@ -9,6 +9,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nur.url = "github:nix-community/NUR";
+    nyoom.url = "github:ryanccn/nyoom";
     nekowinston-nur.url = "github:nekowinston/nur/c994b2a594cab20bedf7697351ae7353ef74a54e";
     caarlos0-nur.url = "github:caarlos0/nur";
     rust-overlay.url = "github:oxalica/rust-overlay";
@@ -28,87 +29,83 @@
     };
   };
 
-  outputs =
-    { self
-    , nixpkgs
-    , home-manager
-    , darwin
-    , ...
-    } @ inputs:
-    let
-      inherit (self) outputs;
-      forAllSystems = nixpkgs.lib.genAttrs [
-        "aarch64-linux"
-        "i686-linux"
-        "x86_64-linux"
-        "aarch64-darwin"
-        "x86_64-darwin"
-      ];
-    in
-    rec {
-      packages = forAllSystems (
-        system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        import ./pkgs { inherit pkgs; }
-      );
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    darwin,
+    ...
+  } @ inputs: let
+    inherit (self) outputs;
+    forAllSystems = nixpkgs.lib.genAttrs [
+      "aarch64-linux"
+      "i686-linux"
+      "x86_64-linux"
+      "aarch64-darwin"
+      "x86_64-darwin"
+    ];
+  in rec {
+    packages = forAllSystems (
+      system: let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in
+        import ./pkgs {inherit pkgs;}
+    );
 
-      devShells = forAllSystems (
-        system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        import ./shell.nix { inherit pkgs; }
-      );
+    devShells = forAllSystems (
+      system: let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in
+        import ./shell.nix {inherit pkgs;}
+    );
 
-      overlays = import ./overlays { inherit inputs; };
+    overlays = import ./overlays {inherit inputs;};
 
-      nixosModules = import ./modules/nixos;
-      homeManagerModules = import ./modules/home-manager;
-      darwinModules = import ./modules/darwin;
+    nixosModules = import ./modules/nixos;
+    homeManagerModules = import ./modules/home-manager;
+    darwinModules = import ./modules/darwin;
 
-      nixosConfigurations = {
-        starfall = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./hosts/starfall
-          ];
-        };
-      };
-
-      darwinConfigurations = {
-        "orion" = darwin.lib.darwinSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [
-            ./hosts/orion
-          ];
-        };
-      };
-
-      homeConfigurations = {
-        "daniel@starfall" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.aarch64-linux;
-          extraSpecialArgs = {
-            inherit inputs outputs;
-            flakePath = "/etc/nixos";
-          };
-          modules = [
-            ./home/daniel/starfall.nix
-          ];
-        };
-        "daniel@orion" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-          extraSpecialArgs = {
-            inherit inputs outputs;
-            flakePath = "/Users/daniel/.config/nixpkgs";
-          };
-          modules = [
-            ./home/daniel/orion.nix
-          ];
-        };
+    nixosConfigurations = {
+      starfall = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/starfall
+        ];
       };
     };
+
+    darwinConfigurations = {
+      "orion" = darwin.lib.darwinSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/orion
+        ];
+      };
+    };
+
+    homeConfigurations = {
+      "daniel@starfall" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.aarch64-linux;
+        extraSpecialArgs = {
+          inherit inputs outputs;
+          flakePath = "/etc/nixos";
+        };
+        modules = [
+          ./home/daniel/starfall.nix
+        ];
+      };
+      "daniel@orion" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+        extraSpecialArgs = {
+          inherit inputs outputs;
+          flakePath = "/Users/daniel/.config/nixpkgs";
+        };
+        modules = [
+          ./home/daniel/orion.nix
+        ];
+      };
+    };
+  };
   nixConfig = {
     commit-lockfile-summary = "flake: bump inputs";
     substituters = [

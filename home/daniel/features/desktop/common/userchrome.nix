@@ -4,150 +4,172 @@ with theme.colors;
   Theme stolen and modified from (https://github.com/aadilayub/firefox-i3wm-theme)
 */
 ''
-  /* Base color for the theme, dependent on whether it's a light theme or not */
-  .titlebar-buttonbox-container { display: none !important; }
-  @media (prefers-color-scheme: dark) {
-      :root {
-          --lwt-accent-color: #1c1b22;
-      }
+  .titlebar-buttonbox-container {
+  	display: none;
   }
-
-  @media (prefers-color-scheme: light) {
-      :root {
-          --lwt-accent-color: #FAFAFC;
-      }
-  }
-
-  /*====== Aesthetics ======*/
-
-  #navigator-toolbox {
-      border-bottom: none !important;
-  }
-
-  #titlebar {
-      background: var(--lwt-accent-color) !important;
-  }
-
-  /* Sets the toolbar color */
-  toolbar#nav-bar {
-      background: var(--lwt-accent-color) !important;
+    :root {
+      --srf-primary: #${base00};
+      --srf-secondary: #${base01};
+      --srf-text: #${base04};
+      --srf-accent: #${base0C};
+    }
+    window,
+    #main-window,
+    #toolbar-menubar,
+    #TabsToolbar,
+    #PersonalToolbar,
+    #navigator-toolbox,
+    #sidebar-box {
+      background-color: var(--srf-primary) !important;
+      -moz-appearance: none !important;
+      background-image: none !important;
+      border: none !important;
       box-shadow: none !important;
-  }
-
-  /* Sets the URL bar color */
-  #urlbar {
-      background: var(--lwt-accent-color) !important;
-  }
-
-  #urlbar-background {
-      background: var(--lwt-accent-color) !important;
+    }
+    ::selection {
+      background-color: var(--srf-accent);
+      color: var(--srf-primary);
+    }
+    :root {
+      --tabs-border: transparent !important;
+    }
+    .tab-background {
       border: none !important;
-  }
-
-  #urlbar-input-container {
+      border-radius: 0!important;
+      margin: 0!important;
+      margin-left: -1.6px!important;
+      padding: 0!important;
+    }
+    .tab-background[selected='true'] {
+      -moz-appearance: none !important;
+      background-image: none !important;
+      background-color: var(--srf-secondary)!important;
+    }
+    .tabbrowser-tabs {
       border: none !important;
-  }
-
-  /*====== UI Settings ======*/
-
-  :root {
-      --navbarWidth: 500px; /* Set width of navbar */
-  }
-
-  /* If the window is wider than 1000px, use flex layout */
-  @media (min-width: 1000px) {
-      #navigator-toolbox {
-          display: flex;
-          flex-direction: row;
-          flex-wrap: wrap;
-      }
-
-      /*  Url bar  */
-      #nav-bar {
-          order: 1;
-          width: var(--navbarWidth);
-      }
-
-      /* Tab bar */
-      #titlebar {
-          order: 2;
-          width: calc(100vw - var(--navbarWidth) - 1px);
-      }
-
-      /* Bookmarks bar */
-      #PersonalToolbar {
-          order: 3;
-          width: 100%;
-      }
-
-      /* Fix urlbar sometimes being misaligned */
-      :root[uidensity="compact"] #urlbar {
-          --urlbar-toolbar-height: 39.60px !important;
-      }
-
-      :root[uidensity="touch"] #urlbar {
-          --urlbar-toolbar-height: 49.00px !important;
-      }
-  }
-
-  /*====== Simplifying interface ======*/
-
-  /* Autohide back button when disabled */
-  #back-button, #forward-button {
-      transform: scale(1, 1) !important;
-      transition: margin-left 150ms var(--animation-easing-function), opacity 250ms var(--animation-easing-function), transform 350ms var(--animation-easing-function) !important;
-  }
-
-  #back-button[disabled="true"], #forward-button[disabled="true"] {
-      margin-left: -34px !important;
       opacity: 0 !important;
-      transform: scale(0.8, 0.8) !important;
-      pointer-events: none !important;
-  }
-
-  /* Remove UI elements */
-  #identity-box, /* Site information */
-  #tracking-protection-icon-container, /* Shield icon */
-  #page-action-buttons > :not(#urlbar-zoom-button, #star-button-box), /* All url bar icons except for zoom level and bookmarks */
-  #urlbar-go-button, /* Search URL magnifying glass */
-  #alltabs-button, /* Menu to display all tabs at the end of tabs bar */
-  .titlebar-buttonbox-container /* Minimize, maximize, and close buttons */ {
+    }
+    .tabbrowser-tab::before, .tabbrowser-tab::after{
+      opacity: 0 !important;
+      border-left: none !important;
+    }
+    .titlebar-placeholder {
+      border: none !important;
+    }
+    .tab-line {
       display: none !important;
-  }
-
-  #nav-bar {
+    }
+    #back-button,
+    #forward-button,
+    #whats-new-menu-button,
+    #star-button,
+    #pocket-button,
+    #save-to-pocket-button
+    #pageActionSeparator,
+    #pageActionButton,
+    #reader-mode-button,
+    #urlbar-zoom-button,
+    #identity-box,
+    #PanelUI-button,
+    #tracking-protection-icon-container {
+      display: none !important;
+    }
+    #context-navigation,
+    #context-savepage,
+    #context-pocket,
+    #context-sendpagetodevice,
+    #context-selectall,
+    #context-viewsource,
+    #context-inspect-a11y,
+    #context-sendlinktodevice,
+    #context-openlinkinusercontext-menu,
+    #context-bookmarklink,
+    #context-savelink,
+    #context-savelinktopocket,
+    #context-sendlinktodevice,
+    #context-searchselect,
+    #context-sendimage,
+    #context-print-selection,
+    #context_bookmarkTab,
+    #context_moveTabOptions,
+    #context_sendTabToDevice,
+    #context_reopenInContainer,
+    #context_selectAllTabs,
+    #context_closeTabOptions {
+      display: none !important;
+    }
+    #save-to-pocket-button {
+      visibility: hidden !important;
+    }
+    .titlebar-spacer {
+      display: none !important;
+    }
+    .tabbrowser-tab:not([pinned]) .tab-close-button {
+      display: none !important;
+    }
+    .tabbrowser-tab:not([pinned]) .tab-icon-image {
+      display: none !important;
+    }
+    #navigator-toolbox::after {
+      border-bottom: 0px !important;
+      border-top: 0px !important;
+    }
+    #nav-bar {
+      background: var(--srf-secondary) !important;
+      border: none !important;
       box-shadow: none !important;
-  }
-
-  /* Remove "padding" left and right from tabs */
-  .titlebar-spacer {
+      margin-top: 0px !important;
+      border-top-width: 0px !important;
+      margin-bottom: 0px !important;
+      border-bottom-width: 0px !important;
+    }
+    #history-panel,
+    #sidebar-search-container,
+    #bookmarksPanel {
+      background: var(--srf-primary) !important;
+    }
+    #search-box {
+      -moz-appearance: none !important;
+      background: var(--srf-primary) !important;
+      border-radius: 6px !important;
+    }
+    #sidebar-search-container {
+      background-color: var(--srf-primary) !important;
+    }
+    #sidebar-icon {
       display: none !important;
-  }
-
-  /* Fix URL bar overlapping elements */
-  #urlbar-container {
-      min-width: initial !important;
-  }
-
-  /* Remove gap after pinned tabs */
-  #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs])
-  > #tabbrowser-arrowscrollbox
-  > .tabbrowser-tab[first-visible-unpinned-tab] {
-      margin-inline-start: 0 !important;
-  }
-
-  /* Hide the hamburger menu */
-  #PanelUI-menu-button {
-      padding: 0px !important;
-  }
-
-  #PanelUI-menu-button .toolbarbutton-icon {
-      width: 1px !important;
-  }
-
-  #PanelUI-menu-button .toolbarbutton-badge-stack {
-      padding: 0px !important;
-  }
-
-
+    }
+    .sidebar-placesTree {
+      color: var(--srf-text) !important;
+    }
+    #sidebar-switcher-target {
+      color: var(--srf-text) !important;
+    }
+    #sidebar-header {
+      background: var(--srf-primary) !important;
+    }
+    #sidebar-box {
+      --sidebar-background-color: var(--srf-primary) !important;
+    }
+    #sidebar-splitter {
+      border: none !important;
+      opacity: 1 !important;
+      background-color: var(--srf-primary) !important;
+    }
+    .urlbarView {
+      display: none !important;
+    }
+    #urlbar-input-container {
+      background-color: var(--srf-secondary) !important;
+      border: 1px solid rgba(0, 0, 0, 0) !important;
+    }
+    #urlbar-container {
+      margin-left: 8px !important;
+    }
+    #urlbar[focused='true'] > #urlbar-background {
+      box-shadow: none !important;
+    }
+    .urlbarView-url {
+      color: var(--srf-text) !important;
+    }
 ''

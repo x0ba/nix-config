@@ -86,6 +86,7 @@
         nix-vscode-extensions = inputs.nix-vscode-extensions.extensions.${prev.system};
       })
       inputs.nekowinston-nur.overlays.default
+      inputs.nyoom.overlays.default
     ];
 
     # Configure your nixpkgs instance

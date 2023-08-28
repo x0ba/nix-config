@@ -1,102 +1,35 @@
-{theme}:
+{ theme }:
 with theme.colors;
 /*
-Theme stolen and modified from (https://github.com/aadilayub/firefox-i3wm-theme)
+  Theme stolen and modified from (https://github.com/aadilayub/firefox-i3wm-theme)
 */
-  ''
-      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
-
-    @namespace url("http://www.w3.org/1999/xhtml");
-
+''
+  :root {
+    scrollbar-width: none !important;
+  }
+  @-moz-document url(about:privatebrowsing) {
     :root {
-    	scrollbar-color: #13171b #171B20;
+      scrollbar-width: none !important;
     }
-
-    * {
-    	scrollbar-width: thin;
+  }
+   @-moz-document url("about:newtab"), url("about:home") {
+    body {
+      background-color: #${base01} !important;
     }
-
-    @-moz-document url("about:sessionrestore") {
-        * {
-    		font-family: "DM Sans", sans-serif !important;
-    	}
-
-    	body {
-    		background-color: #13171b !important;
-    	}
-
-    	#tabsToggle {
-    		display: none;
-    	}
-
-    	html|button:enabled:hover,
-    	html|select:not([size], [multiple]):enabled:hover,
-    	html|input[type="color"]:hover,
-    	xul|button:not([disabled="true"]):hover,
-    	xul|menulist:not([disabled="true"]):hover {
-    		border-color: #070b0f !important;
-    		background-color: #171B20 !important;
-    	}
-
-    	html|button[autofocus],
-    	html|button[type="submit"],
-    	xul|button[default],
-    	button.primary {
-    		border-color: #070b0f !important;
-    		background-color: #78DBA9 !important;
-    	}
+    .search-wrapper .logo-and-wordmark .logo {
+      background-image: url("https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nixos-white.png") !important;
+      background-size: 100% !important;
+      height: 250px !important;
+      width: 500px !important;
     }
-
-    @-moz-document url("about:newtab"), url("about:home") {
-    	* {
-    		font-family: "DM Sans", sans-serif !important;
-    	}
-
-    	body {
-    		background-color: #13171b !important;
-    	}
-
-        .SnippetBaseContainer {
-    		display: none !important;
-    	}
-
-    	.search-handoff-button {
-    		border-radius: 15px !important;
-    		border-width: 4px !important;
-    		border-color: #070b0f !important;
-    		background-size: 0px !important;
-    		background-color: #171B20 !important;
-    		padding-inline-start: 10px !important;
-    		padding-inline-end: 10px !important;
-    	}
-
-    	.icon-settings {
-    		display: none !important;
-    	}
-
-    	.fake-textbox {
-    		text-align: center !important;
-    	}
-
-    	.search-wrapper input {
-    		background-color: #171B20 !important;
-    		border-radius: 0px !important;
-        border-width: 0px !important;
-    		background-image: none !important;
-    		background-size: none !important;
-    		text-align: center !important;
-    		font-size: 17px !important;
-    		padding-inline-start: 10px !important;
-    		padding-inline-end: 10px !important;
-    	}
-
-    	.search-wrapper input:focus {
-    		text-align: left !important;
-    	}
-
-    	.body-wrapper {
-    		display: none !important;
-    	}
+    .icon-settings,
+    .body-wrapper,
+    .SnippetBaseContainer,
+    .search-handoff-button,
+    .search-wrapper .logo-and-wordmark .wordmark,
+    .search-wrapper .search-inner-wrapper,
+    .search-wrapper input {
+      display: none !important;
     }
-
-  ''
+  }
+''
