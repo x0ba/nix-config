@@ -1,0 +1,9 @@
+# vim:ft=zsh
+function _____zoxide_interactive_command_line() {
+  [[ -z $BUFFER ]] && BUFFER=zi && return
+  read -r cmd _ <<< "$BUFFER"
+  local starting=$((${#cmd} + 1))
+  local path="${BUFFER:$starting:${#BUFFER}}"
+  [[ "$BUFFER" =~ "(zi|z|cd|pushd) *" ]] && BUFFER="zi $path"
+  /usr/bin/xdotool key Enter
+}

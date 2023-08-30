@@ -1,9 +1,14 @@
 { config
 , pkgs
+, flakePath
 , ...
 }:
 let
   theme = config.colorScheme;
+  symlink = fileName: { recursive ? false }: {
+    source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/${fileName}";
+    recursive = recursive;
+  };
   zshPlugins = plugins: (map
     (plugin: rec {
       name = src.name;
@@ -12,15 +17,6 @@ let
     plugins);
 in
 {
-  programs.atuin = {
-    enable = true;
-    enableZshIntegration = true;
-    flags = [ "--disable-up-arrow" ];
-    settings = {
-      inline_height = 30;
-      style = "compact";
-    };
-  };
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -45,63 +41,79 @@ in
       export ZVM_CURSOR_BLINKING_BEAM="1"
     '';
 
-    initExtra = with theme.colors; ''
-      PATH=/usr/bin:/opt/homebrew/bin:~/Library/Python/3.9/bin:$PATH
+    initExtra = with theme.colors;
+      let
+        functionsDir = "${config.home.homeDirectory}/${config.programs.zsh.dotDir}/functions";
+      in
+      ''
+        PATH=/usr/bin:/opt/homebrew/bin:~/Library/Python/3.9/bin:$PATH
 
-      if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-        source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-      fi
+        if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+          source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+        fi
 
-      setopt NO_NOMATCH
+        setopt NO_NOMATCH
 
-      set -k
-      setopt auto_cd
+        set -k
+        setopt auto_cd
 
-      export FZF_DEFAULT_OPTS='
-      --color fg:#${base06},bg:#${base00},hl:#${base04},fg+:#${base07},bg+:#${base00},hl+:#${base04},border:#${base03}
-      --color pointer:#${base08},info:#${base03},spinner:#${base03},header:#${base03},prompt:#${base0B},marker:#${base0B}
-      '
+        export FZF_DEFAULT_OPTS='
+        --color fg:#${base06},bg:#${base00},hl:#${base04},fg+:#${base07},bg+:#${base00},hl+:#${base04},border:#${base03}
+        --color pointer:#${base08},info:#${base03},spinner:#${base03},header:#${base03},prompt:#${base0B},marker:#${base0B}
+        '
 
-      FZF_TAB_COMMAND=(
-            ${pkgs.fzf}/bin/fzf
-            --ansi
-            --expect='$continuous_trigger' # For continuous completion
-            --nth=2,3 --delimiter='\x00'  # Don't search prefix
-            --layout=reverse --height="''${FZF_TMUX_HEIGHT:=50%}"
-            --tiebreak=begin -m --bind=tab:down,btab:up,change:top,ctrl-space:toggle --cycle
-            '--query=$query'   # $query will be expanded to query string at runtime.
-            '--header-lines=$#headers' # $#headers will be expanded to lines of headers at runtime
-            )
+        FZF_TAB_COMMAND=(
+              ${pkgs.fzf}/bin/fzf
+              --ansi
+              --expect='$continuous_trigger' # For continuous completion
+              --nth=2,3 --delimiter='\x00'  # Don't search prefix
+              --layout=reverse --height="''${FZF_TMUX_HEIGHT:=50%}"
+              --tiebreak=begin -m --bind=tab:down,btab:up,change:top,ctrl-space:toggle --cycle
+              '--query=$query'   # $query will be expanded to query string at runtime.
+              '--header-lines=$#headers' # $#headers will be expanded to lines of headers at runtime
+              )
 
-      zstyle ':fzf-tab:*' command $FZF_TAB_COMMAND
-      zstyle ':fzf-tab:*' switch-group ',' '.'
-      zstyle ':fzf-tab:complete:_zlua:*' query-string input
-      zstyle ':fzf-tab:complete:*:*' fzf-preview 'preview $realpath'
+        zstyle ':fzf-tab:*' command $FZF_TAB_COMMAND
+        zstyle ':fzf-tab:*' switch-group ',' '.'
+        zstyle ':fzf-tab:complete:_zlua:*' query-string input
+        zstyle ':fzf-tab:complete:*:*' fzf-preview 'preview $realpath'
 
-      ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp root line)
-      ZSH_HIGHLIGHT_MAXLENGTH=512
-      ZSH_AUTOSUGGEST_USE_ASYNC="true"
+        ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp root line)
+        ZSH_HIGHLIGHT_MAXLENGTH=512
+        ZSH_AUTOSUGGEST_USE_ASYNC="true"
 
-      any-nix-shell zsh --info-right | source /dev/stdin
+        for script in "${functionsDir}"/**/*; do
+          source "$script"
+        done
 
-      bindkey '^F' autosuggest-accept
-      bindkey -a 'F' history-incremental-pattern-search-forward
-      bindkey -a 'f' history-incremental-pattern-search-backward
-      bindkey -a 'k' history-substring-search-up
-      bindkey -a 'j' history-substring-search-down
-      bindkey '^[[A' history-substring-search-up
-      bindkey '^[[B' history-substring-search-down
+        any-nix-shell zsh --info-right | source /dev/stdin
 
-      umask 022
-      zmodload zsh/zle
-      zmodload zsh/zpty
-      zmodload zsh/complist
+        bindkey '^F' autosuggest-accept
+        bindkey -a 'F' history-incremental-pattern-search-forward
+        bindkey -a 'f' history-incremental-pattern-search-backward
+        bindkey -a 'k' history-substring-search-up
+        bindkey -a 'j' history-substring-search-down
+        bindkey '^[[A' history-substring-search-up
+        bindkey '^[[B' history-substring-search-down
+        bindkey -s '^A' ' fm^M'
+        bindkey -s '^O' ' _____smooth_fzf^M'
+        bindkey -s '^P' _____toggle_right_prompt
+        bindkey -s '^Y' _____toggle_left_prompt
 
-      autoload -Uz colors
-      autoload -U compinit
-      colors
+        bindkey '^?' backward-delete-char
+        bindkey '^H' backward-delete-char
+        bindkey '^U' backward-kill-line
 
-    '';
+        umask 022
+        zmodload zsh/zle
+        zmodload zsh/zpty
+        zmodload zsh/complist
+
+        autoload -Uz colors
+        autoload -U compinit
+        colors
+
+      '';
 
     shellAliases = {
       cleanup = "sudo nix-collect-garbage --delete-older-than 7d";
@@ -161,5 +173,12 @@ in
         file = "share/fzf-tab/fzf-tab.plugin.zsh";
       }
     ]);
+
   };
+
+  xdg.configFile = {
+    "zsh/functions" = symlink "config/zsh/functions" { recursive = true; };
+  };
+
+
 }

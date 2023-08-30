@@ -1228,4 +1228,5 @@
   user_pref("extensions.pocket.enabled", false);
   user_pref("identity.fxaccounts.enabled", false);
   user_pref("browser.tabs.firefox-view", false);
+  user_pref("browser.compactmode.show", true);
 ''

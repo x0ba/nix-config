@@ -7,62 +7,59 @@
       cleanup = "uninstall";
       upgrade = true;
     };
-    casks = let
-      skipSha = name: {
-        inherit name;
-        args = {require_sha = false;};
-      };
-      noQuarantine = name: {
-        inherit name;
-        args = {no_quarantine = true;};
-      };
-    in [
-      "firefox"
-      "soulseek"
-      "brave-browser"
-      "iina"
-      "lulu"
-      "amethyst"
-      "hiddenbar"
-      "vorta"
-      "appcleaner"
-      "skiff"
-      "alt-tab"
-      "nova"
-      "anki"
-      "tor-browser"
-      "macfuse"
-      "uninstallpkg"
-      "keka"
-      "syncthing"
-      "gimp"
-      "jetbrains-toolbox"
-      "krita"
-      "arc"
-      "raycast"
-      "karabiner-elements"
-      "qbittorrent"
-      "bitwarden"
-      "1password"
-      "shottr"
-      "linearmouse"
-      "obsidian"
-      "neovide"
-      "discord"
-      "calibre"
-      (skipSha "element")
-      (skipSha "megasync")
-      (skipSha "spotify")
+    casks =
+      let
+        skipSha = name: {
+          inherit name;
+          args = { require_sha = false; };
+        };
+        noQuarantine = name: {
+          inherit name;
+          args = { no_quarantine = true; };
+        };
+      in
+      [
+        "firefox"
+        "soulseek"
+        "brave-browser"
+        "iina"
+        "lulu"
+        "amethyst"
+        "hiddenbar"
+        "vorta"
+        "appcleaner"
+        "skiff"
+        "alt-tab"
+        "nova"
+        "anki"
+        "tor-browser"
+        "macfuse"
+        "uninstallpkg"
+        "keka"
+        "syncthing"
+        "gimp"
+        "jetbrains-toolbox"
+        "rocket"
+        "krita"
+        "arc"
+        "raycast"
+        "karabiner-elements"
+        "qbittorrent"
+        "bitwarden"
+        "1password"
+        "shottr"
+        "linearmouse"
+        "obsidian"
+        "neovide"
+        "discord"
+        "calibre"
+        (skipSha "element")
+        (skipSha "megasync")
+        (skipSha "spotify")
 
-      # Drivers
-      "wacom-tablet"
-    ];
-
-    brews = [
-      {
-        name = "python3";
-      }
-    ];
-    taps = ["homebrew/services" "homebrew/cask"];
+        # Drivers
+        "wacom-tablet"
+      ];
+    taps = [ "homebrew/services" "homebrew/cask" ];
   };
 }

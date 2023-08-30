@@ -1,0 +1,15 @@
+# vim:ft=zsh
+function _____toggle_prompt() {
+  case "$1" in
+    right) p10k display '*/right'=hide,show ;;
+    left) p10k display '*/left'=hide,show ;;
+  esac
+}
+
+function _____toggle_right_prompt() {
+  _____toggle_prompt right
+}
+
+function _____toggle_left_prompt() {
+  _____toggle_prompt left
+}

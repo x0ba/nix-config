@@ -1,0 +1,13 @@
+# vim:ft=zsh
+function _____smooth_fzf() {
+  local old_pwd="$PWD"
+  local fname
+  cd "$HOME/.config/nixpkgs"
+  fname="$(fzf)"
+  if [[ "$fname" ]]; then
+    $EDITOR "$fname"
+  else
+    cd "$old_pwd"
+  fi
+  cd "$old_pwd"
+}
