@@ -1,95 +1,106 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   t-smart-tmux-session-manager = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "t-smart-tmux-session-manager";
     version = "2023-08-04";
     src = pkgs.fetchFromGitHub {
-      owner = "joshmedeski";
+      owner = "x0ba";
       repo = "t-smart-tmux-session-manager";
       rev = "8c887534d0f59cdde2aef873052d59efacdb7b2a";
       sha256 = "sha256-PGemYYjyWbHmNvEflK51PdY8oKI/1DZMU5OBjKH9DLw=";
     };
   };
-in {
+  tmux-fzf-url = pkgs.tmuxPlugins.mkTmuxPlugin {
+    pluginName = "tmux-fzf-url";
+    version = "2023-08-04";
+    src = pkgs.fetchFromGitHub {
+      owner = "joshmedeski";
+      repo = "tmux-fzf-url";
+      rev = "f67ed87a25e26ed397559542b574f83a9ddf6aed";
+      sha256 = "";
+    };
+  };
+in
+{
   programs.tmux = {
     enable = true;
     sensibleOnTop = true;
     extraConfig = ''
-      set -g history-file "~/.cache/tmux/.tmuxhistory"
-      set -g repeat-time 700
-      set -g mouse on
-      set -g status on
-      set -g focus-events on
-      set -g automatic-rename on
-      set -g renumber-windows on
-      set -g monitor-activity on
-      set -g visual-activity off
-      set -g bell-action none
-      set -g mode-keys vi
-      set -g status-keys vi
-      set -g base-index 1
-      set -g pane-base-index 1
-      set -g escape-time 0
-      set -g history-limit 10000
-      set -g pane-border-style "bg=default,fg=black"
-      set -g pane-active-border-style "bg=default,fg=green"
+            set -g history-file "~/.cache/tmux/.tmuxhistory"
+            set -g repeat-time 700
+            set -g mouse on
+            set -g status on
+            set -g focus-events on
+            set -g automatic-rename on
+            set -g renumber-windows on
+            set -g monitor-activity on
+            set -g visual-activity off
+            set -g bell-action none
+            set -g mode-keys vi
+            set -g status-keys vi
+            set -g base-index 1
+            set -g pane-base-index 1
+            set -g escape-time 0
+            set -g history-limit 10000
+            set -g pane-border-style "bg=default,fg=black"
+            set -g pane-active-border-style "bg=default,fg=green"
 
 
-      set-option -g default-terminal "tmux-256color"
-      set -g default-terminal "screen-256color"
-      bind-key R source-file "~/.config/tmux/tmux.conf" \; display-message "Reloaded configurations!"
-      bind-key B set status
+            set-option -sa terminal-features ",alacritty:RGB"
+            set -g default-terminal "screen-256color"
+            bind-key R source-file "~/.config/tmux/tmux.conf" \; display-message "Reloaded configurations!"
+            bind-key B set status
 
-      set -g prefix C-a
-      unbind C-b
-      bind-key C-a send-prefix
-      set -g detach-on-destroy off
+            set -g prefix C-a
+            unbind C-b
+            bind-key C-a send-prefix
+            set -g detach-on-destroy off
 
-      unbind-key up
-      unbind-key down
-      unbind-key left
-      unbind-key t
-      unbind-key up
-      unbind-key x
-      unbind-key <
-      unbind-key >
+            unbind-key up
+            unbind-key down
+            unbind-key left
+            unbind-key t
+            unbind-key up
+            unbind-key x
+            unbind-key <
+            unbind-key >
 
 
-      bind -T copy-mode-vi v send -X begin-selection
-      bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "pbcopy"
-      bind P paste-buffer
-      bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "pbcopy"
+            bind -T copy-mode-vi v send -X begin-selection
+            bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "pbcopy"
+            bind P paste-buffer
+            bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "pbcopy"
 
-      unbind %
-      bind-key - split-window -v
-      unbind '"'
-      bind-key | split-window -h
+            unbind %
+            bind-key - split-window -v
+            unbind '"'
+            bind-key | split-window -h
 
-      bind-key x kill-pane
-      bind-key & kill-window
+            bind-key x kill-pane
+            bind-key & kill-window
+            bind-key T run-shell "t"
 
-      bind-key > swap-pane -D
-      bind-key < swap-pane -U
+            bind-key > swap-pane -D
+            bind-key < swap-pane -U
 
-      bind -r j resize-pane -D 5
-      bind -r k resize-pane -U 5
-      bind -r l resize-pane -R 5
-      bind -r h resize-pane -L 5
-      bind -r m resize-pane -Z
+            bind -r j resize-pane -D 5
+            bind -r k resize-pane -U 5
+            bind -r l resize-pane -R 5
+            bind -r h resize-pane -L 5
+            bind -r m resize-pane -Z
 
-      set -g mode-style "bg=default,fg=default"
-      set -g status-position bottom
-      set -g status-interval 5
-      set -g @emulate-scroll-for-no-mouse-alternate-buffer on
 
-      set -g status-justify centre
-      set -g status-left "#[fg=black,bg=green]   #[fg=green,bg=red]#{prefix_highlight}#[bg=default]"
-      set -g window-status-format "#[fg=magenta,bg=black] #I:#W #[bg=default,fg=black]"
-      set -g window-status-current-format "#[bg=magenta,fg=black] #I:#W #[bg=default,fg=black] #[bg=black,fg=red] #S #[bg=red,fg=black]   "
-      set -g status-right "#[bg=black,fg=green] %I:%M %p #[fg=green,bg=black]█"
+      set -g window-status-separator "   "
+      set -g status-right-length 100
+      set -g status-left-length 100
+      set -g status-left  " "
+      set -g status-right ""
+      set -g status-justify left
 
-      set -g status-bg default
-      set -g status-fg white
-      set -g status-style "fg=white,bg=default"
+      set -g status-style fg=white
+
+      set -g window-status-current-format "#I #[fg=white,bold] #{s|$HOME|~|;s|.*/||:pane_current_path} #(despell -cu #W)"
+      set -g window-status-format "#[fg=brightblack]#I #[fg=brightblack] #{s|$HOME|~|;s|.*/||:pane_current_path} #(despell -cu #W)"
 
     '';
     plugins = with pkgs; [
@@ -114,7 +125,6 @@ in {
       }
       {
         plugin = t-smart-tmux-session-manager;
-        extraConfig = "set -g @t-bind 'T'";
       }
       {
         plugin = tmuxPlugins.vim-tmux-navigator;

@@ -34,3 +34,9 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
 vim.keymap.set("n", "<leader>e", ":RnvimrToggle<CR>")
+
+-- Lazyvim overrides c-hjkl
+vim.keymap.set("n", "<C-h>", ":TmuxNavigateLeft<CR>", { silent = true })
+vim.keymap.set("n", "<C-l>", ":TmuxNavigateRight<CR>", { silent = true })
+vim.keymap.set("n", "<C-j>", ":TmuxNavigateDown<CR>", { silent = true })
+vim.keymap.set("n", "<C-k>", ":TmuxNavigateUp<CR>", { silent = true })

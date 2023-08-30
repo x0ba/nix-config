@@ -1,6 +1,8 @@
-{config, ...}: let
+{ config, ... }:
+let
   theme = config.colorScheme;
-in {
+in
+{
   programs.alacritty = {
     enable = true;
     settings = with theme.colors; {
@@ -26,6 +28,69 @@ in {
         glyph_offset.y = 3;
         builtin_box_drawing = true;
       };
+
+      key_bindings = [
+        {
+          key = "T";
+          mods = "Command";
+          chars = "\\x01\\x63";
+        }
+        {
+          key = "W";
+          mods = "Command";
+          chars = "\\x01x";
+        }
+        {
+          key = "Z";
+          mods = "Command";
+          chars = "\\x01z";
+        }
+        {
+          key = "Key1";
+          mods = "Command";
+          chars = "\\x011";
+        }
+        {
+          key = "Key2";
+          mods = "Command";
+          chars = "\\x012";
+        }
+        {
+          key = "Key3";
+          mods = "Command";
+          chars = "\\x013";
+        }
+        {
+          key = "Key4";
+          mods = "Command";
+          chars = "\\x014";
+        }
+        {
+          key = "Key5";
+          mods = "Command";
+          chars = "\\x015";
+        }
+        {
+          key = "Key6";
+          mods = "Command";
+          chars = "\\x016";
+        }
+        {
+          key = "E";
+          mods = "Command";
+          chars = "\\x01|";
+        }
+        {
+          key = "E";
+          mods = "Command|Shift";
+          chars = "\\x01-";
+        }
+        {
+          key = "J";
+          mods = "Command";
+          chars = "\\x01\\x54";
+        }
+      ];
 
       colors = with theme.colors; {
         cursor.cursor = "#${base04}";
