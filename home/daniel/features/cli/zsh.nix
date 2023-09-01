@@ -46,11 +46,11 @@ in
         functionsDir = "${config.home.homeDirectory}/${config.programs.zsh.dotDir}/functions";
       in
       ''
-        PATH=/usr/bin:/opt/homebrew/bin:~/Library/Python/3.9/bin:$PATH
-
         if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
           source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
         fi
+
+        PATH=/usr/bin:/opt/homebrew/bin:~/Library/Python/3.9/bin:$PATH
 
         setopt NO_NOMATCH
 

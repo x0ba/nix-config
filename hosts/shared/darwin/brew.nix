@@ -25,12 +25,11 @@
         "iina"
         "lulu"
         "amethyst"
-        "hiddenbar"
+        "dozer"
         "vorta"
         "appcleaner"
         "skiff"
         "alt-tab"
-        "nova"
         "anki"
         "tor-browser"
         "macfuse"
@@ -39,6 +38,7 @@
         "syncthing"
         "gimp"
         "jetbrains-toolbox"
+        "easy-move-plus-resize"
         "rocket"
         "krita"
         "arc"
@@ -46,7 +46,9 @@
         "karabiner-elements"
         "qbittorrent"
         "bitwarden"
+        "rectangle"
         "1password"
+        "aldente"
         "shottr"
         "linearmouse"
         "obsidian"
@@ -56,6 +58,7 @@
         (skipSha "element")
         (skipSha "megasync")
         (skipSha "spotify")
+        (skipSha "hazeover")
 
         # Drivers
         "wacom-tablet"
