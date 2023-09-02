@@ -15,7 +15,7 @@ in
       cursor.style = "Block";
 
       font = {
-        size = 17;
+        size = 17.5;
         normal.family = "Iosevka Nerd Font";
         normal.style = "Regular";
         bold.family = "Iosevka Nerd Font";

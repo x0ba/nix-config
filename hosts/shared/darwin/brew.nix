@@ -22,6 +22,7 @@
         "firefox"
         "soulseek"
         "brave-browser"
+        "mullvad-browser"
         "iina"
         "lulu"
         "amethyst"

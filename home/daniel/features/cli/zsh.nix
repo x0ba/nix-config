@@ -95,7 +95,6 @@ in
         bindkey -a 'j' history-substring-search-down
         bindkey '^[[A' history-substring-search-up
         bindkey '^[[B' history-substring-search-down
-        bindkey -s '^A' ' fm^M'
         bindkey -s '^O' ' _____smooth_fzf^M'
         bindkey -s '^P' _____toggle_right_prompt
         bindkey -s '^Y' _____toggle_left_prompt

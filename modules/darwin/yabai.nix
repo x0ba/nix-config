@@ -1,8 +1,7 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
+{ config
+, lib
+, pkgs
+, ...
 }:
 with lib; let
   cfg = config.services.yabai;
@@ -17,17 +16,18 @@ with lib; let
       ${cfg.package}/bin/yabai -m signal --add event=dock_did_restart action="sudo ${cfg.package}/bin/yabai --load-sa"
       sudo ${cfg.package}/bin/yabai --load-sa
     ''
-    + optionalString (cfg.config != {}) ("\n" + (toYabaiConfig cfg.config) + "\n")
+    + optionalString (cfg.config != { }) ("\n" + (toYabaiConfig cfg.config) + "\n")
     + optionalString (cfg.extraConfig != "") ("\n" + cfg.extraConfig + "\n")
   );
-in {
+in
+{
   # overwrite the default nix-darwin module, as this fixes the Scripting Addition
-  disabledModules = ["services/yabai"];
+  disabledModules = [ "services/yabai" ];
 
   options.services.yabai = {
     enable = mkEnableOption "yabai window manager";
 
-    package = mkPackageOption pkgs "yabai" {};
+    package = mkPackageOption pkgs "yabai" { };
 
     logFile = mkOption {
       type = types.str;
@@ -52,7 +52,7 @@ in {
 
     config = mkOption {
       type = types.attrs;
-      default = {};
+      default = { };
       example = literalExpression ''
         {
           focus_follows_mouse = "autoraise";
@@ -82,9 +82,9 @@ in {
 
   config = mkIf cfg.enable (mkMerge [
     {
-      environment.systemPackages = [cfg.package];
+      environment.systemPackages = [ cfg.package ];
       launchd.user.agents.yabai.serviceConfig = rec {
-        ProgramArguments = ["${cfg.package}/bin/yabai" "-c" "${configFile}"];
+        ProgramArguments = [ "${cfg.package}/bin/yabai" "-c" "${configFile}" ];
         KeepAlive = true;
         RunAtLoad = true;
         EnvironmentVariables.PATH = "${cfg.package}/bin:${config.environment.systemPath}";
@@ -94,9 +94,11 @@ in {
       };
     }
     (mkIf cfg.enableScriptingAddition {
-      environment.etc."sudoers.d/yabai".text = let
-        sha = builtins.hashFile "sha256" "${cfg.package}/bin/yabai";
-      in "%admin ALL=(root) NOPASSWD: sha256:${sha} ${cfg.package}/bin/yabai --load-sa";
+      environment.etc."sudoers.d/yabai".text =
+        let
+          sha = builtins.hashFile "sha256" "${cfg.package}/bin/yabai";
+        in
+        "%admin ALL=(root) NOPASSWD: sha256:${sha} ${cfg.package}/bin/yabai --load-sa";
     })
   ]);
 }
