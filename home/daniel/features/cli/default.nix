@@ -1,9 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ./lf.nix
-    # ./starship.nix
     ./git.nix
-    ./fish.nix
     ./ranger.nix
     ./gpg.nix
     ./xdg.nix
@@ -17,13 +15,13 @@
   home.packages = with pkgs; [
     trash-cli
     git-lfs
-    lutgen
     ranger
     gopass
     borgmatic
     notmuch
     nix-inspect
     just
+    nix-your-shell
     ripgrep
     cmake
     fd

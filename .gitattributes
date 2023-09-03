@@ -1,4 +1,0 @@
-# home/daniel/features/desktop/common/fonts/* filter=git-crypt diff=git-crypt
-.gitattributes !filter !diff
-*.jpg filter=lfs diff=lfs merge=lfs -text
-*.png filter=lfs diff=lfs merge=lfs -text

@@ -22,6 +22,7 @@
         "firefox"
         "soulseek"
         "brave-browser"
+        "stats"
         "mullvad-browser"
         "iina"
         "lulu"

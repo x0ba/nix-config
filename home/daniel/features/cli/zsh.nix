@@ -1,5 +1,6 @@
 { config
 , pkgs
+, lib
 , flakePath
 , ...
 }:
@@ -50,6 +51,9 @@ in
           source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
         fi
 
+        source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+        source /nix/var/nix/profiles/default/etc/profile.d/nix.sh
+
         PATH=/usr/bin:/opt/homebrew/bin:~/Library/Python/3.9/bin:$PATH
 
         setopt NO_NOMATCH
@@ -86,7 +90,9 @@ in
           source "$script"
         done
 
-        any-nix-shell zsh --info-right | source /dev/stdin
+        if command -v nix-your-shell > /dev/null; then
+          nix-your-shell zsh | source /dev/stdin
+        fi
 
         bindkey '^F' autosuggest-accept
         bindkey -a 'F' history-incremental-pattern-search-forward
