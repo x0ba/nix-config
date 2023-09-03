@@ -23,6 +23,7 @@
     just
     nix-your-shell
     ripgrep
+    lutgen
     cmake
     fd
     tetex
