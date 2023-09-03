@@ -12,7 +12,7 @@
   ];
 
   home = {
-    mac-wallpaper = ./wallpapers/radium.jpg;
+    mac-wallpaper = ./wallpapers/space.jpg;
     homeDirectory = "/Users/daniel";
     stateVersion = "23.05";
     username = "daniel";

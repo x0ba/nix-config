@@ -109,6 +109,7 @@
         };
       };
     };
+
   nixConfig = {
     commit-lockfile-summary = "flake: bump inputs";
     substituters = [
