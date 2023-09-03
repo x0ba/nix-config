@@ -62,6 +62,6 @@
     lfs.enable = true;
     enable = true;
     userName = "x0ba";
-    userEmail = "hey@aspectside.site";
+    userEmail = "hey@aspectsides.site";
   };
 }

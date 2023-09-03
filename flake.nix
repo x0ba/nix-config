@@ -68,14 +68,14 @@
       homeManagerModules = import ./modules/home-manager;
       darwinModules = import ./modules/darwin;
 
-      nixosConfigurations = {
-        starfall = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./hosts/starfall
-          ];
-        };
-      };
+      # nixosConfigurations = {
+      #   starfall = nixpkgs.lib.nixosSystem {
+      #     specialArgs = { inherit inputs; };
+      #     modules = [
+      #       ./hosts/starfall
+      #     ];
+      #   };
+      # };
 
       darwinConfigurations = {
         "orion" = darwin.lib.darwinSystem {

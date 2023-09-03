@@ -21,6 +21,22 @@ in
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
+    oh-my-zsh = {
+      enable = true;
+      plugins =
+        [
+          "colored-man-pages"
+          "colorize"
+          "docker"
+          "docker-compose"
+          "git"
+          "kubectl"
+        ]
+        ++ lib.optionals pkgs.stdenv.isDarwin [
+          "dash"
+          "macos"
+        ];
+    };
     autocd = true;
     enableCompletion = true;
     defaultKeymap = "viins";
@@ -53,6 +69,8 @@ in
 
         source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
         source /nix/var/nix/profiles/default/etc/profile.d/nix.sh
+
+
 
         PATH=/usr/bin:/opt/homebrew/bin:~/Library/Python/3.9/bin:$PATH
 
@@ -90,9 +108,7 @@ in
           source "$script"
         done
 
-        if command -v nix-your-shell > /dev/null; then
-          nix-your-shell zsh | source /dev/stdin
-        fi
+        any-nix-shell zsh --info-right | source /dev/stdin
 
         bindkey '^F' autosuggest-accept
         bindkey -a 'F' history-incremental-pattern-search-forward

@@ -26,12 +26,9 @@
         "mullvad-browser"
         "iina"
         "lulu"
-        "amethyst"
         "dozer"
-        "vorta"
         "appcleaner"
         "skiff"
-        "alt-tab"
         "anki"
         "tor-browser"
         "macfuse"
@@ -48,11 +45,11 @@
         "karabiner-elements"
         "qbittorrent"
         "bitwarden"
-        "rectangle"
         "1password"
         "aldente"
         "shottr"
         "linearmouse"
+        "veracrypt"
         "obsidian"
         "neovide"
         "discord"
@@ -60,7 +57,6 @@
         (skipSha "element")
         (skipSha "megasync")
         (skipSha "spotify")
-        (skipSha "hazeover")
 
         # Drivers
         "wacom-tablet"
