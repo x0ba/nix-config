@@ -1,3 +1,2 @@
 *.png filter=lfs diff=lfs merge=lfs -text
 *.jpg filter=lfs diff=lfs merge=lfs -text
-home/daniel/features/desktop/common/fonts/* filter=git-crypt diff=git-crypt

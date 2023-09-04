@@ -14,7 +14,7 @@ c.hide_tab_bar_if_only_one_tab = true
 
 -- window
 c.window_decorations = "RESIZE"
-c.window_padding = { left = 30, right = 30, top = 30, bottom = 30 }
+c.window_padding = { left = 35, right = 35, top = 35, bottom = 35 }
 
 -- Tab Bar
 c.use_fancy_tab_bar = false

@@ -1,6 +1,7 @@
-{ config
-, flakePath
-, ...
+{
+  config,
+  flakePath,
+  ...
 }: {
   programs.wezterm.enable = true;
   # disable the default config created by Home-Manager

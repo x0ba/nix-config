@@ -1,12 +1,12 @@
-{ config
-, pkgs
-, lib
-, flakePath
-, ...
-}:
-let
+{
+  config,
+  pkgs,
+  lib,
+  flakePath,
+  ...
+}: let
   theme = config.colorScheme;
-  symlink = fileName: { recursive ? false }: {
+  symlink = fileName: {recursive ? false}: {
     source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/${fileName}";
     recursive = recursive;
   };
@@ -16,8 +16,7 @@ let
       inherit (plugin) file src;
     })
     plugins);
-in
-{
+in {
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -44,17 +43,18 @@ in
 
     initExtra = with theme.colors; let
       functionsDir = "${config.home.homeDirectory}/${config.programs.zsh.dotDir}/functions";
-    in
-    ''
-      # if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-      #   source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-      # fi
+    in ''
+      if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+        source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+      fi
 
-      PS1="%F{magenta}%n%f %F{blue}%~%f ''${vcs_info_msg_0_} %F{red}\$%f "
+      # PS1="%F{magenta}%n%f %F{blue}%~%f %F{red}\$%f "
 
-      cl
+      for script in "${functionsDir}"/**/*; do
+        source "$script"
+      done
 
-      PATH=/usr/bin:/opt/homebrew/bin:~/Library/Python/3.9/bin:$PATH
+      default_greeter
 
       setopt NO_NOMATCH
 
@@ -89,10 +89,6 @@ in
       ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp root line)
       ZSH_HIGHLIGHT_MAXLENGTH=512
       ZSH_AUTOSUGGEST_USE_ASYNC="true"
-
-      for script in "${functionsDir}"/**/*; do
-        source "$script"
-      done
 
       any-nix-shell zsh --info-right | source /dev/stdin
 
@@ -139,16 +135,16 @@ in
     };
 
     plugins = with pkgs; (zshPlugins [
-      # {
-      #   name = "powerlevel10k";
-      #   src = zsh-powerlevel10k;
-      #   file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      # }
-      # {
-      #   name = "powerlevel10k-config";
-      #   src = lib.cleanSource ./powerlevel;
-      #   file = "powerlevel.zsh";
-      # }
+      {
+        name = "powerlevel10k";
+        src = zsh-powerlevel10k;
+        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      }
+      {
+        name = "powerlevel10k-config";
+        src = lib.cleanSource ./powerlevel;
+        file = "powerlevel.zsh";
+      }
       {
         src = zsh-fast-syntax-highlighting.overrideAttrs (_old: {
           src = fetchFromGitHub {
@@ -181,6 +177,6 @@ in
   };
 
   xdg.configFile = {
-    "zsh/functions" = symlink "config/zsh/functions" { recursive = true; };
+    "zsh/functions" = symlink "config/zsh/functions" {recursive = true;};
   };
 }
