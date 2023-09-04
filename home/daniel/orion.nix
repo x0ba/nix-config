@@ -1,9 +1,10 @@
-{ ... }: {
+{...}: {
   # You can import other home-manager modules here
   imports = [
     ./global
     ./features/desktop/common
     ./features/term/alacritty.nix
+    ./features/term/wezterm.nix
     ./features/pass
     ./features/desktop/yabai
     ./features/music
@@ -12,7 +13,7 @@
   ];
 
   home = {
-    mac-wallpaper = ./wallpapers/space.jpg;
+    mac-wallpaper = ./wallpapers/wave.jpg;
     homeDirectory = "/Users/daniel";
     stateVersion = "23.05";
     username = "daniel";

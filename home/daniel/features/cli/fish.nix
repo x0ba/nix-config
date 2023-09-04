@@ -1,9 +1,4 @@
-{ pkgs
-, lib
-, inputs
-, config
-, ...
-}: {
+{pkgs, ...}: {
   programs.fish = {
     enable = true;
     shellAliases = with pkgs; {
@@ -23,7 +18,6 @@
       fcd = "cd $(find -type d | fzf)";
       rm = "${pkgs.trash-cli}/bin/trash-put";
       cat = "${pkgs.bat}/bin/bat --style=plain";
-
     };
     shellInit = ''
       set fish_greeting

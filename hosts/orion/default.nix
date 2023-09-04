@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }: {
+{pkgs, ...}: {
   imports = [
     ../shared/darwin/default.nix
   ];

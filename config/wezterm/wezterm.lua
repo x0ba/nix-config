@@ -11,11 +11,11 @@ local SOLID_RIGHT_ARROW = wezterm.nerdfonts.pl_left_hard_divider
 require("keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-  "Berkeley Mono",
+  "Iosevka Nerd Font",
   "Symbols Nerd Font",
 })
-c.font_size = 16
-c.line_height = 1.2
+c.font_size = 18
+c.line_height = 1.1
 
 c.hide_tab_bar_if_only_one_tab = true
 
@@ -43,6 +43,6 @@ c.command_palette_font_size = 13.0
 c.window_frame = { font_size = 13.0 }
 c.window_background_opacity = 1.0
 
-c.color_scheme = "Mountain"
+c.color_scheme = "Everblush"
 
 return c

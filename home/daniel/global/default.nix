@@ -1,9 +1,9 @@
-{ inputs
-, outputs
-, lib
-, pkgs
-, config
-, ...
+{
+  inputs,
+  outputs,
+  pkgs,
+  config,
+  ...
 }: {
   imports =
     [
@@ -57,8 +57,8 @@
             nekowinston = inputs.nekowinston-nur.packages.${prev.system};
           };
         };
-        nekowinston-nur = import inputs.nekowinston-nur { inherit (prev) pkgs; };
-        caarlos0-nur = import inputs.caarlos0-nur { inherit (prev) pkgs; };
+        nekowinston-nur = import inputs.nekowinston-nur {inherit (prev) pkgs;};
+        caarlos0-nur = import inputs.caarlos0-nur {inherit (prev) pkgs;};
         nix-vscode-extensions = inputs.nix-vscode-extensions.extensions.${prev.system};
       })
       inputs.nekowinston-nur.overlays.default

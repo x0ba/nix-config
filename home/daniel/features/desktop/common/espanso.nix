@@ -1,9 +1,4 @@
-{ config
-, lib
-, packages
-, ...
-}:
-{
+{...}: {
   services.espanso = {
     enable = true;
     matches = {

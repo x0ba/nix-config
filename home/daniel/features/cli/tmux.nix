@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   t-smart-tmux-session-manager = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "t-smart-tmux-session-manager";
     version = "2023-08-04";
@@ -10,18 +9,7 @@ let
       sha256 = "sha256-PGemYYjyWbHmNvEflK51PdY8oKI/1DZMU5OBjKH9DLw=";
     };
   };
-  tmux-fzf-url = pkgs.tmuxPlugins.mkTmuxPlugin {
-    pluginName = "tmux-fzf-url";
-    version = "2023-08-04";
-    src = pkgs.fetchFromGitHub {
-      owner = "joshmedeski";
-      repo = "tmux-fzf-url";
-      rev = "f67ed87a25e26ed397559542b574f83a9ddf6aed";
-      sha256 = "";
-    };
-  };
-in
-{
+in {
   programs.tmux = {
     enable = true;
     sensibleOnTop = true;
