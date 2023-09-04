@@ -37,6 +37,7 @@
         "signal"
         "raycast"
         "karabiner-elements"
+        "whichspace"
         "aldente"
         "shottr"
         "bitwarden"

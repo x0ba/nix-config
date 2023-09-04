@@ -7,6 +7,9 @@ function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
+local mark = require("harpoon.mark")
+local ui = require("harpoon.ui")
+
 -- splits
 map("n", "<Leader>wv", ":vsplit<CR>", { silent = true })
 map("n", "<Leader>hv", ":split<CR>", { silent = true })
@@ -16,8 +19,8 @@ map("n", "<Leader>gg", ":Neogit<CR>", { silent = true })
 
 -- remaps
 
--- vim.keymap.set("n", "<C-d>", "<C-d>zz")
--- vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
@@ -46,3 +49,19 @@ vim.keymap.set({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<C
 vim.keymap.set({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
 vim.keymap.set({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
 vim.keymap.set({ "n", "o", "x" }, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
+
+vim.keymap.set("n", "<leader>a", mark.add_file)
+vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
+
+vim.keymap.set("n", "<C-q>", function()
+  ui.nav_file(1)
+end)
+vim.keymap.set("n", "<C-w>", function()
+  ui.nav_file(2)
+end)
+vim.keymap.set("n", "<C-a>", function()
+  ui.nav_file(3)
+end)
+vim.keymap.set("n", "<C-s>", function()
+  ui.nav_file(4)
+end)

@@ -3,6 +3,7 @@ M.theme = function()
   local colors = {
     innerbg = nil,
   }
+
   return {
     inactive = {
       a = { bg = colors.innerbg },
