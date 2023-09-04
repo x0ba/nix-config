@@ -46,9 +46,11 @@ in
       functionsDir = "${config.home.homeDirectory}/${config.programs.zsh.dotDir}/functions";
     in
     ''
-      if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-        source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-      fi
+      # if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+      #   source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+      # fi
+
+      PS1="%F{magenta}%n%f %F{blue}%~%f ''${vcs_info_msg_0_} %F{red}\$%f "
 
       cl
 
@@ -137,16 +139,16 @@ in
     };
 
     plugins = with pkgs; (zshPlugins [
-      {
-        name = "powerlevel10k";
-        src = zsh-powerlevel10k;
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
-      {
-        name = "powerlevel10k-config";
-        src = lib.cleanSource ./powerlevel;
-        file = "powerlevel.zsh";
-      }
+      # {
+      #   name = "powerlevel10k";
+      #   src = zsh-powerlevel10k;
+      #   file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      # }
+      # {
+      #   name = "powerlevel10k-config";
+      #   src = lib.cleanSource ./powerlevel;
+      #   file = "powerlevel.zsh";
+      # }
       {
         src = zsh-fast-syntax-highlighting.overrideAttrs (_old: {
           src = fetchFromGitHub {

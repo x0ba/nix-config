@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ./lf.nix
+    ./ranger.nix
     ./git.nix
     ./gpg.nix
     ./xdg.nix
@@ -17,7 +18,6 @@
     git-lfs
     ranger
     gopass
-    borgmatic
     notmuch
     nix-inspect
     just
