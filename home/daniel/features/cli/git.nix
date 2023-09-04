@@ -1,7 +1,6 @@
-{
-  lib,
-  pkgs,
-  ...
+{ lib
+, pkgs
+, ...
 }: {
   programs.gh = {
     enable = true;
@@ -63,6 +62,6 @@
     lfs.enable = true;
     enable = true;
     userName = "x0ba";
-    userEmail = "hey@aspectsides.site";
+    userEmail = "danieldxu@proton.me";
   };
 }
