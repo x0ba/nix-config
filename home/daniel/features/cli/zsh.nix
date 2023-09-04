@@ -1,12 +1,12 @@
-{
-  config,
-  pkgs,
-  lib,
-  flakePath,
-  ...
-}: let
+{ config
+, pkgs
+, lib
+, flakePath
+, ...
+}:
+let
   theme = config.colorScheme;
-  symlink = fileName: {recursive ? false}: {
+  symlink = fileName: { recursive ? false }: {
     source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/${fileName}";
     recursive = recursive;
   };
@@ -16,7 +16,8 @@
       inherit (plugin) file src;
     })
     plugins);
-in {
+in
+{
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -43,10 +44,13 @@ in {
 
     initExtra = with theme.colors; let
       functionsDir = "${config.home.homeDirectory}/${config.programs.zsh.dotDir}/functions";
-    in ''
+    in
+    ''
       if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
         source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
       fi
+
+      cl
 
       PATH=/usr/bin:/opt/homebrew/bin:~/Library/Python/3.9/bin:$PATH
 
@@ -177,6 +181,6 @@ in {
   };
 
   xdg.configFile = {
-    "zsh/functions" = symlink "config/zsh/functions" {recursive = true;};
+    "zsh/functions" = symlink "config/zsh/functions" { recursive = true; };
   };
 }
