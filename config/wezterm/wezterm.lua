@@ -1,13 +1,6 @@
 ---@type wezterm
 local wezterm = require("wezterm")
 local c = wezterm.config_builder()
-
--- The filled in variant of the < symbol
-local SOLID_LEFT_ARROW = wezterm.nerdfonts.pl_right_hard_divider
-
--- The filled in variant of the > symbol
-local SOLID_RIGHT_ARROW = wezterm.nerdfonts.pl_left_hard_divider
-
 require("keys").apply(c)
 
 c.font = wezterm.font_with_fallback({

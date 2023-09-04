@@ -127,12 +127,10 @@ in
       gaa = "git add .";
       cls = "clear";
       commit = "git add . && git commit -m";
-      nv = "neovide --frame buttonless";
       m = "mkdir -p";
       push = "git push";
       pull = "git pull";
-      v = "${pkgs.neovim}/bin/nvim";
-      vim = "${pkgs.neovim}/bin/nvim";
+      nv = "${pkgs.neovim}/bin/nvim";
       fcd = "cd $(find -type d | fzf)";
       rm = "${pkgs.trash-cli}/bin/trash-put";
       cat = "${pkgs.bat}/bin/bat --style=plain";
