@@ -13,6 +13,10 @@
           inherit name;
           args = { require_sha = false; };
         };
+        noQuarantine = name: {
+          inherit name;
+          args = { no_quarantine = true; };
+        };
       in
       [
         "firefox"
@@ -48,6 +52,7 @@
         "discord"
         "calibre"
         (skipSha "element")
+        (noQuarantine "librewolf")
         (skipSha "megasync")
         (skipSha "spotify")
 

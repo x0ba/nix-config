@@ -18,8 +18,8 @@
       window_border = "on";
       window_border_blur = "on";
       window_border_width = 2;
-      normal_window_border_color = "0xff232a2d";
-      active_window_border_color = "0xff67b0e8";
+      normal_window_border_color = "0xff171C21";
+      active_window_border_color = "0xff7AB0DF";
       window_border_radius = 11;
       window_border_hidpi = "true";
       mouse_follows_focus = "off";

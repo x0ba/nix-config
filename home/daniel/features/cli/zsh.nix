@@ -84,6 +84,8 @@ in
       set -k
       setopt auto_cd
 
+      ZVM_CURSOR_STYLE_ENABLED=false
+
       FZF_TAB_COMMAND=(
             ${pkgs.fzf}/bin/fzf
             --ansi

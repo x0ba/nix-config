@@ -1,7 +1,7 @@
 [colors]
 background = '#101317'
 foreground = '#d4d4d5'
-cursor_bg = '#7AB0DF'
+cursor_bg = '#8AB0DF'
 cursor_border = '#7AB0DF'
 cursor_fg = '#101317'
 
