@@ -1,12 +1,12 @@
-{
-  config,
-  pkgs,
-  lib,
-  flakePath,
-  ...
-}: let
+{ config
+, pkgs
+, lib
+, flakePath
+, ...
+}:
+let
   theme = config.colorScheme;
-  symlink = fileName: {recursive ? false}: {
+  symlink = fileName: { recursive ? false }: {
     source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/${fileName}";
     recursive = recursive;
   };
@@ -16,7 +16,8 @@
       inherit (plugin) file src;
     })
     plugins);
-in {
+in
+{
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -32,6 +33,27 @@ in {
 
     envExtra = ''
       export LESSHISTFILE="${config.xdg.dataHome}"/less/history
+      export FZF_DEFAULT_OPTS="
+        $FZF_DEFAULT_OPTS
+        --color='border:#161B20,preview-bg:#161B20'
+        --color='scrollbar:#24292E,gutter:#161B20'
+        --color='bg+:#24292E,fg+:#D4D4D5,spinner:#79DCAA'
+        --color='pointer:#C397D8,marker:#F87070'
+        --color='info:#70C0BA,bg:#11161B'
+        --scrollbar='░'
+        --border='none'
+        --separator='▓'
+        --marker=' '
+        --ellipsis='… '
+        --prompt='  '
+        --pointer=' λ'
+        --layout=reverse
+        --bind='ctrl-v:execute($EDITOR {}),shift-up:preview-page-up,shift-down:preview-page-down'
+        --cycle
+        --height=40"
+
+      export FZF_DEFAULT_COMMAND="fd . --max-depth=1 --hidden"
+
       export SUDO_PROMPT=$'Password for ->\033[32;05;16m %u\033[0m  '
       export ANDROID_HOME="${config.xdg.dataHome}"/android
       export DOCKER_CONFIG="${config.xdg.dataHome}"/docker
@@ -43,7 +65,8 @@ in {
 
     initExtra = with theme.colors; let
       functionsDir = "${config.home.homeDirectory}/${config.programs.zsh.dotDir}/functions";
-    in ''
+    in
+    ''
       if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
         source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
       fi
@@ -60,15 +83,6 @@ in {
 
       set -k
       setopt auto_cd
-
-      export FZF_DEFAULT_OPTS='
-        --color fg:#5d6466,bg:#1e2527
-        --color bg+:#ef7d7d,fg+:#2c2f30
-        --color hl:#dadada,hl+:#26292a,gutter:#1e2527
-        --color pointer:#373d49,info:#606672
-        --border
-        --color border:#1e2527
-        --height 13'
 
       FZF_TAB_COMMAND=(
             ${pkgs.fzf}/bin/fzf
@@ -177,6 +191,6 @@ in {
   };
 
   xdg.configFile = {
-    "zsh/functions" = symlink "config/zsh/functions" {recursive = true;};
+    "zsh/functions" = symlink "config/zsh/functions" { recursive = true; };
   };
 }

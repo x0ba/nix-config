@@ -1,7 +1,6 @@
-{
-  inputs,
-  outputs,
-  ...
+{ inputs
+, outputs
+, ...
 }: {
   imports =
     [
@@ -9,9 +8,12 @@
       ../features/neovim
       ../features/vscode
       inputs.nix-colors.homeManagerModule
+      inputs.caarlos0-nur.homeManagerModules.default
+      inputs.nekowinston-nur.homeManagerModules.default
       inputs.nix-index-database.hmModules.nix-index
     ]
     ++ (builtins.attrValues outputs.homeManagerModules);
+
 
   colorScheme = inputs.nix-colors.colorSchemes.mountain;
 
@@ -31,8 +33,8 @@
             nekowinston = inputs.nekowinston-nur.packages.${prev.system};
           };
         };
-        nekowinston-nur = import inputs.nekowinston-nur {inherit (prev) pkgs;};
-        caarlos0-nur = import inputs.caarlos0-nur {inherit (prev) pkgs;};
+        nekowinston-nur = import inputs.nekowinston-nur { inherit (prev) pkgs; };
+        caarlos0-nur = import inputs.caarlos0-nur { inherit (prev) pkgs; };
         nix-vscode-extensions = inputs.nix-vscode-extensions.extensions.${prev.system};
       })
       inputs.nekowinston-nur.overlays.default

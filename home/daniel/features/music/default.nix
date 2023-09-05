@@ -1,10 +1,11 @@
+{ config
+, pkgs
+, ...
+}:
+let
+  inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
+in
 {
-  config,
-  pkgs,
-  ...
-}: let
-  inherit (pkgs.stdenv.hostPlatform) isLinux;
-in {
   programs.mpv.enable = isLinux;
   xdg.mimeApps.defaultApplications = {
     "video/mp4" = "mpv.desktop";
@@ -81,58 +82,41 @@ in {
     ];
   };
 
-  services = {
-    mpd.enable = isLinux;
-    mpdris2 = {
-      enable = isLinux;
-      multimediaKeys = true;
-      notifications = true;
-    };
-    mpd-discord-rpc = {
-      enable = isLinux;
-      settings = {
-        format = {
-          state = "$artist";
-          large_image = "https://cdn.discordapp.com/emojis/743725086262951957.gif";
-          large_text = "$album";
-          small_image = "https://cdn.discordapp.com/emojis/743723149455261717.png";
-          small_text = "pretty fucking based";
-        };
-      };
-    };
-    mpd-mpris.enable = isLinux;
-  };
+  services.discord-applemusic-rich-presence.enable = isDarwin;
 
   launchd.agents.mpd = {
     enable = true;
-    config = let
-      mpdConf = pkgs.writeText "mpd.conf" (
-        let
-          baseDir = config.xdg.dataHome + "/mpd";
-        in ''
-          music_directory     "${config.home.homeDirectory}/Music"
-          playlist_directory  "${baseDir}/playlists"
-          db_file             "${baseDir}/database"
-          pid_file            "${baseDir}/mpd.pid"
-          state_file          "${baseDir}/state"
-          log_file            "${baseDir}/log"
-          auto_update "yes"
-          port                "6600"
-          bind_to_address     "127.0.0.1"
-          audio_output {
-            type "osx"
-            name "CoreAudio"
-            mixer_type "software"
-          }
-        ''
-      );
-    in {
-      ProgramArguments = ["${pkgs.mpd}/bin/mpd" "--no-daemon" "${mpdConf}"];
-      KeepAlive = true;
-      RunAtLoad = true;
-      ProcessType = "Interactive";
-      StandardErrorPath = "${config.xdg.cacheHome}/mpd.log";
-      StandardOutPath = "${config.xdg.cacheHome}/mpd.log";
-    };
+    config =
+      let
+        mpdConf = pkgs.writeText "mpd.conf" (
+          let
+            baseDir = config.xdg.dataHome + "/mpd";
+          in
+          ''
+            music_directory     "${config.home.homeDirectory}/Music"
+            playlist_directory  "${baseDir}/playlists"
+            db_file             "${baseDir}/database"
+            pid_file            "${baseDir}/mpd.pid"
+            state_file          "${baseDir}/state"
+            log_file            "${baseDir}/log"
+            auto_update "yes"
+            port                "6600"
+            bind_to_address     "127.0.0.1"
+            audio_output {
+              type "osx"
+              name "CoreAudio"
+              mixer_type "software"
+            }
+          ''
+        );
+      in
+      {
+        ProgramArguments = [ "${pkgs.mpd}/bin/mpd" "--no-daemon" "${mpdConf}" ];
+        KeepAlive = true;
+        RunAtLoad = true;
+        ProcessType = "Interactive";
+        StandardErrorPath = "${config.xdg.cacheHome}/mpd.log";
+        StandardOutPath = "${config.xdg.cacheHome}/mpd.log";
+      };
   };
 }
