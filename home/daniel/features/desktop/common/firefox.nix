@@ -1,12 +1,13 @@
-{
-  lib,
-  pkgs,
-  config,
-  ...
-}: let
+{ lib
+, pkgs
+, config
+, ...
+}:
+let
   inherit (pkgs.stdenv.hostPlatform) isDarwin;
   theme = config.colorScheme;
-in {
+in
+{
   programs.firefox = {
     enable = true;
     # since I'm using firefox from brew on darwin, I need to build a dummy package
@@ -14,9 +15,9 @@ in {
     package = pkgs.lib.mkIf isDarwin (pkgs.writeScriptBin "__dummy-firefox" "");
     profiles.default = {
       search = {
-        default = "Searx Belgium";
+        default = "Startpage";
         engines = {
-          "Searx Belgium".urls = [{template = "https://searx.be/search?q={searchTerms}";}];
+          "Startpage".urls = [{ template = "https://www.startpage.com/sp/search?query={searchTerms}"; }];
         };
         force = true;
       };
@@ -24,7 +25,7 @@ in {
         multi-account-containers
         ublock-origin
         decentraleyes
-        onepassword-password-manager
+        bitwarden
         vimium
       ];
       userChrome = import ./userchrome.nix {

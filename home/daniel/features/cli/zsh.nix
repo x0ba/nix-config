@@ -1,22 +1,18 @@
-{
-  config,
-  pkgs,
-  lib,
-  flakePath,
-  ...
-}: let
+{ config
+, pkgs
+, lib
+, ...
+}:
+let
   theme = config.colorScheme;
-  symlink = fileName: {recursive ? false}: {
-    source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/${fileName}";
-    recursive = recursive;
-  };
   zshPlugins = plugins: (map
     (plugin: rec {
       name = src.name;
       inherit (plugin) file src;
     })
     plugins);
-in {
+in
+{
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
