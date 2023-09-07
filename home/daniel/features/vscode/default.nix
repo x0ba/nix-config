@@ -1,16 +1,15 @@
-{ config
-, flakePath
-, lib
-, pkgs
-, ...
-}:
-let
+{
+  config,
+  flakePath,
+  lib,
+  pkgs,
+  ...
+}: let
   inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
 
   settingsJSON = config.lib.file.mkOutOfStoreSymlink "${flakePath}/config/vscode/settings.json";
   keybindingsJSON = config.lib.file.mkOutOfStoreSymlink "${flakePath}/config/vscode/keybindings.json";
-in
-{
+in {
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;

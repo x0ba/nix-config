@@ -1,4 +1,10 @@
-{ inputs, outputs, lib, pkgs, ... }: {
+{
+  inputs,
+  outputs,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ./programs/yabai.nix
     ./programs/skhd.nix
@@ -21,7 +27,7 @@
     remapCapsLockToEscape = true;
   };
   system.defaults = {
-    screencapture = { location = "/tmp"; };
+    screencapture = {location = "/tmp";};
 
     dock = {
       autohide = true;
