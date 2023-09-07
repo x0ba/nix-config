@@ -15,7 +15,7 @@ in
     enable = true;
     package = pkgs.vscode;
     extensions = with pkgs.vscode-marketplace; [
-      akamud.vscode-theme-onedark
+      decaycs.decay
       vscjava.vscode-java-pack
       github.copilot
       denoland.vscode-deno

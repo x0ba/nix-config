@@ -14,7 +14,7 @@ c.hide_tab_bar_if_only_one_tab = true
 
 -- window
 c.window_decorations = "RESIZE"
-c.window_padding = { left = 35, right = 35, top = 35, bottom = 35 }
+c.window_padding = { left = 37, right = 37, top = 37, bottom = 37 }
 
 -- Tab Bar
 c.use_fancy_tab_bar = false
@@ -36,6 +36,6 @@ c.command_palette_font_size = 13.0
 c.window_frame = { font_size = 13.0 }
 c.window_background_opacity = 1.0
 
-c.color_scheme = "Yoru"
+c.color_scheme = "Decay"
 
 return c
