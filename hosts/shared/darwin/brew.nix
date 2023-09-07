@@ -44,6 +44,7 @@
       "discord"
       "calibre"
       "ticktick"
+      (noQuarantine "librewolf")
 
       # Drivers
       "wacom-tablet"

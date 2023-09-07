@@ -36,6 +36,6 @@ c.command_palette_font_size = 13.0
 c.window_frame = { font_size = 13.0 }
 c.window_background_opacity = 1.0
 
-c.color_scheme = "Decay"
+c.color_scheme = "Yoru"
 
 return c

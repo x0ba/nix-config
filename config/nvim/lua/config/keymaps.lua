@@ -36,7 +36,7 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 -- Undotree remap
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
-vim.keymap.set("n", "<leader>e", ":RnvimrToggle<CR>")
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- Lazyvim overrides c-hjkl
 vim.keymap.set("n", "<C-h>", ":TmuxNavigateLeft<CR>", { silent = true })
