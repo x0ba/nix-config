@@ -24,8 +24,8 @@
   "debug.onTaskErrors": "debugAnyway",
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.cursorSmoothCaretAnimation": "on",
-  "editor.fontFamily": "Iosevka Nerd Font, Symbols Nerd Font, monospace",
-  "editor.fontSize": 17,
+  "editor.fontFamily": "IBM Plex Mono, Symbols Nerd Font, monospace",
+  "editor.fontSize": 16,
   "editor.formatOnSave": true,
   "editor.inlayHints.fontFamily": "Victor Mono",
   "editor.inlayHints.fontSize": 14,
@@ -63,124 +63,56 @@
   "vim.leader": "<space>",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": [
-        "K"
-      ],
-      "commands": [
-        "editor.action.showHover"
-      ]
+      "before": ["K"],
+      "commands": ["editor.action.showHover"]
     },
     {
-      "before": [
-        "<leader>",
-        "f",
-        "d"
-      ],
-      "commands": [
-        "workbench.action.quickOpen"
-      ]
+      "before": ["<leader>", "f", "d"],
+      "commands": ["workbench.action.quickOpen"]
     },
     {
-      "before": [
-        "<leader>",
-        "f",
-        "t"
-      ],
-      "commands": [
-        "workbench.action.selectTheme"
-      ]
+      "before": ["<leader>", "f", "t"],
+      "commands": ["workbench.action.selectTheme"]
     },
     {
-      "before": [
-        "<leader>",
-        "n",
-        "f"
-      ],
-      "commands": [
-        "editor.action.formatDocument"
-      ]
+      "before": ["<leader>", "n", "f"],
+      "commands": ["editor.action.formatDocument"]
     },
     {
-      "before": [
-        "[",
-        "d"
-      ],
-      "commands": [
-        "editor.action.marker.prevInFiles"
-      ]
+      "before": ["[", "d"],
+      "commands": ["editor.action.marker.prevInFiles"]
     },
     {
-      "before": [
-        "]",
-        "d"
-      ],
-      "commands": [
-        "editor.action.marker.nextInFiles"
-      ]
+      "before": ["]", "d"],
+      "commands": ["editor.action.marker.nextInFiles"]
     },
     {
-      "before": [
-        "[",
-        "c"
-      ],
-      "commands": [
-        "workbench.action.editor.previousChange"
-      ]
+      "before": ["[", "c"],
+      "commands": ["workbench.action.editor.previousChange"]
     },
     {
-      "before": [
-        "]",
-        "c"
-      ],
-      "commands": [
-        "workbench.action.editor.nextChange"
-      ]
+      "before": ["]", "c"],
+      "commands": ["workbench.action.editor.nextChange"]
     },
     {
-      "after": [
-        "<C-W>",
-        "l"
-      ],
-      "before": [
-        "<C-l>"
-      ]
+      "after": ["<C-W>", "l"],
+      "before": ["<C-l>"]
     },
     {
-      "after": [
-        "<C-W>",
-        "h"
-      ],
-      "before": [
-        "<C-h>"
-      ]
+      "after": ["<C-W>", "h"],
+      "before": ["<C-h>"]
     },
     {
-      "before": [
-        "K"
-      ],
-      "commands": [
-        "editor.action.showHover"
-      ]
+      "before": ["K"],
+      "commands": ["editor.action.showHover"]
     },
     {
-      "after": [
-        "<C-W>",
-        "v"
-      ],
-      "before": [
-        "<C-W>",
-        "\\"
-      ]
+      "after": ["<C-W>", "v"],
+      "before": ["<C-W>", "\\"]
     },
     {
-      "after": [
-        "<C-W>",
-        "s"
-      ],
-      "before": [
-        "<C-W>",
-        "-"
-      ]
+      "after": ["<C-W>", "s"],
+      "before": ["<C-W>", "-"]
     }
   ],
   "vim.replaceWithRegister": true,
@@ -191,7 +123,6 @@
   },
   "window.commandCenter": true,
   "window.autoDetectColorScheme": true,
-  "workbench.iconTheme": "catppuccin-mocha",
   "workbench.preferredDarkColorTheme": "Decay",
   "workbench.preferredLightColorTheme": "Light Decay",
   "workbench.colorTheme": "Decay"
