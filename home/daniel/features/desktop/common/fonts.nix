@@ -20,6 +20,7 @@
   home.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" "Iosevka" "VictorMono" ]; })
     victor-mono
+    maple-mono
     inter
     cascadia-code
     ibm-plex

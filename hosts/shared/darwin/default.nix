@@ -1,9 +1,10 @@
-{ outputs, ... }: {
+{ inputs, outputs, lib, pkgs, ... }: {
   imports = [
     ./programs/yabai.nix
     ./programs/skhd.nix
     # ./programs/amethyst.nix
     ./programs/fish.nix
+    inputs.nekowinston-nur.darwinModules.default
     ./brew.nix
     ./nix.nix
   ];
@@ -13,7 +14,6 @@
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   programs.zsh.enable = true;
-
   security.pam.enableSudoTouchIdAuth = true;
 
   system.keyboard = {

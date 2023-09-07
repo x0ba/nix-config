@@ -1,10 +1,10 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.fish = {
     enable = true;
     shellAliases = with pkgs; {
       ":q" = "exit";
       git-rebase = "git rebase -i HEAD~2";
-      nvim = "${pkgs.neovim}/bin/nvim --startuptime /tmp/nvim-startuptime";
+      nvim = "${pkgs.neovim}/bin/nvim";
       cleanup = "sudo nix-collect-garbage --delete-older-than 7d";
       bloat = "nix path-info -Sh /run/current-system";
       g = "git";

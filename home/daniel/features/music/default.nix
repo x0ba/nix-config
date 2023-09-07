@@ -82,8 +82,6 @@ in
     ];
   };
 
-  services.discord-applemusic-rich-presence.enable = isDarwin;
-
   launchd.agents.mpd = {
     enable = true;
     config =

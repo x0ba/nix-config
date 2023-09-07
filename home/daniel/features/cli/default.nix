@@ -1,11 +1,11 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   imports = [
     ./lf.nix
     ./ranger.nix
     ./git.nix
+    ./fish.nix
     ./gpg.nix
     ./xdg.nix
-    ./bash.nix
     ./tmux.nix
     ./tools.nix
     ./neofetch.nix

@@ -19,46 +19,37 @@
         };
       in
       [
-        "firefox"
         "brave-browser"
-        "stats"
         "mullvad-browser"
         "iina"
+        "stats"
         "lulu"
-        "dozer"
+        "hiddenbar"
         "appcleaner"
         "skiff"
         "anki"
         "tor-browser"
         "macfuse"
-        "uninstallpkg"
         "keka"
         "syncthing"
         "gimp"
         "jetbrains-toolbox"
         "krita"
-        "signal"
         "raycast"
         "karabiner-elements"
         "whichspace"
-        "aldente"
         "shottr"
-        "onionshare"
         "bitwarden"
         "linearmouse"
         "veracrypt"
         "obsidian"
-        "neovide"
         "discord"
         "calibre"
-        (skipSha "element")
-        (noQuarantine "librewolf")
-        (skipSha "megasync")
-        (skipSha "spotify")
+        "ticktick"
 
         # Drivers
         "wacom-tablet"
       ];
-    taps = [ "homebrew/services" "homebrew/cask" ];
+    taps = [ "homebrew/services" "homebrew/cask" "nextfire/tap" ];
   };
 }

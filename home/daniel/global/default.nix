@@ -35,9 +35,9 @@
         };
         nekowinston-nur = import inputs.nekowinston-nur { inherit (prev) pkgs; };
         caarlos0-nur = import inputs.caarlos0-nur { inherit (prev) pkgs; };
-        nix-vscode-extensions = inputs.nix-vscode-extensions.extensions.${prev.system};
       })
       inputs.nekowinston-nur.overlays.default
+      inputs.nix-vscode-extensions.overlays.default
     ];
 
     # Configure your nixpkgs instance

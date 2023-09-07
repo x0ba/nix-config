@@ -33,27 +33,7 @@ in
 
     envExtra = ''
       export LESSHISTFILE="${config.xdg.dataHome}"/less/history
-      export FZF_DEFAULT_OPTS="
-        $FZF_DEFAULT_OPTS
-        --color='border:#161B20,preview-bg:#161B20'
-        --color='scrollbar:#24292E,gutter:#161B20'
-        --color='bg+:#24292E,fg+:#D4D4D5,spinner:#79DCAA'
-        --color='pointer:#C397D8,marker:#F87070'
-        --color='info:#70C0BA,bg:#11161B'
-        --scrollbar='░'
-        --border='none'
-        --separator='▓'
-        --marker=' '
-        --ellipsis='… '
-        --prompt='  '
-        --pointer=' λ'
-        --layout=reverse
-        --bind='ctrl-v:execute($EDITOR {}),shift-up:preview-page-up,shift-down:preview-page-down'
-        --cycle
-        --height=40"
-
       export FZF_DEFAULT_COMMAND="fd . --max-depth=1 --hidden"
-
       export SUDO_PROMPT=$'Password for ->\033[32;05;16m %u\033[0m  '
       export ANDROID_HOME="${config.xdg.dataHome}"/android
       export DOCKER_CONFIG="${config.xdg.dataHome}"/docker
@@ -63,76 +43,64 @@ in
       export ZVM_CURSOR_BLINKING_BEAM="1"
     '';
 
-    initExtra = with theme.colors; let
-      functionsDir = "${config.home.homeDirectory}/${config.programs.zsh.dotDir}/functions";
-    in
-    ''
-      if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-        source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-      fi
+    initExtra = with theme.colors;
+      ''
+        if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+          source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+        fi
 
-      # PS1="%F{magenta}%n%f %F{blue}%~%f %F{red}\$%f "
+        setopt NO_NOMATCH
 
-      for script in "${functionsDir}"/**/*; do
-        source "$script"
-      done
+        set -k
+        setopt auto_cd
 
-      default_greeter
+        FZF_TAB_COMMAND=(
+              ${pkgs.fzf}/bin/fzf
+              --ansi
+              --expect='$continuous_trigger' # For continuous completion
+              --nth=2,3 --delimiter='\x00'  # Don't search prefix
+              --layout=reverse --height="''${FZF_TMUX_HEIGHT:=50%}"
+              --tiebreak=begin -m --bind=tab:down,btab:up,change:top,ctrl-space:toggle --cycle
+              '--query=$query'   # $query will be expanded to query string at runtime.
+              '--header-lines=$#headers' # $#headers will be expanded to lines of headers at runtime
+              )
 
-      setopt NO_NOMATCH
+        zstyle ':fzf-tab:*' command $FZF_TAB_COMMAND
+        zstyle ':fzf-tab:*' switch-group ',' '.'
+        zstyle ':fzf-tab:complete:_zlua:*' query-string input
+        zstyle ':fzf-tab:complete:*:*' fzf-preview 'preview $realpath'
 
-      set -k
-      setopt auto_cd
+        ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp root line)
+        ZSH_HIGHLIGHT_MAXLENGTH=512
+        ZSH_AUTOSUGGEST_USE_ASYNC="true"
 
-      ZVM_CURSOR_STYLE_ENABLED=false
+        any-nix-shell zsh --info-right | source /dev/stdin
 
-      FZF_TAB_COMMAND=(
-            ${pkgs.fzf}/bin/fzf
-            --ansi
-            --expect='$continuous_trigger' # For continuous completion
-            --nth=2,3 --delimiter='\x00'  # Don't search prefix
-            --layout=reverse --height="''${FZF_TMUX_HEIGHT:=50%}"
-            --tiebreak=begin -m --bind=tab:down,btab:up,change:top,ctrl-space:toggle --cycle
-            '--query=$query'   # $query will be expanded to query string at runtime.
-            '--header-lines=$#headers' # $#headers will be expanded to lines of headers at runtime
-            )
+        bindkey '^F' autosuggest-accept
+        bindkey -a 'F' history-incremental-pattern-search-forward
+        bindkey -a 'f' history-incremental-pattern-search-backward
+        bindkey -a 'k' history-substring-search-up
+        bindkey -a 'j' history-substring-search-down
+        bindkey '^[[A' history-substring-search-up
+        bindkey '^[[B' history-substring-search-down
+        bindkey -s '^O' ' _____smooth_fzf^M'
+        bindkey -s '^P' _____toggle_right_prompt
+        bindkey -s '^Y' _____toggle_left_prompt
 
-      zstyle ':fzf-tab:*' command $FZF_TAB_COMMAND
-      zstyle ':fzf-tab:*' switch-group ',' '.'
-      zstyle ':fzf-tab:complete:_zlua:*' query-string input
-      zstyle ':fzf-tab:complete:*:*' fzf-preview 'preview $realpath'
+        bindkey '^?' backward-delete-char
+        bindkey '^H' backward-delete-char
+        bindkey '^U' backward-kill-line
 
-      ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp root line)
-      ZSH_HIGHLIGHT_MAXLENGTH=512
-      ZSH_AUTOSUGGEST_USE_ASYNC="true"
+        umask 022
+        zmodload zsh/zle
+        zmodload zsh/zpty
+        zmodload zsh/complist
 
-      any-nix-shell zsh --info-right | source /dev/stdin
+        autoload -Uz colors
+        autoload -U compinit
+        colors
 
-      bindkey '^F' autosuggest-accept
-      bindkey -a 'F' history-incremental-pattern-search-forward
-      bindkey -a 'f' history-incremental-pattern-search-backward
-      bindkey -a 'k' history-substring-search-up
-      bindkey -a 'j' history-substring-search-down
-      bindkey '^[[A' history-substring-search-up
-      bindkey '^[[B' history-substring-search-down
-      bindkey -s '^O' ' _____smooth_fzf^M'
-      bindkey -s '^P' _____toggle_right_prompt
-      bindkey -s '^Y' _____toggle_left_prompt
-
-      bindkey '^?' backward-delete-char
-      bindkey '^H' backward-delete-char
-      bindkey '^U' backward-kill-line
-
-      umask 022
-      zmodload zsh/zle
-      zmodload zsh/zpty
-      zmodload zsh/complist
-
-      autoload -Uz colors
-      autoload -U compinit
-      colors
-
-    '';
+      '';
 
     shellAliases = {
       cleanup = "sudo nix-collect-garbage --delete-older-than 7d";
@@ -192,7 +160,4 @@ in
     ]);
   };
 
-  xdg.configFile = {
-    "zsh/functions" = symlink "config/zsh/functions" { recursive = true; };
-  };
 }
