@@ -64,6 +64,11 @@ require('lazy').setup({
     event = { "BufRead" },
   },
   {
+    'tpope/vim-fugitive',
+    lazy = true,
+    cmd = {"Git", "G"},
+  },
+  {
     'NeogitOrg/neogit',
     lazy = true,
     cmd = { "Neogit" },
