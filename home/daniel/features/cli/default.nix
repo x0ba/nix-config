@@ -9,6 +9,7 @@
     ./tools.nix
     ./pfetch.nix
     ./newsboat.nix
+    ./starship.nix
     ./zsh.nix
   ];
   home.packages = with pkgs; [

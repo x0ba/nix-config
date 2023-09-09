@@ -10,11 +10,11 @@
       split_ratio = "0.50";
       window_origin_display = "default";
       window_placement = "second_child";
-      window_gap = 10;
-      top_padding = 10;
-      bottom_padding = 10;
-      left_padding = 10;
-      right_padding = 10;
+      window_gap = 07;
+      top_padding = 07;
+      bottom_padding = 07;
+      left_padding = 07;
+      right_padding = 07;
       window_shadow = "off";
       window_border = "off";
       window_border_blur = "on";
