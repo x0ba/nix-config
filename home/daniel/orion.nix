@@ -4,6 +4,7 @@
     ./global
     ./features/desktop/common
     ./features/term/alacritty.nix
+    ./features/lite-xl
     ./features/term/wezterm.nix
     ./features/pass
     ./features/desktop/yabai
