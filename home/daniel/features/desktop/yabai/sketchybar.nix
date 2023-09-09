@@ -1,7 +1,6 @@
-{
-  config,
-  flakePath,
-  ...
+{ config
+, flakePath
+, ...
 }: {
   xdg.configFile."sketchybar" = {
     source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/config/sketchybar";

@@ -2,7 +2,6 @@
   imports = [
     ./lf.nix
     ./git.nix
-    ./starship.nix
     ./fish.nix
     ./gpg.nix
     ./xdg.nix

@@ -39,14 +39,19 @@ in
     '';
 
     initExtra = with theme.colors; ''
-      # if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-      #   source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-      # fi
+      if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+        source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+      fi
 
       setopt NO_NOMATCH
 
       set -k
       setopt auto_cd
+
+        export FZF_DEFAULT_OPTS='
+        --color fg:#${base06},bg:#${base00},hl:#${base04},fg+:#${base07},bg+:#${base00},hl+:#${base04},border:#${base03}
+      --color pointer:#${base08},info:#${base03},spinner:#${base03},header:#${base03},prompt:#${base0B},marker:#${base0B}
+      '
 
       FZF_TAB_COMMAND=(
             ${pkgs.fzf}/bin/fzf
@@ -109,20 +114,19 @@ in
       nv = "${pkgs.neovim}/bin/nvim";
       fcd = "cd $(find -type d | fzf)";
       rm = "${pkgs.trash-cli}/bin/trash-put";
-      cat = "${pkgs.bat}/bin/bat --style=plain";
     };
 
     plugins = with pkgs; (zshPlugins [
-      # {
-      #   name = "powerlevel10k";
-      #   src = zsh-powerlevel10k;
-      #   file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      # }
-      # {
-      #   name = "powerlevel10k-config";
-      #   src = lib.cleanSource ./powerlevel;
-      #   file = "powerlevel.zsh";
-      # }
+      {
+        name = "powerlevel10k";
+        src = zsh-powerlevel10k;
+        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      }
+      {
+        name = "powerlevel10k-config";
+        src = lib.cleanSource ./powerlevel;
+        file = "powerlevel.zsh";
+      }
       {
         src = zsh-fast-syntax-highlighting.overrideAttrs (_old: {
           src = fetchFromGitHub {

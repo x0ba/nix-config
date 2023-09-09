@@ -9,10 +9,6 @@
     };
     casks =
       let
-        skipSha = name: {
-          inherit name;
-          args = { require_sha = false; };
-        };
         noQuarantine = name: {
           inherit name;
           args = { no_quarantine = true; };
@@ -20,7 +16,9 @@
       in
       [
         "brave-browser"
+        "signal"
         "firefox"
+        "1password"
         "mullvad-browser"
         "iina"
         "stats"

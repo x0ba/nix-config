@@ -1,9 +1,5 @@
-{
-  inputs,
-  outputs,
-  lib,
-  pkgs,
-  ...
+{ inputs
+, ...
 }: {
   imports = [
     ./programs/yabai.nix
@@ -17,6 +13,7 @@
 
   system.stateVersion = 4;
   services.nix-daemon.enable = true;
+  system.defaults.alf.stealthenabled = 1;
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   programs.zsh.enable = true;
@@ -27,7 +24,7 @@
     remapCapsLockToEscape = true;
   };
   system.defaults = {
-    screencapture = {location = "/tmp";};
+    screencapture = { location = "/tmp"; };
 
     dock = {
       autohide = true;

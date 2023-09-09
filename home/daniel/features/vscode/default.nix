@@ -16,6 +16,7 @@ in
     package = pkgs.vscode;
     extensions = with pkgs.vscode-marketplace; [
       decaycs.decay
+      monokai.theme-monokai-pro-vscode
       vscjava.vscode-java-pack
       github.copilot
       denoland.vscode-deno

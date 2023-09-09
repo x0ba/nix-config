@@ -1,0 +1,20 @@
+{
+    "workspace.library": [
+        "/Users/daniel/.cache/nvim/hotpot/compiled/nvim",
+        "/Users/daniel/.config/nvim",
+        "/Users/daniel/.local/share/nvim/site",
+        "/Users/daniel/.local/share/nvim/site/pack/packer/start/alpha-nvim",
+        "/Users/daniel/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+        "/Users/daniel/.local/share/nvim/site/pack/packer/start/hotpot.nvim",
+        "/Users/daniel/.local/share/nvim/site/pack/packer/start/leap.nvim",
+        "/Users/daniel/.local/share/nvim/site/pack/packer/start/oxocarbon.nvim",
+        "/Users/daniel/.local/share/nvim/site/pack/packer/start/vim-repeat",
+        "/Users/daniel/.local/share/nvim/site/pack/packer/opt/nvim-lspconfig",
+        "/Users/daniel/.local/share/nvim/site/pack/packer/opt/packer.nvim",
+        "/Users/daniel/.nix-profile/share/nvim/site",
+        "/nix/store/9c09xjdqkw10jbjzn4nswcm15zpjs3kj-neovim-unwrapped-0.9.1/share/nvim/runtime",
+        "/nix/store/9c09xjdqkw10jbjzn4nswcm15zpjs3kj-neovim-unwrapped-0.9.1/lib/nvim",
+        "/Users/daniel/.config/nvim/after",
+        "${3rd}/luv/library"
+    ]
+}

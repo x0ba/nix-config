@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: let
-  inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
+  inherit (pkgs.stdenv.hostPlatform) isLinux;
 in {
   programs.mpv.enable = isLinux;
   xdg.mimeApps.defaultApplications = {

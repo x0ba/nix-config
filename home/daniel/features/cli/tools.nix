@@ -1,4 +1,11 @@
-{config, ...}: {
+{ config, flakePath, ... }:
+let
+  symlink = fileName: { recursive ? false }: {
+    source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/${fileName}";
+    recursive = recursive;
+  };
+in
+{
   programs = {
     btop = {
       enable = true;
@@ -27,7 +34,7 @@
     zoxide = {
       enable = true;
       enableZshIntegration = true;
-      options = ["--cmd cd"];
+      options = [ "--cmd cd" ];
     };
 
     bat = {
@@ -44,9 +51,11 @@
       nix-direnv.enable = true;
     };
 
-    exa = {
+    lsd = {
       enable = true;
       enableAliases = true;
     };
   };
+
+  xdg.configFile."lsd" = symlink "config/lsd" { recursive = true; };
 }
