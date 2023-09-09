@@ -13,10 +13,15 @@ require('lazy').setup({
     },
   },
   {
-    'goolord/alpha-nvim',
-    config = function()
-      require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
-    end
+    'windwp/nvim-ts-autotag',
+    event = "InsertEnter",
+    lazy = true
+  },
+  {
+    "Shatur/neovim-session-manager",
+    lazy = true,
+    cmd = "SessionManager",
+    opts = { autoload_mode = "CurrentDir" },
   },
   {
     'folke/neodev.nvim',
@@ -34,6 +39,12 @@ require('lazy').setup({
     lazy = true,
     event = "BufReadPost",
     config = function() require("plugs.ui.bufferline") end
+  },
+  {
+    'NvChad/nvim-colorizer.lua',
+    event = 'BufRead',
+    config = function() require('plugs.ui.colorizer') end,
+    lazy = true
   },
   {
     'kevinhwang91/nvim-ufo',
@@ -64,20 +75,18 @@ require('lazy').setup({
     event = { "BufRead" },
   },
   {
-    'tpope/vim-fugitive',
+    "tpope/vim-fugitive",
     lazy = true,
-    cmd = {"Git", "G"},
-  },
-  {
-    'NeogitOrg/neogit',
-    lazy = true,
-    cmd = { "Neogit" },
-    config = function() require('plugs.util.neogit') end
+    cmd = { "G", "Git" },
   },
   {
     "mbbill/undotree",
     lazy = true,
     cmd = { "UndotreeToggle" },
+  },
+  {
+    "goolord/alpha-nvim",
+    config = function() require("plugs.ui.alpha") end,
   },
   {
     "folke/flash.nvim",
@@ -102,20 +111,6 @@ require('lazy').setup({
         "Toggle Flash Search"
       },
     },
-  },
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    opts = {
-    },
-    dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      "MunifTanjim/nui.nvim",
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
-      "rcarriga/nvim-notify",
-    }
   },
   {
     "hrsh7th/nvim-cmp",
@@ -165,7 +160,12 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
+  {
+    "folke/which-key.nvim",
+    keys = { "<leader>", ' ', "'", "`" },
+    lazy = true,
+    opts = {},
+  },
   {
     "lewis6991/gitsigns.nvim",
     lazy = true,
@@ -192,6 +192,7 @@ require('lazy').setup({
   },
   {
     'nvim-lualine/lualine.nvim',
+    event = "VeryLazy",
     opts = {
       options = {
         icons_enabled = false,
@@ -207,6 +208,7 @@ require('lazy').setup({
       fast_wrap = {},
       disable_filetype = { "TelescopePrompt", "vim" },
     },
+
     event = "InsertEnter",
     lazy = true,
     config = function(_, opts)
@@ -230,7 +232,13 @@ require('lazy').setup({
     'nvim-telescope/telescope.nvim',
     cmd = "Telescope",
     lazy = true,
-    dependencies = { 'plenary.nvim' },
+    dependencies = {
+      { "plenary.nvim" },
+      { "nvim-tree/nvim-web-devicons" },
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+      { "nvim-telescope/telescope-project.nvim" },
+      { "nvim-telescope/telescope-ui-select.nvim" },
+    },
     config = function() require('plugs.util.telescope') end
   },
   {
@@ -239,14 +247,12 @@ require('lazy').setup({
     config = function() require('plugs.ui.devicons') end,
     lazy = true,
   },
-
   {
     'stevearc/oil.nvim',
     opts = {},
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function() require('plugs.util.oil') end
   },
-
   {
     'nvim-treesitter/nvim-treesitter',
     run = ":TSUpdate",

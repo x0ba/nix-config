@@ -13,7 +13,7 @@ map('n', '<C-f>', ':lua vim.lsp.buf.format()<CR>', { noremap = true, silent = tr
 
 -- why no default split keys :sob:
 map("n", "<Leader>wv", ":vsplit<CR>", { silent = true })
-map("n", "<Leader>hv", ":split<CR>", { silent = true })
+map("n", "<Leader>wh", ":split<CR>", { silent = true })
 
 -- neogit
 map("n", "<Leader>gg", ":Neogit<CR>", { silent = true })
@@ -33,3 +33,6 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
+-- folds
+map('n', 'zR', ':lua require("ufo").openAllFolds<CR>', { noremap = true, silent = true })
+map('n', 'zM', ':lua require("ufo").closeAllFolds<CR>', { noremap = true, silent = true })
