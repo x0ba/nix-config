@@ -46,12 +46,12 @@ end
 
 local servers = {
   -- clangd = {},
-  -- gopls = {},
+  gopls = {},
   -- pyright = {},
-  -- rust_analyzer = {},
+  rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-
+  nil_ls = {},
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },

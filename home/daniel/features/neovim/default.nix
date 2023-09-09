@@ -17,10 +17,14 @@
   home.packages = with pkgs; [
     # Dev tools
     alejandra
+    go
     asmfmt
+    sccache
+    cargo
     black
     delve
     elixir_ls
+    rustc
     gawk
     go
     stylua

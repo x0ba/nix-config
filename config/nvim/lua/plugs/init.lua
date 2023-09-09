@@ -3,16 +3,20 @@ require('lazy').setup({
   'christoomey/vim-tmux-navigator',
   {
     'neovim/nvim-lspconfig',
+    event = { "BufReadPost", "BufNewFile" },
+    lazy = true,
+    cmd = { "LspInfo", "LspInstall", "LspUninstall", "LspStart" },
     dependencies = {
-      -- Automatically install LSPs to stdpath for neovim
       { 'williamboman/mason.nvim', config = true },
       'williamboman/mason-lspconfig.nvim',
-      { 'j-hui/fidget.nvim', tag = 'legacy', opts = {} },
+      { 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
     },
   },
   {
-    'echasnovski/mini.starter',
-    config = function() require('plugs.ui.dash') end
+    'goolord/alpha-nvim',
+    config = function()
+      require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
+    end
   },
   {
     'folke/neodev.nvim',
@@ -44,6 +48,16 @@ require('lazy').setup({
     cmd = "ToggleTerm",
   },
   {
+    "glepnir/lspsaga.nvim",
+    event = "LspAttach",
+    config = function() require("plugs.lsp.saga") end,
+    dependencies = {
+      { "nvim-tree/nvim-web-devicons" },
+      --Please make sure you install markdown and markdown_inline parser
+      { "nvim-treesitter/nvim-treesitter" }
+    }
+  },
+  {
     "lukas-reineke/indent-blankline.nvim",
     lazy = true,
     config = function() require('plugs.ui.indentlines') end,
@@ -52,7 +66,7 @@ require('lazy').setup({
   {
     'NeogitOrg/neogit',
     lazy = true,
-    cmd = {"Neogit"},
+    cmd = { "Neogit" },
     config = function() require('plugs.util.neogit') end
   },
   {
@@ -63,16 +77,40 @@ require('lazy').setup({
   {
     "folke/flash.nvim",
     event = "VeryLazy",
-    ---@type Flash.Config
     opts = {},
-    -- stylua: ignore
     keys = {
-      { "s", mode = { "n", "o", "x" }, function() require("flash").jump() end, desc = "Flash" },
+      { "s", mode = { "n", "o", "x" }, function() require("flash").jump() end,       desc = "Flash" },
       { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-      { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+      { "r", mode = "o",               function() require("flash").remote() end,     desc = "Remote Flash" },
+      {
+        "R",
+        mode = { "o", "x" },
+        function() require("flash").treesitter_search() end,
+        desc =
+        "Treesitter Search"
+      },
+      {
+        "<c-s>",
+        mode = { "c" },
+        function() require("flash").toggle() end,
+        desc =
+        "Toggle Flash Search"
+      },
     },
+  },
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = {
+    },
+    dependencies = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+    }
   },
   {
     "hrsh7th/nvim-cmp",
@@ -124,44 +162,29 @@ require('lazy').setup({
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },
   {
-    -- Adds git related signs to the gutter, as well as utilities for managing changes
-    'lewis6991/gitsigns.nvim',
-    opts = {
-      -- See `:help gitsigns.txt`
-      signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
-        changedelete = { text = '~' },
-      },
-      on_attach = function(bufnr)
-        vim.keymap.set('n', '<leader>hp', require('gitsigns').preview_hunk, { buffer = bufnr, desc = 'Preview git hunk' })
-
-        -- don't override the built-in and fugitive keymaps
-        local gs = package.loaded.gitsigns
-        vim.keymap.set({'n', 'v'}, ']c', function()
-          if vim.wo.diff then return ']c' end
-          vim.schedule(function() gs.next_hunk() end)
-          return '<Ignore>'
-        end, {expr=true, buffer = bufnr, desc = "Jump to next hunk"})
-        vim.keymap.set({'n', 'v'}, '[c', function()
-          if vim.wo.diff then return '[c' end
-          vim.schedule(function() gs.prev_hunk() end)
-          return '<Ignore>'
-        end, {expr=true, buffer = bufnr, desc = "Jump to previous hunk"})
-      end,
-    },
-  },
-
-  {
-    'notken12/base46-colors',
-    priority = 1000,
+    "lewis6991/gitsigns.nvim",
+    lazy = true,
+    event = { "BufRead" },
     config = function()
-      vim.cmd.colorscheme 'yoru'
-    end,
+      require('gitsigns').setup {
+        signs = {
+          add          = { hl = 'GitSignsAdd', text = '│', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
+          change       = { hl = 'GitSignsChange', text = '│', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
+          delete       = { hl = 'GitSignsDelete', text = '_', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
+          topdelete    = { hl = 'GitSignsDelete', text = '‾', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
+          changedelete = { hl = 'GitSignsChange', text = '~', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
+          untracked    = { hl = 'GitSignsAdd', text = '│', numhl = 'GitSignsAddNr', linehl = 'GitSignsDeleteLn' },
+        },
+      }
+    end
   },
-
+  {
+    'nyoom-engineering/oxocarbon.nvim',
+    config = function()
+      vim.opt.background = "dark" -- set this to dark or light
+      vim.cmd.colorscheme "oxocarbon"
+    end
+  },
   {
     'nvim-lualine/lualine.nvim',
     opts = {
@@ -173,30 +196,31 @@ require('lazy').setup({
       },
     },
   },
-
-{
-   "windwp/nvim-autopairs",
-   opts = {
-     fast_wrap = {},
-     disable_filetype = { "TelescopePrompt", "vim" },
-   },
-   event = "InsertEnter",
-   lazy = true,
-   config = function(_, opts)
-     require("nvim-autopairs").setup(opts)
-     local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-     require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
-   end,
- },
-
+  {
+    "windwp/nvim-autopairs",
+    opts = {
+      fast_wrap = {},
+      disable_filetype = { "TelescopePrompt", "vim" },
+    },
+    event = "InsertEnter",
+    lazy = true,
+    config = function(_, opts)
+      require("nvim-autopairs").setup(opts)
+      local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+      require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
+    end,
+  },
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
-
+  {
+    'numToStr/Comment.nvim',
+    opts = {},
+    lazy = true,
+    event = { "BufRead" },
+  },
   {
     'nvim-lua/plenary.nvim',
     lazy = true,
   },
-
   {
     'nvim-telescope/telescope.nvim',
     cmd = "Telescope",
@@ -204,7 +228,6 @@ require('lazy').setup({
     dependencies = { 'plenary.nvim' },
     config = function() require('plugs.util.telescope') end
   },
-
   {
     "nvim-tree/nvim-web-devicons",
     event = 'BufRead',
@@ -215,7 +238,6 @@ require('lazy').setup({
   {
     'stevearc/oil.nvim',
     opts = {},
-    -- Optional dependencies
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function() require('plugs.util.oil') end
   },

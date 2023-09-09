@@ -15,26 +15,26 @@
     ++ (builtins.attrValues outputs.homeManagerModules);
 
   colorScheme = {
-    slug = "yoru";
-    name = "Yoru";
-    author = "rxyhn";
+    slug = "oxocarbon";
+    name = "Oxocarbon";
+    author = "Nyoom Engineering";
     colors = {
-      base00 = "#0c0e0f";
-      base01 = "#121415";
-      base02 = "#161819";
-      base03 = "#1f2122";
-      base04 = "#27292a";
-      base05 = "#edeff0";
-      base06 = "#e4e6e7";
-      base07 = "#f2f4f5";
-      base08 = "#f26e74";
-      base09 = "#ecd28b";
-      base0A = "#e79881";
-      base0B = "#82c29c";
-      base0C = "#6791C9";
-      base0D = "#709ad2";
-      base0E = "#c58cec";
-      base0F = "#e8646a";
+      base00= "161616";
+      base01= "262626";
+      base02= "393939";
+      base03= "525252";
+      base04= "dde1e6";
+      base05= "f2f4f8";
+      base06= "ffffff";
+      base07= "08bdba";
+      base08= "3ddbd9";
+      base09= "78a9ff";
+      base0A= "ee5396";
+      base0B= "33b1ff";
+      base0C= "ff7eb6";
+      base0D= "42be65";
+      base0E= "be95ff";
+      base0F= "82cfff";
     };
   };
 
