@@ -1,18 +1,18 @@
 local alpha = require("alpha")
 local dashboard = require("alpha.themes.dashboard")
 dashboard.section.header.val = {
-"";
-"";
-"";
-"";
-"                                              ";
-"       ███████████           █████      ██";
-"      ███████████             █████ ";
-"      ████████████████ ███████████ ███   ███████";
-"     ████████████████ ████████████ █████ ██████████████";
-"    ██████████████    █████████████ █████ █████ ████ █████";
-"  ██████████████████████████████████ █████ █████ ████ █████";
-" ██████  ███ █████████████████ ████ █████ █████ ████ ██████";
+  "",
+  "",
+  "",
+  "",
+  "                                              ",
+  "       ███████████           █████      ██",
+  "      ███████████             █████ ",
+  "      ████████████████ ███████████ ███   ███████",
+  "     ████████████████ ████████████ █████ ██████████████",
+  "    ██████████████    █████████████ █████ █████ ████ █████",
+  "  ██████████████████████████████████ █████ █████ ████ █████",
+  " ██████  ███ █████████████████ ████ █████ █████ ████ ██████",
 }
 dashboard.section.buttons.val = {
   dashboard.button("n", "  New file", ":ene <bar> startinsert <cr>"),
@@ -36,13 +36,13 @@ dashboard.section.buttons.val = {
 }
 local version = vim.version()
 dashboard.section.footer.val = "neovim v"
-  .. version.major
-  .. "."
-  .. version.minor
-  .. "."
-  .. version.patch
-  .. "      "
-  .. require("lazy").stats().count
-  .. " plugins"
+    .. version.major
+    .. "."
+    .. version.minor
+    .. "."
+    .. version.patch
+    .. "      "
+    .. require("lazy").stats().count
+    .. " plugins"
 dashboard.config.opts.noautocmd = true
 alpha.setup(dashboard.config)

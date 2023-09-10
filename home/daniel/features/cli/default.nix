@@ -5,6 +5,7 @@
     ./fish.nix
     ./gpg.nix
     ./xdg.nix
+    ./zellij.nix
     ./tmux.nix
     ./tools.nix
     ./pfetch.nix
@@ -13,7 +14,6 @@
   ];
   home.packages = with pkgs; [
     trash-cli
-    zellij
     git-lfs
     ranger
     gopass

@@ -15,9 +15,9 @@ in
     package = pkgs.lib.mkIf isDarwin (pkgs.writeScriptBin "__dummy-firefox" "");
     profiles.default = {
       search = {
-        default = "Searx";
+        default = "Startpage";
         engines = {
-          "Searx".urls = [{ template = "https://search.projectsegfau.lt/search?q={searchTerms}"; }];
+          "Startpage".urls = [{ template = "https://www.startpage.com/sp/search?query={searchTerms}"; }];
         };
         force = true;
       };

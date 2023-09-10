@@ -18,6 +18,10 @@ require('lazy').setup({
     lazy = true
   },
   {
+    'dharmx-lua/track.nvim',
+    event = "VeryLazy",
+  },
+  {
     "Shatur/neovim-session-manager",
     lazy = true,
     cmd = "SessionManager",

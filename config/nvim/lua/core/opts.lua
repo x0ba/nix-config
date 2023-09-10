@@ -5,6 +5,17 @@
 -- Set highlight on search
 vim.o.hlsearch = false
 
+-- Turn off line wraps
+vim.opt.wrap = false
+
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = os.getenv("HOME") .. "/.local/share/nvim/undodir"
+vim.opt.undofile = true
+
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+
 -- Make line numbers default
 vim.wo.number = true
 vim.wo.relativenumber = true
