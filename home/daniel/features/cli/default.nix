@@ -13,6 +13,7 @@
   ];
   home.packages = with pkgs; [
     trash-cli
+    zellij
     git-lfs
     ranger
     gopass

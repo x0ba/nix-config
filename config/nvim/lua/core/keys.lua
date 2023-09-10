@@ -25,7 +25,6 @@ map("n", "<Leader>t", ":ToggleTerm<CR>", { silent = true })
 -- bufferline
 map("n", "<tab>", ":BufferLineCycleNext<CR>", { silent = true })
 map("n", "<C-tab>", ":BufferLineCyclePrev<CR>", { silent = true })
-map("n", "<C-x>", ":BufferLineCloseLeft<CR>", { silent = true })
 
 -- diagnostics
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
