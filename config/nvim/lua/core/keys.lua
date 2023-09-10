@@ -26,6 +26,9 @@ map("n", "<Leader>wh", ":split<CR>", { silent = true })
 -- fugitive
 map("n", "<Leader>gs", ":Git<CR>", { silent = true })
 
+vim.keymap.set({ 'n', 'v' }, '<leader>hs', ':Gitsigns stage_hunk<CR>')
+vim.keymap.set({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<CR>')
+
 map("n", "<Leader>u", ":UndotreeToggle<CR>", { silent = true })
 
 map("n", "<Leader>t", ":ToggleTerm<CR>", { silent = true })
