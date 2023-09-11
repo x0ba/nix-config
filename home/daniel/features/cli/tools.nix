@@ -1,11 +1,13 @@
-{ config, flakePath, ... }:
-let
-  symlink = fileName: { recursive ? false }: {
+{
+  config,
+  flakePath,
+  ...
+}: let
+  symlink = fileName: {recursive ? false}: {
     source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/${fileName}";
     recursive = recursive;
   };
-in
-{
+in {
   programs = {
     btop = {
       enable = true;
@@ -34,17 +36,10 @@ in
     zoxide = {
       enable = true;
       enableZshIntegration = true;
-      options = [ "--cmd cd" ];
+      options = ["--cmd cd"];
     };
 
-    bat = {
-      enable = true;
-      config = {
-        pager = "never";
-        style = "plain";
-        theme = "base16";
-      };
-    };
+    bat.enable = true;
 
     direnv = {
       enable = true;
@@ -57,5 +52,5 @@ in
     };
   };
 
-  xdg.configFile."lsd" = symlink "config/lsd" { recursive = true; };
+  xdg.configFile."lsd" = symlink "config/lsd" {recursive = true;};
 }

@@ -2,6 +2,10 @@ require("plugs.strap")
 require('lazy').setup({
   'christoomey/vim-tmux-navigator',
   {
+    "RRethy/vim-illuminate",
+    event = { "InsertEnter", "CursorMoved" },
+  },
+  {
     'neovim/nvim-lspconfig',
     event = { "BufReadPost", "BufNewFile" },
     lazy = true,
@@ -16,6 +20,17 @@ require('lazy').setup({
     'windwp/nvim-ts-autotag',
     event = "InsertEnter",
     lazy = true
+  },
+  {
+    "max397574/better-escape.nvim",
+    opts = {
+      mapping = { "jk", "jj" },
+      timeout = vim.o.timeoutlen,
+      clear_empty_lines = false,
+      keys = "<Esc>",
+    },
+    lazy = true,
+    event = { "CmdlineEnter", "InsertEnter", "CursorHold", "CursorMoved" },
   },
   {
     'dharmx-lua/track.nvim',

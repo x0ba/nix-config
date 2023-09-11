@@ -1,9 +1,9 @@
-{ config
-, pkgs
-, lib
-, ...
-}:
-let
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
   theme = config.colorScheme;
   zshPlugins = plugins: (map
     (plugin: rec {
@@ -11,8 +11,7 @@ let
       inherit (plugin) file src;
     })
     plugins);
-in
-{
+in {
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -111,6 +110,7 @@ in
       m = "mkdir -p";
       push = "git push";
       pull = "git pull";
+      cat = "${pkgs.bat}/bin/bat";
       nv = "${pkgs.neovim}/bin/nvim";
       fcd = "cd $(find -type d | fzf)";
       rm = "${pkgs.trash-cli}/bin/trash-put";

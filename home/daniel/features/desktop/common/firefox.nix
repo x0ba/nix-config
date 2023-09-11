@@ -1,13 +1,12 @@
-{ lib
-, pkgs
-, config
-, ...
-}:
-let
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}: let
   inherit (pkgs.stdenv.hostPlatform) isDarwin;
   theme = config.colorScheme;
-in
-{
+in {
   programs.firefox = {
     enable = true;
     # since I'm using firefox from brew on darwin, I need to build a dummy package
@@ -17,7 +16,7 @@ in
       search = {
         default = "Startpage";
         engines = {
-          "Startpage".urls = [{ template = "https://www.startpage.com/sp/search?query={searchTerms}"; }];
+          "Startpage".urls = [{template = "https://www.startpage.com/sp/search?query={searchTerms}";}];
         };
         force = true;
       };

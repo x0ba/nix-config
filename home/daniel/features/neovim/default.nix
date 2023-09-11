@@ -18,6 +18,7 @@
     # Dev tools
     alejandra
     go
+    neovide
     asmfmt
     sccache
     cargo
@@ -49,7 +50,6 @@
     marksman
     sumneko-lua-language-server
     texlab
-    rnix-lsp
     uncrustify
     nixpkgs-fmt
     zls

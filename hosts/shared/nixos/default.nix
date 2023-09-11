@@ -85,7 +85,6 @@
         ripgrep
         unrar
         unzip
-        vim
         wget
         wirelesstools
         xarchiver

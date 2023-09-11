@@ -18,7 +18,7 @@
       '';
   };
   home.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "Iosevka" "VictorMono"];})
+    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "Iosevka" "JetBrainsMono"];})
     victor-mono
     maple-mono
     inter

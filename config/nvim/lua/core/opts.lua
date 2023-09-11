@@ -8,6 +8,12 @@ vim.o.hlsearch = false
 -- Turn off line wraps
 vim.opt.wrap = false
 
+-- 8 space tabs vim what are you doing
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.local/share/nvim/undodir"

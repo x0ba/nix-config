@@ -1,6 +1,4 @@
-{ inputs
-, ...
-}: {
+{inputs, ...}: {
   imports = [
     ./programs/yabai.nix
     ./programs/skhd.nix
@@ -21,10 +19,10 @@
 
   system.keyboard = {
     enableKeyMapping = true;
-    remapCapsLockToEscape = true;
+    # remapCapsLockToControl = true;
   };
   system.defaults = {
-    screencapture = { location = "/tmp"; };
+    screencapture = {location = "/tmp";};
 
     dock = {
       autohide = true;
