@@ -1,4 +1,6 @@
-{
+{config, ...}: {
+
+ environment.systemPath = [config.homebrew.brewPrefix];
   homebrew = {
     enable = true;
     caskArgs.require_sha = true;
@@ -12,13 +14,16 @@
         inherit name;
         args = {no_quarantine = true;};
       };
+      skipSha = name: {
+        inherit name;
+        args = {require_sha = false;};
+      };
     in [
       "brave-browser"
       "ticktick"
       "signal"
       "firefox"
       "mullvad-browser"
-      "megasync"
       "obs"
       "iina"
       "stats"
@@ -26,7 +31,9 @@
       "hiddenbar"
       "appcleaner"
       "skiff"
+      "1password"
       "anki"
+      "morgen"
       "tor-browser"
       "macfuse"
       "keka"
@@ -45,6 +52,7 @@
       "discord"
       "calibre"
       (noQuarantine "librewolf")
+      (skipSha "megasync")
 
       # Drivers
       "wacom-tablet"

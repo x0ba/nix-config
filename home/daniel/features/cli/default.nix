@@ -5,7 +5,6 @@
     ./fish.nix
     ./gpg.nix
     ./xdg.nix
-    ./zellij.nix
     ./tmux.nix
     ./tools.nix
     ./pfetch.nix

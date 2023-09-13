@@ -22,9 +22,9 @@ in {
       };
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         multi-account-containers
+        onepassword-password-manager
         ublock-origin
         decentraleyes
-        bitwarden
         vimium
       ];
       userChrome = import ./userchrome.nix {

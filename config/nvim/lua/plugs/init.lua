@@ -3,6 +3,7 @@ require('lazy').setup({
   'christoomey/vim-tmux-navigator',
   {
     "RRethy/vim-illuminate",
+    config = function() require("plugs.ui.illuminate") end,
     event = { "InsertEnter", "CursorMoved" },
   },
   {
@@ -13,7 +14,7 @@ require('lazy').setup({
     dependencies = {
       { 'williamboman/mason.nvim', config = true },
       'williamboman/mason-lspconfig.nvim',
-      { 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
+      -- { 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
     },
   },
   {
@@ -210,16 +211,9 @@ require('lazy').setup({
     end
   },
   {
-    'nvim-lualine/lualine.nvim',
+    'famiu/feline.nvim',
+    config = function() require("plugs.ui.feline") end,
     event = "VeryLazy",
-    opts = {
-      options = {
-        icons_enabled = false,
-        theme = 'auto',
-        component_separators = '|',
-        section_separators = '',
-      },
-    },
   },
   {
     "windwp/nvim-autopairs",
@@ -267,11 +261,17 @@ require('lazy').setup({
     lazy = true,
   },
   {
-    'stevearc/oil.nvim',
-    opts = {},
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function() require('plugs.util.oil') end
+    'kyazdani42/nvim-tree.lua',
+    lazy = true,
+    cmd = "NvimTreeToggle",
+    config = function() require('plugs.util.nvim-tree') end
   },
+  -- {
+  --   'stevearc/oil.nvim',
+  --   opts = {},
+  --   dependencies = { "nvim-tree/nvim-web-devicons" },
+  --   config = function() require('plugs.util.oil') end
+  -- },
   {
     'nvim-treesitter/nvim-treesitter',
     run = ":TSUpdate",

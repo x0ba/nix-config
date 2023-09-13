@@ -19,6 +19,7 @@
   };
   home.packages = with pkgs; [
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "Iosevka" "JetBrainsMono"];})
+    intel-one-mono
     victor-mono
     maple-mono
     inter
