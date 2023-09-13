@@ -1,6 +1,5 @@
 {config, ...}: {
-
- environment.systemPath = [config.homebrew.brewPrefix];
+  environment.systemPath = [config.homebrew.brewPrefix];
   homebrew = {
     enable = true;
     caskArgs.require_sha = true;
@@ -33,7 +32,6 @@
       "skiff"
       "1password"
       "anki"
-      "morgen"
       "tor-browser"
       "macfuse"
       "keka"
