@@ -1,5 +1,5 @@
 {
-  description = "A galactic nix flake.";
+  description = "x0ba's nix config";
 
   inputs = {
     # Nix Channels

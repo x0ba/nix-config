@@ -4,7 +4,8 @@ vim.g.maplocalleader = ' '
 local map = vim.api.nvim_set_keymap
 
 -- file trees are overrated
-map('n', '<C-b>', ':Oil<CR>', { noremap = true, silent = true })
+map('n', '<C-b>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- telescope mappings
 map('n', '<leader>ff', ':Telescope find_files<CR>', { noremap = true, silent = true })

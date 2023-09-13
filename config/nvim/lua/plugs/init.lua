@@ -266,12 +266,12 @@ require('lazy').setup({
     cmd = "NvimTreeToggle",
     config = function() require('plugs.util.nvim-tree') end
   },
-  -- {
-  --   'stevearc/oil.nvim',
-  --   opts = {},
-  --   dependencies = { "nvim-tree/nvim-web-devicons" },
-  --   config = function() require('plugs.util.oil') end
-  -- },
+  {
+    'stevearc/oil.nvim',
+    opts = {},
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function() require('plugs.util.oil') end
+  },
   {
     'nvim-treesitter/nvim-treesitter',
     run = ":TSUpdate",
