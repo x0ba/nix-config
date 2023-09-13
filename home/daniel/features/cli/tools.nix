@@ -1,13 +1,9 @@
 {
   config,
+  pkgs,
   flakePath,
   ...
-}: let
-  symlink = fileName: {recursive ? false}: {
-    source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/${fileName}";
-    recursive = recursive;
-  };
-in {
+}: {
   programs = {
     btop = {
       enable = true;
@@ -46,11 +42,18 @@ in {
       nix-direnv.enable = true;
     };
 
-    lsd = {
+    eza = {
       enable = true;
       enableAliases = true;
+      git = true;
+      icons = true;
+      extraOptions =
+        [
+  "--group-directories-first"
+  "--header"
+];
+
     };
   };
 
-  xdg.configFile."lsd" = symlink "config/lsd" {recursive = true;};
 }
