@@ -42,11 +42,6 @@ in {
         source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
       fi
 
-      setopt NO_NOMATCH
-
-      set -k
-      setopt auto_cd
-
         export FZF_DEFAULT_OPTS='
         --color fg:#${base06},bg:#${base00},hl:#${base04},fg+:#${base07},bg+:#${base00},hl+:#${base04},border:#${base03}
       --color pointer:#${base08},info:#${base03},spinner:#${base03},header:#${base03},prompt:#${base0B},marker:#${base0B}
@@ -72,15 +67,9 @@ in {
       ZSH_HIGHLIGHT_MAXLENGTH=512
       ZSH_AUTOSUGGEST_USE_ASYNC="true"
 
-      any-nix-shell zsh --info-right | source /dev/stdin
-
       bindkey '^F' autosuggest-accept
       bindkey -a 'F' history-incremental-pattern-search-forward
       bindkey -a 'f' history-incremental-pattern-search-backward
-      bindkey -a 'k' history-substring-search-up
-      bindkey -a 'j' history-substring-search-down
-      bindkey '^[[A' history-substring-search-up
-      bindkey '^[[B' history-substring-search-down
       bindkey -s '^O' ' _____smooth_fzf^M'
       bindkey -s '^P' _____toggle_right_prompt
       bindkey -s '^Y' _____toggle_left_prompt
@@ -104,6 +93,7 @@ in {
       cleanup = "sudo nix-collect-garbage --delete-older-than 7d";
       bloat = "nix path-info -Sh /run/current-system";
       g = "git";
+      tree = "${pkgs.eza}/bin/eza --tree";
       gaa = "git add .";
       cls = "clear";
       commit = "git add . && git commit -m";
@@ -137,11 +127,6 @@ in {
           };
         });
         file = "share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh";
-      }
-      {
-        name = "zsh-history-substring-search";
-        src = zsh-history-substring-search;
-        file = "share/zsh-history-substring-search/zsh-history-substring-search.zsh";
       }
       {
         src = zsh-vi-mode;

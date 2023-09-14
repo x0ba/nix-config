@@ -24,8 +24,8 @@ map('n', '<C-f>', ':lua vim.lsp.buf.format()<CR>', { noremap = true, silent = tr
 map("n", "<Leader>wv", ":vsplit<CR>", { silent = true })
 map("n", "<Leader>wh", ":split<CR>", { silent = true })
 
--- fugitive
-map("n", "<Leader>gs", ":Git<CR>", { silent = true })
+-- Neogit
+map("n", "<Leader>gs", ":Neogit<CR>", { silent = true })
 
 vim.keymap.set({ 'n', 'v' }, '<leader>hs', ':Gitsigns stage_hunk<CR>')
 vim.keymap.set({ 'n', 'v' }, '<leader>hr', ':Gitsigns reset_hunk<CR>')

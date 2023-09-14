@@ -14,7 +14,7 @@ Theme stolen and modified from (https://github.com/aadilayub/firefox-i3wm-theme)
     }
      @-moz-document url("about:newtab"), url("about:home") {
       body {
-        background-color: #${base01} !important;
+        background-color: #1f2122 !important;
       }
       .search-wrapper .logo-and-wordmark .logo {
         background-image: url("https://raw.githubusercontent.com/NixOS/nixos-artwork/master/logo/nixos-white.png") !important;

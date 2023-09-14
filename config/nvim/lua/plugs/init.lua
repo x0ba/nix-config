@@ -95,9 +95,10 @@ require('lazy').setup({
     event = { "BufRead" },
   },
   {
-    "tpope/vim-fugitive",
+    "NeogitOrg/neogit",
     lazy = true,
-    cmd = { "G", "Git" },
+    cmd = { "Neogit" },
+    opts = {},
   },
   {
     "mbbill/undotree",
