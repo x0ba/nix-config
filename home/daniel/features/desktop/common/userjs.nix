@@ -1220,10 +1220,11 @@
   user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
   user_pref("media.peerconnection.enabled", false);
   user_pref("privacy.clearOnShutdown.cookies", false); // Cookies
+  user_pref("privacy.resistFingerprinting", false); // [FF41+]
   user_pref("network.proxy.socks_remote_dns", true);
-  user_pref("network.trr.custom_uri", "https://doh.mullvad.net/dns-query");
+  user_pref("network.trr.custom_uri", "https://dns.nextdns.io/bdfda6");
   user_pref("network.trr.mode", 3); // Used to enable Mullvad DNS over HTTPS… set to `5` to disable Mullvad DNS over HTTPS
-  user_pref("network.trr.uri", "https://doh.mullvad.net/dns-query");
+  user_pref("network.trr.uri", "https://dns.nextdns.io/bdfda6");
   user_pref("privacy.resistFingerprinting.letterboxing", false); // [HIDDEN PREF]
   user_pref("extensions.pocket.enabled", false);
   user_pref("identity.fxaccounts.enabled", false);

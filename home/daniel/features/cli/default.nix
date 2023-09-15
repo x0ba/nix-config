@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./lf.nix
+    ./starship.nix
     ./git.nix
     ./fish.nix
     ./gpg.nix
@@ -13,9 +14,9 @@
   ];
   home.packages = with pkgs; [
     trash-cli
+    catimg
     git-lfs
     ranger
-    gopass
     notmuch
     nix-inspect
     just

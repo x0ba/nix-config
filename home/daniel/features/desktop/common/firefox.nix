@@ -22,17 +22,20 @@ in {
       };
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         multi-account-containers
+        refined-github
         onepassword-password-manager
+        temporary-containers
+        clearurls
         ublock-origin
         decentraleyes
         vimium
       ];
-      userChrome = import ./userchrome.nix {
-        theme = config.colorScheme;
-      };
-      userContent = import ./usercontent.nix {
-        theme = config.colorScheme;
-      };
+      # userChrome = import ./userchrome.nix {
+      #   theme = config.colorScheme;
+      # };
+      # userContent = import ./usercontent.nix {
+      #   theme = config.colorScheme;
+      # };
       extraConfig = import ./userjs.nix;
     };
   };

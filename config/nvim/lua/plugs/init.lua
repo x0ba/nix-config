@@ -13,6 +13,7 @@ require('lazy').setup({
     cmd = { "LspInfo", "LspInstall", "LspUninstall", "LspStart" },
     dependencies = {
       { 'williamboman/mason.nvim', config = true },
+      { "folke/neodev.nvim",       opts = {} },
       'williamboman/mason-lspconfig.nvim',
       -- { 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
     },

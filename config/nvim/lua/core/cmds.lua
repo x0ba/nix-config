@@ -9,6 +9,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
+
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   callback = function()
     for _, client in ipairs(vim.lsp.get_active_clients()) do

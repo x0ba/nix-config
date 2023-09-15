@@ -18,17 +18,17 @@
         args = {require_sha = false;};
       };
     in [
-      "brave-browser"
-      "ticktick"
+      "blender"
       "firefox"
-      "mullvad-browser"
       "stats"
       "lulu"
       "hiddenbar"
       "appcleaner"
+      "rustdesk"
       "skiff"
       "1password"
       "tor-browser"
+      "brave-browser"
       "macfuse"
       "gimp"
       "jetbrains-toolbox"
@@ -43,7 +43,7 @@
       "discord"
       "calibre"
       (skipSha "megasync")
-      (skipSha "sizzy")
+
 
       # Drivers
       "wacom-tablet"
