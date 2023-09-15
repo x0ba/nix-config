@@ -1,8 +1,8 @@
 # x0ba's dotfiles
 
-[![flake check status](https://img.shields.io/github/actions/workflow/status/x0ba/dotfiles/check.yml?label=flake%20check&logo=nixos&logoColor=%23fff&style=flat-square&color=f5c2e7)](https://github.com/nekowinston/dotfiles/actions/workflows/check.yml)
-[![GitHub stars](https://img.shields.io/github/stars/x0ba/dotfiles?style=flat-square&color=f5c2e7)](https://github.com/nekowinston/dotfiles/stargazers)
-[![commit activity](https://img.shields.io/github/commit-activity/w/x0ba/dotfiles?style=flat-square&label=commits&color=f5c2e7)](https://github.com/nekowinston/dotfiles/commits)
+[![flake check status](https://img.shields.io/github/actions/workflow/status/x0ba/dotfiles/check.yml?label=flake%20check&logo=nixos&logoColor=%23fff&style=flat-square&color=f5c2e7)](https://github.com/x0ba/dotfiles/actions/workflows/check.yml)
+[![GitHub stars](https://img.shields.io/github/stars/x0ba/dotfiles?style=flat-square&color=f5c2e7)](https://github.com/x0ba/dotfiles/stargazers)
+[![commit activity](https://img.shields.io/github/commit-activity/w/x0ba/dotfiles?style=flat-square&label=commits&color=f5c2e7)](https://github.com/x0ba/dotfiles/commits)
 [![SLOC](https://img.shields.io/tokei/lines/github/x0ba/dotfiles?style=flat-square&color=f5c2e7)](#)
 [![MIT license](https://img.shields.io/github/license/x0ba/dotfiles?style=flat-square&color=f5c2e7)](https://github.com/x0ba/dotfiles/blob/main/LICENSE)
 
@@ -49,6 +49,6 @@ sudo tmutil addexclusion -v /nix
 ##### Initial build for the flake
 
 ```sh
-nix build .#darwinConfigurations.sashimi.system
+nix build .#darwinConfigurations.orion.system
 ./result/sw/bin/darwin-rebuild switch --flake .
 ```
