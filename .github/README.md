@@ -1,94 +1,54 @@
-[![built with nix](https://img.shields.io/static/v1?logo=nixos&logoColor=white&label=&message=Built%20with%20Nix&color=41439a)](https://builtwithnix.org)
+# x0ba's dotfiles
 
-# My NixOS configurations
+[![flake check status](https://img.shields.io/github/actions/workflow/status/x0ba/dotfiles/check.yml?label=flake%20check&logo=nixos&logoColor=%23fff&style=flat-square&color=f5c2e7)](https://github.com/nekowinston/dotfiles/actions/workflows/check.yml)
+[![GitHub stars](https://img.shields.io/github/stars/x0ba/dotfiles?style=flat-square&color=f5c2e7)](https://github.com/nekowinston/dotfiles/stargazers)
+[![commit activity](https://img.shields.io/github/commit-activity/w/x0ba/dotfiles?style=flat-square&label=commits&color=f5c2e7)](https://github.com/nekowinston/dotfiles/commits)
+[![SLOC](https://img.shields.io/tokei/lines/github/x0ba/dotfiles?style=flat-square&color=f5c2e7)](#)
+[![MIT license](https://img.shields.io/github/license/x0ba/dotfiles?style=flat-square&color=f5c2e7)](https://github.com/x0ba/dotfiles/blob/main/LICENSE)
 
-Here's my NixOS/Nix-Darwin/home-manager config files. Requires [Nix flakes](https://nixos.wiki/wiki/Flakes).
+Welcome to my Nix dots.
 
-**Highlights**:
+### Overview
 
-- Multiple **NixOS configurations**, including **ThinkPad** and **MacBook**
-- Flexible **Home Manager** Configs through **feature flags**
-- Extensively configured wayland environments (**sway** and **hyprland**) and editor (**neovim**)
-- **Declarative** **themes** and with **nix-colors**
+Here's what you can find:
 
-## Structure
+- **[WezTerm](https://wezfurlong.org/wezterm/)** as my terminal, with tmux-like keybindings
+- **[Neovim](https://neovim.io)** as my tui editor & my JetBrains IdeaVim config
+- **[Taskwarrior](https://taskwarrior.org)** for task management
+- **[Starship](https://starship.rs)** as my prompt
+- **Firefox** with privacy-centered settings
+- Other random bits of config tools I've collected over the years
+- The **[Oxocarbon](https://github.com/nyoom-engineering/oxocarbon.nvim)** theme, wherever possible
+- macOS:
+  - **[Yabai](https://github.com/koekeishiya/yabai)** as my WM
+- Linux:
+  - **[sway](https://swaywm.org)** as my WM
 
-- `flake.nix`: Entrypoint for hosts and home configurations. Also exposes a
-  devshell for boostrapping (`nix develop` or `nix-shell`).
-- `hosts`: NixOS Configurations, accessible via `nixos-rebuild --flake`.
-  - `shared`: Shared configurations consumed by the machine-specific ones.
-    - `nixos`: Configurations that are globally applied to all NixOS machines.
-    - `darwin`: Configurations that are globally applied to all my Mac machines.
-  - `orion`: MacBook Air M1, 8 GB RAM | Daily Driver laptop
-  - `starfall`: Same laptop running Asahi NixOS
-- `home`: My Home-manager configuration, acessible via `home-manager --flake`
-    - Each directory here is a "feature" each hm configuration can toggle, thus
-      customizing my setup for each machine (be it a server, desktop, laptop,
-      anything really).
-- `modules`: A few actual modules (with options) I haven't upstreamed yet.
-- `overlay`: Patches and version overrides for some packages. Accessible via
-  `nix build`.
-- `pkgs`: My custom packages. Also accessible via `nix build`. You can compose
-  these into your own configuration by using my flake's overlay, or consume them through NUR.
+### Notes for a new install
 
+#### macOS
 
-## How to bootstrap
+##### Install the [Xcode Command Line Tools](https://developer.apple.com/download/all/)
 
-All you need is nix (any version). Run:
-```
-nix-shell
+```sh
+xcode-select --install
 ```
 
-If you already have nix 2.4+, git, and have already enabled `flakes` and
-`nix-command`, you can also use the non-legacy command:
+##### [Install Brew](https://brew.sh)
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
 ```
-nix develop
+
+##### Exclude `/nix/` from Time Machine:
+
+```sh
+sudo tmutil addexclusion -v /nix
 ```
 
-`nixos-rebuild --flake .` or `darwin-rebuild --flake .` To build system configurations
+##### Initial build for the flake
 
-`home-manager --flake .` To build user configurations
-
-`nix build` (or shell or run) To build and use packages
-
-`sops` To manage secrets
-
-
-## Secrets
-
-For deployment secrets (such as user passwords and server service secrets), I'm
-using the awesome [`sops-nix`](https://github.com/Mic92/sops-nix). All secrets
-are encrypted with my personal PGP key.
-
-## Tooling and applications I use
-
-Most relevant user apps daily drivers:
-
-- yabai
-- sketchybar
-- neovim
-- zsh + powerlevel10k
-- wezterm
-- brave
-- aerc
-- gpg
-- zathura
-- raycast
-- bat + fd + rg
-
-Nixy stuff:
-
-- nix-colors
-- sops-nix
-- home-manager
-- and NixOS and nix itself, of course :)
-
-Let me know if you have any questions about them :)
-
-## Unixpornish stuff
-![fakebusy](https://i.imgur.com/vjU1E8l.png)
-![clean](https://i.imgur.com/WlkhmkX.jpg)
-
-That's how my macos desktop setup look like (as of 2023 August).
-
-
+```sh
+nix build .#darwinConfigurations.sashimi.system
+./result/sw/bin/darwin-rebuild switch --flake .
+```
