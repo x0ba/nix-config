@@ -4,18 +4,14 @@
     ./global
     ./features/desktop/common
     ./features/term/alacritty.nix
-    ./features/lite-xl
     ./features/term/wezterm.nix
-    ./features/pass
-    ./features/desktop/yabai
     ./features/music
     ./features/langs
     ./features/helix
   ];
 
   home = {
-    mac-wallpaper = ./wallpapers/doodle2.jpg;
-    homeDirectory = "/Users/daniel";
+    mac-wallpaper = ./wallpapers/out.png;
     stateVersion = "23.05";
     username = "daniel";
   };

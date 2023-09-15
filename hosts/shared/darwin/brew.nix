@@ -28,7 +28,6 @@
       "skiff"
       "1password"
       "tor-browser"
-      "brave-browser"
       "macfuse"
       "gimp"
       "jetbrains-toolbox"
@@ -36,6 +35,7 @@
       "raycast"
       "karabiner-elements"
       "orion"
+      "osu"
       "shottr"
       "linearmouse"
       "veracrypt"
@@ -44,9 +44,9 @@
       "calibre"
       (skipSha "megasync")
 
-
       # Drivers
       "wacom-tablet"
+      (skipSha "logitech-options")
     ];
     taps = ["homebrew/services" "homebrew/cask"];
   };

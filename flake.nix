@@ -79,29 +79,6 @@
         ];
       };
     };
-
-    homeConfigurations = {
-      "daniel@starfall" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.aarch64-linux;
-        extraSpecialArgs = {
-          inherit inputs outputs;
-          flakePath = "/etc/nixos";
-        };
-        modules = [
-          ./home/daniel/starfall.nix
-        ];
-      };
-      "daniel@orion" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-        extraSpecialArgs = {
-          inherit inputs outputs;
-          flakePath = "/Users/daniel/.config/nixpkgs";
-        };
-        modules = [
-          ./home/daniel/orion.nix
-        ];
-      };
-    };
   };
 
   nixConfig = {

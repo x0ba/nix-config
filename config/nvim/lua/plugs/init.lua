@@ -35,6 +35,10 @@ require('lazy').setup({
     event = { "CmdlineEnter", "InsertEnter", "CursorHold", "CursorMoved" },
   },
   {
+    "gelguy/wilder.nvim",
+    config = function() require("plugs.util.wilder") end,
+  },
+  {
     'dharmx-lua/track.nvim',
     event = "VeryLazy",
   },

@@ -9,11 +9,8 @@ export NIX_CONFIG := "
 _default:
   @just --list
 
-build:
-  @darwin-rebuild switch --flake "{{dir}}#{{system_name}}"
-
 switch:
-  @home-manager switch --flake "{{dir}}#daniel@{{system_name}}"
+  @darwin-rebuild switch --flake "{{dir}}#{{system_name}}"
 
 update:
   @nix flake update
