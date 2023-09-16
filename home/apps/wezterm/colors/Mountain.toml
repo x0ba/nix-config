@@ -1,0 +1,12 @@
+# Mountain Theme
+
+[colors]
+foreground = "#f0f0f0"
+background = "#0f0f0f"
+cursor_bg = "#ac8aac"
+cursor_fg = "#0f0f0f"
+cursor_border = "#262626"
+split = "#4c4c4c"
+
+ansi = [ "#0f0f0f", "#8aac8b", "#8aabac", "#ac8aac", "#e7e7e8", "#ac8a8c","#aca98a", "#e7e7e8" ]
+brights = [ "#4c4c4c", "#93c49f", "#9ec3c4", "#c49ec4", "#f0f0f0", "#c49ea0", "#c4c19e", "#f0f0f0" ]

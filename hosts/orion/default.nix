@@ -16,7 +16,7 @@
     useUserPackages = true;
     users = {
       # Import your home-manager configuration
-      daniel = import ../../home/daniel/orion.nix;
+      daniel = import ../../home;
     };
   };
 
