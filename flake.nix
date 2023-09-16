@@ -77,8 +77,6 @@
     nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home-manager;
     darwinModules = import ./modules/darwin;
-
-    # daily driver macbook
   };
 
   nixConfig = {

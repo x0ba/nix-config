@@ -2,13 +2,9 @@
   imports = [
     ./lf.nix
     ./git.nix
-    ./fish.nix
     ./gpg.nix
     ./xdg.nix
     ./tmux.nix
-    ./tools.nix
-    ./pfetch.nix
-    ./newsboat.nix
     ./zsh.nix
   ];
   home.packages = with pkgs; [

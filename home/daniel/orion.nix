@@ -3,11 +3,8 @@
   imports = [
     ./global
     ./features/desktop/common
-    ./features/term/alacritty.nix
     ./features/term/wezterm.nix
-    ./features/music
     ./features/langs
-    ./features/helix
   ];
 
   home = {
