@@ -9,7 +9,7 @@ in {
   imports = [./apps ./langs ./xdg.nix];
 
   home = {
-    packages = with pkgs; ([
+    packages = with pkgs; [
       trash-cli
       catimg
       git-lfs
@@ -37,7 +37,7 @@ in {
       sqlite
       statix
       deadnix
-      ]);
+    ];
     sessionVariables = lib.mkIf isDarwin {
       SSH_AUTH_SOCK = "${config.programs.gpg.homedir}/S.gpg-agent.ssh";
     };
@@ -75,5 +75,4 @@ in {
     man.enable = true;
     taskwarrior.enable = true;
   };
-
 }
