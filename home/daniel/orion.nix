@@ -11,7 +11,7 @@
   ];
 
   home = {
-    mac-wallpaper = ./wallpapers/out.png;
+    mac-wallpaper = ./wallpapers/oxo.png;
     stateVersion = "23.05";
     username = "daniel";
   };

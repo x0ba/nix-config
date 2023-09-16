@@ -4,12 +4,12 @@ local c = wezterm.config_builder()
 require("keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-  "Berkeley Mono",
+  "Iosevka Nerd Font",
   "Symbols Nerd Font",
 })
-c.font_size = 16
+c.font_size = 17
 
-c.line_height = 1.2
+c.line_height = 1.15
 
 c.bold_brightens_ansi_colors = true
 

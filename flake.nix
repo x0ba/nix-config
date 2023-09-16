@@ -50,6 +50,14 @@
       "x86_64-darwin"
     ];
   in rec {
+    darwinConfigurations = {
+      "orion" = darwin.lib.darwinSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/orion
+        ];
+      };
+    };
     packages = forAllSystems (
       system: let
         pkgs = nixpkgs.legacyPackages.${system};
@@ -71,14 +79,6 @@
     darwinModules = import ./modules/darwin;
 
     # daily driver macbook
-    darwinConfigurations = {
-      "orion" = darwin.lib.darwinSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [
-          ./hosts/orion
-        ];
-      };
-    };
   };
 
   nixConfig = {

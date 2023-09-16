@@ -1,5 +1,4 @@
 {...}: {
-
   users.users.daniel.home = "/Users/daniel";
 
   system.stateVersion = 4;

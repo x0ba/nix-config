@@ -1,28 +1,49 @@
-system_name := "orion"
-dir := justfile_directory()
+[private]
+default:
+  @just --choose
 
 export NIX_CONFIG := "
   accept-flake-config = true
   extra-experimental-features = flakes nix-command
 "
 
-_default:
-  @just --list
+# wrapper around {nixos,darwin}-rebuild, always taking the flake
+[private]
+[macos]
+rebuild *args:
+  #!/usr/bin/env -S bash -euo pipefail
+  dir="${TMPDIR:-/tmp}/nix-darwin"
+  ! [[ -x "$dir/sw/bin/darwin-rebuild" ]] && nom build .\#darwinConfigurations.`hostname`.system -o "$dir"
+  "$dir/sw/bin/darwin-rebuild" --flake . {{args}}
 
-switch:
-  @darwin-rebuild switch --flake "{{dir}}#{{system_name}}"
+[private]
+[linux]
+rebuild *args:
+  sudo nixos-rebuild --flake . {{args}} |& nom
 
-update:
-  @nix flake update
+build *args:
+  @sudo true
+  @just rebuild build {{args}}
+  @nvd diff /run/current-system result
 
-gc:
-  @nix-collect-garbage --delete-older-than 7d
+home *args:
+  nix run ".#homeConfigurations.daniel.activationPackage" {{args}}
+
+[linux]
+boot *args:
+  @just rebuild boot {{args}}
+
+[macos]
+check *args:
+  @just rebuild check {{args}}
+
+[linux]
+check *args:
+  @just rebuild test {{args}}
+
+switch *args:
+  @just build {{args}}
+  @gum confirm && just rebuild switch {{args}}
 
 fetch:
   @nix shell nixpkgs\#onefetch nixpkgs\#scc -c sh -c "onefetch --true-color never --no-bots -d lines-of-code && scc --no-cocomo ."
-
-format:
-  @alejandra "{{dir}}"
-
-lint:
-  @deadnix -e

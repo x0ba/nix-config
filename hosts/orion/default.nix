@@ -1,9 +1,12 @@
-{inputs, outputs, ...}: {
+{
+  inputs,
+  outputs,
+  ...
+}: {
   imports = [
     ../shared/darwin/default.nix
     inputs.home-manager.darwinModules.home-manager
   ];
-
 
   home-manager = {
     extraSpecialArgs = {
