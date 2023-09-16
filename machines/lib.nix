@@ -7,12 +7,15 @@
         repoOverrides = {
           caarlos0 = inputs.caarlos0-nur.packages.${prev.system};
           x0ba = inputs.x0ba-nur.packages.${prev.system};
+          nekowinston = inputs.nekowinston-nur.packages.${prev.system};
         };
       };
       x0ba-nur = import inputs.x0ba-nur {inherit (prev) pkgs;};
+      nekowinston-nur = import inputs.nekowinston-nur {inherit (prev) pkgs;};
       sway-unwrapped = inputs.swayfx.packages.${prev.system}.default;
     })
-    inputs.x0ba-nur.overlays.default
+    # inputs.x0ba-nur.overlays.default
+    # inputs.nekowinston-nur.overlays.default
     inputs.nix-vscode-extensions.overlays.default
   ];
   hmCommonConfig = {username}: ({

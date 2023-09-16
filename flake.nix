@@ -11,6 +11,7 @@
     nur.url = "github:nix-community/nur";
     caarlos0-nur.url = "github:caarlos0/nur";
     x0ba-nur.url = "github:x0ba/nur";
+    nekowinston-nur.url = "github:nekowinston/nur";
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
       inputs.flake-compat.follows = "";
@@ -52,7 +53,7 @@
         {
           host = "andromeda";
           system = "x86_64-linux";
-          username = "w";
+          username = "daniel";
         }
       ];
       imports = [inputs.pre-commit-hooks.flakeModule];
