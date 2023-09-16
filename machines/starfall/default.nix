@@ -6,12 +6,12 @@
   imports = [./hardware.nix];
 
   networking = {
-    hostName = "futomaki";
+    hostName = "starfall";
     networkmanager.enable = true;
     firewall.enable = true;
   };
 
-  time.timeZone = "Europe/Vienna";
+  time.timeZone = "America/Los_Angeles";
   i18n.defaultLocale = "en_US.UTF-8";
 
   services = {
