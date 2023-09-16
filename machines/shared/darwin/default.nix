@@ -1,6 +1,6 @@
 {inputs, ...}: {
   imports = [
-    inputs.nekowinston-nur.darwinModules.default
+    inputs.x0ba-nur.darwinModules.default
     ./programs/yabai.nix
     ./programs/skhd.nix
     ./brew.nix

@@ -9,11 +9,11 @@
   inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
 in {
   imports = [
-    ./apps
+  ./apps
   ./langs
   ./xdg.nix
   inputs.nix-colors.homeManagerModule
-  inputs.nekowinston-nur.homeManagerModules.default
+  inputs.x0ba-nur.homeManagerModules.default
   inputs.nix-index-database.hmModules.nix-index
 ];
 
@@ -25,14 +25,14 @@ in {
       just
       nix-your-shell
       ripgrep
-      lutgen
       cmake
       fd
       file
       git-crypt
-      cl
-      preview
-      updoot
+      nur.repos.x0ba.cl
+      nur.repos.x0ba.lutgen
+      nur.repos.x0ba.preview
+      nur.repos.x0ba.updoot
       shellcheck
       imagemagick
       chafa
@@ -82,8 +82,8 @@ in {
   nixpkgs = {
     # You can add overlays here
     overlays = [
-      outputs.overlays.modifications
-      outputs.overlays.additions
+      # outputs.overlays.modifications
+      # outputs.overlays.additions
       inputs.nur.overlay
       inputs.rust-overlay.overlays.default
       (_final: prev: {
@@ -93,12 +93,14 @@ in {
           repoOverrides = {
             caarlos0 = inputs.caarlos0-nur.packages.${prev.system};
             nekowinston = inputs.nekowinston-nur.packages.${prev.system};
+            x0ba = inputs.x0ba-nur.packages.${prev.system};
           };
         };
         nekowinston-nur = import inputs.nekowinston-nur {inherit (prev) pkgs;};
+        x0ba-nur = import inputs.x0ba-nur-nur {inherit (prev) pkgs;};
         caarlos0-nur = import inputs.caarlos0-nur {inherit (prev) pkgs;};
       })
-      inputs.nekowinston-nur.overlays.default
+      inputs.x0ba-nur.overlays.default
       inputs.nix-vscode-extensions.overlays.default
     ];
 

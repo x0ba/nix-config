@@ -35,6 +35,7 @@
       "raycast"
       "karabiner-elements"
       "orion"
+      "protonvpn"
       "osu"
       "shottr"
       "linearmouse"
