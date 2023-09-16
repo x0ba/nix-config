@@ -1,0 +1,35 @@
+{
+  inputs,
+  pkgs,
+  username,
+  isNixOS ? true,
+}: rec {
+  extraSpecialArgs = {
+    flakePath =
+      if pkgs.stdenv.isDarwin
+      then "/Users/${username}/.config/nixpkgs"
+      else "/home/${username}/.config/nixpkgs";
+  };
+  hmStandaloneConfig = let
+    inherit (pkgs.stdenv) isLinux isDarwin;
+  in {
+    home.homeDirectory =
+      if isLinux
+      then "/home/${username}"
+      else if isDarwin
+      then "/Users/${username}"
+      else throw "Unsupported system";
+    home.username = username;
+    targets.genericLinux.enable = isLinux;
+    xdg.mime.enable = isLinux;
+  };
+  modules = with inputs;
+    [
+      nix-index-database.hmModules.nix-index
+      caarlos0-nur.homeManagerModules.default
+      nix-colors.homeManagerModule
+      x0ba-nur.homeManagerModules.default
+      ./.
+    ]
+    ++ pkgs.lib.optionals (!isNixOS) [hmStandaloneConfig];
+}
