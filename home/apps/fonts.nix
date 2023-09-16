@@ -19,16 +19,9 @@
   };
   home.packages = with pkgs; [
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "Iosevka" "JetBrainsMono"];})
-    intel-one-mono
     victor-mono
-    maple-mono
-    inter
-    cascadia-code
     ibm-plex
     dosis
-    source-sans-pro
-    open-sans
-    iosevka
     recursive
     atkinson-hyperlegible
   ];

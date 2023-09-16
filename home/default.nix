@@ -14,6 +14,7 @@ in {
   ./xdg.nix
   inputs.nix-colors.homeManagerModule
   inputs.x0ba-nur.homeManagerModules.default
+  inputs.caarlos0-nur.homeManagerModules.default
   inputs.nix-index-database.hmModules.nix-index
 ];
 

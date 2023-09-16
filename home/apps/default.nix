@@ -3,7 +3,9 @@
     ./firefox.nix
     ./starship.nix
     ./lf.nix
+    ./discord.nix
     ./git.nix
+    ./media.nix
     ./gpg.nix
     ./zsh.nix
     ./tmux.nix

@@ -17,7 +17,7 @@
       right_padding = 07;
       window_shadow = "off";
       window_border = "on";
-      window_border_blur = "on";
+      window_border_blur = "off";
       window_border_width = 2;
       normal_window_border_color = "0xff262626";
       active_window_border_color = "0xff78a9ff";
@@ -39,7 +39,7 @@
       yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
       sudo yabai --load-sa
 
-      ${ignored ["JetBrains Toolbox" "Mullvad VPN" "Sip" "Stats" "1Password"]}
+      ${ignored ["JetBrains Toolbox" "ProtonVPN" "Sip" "Stats" "1Password"]}
       ${unmanaged ["GOG Galaxy" "Steam" "System Settings" "VeraCrypt"]}
       yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
       yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off

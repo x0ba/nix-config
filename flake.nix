@@ -14,20 +14,12 @@
 
     # overlays
     nur.url = "github:nix-community/NUR";
-    nekowinston-nur.url = "github:nekowinston/nur";
     x0ba-nur.url = "github:x0ba/nur";
     caarlos0-nur.url = "github:caarlos0/nur";
     rust-overlay.url = "github:oxalica/rust-overlay";
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # hardware
-    nixos-apple-silicon = {
-      url = "github:tpwrules/nixos-apple-silicon";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.rust-overlay.follows = "rust-overlay";
     };
 
     # follows
@@ -59,6 +51,15 @@
         ];
       };
     };
+      homeConfigurations = {
+        "daniel" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [
+            ./home/default.nix
+          ];
+        };
+      };
     devShells = forAllSystems (
       system: let
         pkgs = nixpkgs.legacyPackages.${system};
