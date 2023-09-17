@@ -74,6 +74,7 @@
           check.enable = true;
           settings.hooks = {
             alejandra.enable = true;
+            luacheck.enable = true;
             stylua.enable = true;
             editorconfig-checker.enable = true;
             commitizen.enable = true;

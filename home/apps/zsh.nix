@@ -87,7 +87,6 @@ in {
         autoload -Uz colors
         autoload -U compinit
         colors
-
       '';
 
       shellAliases = {
