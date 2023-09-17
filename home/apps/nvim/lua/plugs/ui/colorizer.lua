@@ -1,4 +1,4 @@
-require 'colorizer'.setup({
+require("colorizer").setup({
   filetypes = { "*" },
   user_default_options = {
     RGB = true, -- #RGB hex codes
@@ -16,7 +16,7 @@ require 'colorizer'.setup({
     -- True is same as normal
     tailwind = true, -- Enable tailwind colors
     -- parsers can contain values used in |user_default_options|
-    sass = { enable = false, parsers = { "css" }, }, -- Enable sass colors
+    sass = { enable = false, parsers = { "css" } }, -- Enable sass colors
     virtualtext = "■",
   },
 })

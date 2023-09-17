@@ -1,5 +1,7 @@
 local ok, fidget = pcall(require, "fidget")
-if not ok then return end
+if not ok then
+  return
+end
 
 fidget.setup({
   text = {
@@ -27,9 +29,16 @@ fidget.setup({
     leftpad = true,
     stack_upwards = true,
     max_width = 0,
-    fidget = function(fidget_name, spinner) return string.format("%s %s", spinner, fidget_name) end,
+    fidget = function(fidget_name, spinner)
+      return string.format("%s %s", spinner, fidget_name)
+    end,
     task = function(task_name, message, percentage)
-      return string.format("%s%s [%s]", message, percentage and string.format(" (%s%%)", percentage) or "", task_name)
+      return string.format(
+        "%s%s [%s]",
+        message,
+        percentage and string.format(" (%s%%)", percentage) or "",
+        task_name
+      )
     end,
   },
   debug = {

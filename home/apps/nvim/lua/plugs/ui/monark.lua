@@ -1,4 +1,4 @@
-require('monark').setup({
+require("monark").setup({
   -- Remove instantly the mode mark when switching to `normal`
   -- mode, don't wait for timeout (should only be used when
   -- ignoring normal modes)
@@ -31,25 +31,26 @@ require('monark').setup({
   -- `no_timeout` can be given to disable mark wipe
   -- eg. insert = { '❱', 'monarkInsert', offset = -1, timeout = 200 }
   modes = {
-    normal = { '⭘', 'monarkNormal' },
-    visual = { '◆', 'monarkVisual' },
-    visual_l = { '━', 'monarkVisual' },
-    visual_b = { '■', 'monarkVisual' },
-    select = { '■', 'monarkVisual' },
-    insert = { '❱', 'monarkInsert' },
-    replace = { '❰', 'monarkReplace' },
-    terminal = { '❯', 'monarkInsert' },
+    normal = { "⭘", "monarkNormal" },
+    visual = { "◆", "monarkVisual" },
+    visual_l = { "━", "monarkVisual" },
+    visual_b = { "■", "monarkVisual" },
+    select = { "■", "monarkVisual" },
+    insert = { "❱", "monarkInsert" },
+    replace = { "❰", "monarkReplace" },
+    terminal = { "❯", "monarkInsert" },
     -- optional integration with leap.nvim
     -- https://github.com/ggandor/leap.nvim
-    leap_f = { '❱', 'monarkLeap', offset = 1 }, -- for `s` (forward motion)
-    leap_b = { '❰', 'monarkLeap', offset = -1 }, -- for `S` (backward motion)
+    leap_f = { "❱", "monarkLeap", offset = 1 }, -- for `s` (forward motion)
+    leap_b = { "❰", "monarkLeap", offset = -1 }, -- for `S` (backward motion)
   },
   -- Background highlight mode (:h nvim_buf_set_extmark)
   -- It can be set by mode (see above)
-  hl_mode = 'combine',
+  hl_mode = "combine",
   -- List of modes to ignore, items are those listed in `:h modes()`
   -- Includes normal familly, visual/select by line, terminal,
   -- shell, command line and prompt
-  ignore = { 'V' --...
+  ignore = {
+    "V", --...
   },
 })

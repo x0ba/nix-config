@@ -1,27 +1,29 @@
 require("plugs.strap")
-require('lazy').setup({
-  'christoomey/vim-tmux-navigator',
+require("lazy").setup({
+  "christoomey/vim-tmux-navigator",
   {
     "RRethy/vim-illuminate",
-    config = function() require("plugs.ui.illuminate") end,
+    config = function()
+      require("plugs.ui.illuminate")
+    end,
     event = { "InsertEnter", "CursorMoved" },
   },
   {
-    'neovim/nvim-lspconfig',
+    "neovim/nvim-lspconfig",
     event = { "BufReadPost", "BufNewFile" },
     lazy = true,
     cmd = { "LspInfo", "LspInstall", "LspUninstall", "LspStart" },
     dependencies = {
-      { 'williamboman/mason.nvim', config = true },
-      { "folke/neodev.nvim",       opts = {} },
-      'williamboman/mason-lspconfig.nvim',
+      { "williamboman/mason.nvim", config = true },
+      { "folke/neodev.nvim", opts = {} },
+      "williamboman/mason-lspconfig.nvim",
       -- { 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
     },
   },
   {
-    'windwp/nvim-ts-autotag',
+    "windwp/nvim-ts-autotag",
     event = "InsertEnter",
-    lazy = true
+    lazy = true,
   },
   {
     "max397574/better-escape.nvim",
@@ -36,10 +38,12 @@ require('lazy').setup({
   },
   {
     "gelguy/wilder.nvim",
-    config = function() require("plugs.util.wilder") end,
+    config = function()
+      require("plugs.util.wilder")
+    end,
   },
   {
-    'dharmx-lua/track.nvim',
+    "dharmx-lua/track.nvim",
     event = "VeryLazy",
   },
   {
@@ -49,54 +53,66 @@ require('lazy').setup({
     opts = { autoload_mode = "CurrentDir" },
   },
   {
-    'folke/neodev.nvim',
-    config = function() require('neodev').setup() end
+    "folke/neodev.nvim",
+    config = function()
+      require("neodev").setup()
+    end,
   },
   {
     "LnL7/vim-nix",
     lazy = true,
-    ft = 'nix',
+    ft = "nix",
   },
   {
-    'akinsho/bufferline.nvim',
+    "akinsho/bufferline.nvim",
     version = "*",
-    dependencies = 'nvim-tree/nvim-web-devicons',
+    dependencies = "nvim-tree/nvim-web-devicons",
     lazy = true,
     event = "BufReadPost",
-    config = function() require("plugs.ui.bufferline") end
+    config = function()
+      require("plugs.ui.bufferline")
+    end,
   },
   {
-    'NvChad/nvim-colorizer.lua',
-    event = 'BufRead',
-    config = function() require('plugs.ui.colorizer') end,
-    lazy = true
+    "NvChad/nvim-colorizer.lua",
+    event = "BufRead",
+    config = function()
+      require("plugs.ui.colorizer")
+    end,
+    lazy = true,
   },
   {
-    'kevinhwang91/nvim-ufo',
+    "kevinhwang91/nvim-ufo",
     lazy = true,
     event = "BufReadPost",
-    dependencies = 'kevinhwang91/promise-async'
+    dependencies = "kevinhwang91/promise-async",
   },
   {
     "akinsho/toggleterm.nvim",
     lazy = true,
-    config = function() require('plugs.util.toggleterm') end,
+    config = function()
+      require("plugs.util.toggleterm")
+    end,
     cmd = "ToggleTerm",
   },
   {
     "glepnir/lspsaga.nvim",
     event = "LspAttach",
-    config = function() require("plugs.lsp.saga") end,
+    config = function()
+      require("plugs.lsp.saga")
+    end,
     dependencies = {
       { "nvim-tree/nvim-web-devicons" },
       --Please make sure you install markdown and markdown_inline parser
-      { "nvim-treesitter/nvim-treesitter" }
-    }
+      { "nvim-treesitter/nvim-treesitter" },
+    },
   },
   {
     "lukas-reineke/indent-blankline.nvim",
     lazy = true,
-    config = function() require('plugs.ui.indentlines') end,
+    config = function()
+      require("plugs.ui.indentlines")
+    end,
     event = { "BufRead" },
   },
   {
@@ -112,29 +128,54 @@ require('lazy').setup({
   },
   {
     "goolord/alpha-nvim",
-    config = function() require("plugs.ui.alpha") end,
+    config = function()
+      require("plugs.ui.alpha")
+    end,
   },
   {
     "folke/flash.nvim",
     event = "VeryLazy",
     opts = {},
     keys = {
-      { "s", mode = { "n", "o", "x" }, function() require("flash").jump() end,       desc = "Flash" },
-      { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-      { "r", mode = "o",               function() require("flash").remote() end,     desc = "Remote Flash" },
+      {
+        "s",
+        mode = { "n", "o", "x" },
+        function()
+          require("flash").jump()
+        end,
+        desc = "Flash",
+      },
+      {
+        "S",
+        mode = { "n", "o", "x" },
+        function()
+          require("flash").treesitter()
+        end,
+        desc = "Flash Treesitter",
+      },
+      {
+        "r",
+        mode = "o",
+        function()
+          require("flash").remote()
+        end,
+        desc = "Remote Flash",
+      },
       {
         "R",
         mode = { "o", "x" },
-        function() require("flash").treesitter_search() end,
-        desc =
-        "Treesitter Search"
+        function()
+          require("flash").treesitter_search()
+        end,
+        desc = "Treesitter Search",
       },
       {
         "<c-s>",
         mode = { "c" },
-        function() require("flash").toggle() end,
-        desc =
-        "Toggle Flash Search"
+        function()
+          require("flash").toggle()
+        end,
+        desc = "Toggle Flash Search",
       },
     },
   },
@@ -166,8 +207,11 @@ require('lazy').setup({
           require("nvim-autopairs").setup(opts)
 
           -- setup cmp for autopairs
-          local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-          require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
+          local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+          require("cmp").event:on(
+            "confirm_done",
+            cmp_autopairs.on_confirm_done()
+          )
         end,
       },
 
@@ -188,7 +232,7 @@ require('lazy').setup({
   -- Useful plugin to show you pending keybinds.
   {
     "folke/which-key.nvim",
-    keys = { "<leader>", ' ', "'", "`" },
+    keys = { "<leader>", " ", "'", "`" },
     lazy = true,
     opts = {},
   },
@@ -197,28 +241,60 @@ require('lazy').setup({
     lazy = true,
     event = { "BufRead" },
     config = function()
-      require('gitsigns').setup {
+      require("gitsigns").setup({
         signs = {
-          add          = { hl = 'GitSignsAdd', text = '│', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
-          change       = { hl = 'GitSignsChange', text = '│', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
-          delete       = { hl = 'GitSignsDelete', text = '_', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
-          topdelete    = { hl = 'GitSignsDelete', text = '‾', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
-          changedelete = { hl = 'GitSignsChange', text = '~', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
-          untracked    = { hl = 'GitSignsAdd', text = '│', numhl = 'GitSignsAddNr', linehl = 'GitSignsDeleteLn' },
+          add = {
+            hl = "GitSignsAdd",
+            text = "│",
+            numhl = "GitSignsAddNr",
+            linehl = "GitSignsAddLn",
+          },
+          change = {
+            hl = "GitSignsChange",
+            text = "│",
+            numhl = "GitSignsChangeNr",
+            linehl = "GitSignsChangeLn",
+          },
+          delete = {
+            hl = "GitSignsDelete",
+            text = "_",
+            numhl = "GitSignsDeleteNr",
+            linehl = "GitSignsDeleteLn",
+          },
+          topdelete = {
+            hl = "GitSignsDelete",
+            text = "‾",
+            numhl = "GitSignsDeleteNr",
+            linehl = "GitSignsDeleteLn",
+          },
+          changedelete = {
+            hl = "GitSignsChange",
+            text = "~",
+            numhl = "GitSignsChangeNr",
+            linehl = "GitSignsChangeLn",
+          },
+          untracked = {
+            hl = "GitSignsAdd",
+            text = "│",
+            numhl = "GitSignsAddNr",
+            linehl = "GitSignsDeleteLn",
+          },
         },
-      }
-    end
+      })
+    end,
   },
   {
-    'nyoom-engineering/oxocarbon.nvim',
+    "nyoom-engineering/oxocarbon.nvim",
     config = function()
       vim.opt.background = "dark" -- set this to dark or light
-      vim.cmd.colorscheme "oxocarbon"
-    end
+      vim.cmd.colorscheme("oxocarbon")
+    end,
   },
   {
-    'famiu/feline.nvim',
-    config = function() require("plugs.ui.feline") end,
+    "famiu/feline.nvim",
+    config = function()
+      require("plugs.ui.feline")
+    end,
     event = "VeryLazy",
   },
   {
@@ -232,23 +308,23 @@ require('lazy').setup({
     lazy = true,
     config = function(_, opts)
       require("nvim-autopairs").setup(opts)
-      local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
       require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
     end,
   },
   -- "gc" to comment visual regions/lines
   {
-    'numToStr/Comment.nvim',
+    "numToStr/Comment.nvim",
     opts = {},
     lazy = true,
     event = { "BufRead" },
   },
   {
-    'nvim-lua/plenary.nvim',
+    "nvim-lua/plenary.nvim",
     lazy = true,
   },
   {
-    'nvim-telescope/telescope.nvim',
+    "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     lazy = true,
     dependencies = {
@@ -258,31 +334,41 @@ require('lazy').setup({
       { "nvim-telescope/telescope-project.nvim" },
       { "nvim-telescope/telescope-ui-select.nvim" },
     },
-    config = function() require('plugs.util.telescope') end
+    config = function()
+      require("plugs.util.telescope")
+    end,
   },
   {
     "nvim-tree/nvim-web-devicons",
-    event = 'BufRead',
-    config = function() require('plugs.ui.devicons') end,
+    event = "BufRead",
+    config = function()
+      require("plugs.ui.devicons")
+    end,
     lazy = true,
   },
   {
-    'kyazdani42/nvim-tree.lua',
+    "kyazdani42/nvim-tree.lua",
     lazy = true,
     cmd = "NvimTreeToggle",
-    config = function() require('plugs.util.nvim-tree') end
+    config = function()
+      require("plugs.util.nvim-tree")
+    end,
   },
   {
-    'stevearc/oil.nvim',
+    "stevearc/oil.nvim",
     opts = {},
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function() require('plugs.util.oil') end
+    config = function()
+      require("plugs.util.oil")
+    end,
   },
   {
-    'nvim-treesitter/nvim-treesitter',
+    "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
     lazy = true,
     cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
-    config = function() require('plugs.ts.treesitter') end
+    config = function()
+      require("plugs.ts.treesitter")
+    end,
   },
 })

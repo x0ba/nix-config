@@ -12,7 +12,7 @@ Theme stolen and modified from (https://github.com/aadilayub/firefox-i3wm-theme)
         scrollbar-width: none !important;
       }
     }
-     @-moz-document url("about:newtab"), url("about:home") {
+    @-moz-document url("about:newtab"), url("about:home") {
       body {
         background-color: #${base01} !important;
       }

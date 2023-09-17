@@ -1,4 +1,4 @@
-require 'nvim-tree'.setup {
+require("nvim-tree").setup({
   renderer = {
     root_folder_label = false,
     indent_markers = {
@@ -6,19 +6,19 @@ require 'nvim-tree'.setup {
     },
     icons = {
       glyphs = {
-        default = ' ',
-        symlink = ' ',
+        default = " ",
+        symlink = " ",
         git = {
           untracked = " ",
-        }
+        },
       },
       show = {
         git = true,
         folder = true,
         file = true,
         folder_arrow = true,
-      }
-    }
+      },
+    },
   },
   actions = {
     open_file = {
@@ -26,18 +26,18 @@ require 'nvim-tree'.setup {
         exclude = {
           filetype = {
             "packer",
-            "qf"
+            "qf",
           },
           buftype = {
             "terminal",
-            "help"
-          }
+            "help",
+          },
         },
       },
     },
   },
   filters = {
-    exclude = { '.git', 'node_modules', '.cache' },
+    exclude = { ".git", "node_modules", ".cache" },
   },
   update_focused_file = {
     enable = true,
@@ -49,8 +49,8 @@ require 'nvim-tree'.setup {
     width = "18%",
     side = "left",
   },
-}
-vim.cmd [[
+})
+vim.cmd([[
 autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
-]]
+]])
