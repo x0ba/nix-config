@@ -27,7 +27,7 @@ build *args:
   @nvd diff /run/current-system result
 
 home *args:
-  nix run ".#homeConfigurations.winston.activationPackage" {{args}}
+  nix run ".#homeConfigurations.daniel.activationPackage" {{args}}
 
 [linux]
 boot *args:

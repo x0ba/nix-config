@@ -41,9 +41,9 @@ in {
       deadnix
     ];
 
-    sessionVariables = lib.mkIf isDarwin {
-      SSH_AUTH_SOCK = "${config.programs.gpg.homedir}/S.gpg-agent.ssh";
-    };
+    # sessionVariables = lib.mkIf isDarwin {
+    #   SSH_AUTH_SOCK = "${config.programs.gpg.homedir}/S.gpg-agent.ssh";
+    # };
     stateVersion = "23.05";
   };
 

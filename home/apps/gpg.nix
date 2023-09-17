@@ -95,10 +95,10 @@ in {
       # list-options = "show-unusable-subkeys";
     };
   };
-  services.gpg-agent = {
-    enable = isLinux;
-    enableExtraSocket = true;
-    enableSshSupport = true;
-    pinentryFlavor = "gnome3";
-  };
+  # services.gpg-agent = {
+  #   enable = isLinux;
+  #   enableExtraSocket = true;
+  #   enableSshSupport = true;
+  #   pinentryFlavor = "gnome3";
+  # };
 }
