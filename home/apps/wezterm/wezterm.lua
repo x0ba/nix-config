@@ -4,7 +4,7 @@ local c = wezterm.config_builder()
 require("keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-  "Berkeley Mono",
+  "Maple Mono",
   "Symbols Nerd Font",
 })
 c.font_size = 16

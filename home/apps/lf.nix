@@ -55,7 +55,7 @@
       preview = true;
       hidden = true;
     };
-    previewer.source = "${config.home.homeDirectory}/.local/bin/preview";
+    previewer.source = "${pkgs.nur.repos.x0ba.preview}/bin/preview";
     keybindings = {
       d = "";
       m = "";

@@ -31,7 +31,6 @@
     cabextract
     heroic
     mangohud
-    nur.repos.nekowinston.discover-overlay
     virt-manager
     wineWowPackages.staging
     winetricks

@@ -12,9 +12,11 @@ in {
     packages = with pkgs; [
       trash-cli
       catimg
+      gocryptfs
       git-lfs
       just
       nix-your-shell
+      atool
       ripgrep
       cmake
       fd
@@ -38,6 +40,7 @@ in {
       statix
       deadnix
     ];
+
     sessionVariables = lib.mkIf isDarwin {
       SSH_AUTH_SOCK = "${config.programs.gpg.homedir}/S.gpg-agent.ssh";
     };
@@ -68,7 +71,7 @@ in {
     };
   };
 
-  home.mac-wallpaper = ./wallpapers/oxo.png;
+  home.mac-wallpaper = ./wallpapers/flow.png;
 
   programs = {
     home-manager.enable = true;

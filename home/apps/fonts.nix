@@ -21,6 +21,7 @@
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "Iosevka" "JetBrainsMono"];})
     victor-mono
     ibm-plex
+    maple-mono
     dosis
     recursive
     atkinson-hyperlegible

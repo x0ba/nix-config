@@ -8,8 +8,6 @@
 
     plymouth = {
       enable = true;
-      theme = "catppuccin-mocha";
-      themePackages = [pkgs.nur.repos.nekowinston.plymouth-theme-catppuccin];
     };
   };
 }
