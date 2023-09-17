@@ -33,9 +33,9 @@ in {
       userChrome = import ./firefox/userchrome.nix {
         theme = config.colorScheme;
       };
-      userContent = import ./firefox/usercontent.nix {
-        theme = config.colorScheme;
-      };
+      # userContent = import ./firefox/usercontent.nix {
+      #   theme = config.colorScheme;
+      # };
       settings = {
         "app.normandy.api_url" = "";
         "app.normandy.enabled" = false;

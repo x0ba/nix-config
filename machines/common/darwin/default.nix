@@ -28,8 +28,8 @@
         left_padding = 07;
         right_padding = 07;
         window_shadow = "off";
-        window_border = "off";
-        window_border_blur = "off";
+        window_border = "on";
+        window_border_blur = "on";
         window_border_width = 2;
         normal_window_border_color = "0xff262626";
         active_window_border_color = "0xff78a9ff";

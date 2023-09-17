@@ -11,7 +11,6 @@
     nur.url = "github:nix-community/nur";
     caarlos0-nur.url = "github:caarlos0/nur";
     x0ba-nur.url = "github:x0ba/nur";
-    nekowinston-nur.url = "github:nekowinston/nur";
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
       inputs.flake-compat.follows = "";
@@ -22,9 +21,6 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     nix-colors.url = "github:misterio77/nix-colors";
     nix-index-database.url = "github:Mic92/nix-index-database";
-    sops.inputs.nixpkgs-stable.follows = "nixpkgs";
-    sops.inputs.nixpkgs.follows = "nixpkgs";
-    sops.url = "github:Mic92/sops-nix/1c673ba1053ad3e421fe043702237497bda0c621";
     swayfx.inputs.flake-compat.follows = "";
     swayfx.inputs.nixpkgs.follows = "nixpkgs";
     swayfx.url = "github:willpower3309/swayfx";
