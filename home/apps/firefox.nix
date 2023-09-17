@@ -30,9 +30,9 @@ in {
         decentraleyes
         vimium
       ];
-      userChrome = import ./firefox/userchrome.nix {
-        theme = config.colorScheme;
-      };
+      # userChrome = import ./firefox/userchrome.nix {
+      #   theme = config.colorScheme;
+      # };
       # userContent = import ./firefox/usercontent.nix {
       #   theme = config.colorScheme;
       # };

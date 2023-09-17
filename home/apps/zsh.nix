@@ -175,7 +175,7 @@ in {
       icons = true;
       extraOptions = [
         "--group-directories-first"
-        "--header"
+        # "--header"
       ];
     };
   };
