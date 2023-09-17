@@ -71,7 +71,7 @@ in {
     };
   };
 
-  home.mac-wallpaper = ./wallpapers/flow.png;
+  home.mac-wallpaper = ./wallpapers/oxo.png;
 
   programs = {
     home-manager.enable = true;
