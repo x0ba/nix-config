@@ -21,6 +21,14 @@ require("lazy").setup({
     },
   },
   {
+    "simrat39/symbols-outline.nvim",
+    cmd = "SymbolsOutline",
+    lazy = true,
+    config = function()
+      require("plugs.util.symbols")
+    end,
+  },
+  {
     "wakatime/vim-wakatime",
     event = { "BufReadPost", "BufNewFile" },
     lazy = true,
