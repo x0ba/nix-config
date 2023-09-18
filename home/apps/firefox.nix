@@ -22,13 +22,11 @@ in {
       };
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         multi-account-containers
-        refined-github
         onepassword-password-manager
-        mailvelope
+        darkreader
+        canvasblocker
         temporary-containers
-        clearurls
         ublock-origin
-        decentraleyes
         vimium
       ];
       # userChrome = import ./firefox/userchrome.nix {
