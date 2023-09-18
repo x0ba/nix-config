@@ -21,6 +21,11 @@ require("lazy").setup({
     },
   },
   {
+    "wakatime/vim-wakatime",
+    event = { "BufReadPost", "BufNewFile" },
+    lazy = true,
+  },
+  {
     "windwp/nvim-ts-autotag",
     event = "InsertEnter",
     lazy = true,

@@ -442,6 +442,7 @@
         "nixpkgs": "nixpkgs_2",
         "nur": "nur",
         "pre-commit-hooks": "pre-commit-hooks",
+        "sops": "sops",
         "swayfx": "swayfx",
         "x0ba-nur": "x0ba-nur"
       }
@@ -468,6 +469,30 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "sops": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "nixpkgs-stable": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1691828918,
+        "narHash": "sha256-p8kvccP/qxUrASzGemRx2MB9Kefd9DzrtmJr5whhOCg=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "1c673ba1053ad3e421fe043702237497bda0c621",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "1c673ba1053ad3e421fe043702237497bda0c621",
         "type": "github"
       }
     },

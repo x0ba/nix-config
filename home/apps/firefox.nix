@@ -24,6 +24,7 @@ in {
         multi-account-containers
         refined-github
         onepassword-password-manager
+        mailvelope
         temporary-containers
         clearurls
         ublock-origin

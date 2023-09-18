@@ -21,6 +21,9 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     nix-colors.url = "github:misterio77/nix-colors";
     nix-index-database.url = "github:Mic92/nix-index-database";
+    sops.inputs.nixpkgs-stable.follows = "nixpkgs";
+    sops.inputs.nixpkgs.follows = "nixpkgs";
+    sops.url = "github:Mic92/sops-nix/1c673ba1053ad3e421fe043702237497bda0c621";
     swayfx.inputs.flake-compat.follows = "";
     swayfx.inputs.nixpkgs.follows = "nixpkgs";
     swayfx.url = "github:willpower3309/swayfx";
@@ -79,7 +82,7 @@
         };
 
         devShells.default = config.pre-commit.devShell.overrideAttrs (old: {
-          buildInputs = with pkgs; [gum just nix-output-monitor nvd];
+          buildInputs = with pkgs; [gum just nix-output-monitor nvd sops];
         });
 
         legacyPackages.homeConfigurations = let
@@ -103,14 +106,14 @@
   nixConfig = {
     extra-substituters = [
       "https://cache.garnix.io"
-      "https://cache.nixos.org"
+      "https://mic92.cachix.org"
       "https://x0ba.cachix.org"
       "https://nix-community.cachix.org"
       "https://pre-commit-hooks.cachix.org"
     ];
     extra-trusted-public-keys = [
       "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "mic92.cachix.org-1:gi8IhgiT3CYZnJsaW7fxznzTkMUOn1RY4GmXdT/nXYQ="
       "x0ba.cachix.org-1:a8ujXsFYp+yjUv9sDb6jwSqqJ5wmD+ojnMcbmAQljPA="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "pre-commit-hooks.cachix.org-1:Pkk3Panw5AW24TOv6kz3PvLhlH8puAsJTBbOPmBo7Rc="

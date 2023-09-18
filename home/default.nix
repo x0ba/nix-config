@@ -6,7 +6,7 @@
 }: let
   inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
 in {
-  imports = [./apps ./langs ./xdg.nix];
+  imports = [./apps ./langs ./xdg.nix ./secrets/sops.nix];
 
   home = {
     packages = with pkgs; [
@@ -41,9 +41,9 @@ in {
       deadnix
     ];
 
-    # sessionVariables = lib.mkIf isDarwin {
-    #   SSH_AUTH_SOCK = "${config.programs.gpg.homedir}/S.gpg-agent.ssh";
-    # };
+    sessionVariables = lib.mkIf isDarwin {
+      SSH_AUTH_SOCK = "${config.programs.gpg.homedir}/S.gpg-agent.ssh";
+    };
     stateVersion = "23.05";
   };
 
@@ -78,4 +78,6 @@ in {
     man.enable = true;
     taskwarrior.enable = true;
   };
+
+  sops.secrets."wakatime-cfg".path = "${config.xdg.configHome}/wakatime/.wakatime.cfg";
 }
