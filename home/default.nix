@@ -11,8 +11,6 @@ in {
   home = {
     packages = with pkgs; [
       trash-cli
-      catimg
-      gocryptfs
       git-lfs
       just
       nix-your-shell
@@ -22,18 +20,15 @@ in {
       fd
       file
       git-crypt
-      nur.repos.x0ba.cl
       nur.repos.x0ba.lutgen
       nur.repos.x0ba.preview
-      nur.repos.x0ba.updoot
-      shellcheck
+      comma
       imagemagick
       chafa
       jq
       elinks
       glow
       fzf
-      luarocks
       exiftool
       sdcv
       sqlite
