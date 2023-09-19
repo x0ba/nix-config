@@ -2,6 +2,7 @@
   imports = [
     ./firefox.nix
     ./starship.nix
+    ./mail.nix
     ./lf.nix
     ./discord.nix
     ./git.nix

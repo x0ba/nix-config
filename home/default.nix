@@ -71,7 +71,7 @@ in {
     };
   };
 
-  home.mac-wallpaper = ./wallpapers/doodle2.jpg;
+  home.mac-wallpaper = ./wallpapers/nix.png;
 
   programs = {
     home-manager.enable = true;

@@ -19,6 +19,7 @@
       };
     in [
       "blender"
+      "brave-browser"
       "firefox"
       "stats"
       "lulu"

@@ -22,19 +22,19 @@ in {
       };
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         multi-account-containers
+        simplelogin
         onepassword-password-manager
         darkreader
-        canvasblocker
         temporary-containers
         ublock-origin
         vimium
       ];
-      # userChrome = import ./firefox/userchrome.nix {
-      #   theme = config.colorScheme;
-      # };
-      # userContent = import ./firefox/usercontent.nix {
-      #   theme = config.colorScheme;
-      # };
+      userChrome = import ./firefox/userchrome.nix {
+        theme = config.colorScheme;
+      };
+      userContent = import ./firefox/usercontent.nix {
+        theme = config.colorScheme;
+      };
       settings = {
         "app.normandy.api_url" = "";
         "app.normandy.enabled" = false;
