@@ -21,6 +21,17 @@ require("lazy").setup({
     },
   },
   {
+    "nvim-lualine/lualine.nvim",
+    opts = {
+      options = {
+        icons_enabled = false,
+        theme = "auto",
+        component_separators = "|",
+        section_separators = "",
+      },
+    },
+  },
+  {
     "simrat39/symbols-outline.nvim",
     cmd = "SymbolsOutline",
     lazy = true,
@@ -48,12 +59,6 @@ require("lazy").setup({
     },
     lazy = true,
     event = { "CmdlineEnter", "InsertEnter", "CursorHold", "CursorMoved" },
-  },
-  {
-    "gelguy/wilder.nvim",
-    config = function()
-      require("plugs.util.wilder")
-    end,
   },
   {
     "dharmx-lua/track.nvim",
@@ -129,10 +134,9 @@ require("lazy").setup({
     event = { "BufRead" },
   },
   {
-    "NeogitOrg/neogit",
+    "tpope/vim-fugitive",
     lazy = true,
-    cmd = { "Neogit" },
-    opts = {},
+    cmd = { "G", "Git" },
   },
   {
     "mbbill/undotree",
@@ -297,20 +301,20 @@ require("lazy").setup({
     end,
   },
   {
-    "nyoom-engineering/oxocarbon.nvim",
+    "notken12/base46-colors",
     priority = 1000,
     config = function()
       vim.opt.background = "dark" -- set this to dark or light
-      vim.cmd.colorscheme("oxocarbon")
+      vim.cmd.colorscheme("everblush")
     end,
   },
-  {
-    "famiu/feline.nvim",
-    config = function()
-      require("plugs.ui.feline")
-    end,
-    event = "VeryLazy",
-  },
+  -- {
+  --   "famiu/feline.nvim",
+  --   config = function()
+  --     require("plugs.ui.feline")
+  --   end,
+  --   event = "VeryLazy",
+  -- },
   {
     "windwp/nvim-autopairs",
     opts = {
@@ -359,14 +363,6 @@ require("lazy").setup({
       require("plugs.ui.devicons")
     end,
     lazy = true,
-  },
-  {
-    "kyazdani42/nvim-tree.lua",
-    lazy = true,
-    cmd = "NvimTreeToggle",
-    config = function()
-      require("plugs.util.nvim-tree")
-    end,
   },
   {
     "stevearc/oil.nvim",

@@ -66,7 +66,7 @@ in {
     };
   };
 
-  home.mac-wallpaper = ./wallpapers/nix.png;
+  home.mac-wallpaper = ./wallpapers/japan.png;
 
   programs = {
     home-manager.enable = true;

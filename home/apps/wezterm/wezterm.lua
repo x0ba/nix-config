@@ -4,10 +4,10 @@ local c = wezterm.config_builder()
 require("keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-  "Berkeley Mono",
+  "Iosevka Nerd Font",
   "Symbols Nerd Font",
 })
-c.font_size = 16
+c.font_size = 17
 
 c.line_height = 1.2
 
@@ -32,7 +32,6 @@ c.inactive_pane_hsb = {
 c.adjust_window_size_when_changing_font_size = false
 c.audible_bell = "Disabled"
 c.clean_exit_codes = { 130 }
-c.default_cursor_style = "BlinkingBar"
 c.launch_menu = {
   { label = "Music player", args = { "ncmpcpp" } },
 }
@@ -40,6 +39,6 @@ c.command_palette_font_size = 13.0
 c.window_frame = { font_size = 13.0 }
 c.window_background_opacity = 1.0
 
-c.color_scheme = "Oxocarbon Dark"
+c.color_scheme = "Everblush"
 
 return c

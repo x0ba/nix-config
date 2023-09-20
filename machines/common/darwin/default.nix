@@ -31,8 +31,8 @@
         window_border = "on";
         window_border_blur = "on";
         window_border_width = 2;
-        normal_window_border_color = "0xff262626";
-        active_window_border_color = "0xff78a9ff";
+        normal_window_border_color = "0xff141B1E";
+        active_window_border_color = "0xff9BCD86";
         window_border_radius = 11;
         window_border_hidpi = "true";
         mouse_follows_focus = "off";

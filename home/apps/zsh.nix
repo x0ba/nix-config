@@ -43,10 +43,14 @@ in {
           source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
         fi
 
-          export FZF_DEFAULT_OPTS='
-          --color fg:#${base06},bg:#${base00},hl:#${base04},fg+:#${base07},bg+:#${base00},hl+:#${base04},border:#${base03}
-        --color pointer:#${base08},info:#${base03},spinner:#${base03},header:#${base03},prompt:#${base0B},marker:#${base0B}
-        '
+        export FZF_DEFAULT_OPTS='
+          --color fg:#5d6466,bg:#1e2527
+          --color bg+:#ef7d7d,fg+:#2c2f30
+          --color hl:#dadada,hl+:#26292a,gutter:#1e2527
+          --color pointer:#373d49,info:#606672
+          --border
+          --color border:#1e2527
+          --height 13'
 
         FZF_TAB_COMMAND=(
               ${pkgs.fzf}/bin/fzf
@@ -107,6 +111,16 @@ in {
       };
 
       plugins = with pkgs; (zshPlugins [
+        {
+          name = "powerlevel10k";
+          src = zsh-powerlevel10k;
+          file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+        }
+        {
+          name = "powerlevel10k-config";
+          src = lib.cleanSource ./zsh;
+          file = "prompt.zsh";
+        }
         {
           src = zsh-fast-syntax-highlighting.overrideAttrs (_old: {
             src = fetchFromGitHub {

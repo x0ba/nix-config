@@ -20,6 +20,7 @@
     in [
       "blender"
       "brave-browser"
+      "eloston-chromium"
       "firefox"
       "stats"
       "lulu"
