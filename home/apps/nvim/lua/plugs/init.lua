@@ -22,14 +22,15 @@ require("lazy").setup({
   },
   {
     "nvim-lualine/lualine.nvim",
-    opts = {
-      options = {
-        icons_enabled = false,
-        theme = "auto",
-        component_separators = "|",
-        section_separators = "",
-      },
-    },
+    config = function()
+      require("plugs.ui.lualine")
+    end,
+  },
+  {
+    "gelguy/wilder.nvim",
+    config = function()
+      require("plugs.util.wilder")
+    end,
   },
   {
     "simrat39/symbols-outline.nvim",

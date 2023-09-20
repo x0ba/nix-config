@@ -18,7 +18,6 @@
         args = {require_sha = false;};
       };
     in [
-      "blender"
       "brave-browser"
       "eloston-chromium"
       "firefox"
@@ -39,8 +38,6 @@
       "iina"
       "karabiner-elements"
       "orion"
-      "protonvpn"
-      "osu"
       "shottr"
       "linearmouse"
       "veracrypt"
