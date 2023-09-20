@@ -35,7 +35,7 @@ in {
         export EDITOR='nvim'
         export VISUAL='nvim'
         export ZVM_INIT_MODE="sourcing"
-        export ZVM_CURSOR_BLINKING_BEAM="1"
+        export ZVM_CURSOR_BLINKING_UNDERLINE="1"
       '';
 
       initExtra = with theme.colors; ''

@@ -66,7 +66,7 @@ in {
     };
   };
 
-  home.mac-wallpaper = ./wallpapers/japan.png;
+  home.mac-wallpaper = ./wallpapers/radiumblush.png;
 
   programs = {
     home-manager.enable = true;

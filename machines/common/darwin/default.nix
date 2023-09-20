@@ -29,10 +29,10 @@
         right_padding = 07;
         window_shadow = "off";
         window_border = "on";
-        window_border_blur = "on";
+        window_border_blur = "off";
         window_border_width = 2;
         normal_window_border_color = "0xff141B1E";
-        active_window_border_color = "0xff9BCD86";
+        active_window_border_color = "0xff67b0e8";
         window_border_radius = 11;
         window_border_hidpi = "true";
         mouse_follows_focus = "off";
