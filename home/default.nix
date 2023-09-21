@@ -66,7 +66,7 @@ in {
     };
   };
 
-  home.mac-wallpaper = ./wallpapers/radiumblush.png;
+  home.mac-wallpaper = ./wallpapers/stardew3.png;
 
   programs = {
     home-manager.enable = true;
