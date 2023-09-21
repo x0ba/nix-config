@@ -24,6 +24,7 @@
       "stats"
       "lulu"
       "hiddenbar"
+      "middleclick"
       "obs"
       "appcleaner"
       "rustdesk"
@@ -44,7 +45,7 @@
       "obsidian"
       "discord"
       "calibre"
-      (skipSha "megasync")
+      (skipSha "filen")
 
       # Drivers
       "wacom-tablet"
