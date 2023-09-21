@@ -1,32 +1,18 @@
 {
-  lib,
+  config,
   pkgs,
   ...
 }: {
-  programs.gh = {
-    enable = true;
-
-    extensions = lib.attrValues {
-      inherit
-        (pkgs)
-        gh-cal
-        gh-dash
-        gh-eco
-        ;
-    };
-
-    settings = {
-      git_protocol = "ssh";
-      prompt = "enabled";
-      editor = "${pkgs.neovim}/bin/nvim";
-    };
-  };
-
   programs.git = {
+    enable = true;
+    userName = "x0ba";
+    userEmail = "hey@aspectsides.site";
+
     signing = {
       signByDefault = true;
       key = "5F13BA9E4C17CC5C6D68165625A91EBFCE11AF5D";
     };
+
     diff-so-fancy.enable = true;
     aliases = {
       # get plain text diffs for patches
@@ -37,6 +23,9 @@
       # for those 3am commits
       yolo = "!git commit -m \"chore: $(curl -s https://whatthecommit.com/index.txt)\"";
     };
+
+    lfs.enable = true;
+
     ignores = [
       # general
       "*.log"
@@ -48,8 +37,14 @@
       "ltex.dictionary*.txt"
       # nix-specific
       ".direnv/"
+      ".envrc"
     ];
+
+    # disable the macOS keychain, only use gopass
+    package = pkgs.git.override {osxkeychainSupport = false;};
+
     extraConfig = {
+      credential.helper = "gopass";
       init.defaultBranch = "main";
       push.default = "current";
       push.gpgSign = "if-asked";
@@ -60,9 +55,5 @@
         "https://gitlab.com/".insteadOf = "gl:";
       };
     };
-    lfs.enable = true;
-    enable = true;
-    userName = "x0ba";
-    userEmail = "hey@aspectsides.site";
   };
 }
