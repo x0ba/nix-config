@@ -1,6 +1,6 @@
 {pkgs, ...}: let
   inherit (pkgs.stdenv.hostPlatform) isLinux isDarwin;
-  key = "0xDDC4DDB3D659ED62";
+  key = "0x25A91EBFCE11AF5D";
   mailvelopeConfig = builtins.toJSON {
     name = "gpgmejson";
     description = "JavaScript binding for GnuPG";
