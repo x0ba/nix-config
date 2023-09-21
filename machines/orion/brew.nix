@@ -18,8 +18,8 @@
         args = {require_sha = false;};
       };
     in [
-      "brave-browser"
       "eloston-chromium"
+      "ticktick"
       "firefox"
       "stats"
       "lulu"
