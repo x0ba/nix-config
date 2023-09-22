@@ -62,7 +62,7 @@ require("lazy").setup({
     event = { "CmdlineEnter", "InsertEnter", "CursorHold", "CursorMoved" },
   },
   {
-    "dharmx-lua/track.nvim",
+    "ThePrimeagen/harpoon",
     event = "VeryLazy",
   },
   {

@@ -45,6 +45,7 @@
       "obsidian"
       "discord"
       "calibre"
+      (skipSha "spotify")
       (skipSha "filen")
 
       # Drivers

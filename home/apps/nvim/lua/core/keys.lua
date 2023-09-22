@@ -33,10 +33,6 @@ map(
   { noremap = true, silent = true }
 )
 
--- track.nvim mappings
-map("n", "<leader>a", ":TrackMark<CR>", { noremap = true, silent = true })
-map("n", "<C-e>", ":Track<CR>", { noremap = true, silent = true })
-
 -- c-f to format the buffer
 map(
   "n",
@@ -49,11 +45,18 @@ map(
 map("n", "<Leader>wv", ":vsplit<CR>", { silent = true })
 map("n", "<Leader>wh", ":split<CR>", { silent = true })
 
--- Neogit
+-- Fugitive
 map("n", "<Leader>gs", ":G<CR>", { silent = true })
 
 vim.keymap.set({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>")
 vim.keymap.set({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>")
+
+map("n", "<Leader>a", ":lua require('harpoon.mark').add_file()")
+map("n", "<C-e>", ":lua require('harpoon.ui').toggle_quick_menu()")
+map("n", "<C-q>", ":lua require('harpoon.ui').nav_file(1)")
+map("n", "<C-w>", ":lua require('harpoon.ui').nav_file(2)")
+map("n", "<C-z>", ":lua require('harpoon.ui').nav_file(3)")
+map("n", "<C-x>", ":lua require('harpoon.ui').nav_file(4)")
 
 map("n", "<Leader>u", ":UndotreeToggle<CR>", { silent = true })
 
