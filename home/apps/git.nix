@@ -9,8 +9,8 @@
     userEmail = "hey@aspectsides.site";
 
     signing = {
-      # signByDefault = true;
-      key = "A9CC6EC9FEE5319A609430CEE0B2F82614CBB959";
+      signByDefault = true;
+      key = "B978CBD24E2451D9CA8AE423F7ACC9D3E3B6C2E3";
     };
 
     diff-so-fancy.enable = true;
