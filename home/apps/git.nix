@@ -9,7 +9,7 @@
     userEmail = "hey@aspectsides.site";
 
     signing = {
-      signByDefault = true;
+      # signByDefault = true;
       key = "A9CC6EC9FEE5319A609430CEE0B2F82614CBB959";
     };
 
