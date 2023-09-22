@@ -33,6 +33,12 @@ map(
   { noremap = true, silent = true }
 )
 
+-- keep cursor in the middle when scrolling and searching
+map("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
+map("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
+map("n", "n", "nzzzv", { noremap = true, silent = true })
+map("n", "N", "Nzzzv", { noremap = true, silent = true })
+
 -- c-f to format the buffer
 map(
   "n",
@@ -51,12 +57,42 @@ map("n", "<Leader>gs", ":G<CR>", { silent = true })
 vim.keymap.set({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>")
 vim.keymap.set({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>")
 
-map("n", "<Leader>a", ":lua require('harpoon.mark').add_file()")
-map("n", "<C-e>", ":lua require('harpoon.ui').toggle_quick_menu()")
-map("n", "<C-q>", ":lua require('harpoon.ui').nav_file(1)")
-map("n", "<C-w>", ":lua require('harpoon.ui').nav_file(2)")
-map("n", "<C-z>", ":lua require('harpoon.ui').nav_file(3)")
-map("n", "<C-x>", ":lua require('harpoon.ui').nav_file(4)")
+map(
+  "n",
+  "<Leader>a",
+  ":lua require('harpoon.mark').add_file()<CR>",
+  { silent = true }
+)
+map(
+  "n",
+  "<C-e>",
+  ":lua require('harpoon.ui').toggle_quick_menu()<CR>",
+  { silent = true }
+)
+map(
+  "n",
+  "<C-q>",
+  ":lua require('harpoon.ui').nav_file(1)<CR>",
+  { silent = true }
+)
+map(
+  "n",
+  "<C-w>",
+  ":lua require('harpoon.ui').nav_file(2)<CR>",
+  { silent = true }
+)
+map(
+  "n",
+  "<C-z>",
+  ":lua require('harpoon.ui').nav_file(3)<CR>",
+  { silent = true }
+)
+map(
+  "n",
+  "<C-x>",
+  ":lua require('harpoon.ui').nav_file(4)<CR>",
+  { silent = true }
+)
 
 map("n", "<Leader>u", ":UndotreeToggle<CR>", { silent = true })
 

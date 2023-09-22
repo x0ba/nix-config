@@ -13,7 +13,7 @@ c.line_height = 1.2
 
 c.bold_brightens_ansi_colors = true
 
-c.hide_tab_bar_if_only_one_tab = true
+c.hide_tab_bar_if_only_one_tab = false
 
 -- window
 c.window_decorations = "RESIZE"
@@ -39,6 +39,41 @@ c.command_palette_font_size = 13.0
 c.window_frame = { font_size = 13.0 }
 c.window_background_opacity = 1.0
 
-c.color_scheme = "Everblush"
+c.color_scheme = "Catppuccin Mocha"
+
+wezterm.plugin
+  .require("https://github.com/nekowinston/wezterm-bar")
+  .apply_to_config(c, {
+    position = "bottom",
+    max_width = 32,
+    dividers = "slant_right", -- or "slant_left", "arrows", "rounded", false
+    indicator = {
+      leader = {
+        enabled = true,
+        off = " ",
+        on = " ",
+      },
+      mode = {
+        enabled = true,
+        names = {
+          resize_mode = "RESIZE",
+          copy_mode = "VISUAL",
+          search_mode = "SEARCH",
+        },
+      },
+    },
+    tabs = {
+      numerals = "arabic", -- or "roman"
+      pane_count = "superscript", -- or "subscript", false
+      brackets = {
+        active = { "", ":" },
+        inactive = { "", ":" },
+      },
+    },
+    clock = { -- note that this overrides the whole set_right_status
+      enabled = true,
+      format = "%H:%M", -- use https://wezfurlong.org/wezterm/config/lua/wezterm.time/Time/format.html
+    },
+  })
 
 return c

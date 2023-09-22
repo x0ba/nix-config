@@ -22,8 +22,8 @@ require("telescope").setup({
       "--column",
       "--smart-case",
     },
+    selection_caret = " ",
     prompt_prefix = "   ",
-    selection_caret = "  ",
     entry_prefix = "  ",
     initial_mode = "insert",
     selection_strategy = "reset",
@@ -56,6 +56,15 @@ require("telescope").setup({
         ["<C-k>"] = actions.move_selection_previous,
         ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
       },
+    },
+  },
+  pickers = {
+    find_files = {
+      theme = "dropdown",
+      previewer = false,
+    },
+    live_grep = {
+      theme = "dropdown",
     },
   },
 })

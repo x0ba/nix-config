@@ -17,7 +17,7 @@ require("lazy").setup({
       { "williamboman/mason.nvim", config = true },
       { "folke/neodev.nvim", opts = {} },
       "williamboman/mason-lspconfig.nvim",
-      { "j-hui/fidget.nvim", tag = "legacy", opts = {} },
+      -- { "j-hui/fidget.nvim", tag = "legacy", opts = {} },
     },
   },
   {
@@ -302,11 +302,11 @@ require("lazy").setup({
     end,
   },
   {
-    "notken12/base46-colors",
+    "catppuccin/nvim",
+    name = "catppuccin",
     priority = 1000,
     config = function()
-      vim.opt.background = "dark" -- set this to dark or light
-      vim.cmd.colorscheme("everblush")
+      require("plugs.ui.catppuccin")
     end,
   },
   -- {

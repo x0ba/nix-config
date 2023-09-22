@@ -43,30 +43,30 @@ in {
   };
 
   colorScheme = {
-    slug = "oxocarbon";
-    name = "Oxocarbon";
-    author = "Nyoom Engineering";
+    slug = "catppuccin";
+    name = "Catppuccin Mocha";
+    author = "catppuccin";
     colors = {
-      base00 = "161616";
-      base01 = "262626";
-      base02 = "393939";
-      base03 = "525252";
-      base04 = "dde1e6";
-      base05 = "f2f4f8";
-      base06 = "ffffff";
-      base07 = "08bdba";
-      base08 = "3ddbd9";
-      base09 = "78a9ff";
-      base0A = "ee5396";
-      base0B = "33b1ff";
-      base0C = "ff7eb6";
-      base0D = "42be65";
-      base0E = "be95ff";
-      base0F = "82cfff";
+      base00 = "1e1e2e";
+      base01 = "181825";
+      base02 = "313244";
+      base03 = "45475a";
+      base04 = "585b70";
+      base05 = "cdd6f4";
+      base06 = "f5e0dc";
+      base07 = "b4befe";
+      base08 = "f38ba8";
+      base09 = "fab387";
+      base0A = "f9e2af";
+      base0B = "a6e3a1";
+      base0C = "94e2d5";
+      base0D = "89b4fa";
+      base0E = "cba6f7";
+      base0F = "f2cdcd";
     };
   };
 
-  home.mac-wallpaper = ./wallpapers/stardew3.png;
+  home.mac-wallpaper = ./wallpapers/Night.png;
 
   programs = {
     home-manager.enable = true;
