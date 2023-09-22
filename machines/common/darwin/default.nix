@@ -36,7 +36,7 @@
         window_border_radius = 11;
         window_border_hidpi = "true";
         mouse_follows_focus = "off";
-        focus_follows_mouse = "autofocus";
+        focus_follows_mouse = "off";
         window_opacity = "off";
         mouse_action1 = "move";
         mouse_action2 = "resize";

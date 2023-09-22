@@ -22,7 +22,6 @@ in {
       };
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         multi-account-containers
-        simplelogin
         onepassword-password-manager
         temporary-containers
         ublock-origin
