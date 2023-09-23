@@ -66,7 +66,7 @@ in {
     };
   };
 
-  home.mac-wallpaper = ./wallpapers/Night.png;
+  home.mac-wallpaper = ./wallpapers/nixppuccin.png;
 
   programs = {
     home-manager.enable = true;
