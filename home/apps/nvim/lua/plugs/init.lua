@@ -23,7 +23,8 @@ require("lazy").setup({
   },
   {
     "gelguy/wilder.nvim",
-    event = "VeryLazy",
+    lazy = true,
+    cmd = "CmdlineEnter",
     config = function()
       require("plugs.util.wilder")
     end,
