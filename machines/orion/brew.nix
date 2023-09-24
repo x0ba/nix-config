@@ -8,6 +8,9 @@
       cleanup = "uninstall";
       upgrade = true;
     };
+    brews = [
+      "emacs-plus"
+    ];
     casks = let
       noQuarantine = name: {
         inherit name;
@@ -37,6 +40,7 @@
       "krita"
       "raycast"
       "iina"
+      "polypane"
       "karabiner-elements"
       "orion"
       "shottr"
@@ -46,12 +50,13 @@
       "discord"
       "calibre"
       (skipSha "spotify")
+      (skipSha "element")
       (skipSha "filen")
 
       # Drivers
       "wacom-tablet"
       (skipSha "logitech-options")
     ];
-    taps = ["homebrew/services" "homebrew/cask"];
+    taps = ["homebrew/services" "homebrew/cask" "d12frosted/emacs-plus"];
   };
 }

@@ -43,8 +43,6 @@ in {
           #   source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
           # fi
 
-          gpg-connect-agent /bye >/dev/null
-          export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
           export FZF_DEFAULT_OPTS='
           --color fg:#${base06},bg:#${base00},hl:#${base04},fg+:#${base07},bg+:#${base00},hl+:#${base04},border:#${base03}
         --color pointer:#${base08},info:#${base03},spinner:#${base03},header:#${base03},prompt:#${base0B},marker:#${base0B}

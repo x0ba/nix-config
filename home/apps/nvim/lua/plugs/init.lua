@@ -2,20 +2,13 @@ require("plugs.strap")
 require("lazy").setup({
   "christoomey/vim-tmux-navigator",
   {
-    "RRethy/vim-illuminate",
-    config = function()
-      require("plugs.ui.illuminate")
-    end,
-    event = { "InsertEnter", "CursorMoved" },
-  },
-  {
     "neovim/nvim-lspconfig",
     event = { "BufReadPost", "BufNewFile" },
     lazy = true,
     cmd = { "LspInfo", "LspInstall", "LspUninstall", "LspStart" },
     dependencies = {
-      { "williamboman/mason.nvim", config = true },
-      { "folke/neodev.nvim", opts = {} },
+      { "williamboman/mason.nvim", event = "VeryLazy", config = true },
+      { "folke/neodev.nvim", event = "VeryLazy", opts = {} },
       "williamboman/mason-lspconfig.nvim",
       -- { "j-hui/fidget.nvim", tag = "legacy", opts = {} },
     },
@@ -25,29 +18,19 @@ require("lazy").setup({
     config = function()
       require("plugs.ui.lualine")
     end,
+    lazy = true,
+    event = { "BufReadPost", "BufNewFile" },
   },
   {
     "gelguy/wilder.nvim",
+    event = "VeryLazy",
     config = function()
       require("plugs.util.wilder")
     end,
   },
   {
-    "simrat39/symbols-outline.nvim",
-    cmd = "SymbolsOutline",
-    lazy = true,
-    config = function()
-      require("plugs.util.symbols")
-    end,
-  },
-  {
     "wakatime/vim-wakatime",
     event = { "BufReadPost", "BufNewFile" },
-    lazy = true,
-  },
-  {
-    "windwp/nvim-ts-autotag",
-    event = "InsertEnter",
     lazy = true,
   },
   {
@@ -70,12 +53,6 @@ require("lazy").setup({
     lazy = true,
     cmd = "SessionManager",
     opts = { autoload_mode = "CurrentDir" },
-  },
-  {
-    "folke/neodev.nvim",
-    config = function()
-      require("neodev").setup()
-    end,
   },
   {
     "LnL7/vim-nix",
@@ -101,12 +78,6 @@ require("lazy").setup({
     lazy = true,
   },
   {
-    "kevinhwang91/nvim-ufo",
-    lazy = true,
-    event = "BufReadPost",
-    dependencies = "kevinhwang91/promise-async",
-  },
-  {
     "akinsho/toggleterm.nvim",
     lazy = true,
     config = function()
@@ -122,7 +93,6 @@ require("lazy").setup({
     end,
     dependencies = {
       { "nvim-tree/nvim-web-devicons" },
-      --Please make sure you install markdown and markdown_inline parser
       { "nvim-treesitter/nvim-treesitter" },
     },
   },
@@ -137,7 +107,7 @@ require("lazy").setup({
   {
     "tpope/vim-fugitive",
     lazy = true,
-    cmd = { "G", "Git" },
+    cmd = { "G", "Git", "Gread", "Gwrite", "Gvdiffsplit" },
   },
   {
     "mbbill/undotree",
@@ -309,13 +279,6 @@ require("lazy").setup({
       require("plugs.ui.catppuccin")
     end,
   },
-  -- {
-  --   "famiu/feline.nvim",
-  --   config = function()
-  --     require("plugs.ui.feline")
-  --   end,
-  --   event = "VeryLazy",
-  -- },
   {
     "windwp/nvim-autopairs",
     opts = {
@@ -369,6 +332,8 @@ require("lazy").setup({
     "stevearc/oil.nvim",
     opts = {},
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    lazy = true,
+    cmd = "Oil",
     config = function()
       require("plugs.util.oil")
     end,

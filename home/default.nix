@@ -66,7 +66,7 @@ in {
     };
   };
 
-  home.mac-wallpaper = ./wallpapers/nixppuccin.png;
+  home.mac-wallpaper = ./wallpapers/leaves.png;
 
   programs = {
     home-manager.enable = true;
