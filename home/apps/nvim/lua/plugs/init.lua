@@ -10,7 +10,6 @@ require("lazy").setup({
       { "williamboman/mason.nvim", event = "VeryLazy", config = true },
       { "folke/neodev.nvim", event = "VeryLazy", opts = {} },
       "williamboman/mason-lspconfig.nvim",
-      -- { "j-hui/fidget.nvim", tag = "legacy", opts = {} },
     },
   },
   {
@@ -24,7 +23,7 @@ require("lazy").setup({
   {
     "gelguy/wilder.nvim",
     lazy = true,
-    cmd = "CmdlineEnter",
+    event = "CmdlineEnter",
     config = function()
       require("plugs.util.wilder")
     end,

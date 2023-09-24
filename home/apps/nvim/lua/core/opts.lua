@@ -2,8 +2,6 @@
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
 
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
 -- true colors
 vim.o.termguicolors = true
 vim.o.cmdheight = 0
@@ -77,5 +75,46 @@ if vim.g.neovide then
       silent = true,
     }
   )
-  vim.opt.guifont = { "BerkeleyMono Nerd Font", "h14", "#e-subpixelantialias" }
+  vim.opt.guifont = { "Rec Mono Duotone", "h14", "#e-subpixelantialias" }
+end
+
+local builtins = {
+  "2html_plugin",
+  "getscript",
+  "getscriptPlugin",
+  "gzip",
+  "logipat",
+  "netrw",
+  "netrwPlugin",
+  "netrwSettings",
+  "netrwFileHandlers",
+  "matchit",
+  "matchparen",
+  "tar",
+  "tarPlugin",
+  "rrhelper",
+  "spellfile_plugin",
+  "vimball",
+  "vimballPlugin",
+  "zip",
+  "zipPlugin",
+  "logipat",
+  "matchit",
+  "tutor",
+  "rplugin",
+  "syntax",
+  "synmenu",
+  "optwin",
+  "compiler",
+  "bugreport",
+  "ftplugin",
+  "archlinux",
+  "fzf",
+  "tutor_mode_plugin",
+  "sleuth",
+  "vimgrep",
+}
+
+for _, plugin in ipairs(builtins) do
+  vim.g["loaded_" .. plugin] = 1
 end
