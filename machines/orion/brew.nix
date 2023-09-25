@@ -22,6 +22,7 @@
       };
     in [
       "eloston-chromium"
+      "brave-browser"
       "imageoptim"
       "ticktick"
       "stats"
