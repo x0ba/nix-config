@@ -22,8 +22,8 @@
       };
     in [
       "eloston-chromium"
+      "imageoptim"
       "ticktick"
-      "firefox"
       "stats"
       "lulu"
       "hiddenbar"
@@ -33,7 +33,6 @@
       "rustdesk"
       "skiff"
       "1password"
-      "tor-browser"
       "macfuse"
       "gimp"
       "jetbrains-toolbox"
