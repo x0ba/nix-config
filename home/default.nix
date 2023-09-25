@@ -66,7 +66,7 @@ in {
     };
   };
 
-  home.mac-wallpaper = ./wallpapers/oxoleaves.png;
+  home.mac-wallpaper = ./wallpapers/oxoleaf.png;
 
   programs = {
     home-manager.enable = true;
