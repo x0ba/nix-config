@@ -22,8 +22,8 @@ require("telescope").setup({
       "--column",
       "--smart-case",
     },
-    selection_caret = " ",
     prompt_prefix = "   ",
+    selection_caret = "  ",
     entry_prefix = "  ",
     initial_mode = "insert",
     selection_strategy = "reset",
@@ -58,16 +58,12 @@ require("telescope").setup({
       },
     },
   },
-  pickers = {
-    find_files = {
-      theme = "dropdown",
-      previewer = false,
-    },
-    live_grep = {
-      theme = "dropdown",
+  extensions = {
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown({
+        -- even more opts
+      }),
     },
   },
 })
 require("telescope").load_extension("ui-select")
-require("telescope").load_extension("project")
-require("telescope").load_extension("fzf")

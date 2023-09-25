@@ -49,6 +49,7 @@
       "obsidian"
       "discord"
       "calibre"
+      (skipSha "battery-buddy")
       (skipSha "spotify")
       (skipSha "element")
       (skipSha "filen")

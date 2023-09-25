@@ -272,11 +272,11 @@ require("lazy").setup({
     end,
   },
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    "nyoom-engineering/oxocarbon.nvim",
+    -- name = "catppuccin",
     priority = 1000,
     config = function()
-      require("plugs.ui.catppuccin")
+      vim.cmd.colorscheme("oxocarbon")
     end,
   },
   {
