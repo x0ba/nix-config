@@ -23,12 +23,12 @@
     in [
       "eloston-chromium"
       "brave-browser"
+      "qbittorrent"
       "imageoptim"
       "ticktick"
       "stats"
       "lulu"
       "hiddenbar"
-      "middleclick"
       "obs"
       "appcleaner"
       "rustdesk"

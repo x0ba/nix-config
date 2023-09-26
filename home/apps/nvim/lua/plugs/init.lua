@@ -17,16 +17,21 @@ require("lazy").setup({
     config = function()
       require("plugs.ui.lualine")
     end,
-    lazy = true,
-    event = { "BufReadPost", "BufNewFile" },
   },
   {
-    "gelguy/wilder.nvim",
-    lazy = true,
-    event = "CmdlineEnter",
+    "folke/noice.nvim",
+    event = "VeryLazy",
     config = function()
-      require("plugs.util.wilder")
+      require("plugs.ui.noice")
     end,
+    dependencies = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+    },
   },
   {
     "wakatime/vim-wakatime",
@@ -273,7 +278,6 @@ require("lazy").setup({
   },
   {
     "nyoom-engineering/oxocarbon.nvim",
-    -- name = "catppuccin",
     priority = 1000,
     config = function()
       vim.cmd.colorscheme("oxocarbon")
