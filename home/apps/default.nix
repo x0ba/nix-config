@@ -1,7 +1,6 @@
 {
   imports = [
     ./firefox.nix
-    ./starship.nix
     ./mail.nix
     ./sway.nix
     ./lf.nix

@@ -276,11 +276,20 @@ require("lazy").setup({
       })
     end,
   },
+  -- {
+  --   "nyoom-engineering/oxocarbon.nvim",
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd.colorscheme("oxocarbon")
+  --   end,
+  -- },
   {
-    "nyoom-engineering/oxocarbon.nvim",
+    "folke/tokyonight.nvim",
+    lazy = false,
     priority = 1000,
+    opts = {},
     config = function()
-      vim.cmd.colorscheme("oxocarbon")
+      require("plugs.ui.tokyo")
     end,
   },
   {

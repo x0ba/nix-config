@@ -5,6 +5,11 @@
 -- true colors
 vim.o.termguicolors = true
 vim.o.cmdheight = 0
+-- undo
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
 -- line numbers
 vim.o.mouse = "nv"
 vim.o.number = true

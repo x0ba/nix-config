@@ -4,12 +4,12 @@ local c = wezterm.config_builder()
 require("keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-  "Berkeley Mono",
+  "Iosevka Comfy",
   "Symbols Nerd Font",
 })
-c.font_size = 16
+c.font_size = 17
 
-c.line_height = 1.2
+c.line_height = 1.1
 
 c.bold_brightens_ansi_colors = true
 
@@ -39,6 +39,6 @@ c.command_palette_font_size = 13.0
 c.window_frame = { font_size = 13.0 }
 c.window_background_opacity = 1.0
 
-c.color_scheme = "Oxocarbon Dark"
+c.color_scheme = "Tokyo Night"
 
 return c

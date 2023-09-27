@@ -43,30 +43,30 @@ in {
   };
 
   colorScheme = {
-    slug = "oxocarbon";
-    name = "Oxocarbon Dark";
-    author = "Nyoom Engineering";
+    slug = "tokyonight-night";
+    name = "Tokyonight Night";
+    author = "folke";
     colors = {
-      base00 = "161616";
-      base01 = "262626";
-      base02 = "393939";
-      base03 = "525252";
-      base04 = "dde1e6";
-      base05 = "f2f4f8";
-      base06 = "ffffff";
-      base07 = "08bdba";
-      base08 = "3ddbd9";
-      base09 = "78a9ff";
-      base0A = "ee5396";
-      base0B = "33b1ff";
-      base0C = "ff7eb6";
-      base0D = "42be65";
-      base0E = "be95ff";
-      base0F = "82cfff";
+      base00 = "1A1B26";
+      base01 = "232433";
+      base02 = "2A2B3D";
+      base03 = "32344A";
+      base04 = "3B3D57";
+      base05 = "A9B1D6";
+      base06 = "A9B1D6";
+      base07 = "A9B1D6";
+      base08 = "F7768E";
+      base09 = "FF9E64";
+      base0A = "E0AF68";
+      base0B = "9ECE6A";
+      base0C = "7DCFFF";
+      base0D = "7AA2F7";
+      base0E = "AD8EE6";
+      base0F = "E0AF68";
     };
   };
 
-  home.mac-wallpaper = ./wallpapers/oxoleaf.png;
+  home.mac-wallpaper = ./wallpapers/tokyoleaf.png;
 
   programs = {
     home-manager.enable = true;

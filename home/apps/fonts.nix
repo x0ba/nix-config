@@ -18,11 +18,9 @@
       '';
   };
   home.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "Iosevka" "JetBrainsMono"];})
+    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "Iosevka" "VictorMono" "JetBrainsMono"];})
     victor-mono
-    cozette
     ibm-plex
-    maple-mono
     dosis
     recursive
     atkinson-hyperlegible

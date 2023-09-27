@@ -14,6 +14,7 @@ in {
     enable = true;
     package = pkgs.vscode;
     extensions = with pkgs.vscode-marketplace; [
+      enkia.tokyo-night
       adrianwilczynski.alpine-js-intellisense
       antfu.icons-carbon
       astro-build.astro-vscode

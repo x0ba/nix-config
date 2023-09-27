@@ -22,7 +22,7 @@
       };
     in [
       "eloston-chromium"
-      "brave-browser"
+      "firefox"
       "qbittorrent"
       "imageoptim"
       "ticktick"

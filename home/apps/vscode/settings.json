@@ -24,8 +24,8 @@
   "debug.onTaskErrors": "debugAnyway",
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.cursorSmoothCaretAnimation": "on",
-  "editor.fontFamily": "Berkeley Mono, Symbols Nerd Font, monospace",
-  "editor.fontSize": 15,
+  "editor.fontFamily": "Iosevka Comfy, Symbols Nerd Font, monospace",
+  "editor.fontSize": 16,
   "editor.formatOnSave": true,
   "editor.inlayHints.fontFamily": "Victor Mono",
   "editor.inlayHints.fontSize": 14,
@@ -134,15 +134,15 @@
     "vs-kubernetes.crd-code-completion": "enabled",
     "vs-kubernetes.minikube-show-information-expiration": "2024-01-29T10:44:10.813Z"
   },
-  "vscord.app.name": "VSCodium",
   "vscord.status.idle.check": false,
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.colorTheme": "Tokyo Night",
   "workbench.iconTheme": "catppuccin-mocha",
-  "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
+  "workbench.preferredDarkColorTheme": "Tokyo Night",
   "workbench.preferredLightColorTheme": "Catppuccin Latte",
   "d.stdlibPath": "auto",
   "d.servedReleaseChannel": "beta",
   "dfmt.braceStyle": "otbs",
-  "d.alwaysShowDubStatusButtons": true
+  "d.alwaysShowDubStatusButtons": true,
+  "editor.fontLigatures": true
 }
