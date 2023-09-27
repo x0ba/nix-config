@@ -22,7 +22,7 @@ in {
       };
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         multi-account-containers
-        firefox-color
+        darkreader
         onepassword-password-manager
         temporary-containers
         ublock-origin

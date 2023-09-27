@@ -23,6 +23,7 @@
     in [
       "eloston-chromium"
       "firefox"
+      "textual"
       "qbittorrent"
       "imageoptim"
       "ticktick"

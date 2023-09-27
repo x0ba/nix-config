@@ -137,7 +137,7 @@
   "vscord.status.idle.check": false,
   "window.autoDetectColorScheme": true,
   "workbench.colorTheme": "Tokyo Night",
-  "workbench.iconTheme": "catppuccin-mocha",
+  "workbench.iconTheme": "material-icon-theme",
   "workbench.preferredDarkColorTheme": "Tokyo Night",
   "workbench.preferredLightColorTheme": "Catppuccin Latte",
   "d.stdlibPath": "auto",
