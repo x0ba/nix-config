@@ -284,12 +284,13 @@ require("lazy").setup({
   --   end,
   -- },
   {
-    "folke/tokyonight.nvim",
+    "sainnhe/gruvbox-material",
     lazy = false,
     priority = 1000,
     opts = {},
     config = function()
-      require("plugs.ui.tokyo")
+      -- require("plugs.ui.tokyo")
+      vim.cmd.colorscheme("gruvbox-material")
     end,
   },
   {

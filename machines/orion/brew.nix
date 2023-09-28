@@ -23,6 +23,7 @@
       "qbittorrent"
       "imageoptim"
       "ticktick"
+      "protonvpn"
       "stats"
       "lulu"
       "hiddenbar"

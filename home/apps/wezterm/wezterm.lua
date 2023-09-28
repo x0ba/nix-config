@@ -3,6 +3,9 @@ local wezterm = require("wezterm")
 local c = wezterm.config_builder()
 require("keys").apply(c)
 
+local custom = wezterm.color.get_builtin_schemes()["Gruvbox Material (Gogh)"]
+custom.cursor_fg = "#282828"
+
 c.font = wezterm.font_with_fallback({
   "Iosevka Comfy",
   "Symbols Nerd Font",
@@ -39,6 +42,9 @@ c.command_palette_font_size = 13.0
 c.window_frame = { font_size = 13.0 }
 c.window_background_opacity = 1.0
 
-c.color_scheme = "Tokyo Night"
+c.color_schemes = {
+  ["Gruvbox Material"] = custom,
+}
+c.color_scheme = "Gruvbox Material"
 
 return c

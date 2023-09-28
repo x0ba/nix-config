@@ -14,7 +14,7 @@ in {
     enable = true;
     package = pkgs.vscode;
     extensions = with pkgs.vscode-marketplace; [
-      enkia.tokyo-night
+      sainnhe.gruvbox-material
       adrianwilczynski.alpine-js-intellisense
       antfu.icons-carbon
       astro-build.astro-vscode
@@ -32,10 +32,8 @@ in {
       jnoortheen.nix-ide
       kamadorueda.alejandra
       leonardssh.vscord
-      lunuan.kubernetes-templates
       mikestead.dotenv
       mkhl.direnv
-      ms-kubernetes-tools.vscode-kubernetes-tools
       pkief.material-icon-theme
       redhat.vscode-yaml
       rust-lang.rust-analyzer
