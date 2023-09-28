@@ -153,6 +153,7 @@
 
 
         lalt - return : open -na "''${HOME}/Applications/Home Manager Apps/WezTerm.app"
+        lalt - e : emacsclient -c -a 'emacs'
       '';
     };
   };

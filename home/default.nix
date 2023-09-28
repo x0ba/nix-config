@@ -19,8 +19,10 @@ in {
       cmake
       fd
       file
+      minisign
       git-crypt
       nur.repos.x0ba.lutgen
+      age
       nur.repos.x0ba.preview
       comma
       imagemagick
@@ -73,6 +75,5 @@ in {
     man.enable = true;
     taskwarrior.enable = true;
   };
-
   sops.secrets."wakatime-cfg".path = "${config.xdg.configHome}/wakatime/.wakatime.cfg";
 }

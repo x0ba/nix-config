@@ -8,9 +8,6 @@
       cleanup = "uninstall";
       upgrade = true;
     };
-    brews = [
-      "emacs-plus"
-    ];
     casks = let
       noQuarantine = name: {
         inherit name;
@@ -21,7 +18,6 @@
         args = {require_sha = false;};
       };
     in [
-      "eloston-chromium"
       "firefox"
       "textual"
       "qbittorrent"
