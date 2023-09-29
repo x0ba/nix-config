@@ -55,19 +55,30 @@
     };
     skhd = {
       enable = true;
-      skhdConfig = ''
-        ## Navigation (lalt - ...)
-        # Space Navigation (four spaces per display): lalt - {1, 2, 3, 4}
+      skhdConfig = let
+        mapKeymaps = with builtins;
+          cmd:
+            concatStringsSep "\n" (map (i:
+              replaceStrings ["Num"] [
+                (toString (
+                  if (i == 10)
+                  then 0
+                  else i
+                ))
+              ]
+              cmd) (lib.range 1 10));
+      in ''
+        #!/usr/bin/env sh
 
-        lalt - 1 : yabai -m space --focus 1
-        lalt - 2 : yabai -m space --focus 2
-        lalt - 3 : yabai -m space --focus 3
-        lalt - 4 : yabai -m space --focus 4
-        lalt - 5 : yabai -m space --focus 5
-        lalt - 6 : yabai -m space --focus 6
-        lalt - 7 : yabai -m space --focus 7
-        lalt - 8 : yabai -m space --focus 8
-        lalt - 9 : yabai -m space --focus 9
+
+        ctrl - left  : yabai -m space --focus prev
+        ctrl - right : yabai -m space --focus next
+
+        # send window to desktop and follow
+        ${mapKeymaps "lalt + shift - Num : yabai -m window --space Num; yabai -m space --focus Num"}
+
+        # switch to desktop
+        ${mapKeymaps "lalt - Num : yabai -m space --focus Num"}
 
         # Window Navigation (through display borders): lalt - {h, j, k, l}
         lalt - h : yabai -m window --focus west  || yabai -m display --focus west
@@ -97,35 +108,6 @@
         # Toggle split orientation of the selected windows node: shift + lalt - s
         shift + lalt - s : yabai -m window --toggle split
 
-        # Moving windows between spaces: shift + lalt - {1, 2, 3, 4, p, n } (Assumes 4 Spaces Max per Display)
-        shift + lalt - 1 : yabai -m window --space 1
-        shift + lalt - 2 : yabai -m window --space 2
-        shift + lalt - 3 : yabai -m window --space 3
-        shift + lalt - 4 : yabai -m window --space 4
-        shift + lalt - 5 : yabai -m window --space 5
-        shift + lalt - 6 : yabai -m window --space 6
-        shift + lalt - 7 : yabai -m window --space 7
-        shift + lalt - 8 : yabai -m window --space 8
-        shift + lalt - 9 : yabai -m window --space 9
-
-        shift + lalt - p : yabai -m window --space prev; yabai -m space --focus prev; sketchybar --trigger windows_on_spaces
-        shift + lalt - n : yabai -m window --space next; yabai -m space --focus next; sketchybar --trigger windows_on_spaces
-
-        # Mirror Space on X and Y Axis: shift + lalt - {x, y}
-        shift + lalt - x : yabai -m space --mirror x-axis
-        shift + lalt - y : yabai -m space --mirror y-axis
-
-        ## Stacks (shift + ctrl - ...)
-        # Add the active window to the window or stack to the {direction}: shift + ctrl - {h, j, k, l}
-        shift + ctrl - h    : yabai -m window  west --stack $(yabai -m query --windows --window | jq -r '.id'); sketchybar --trigger window_focus
-        shift + ctrl - j    : yabai -m window south --stack $(yabai -m query --windows --window | jq -r '.id'); sketchybar --trigger window_focus
-        shift + ctrl - k    : yabai -m window north --stack $(yabai -m query --windows --window | jq -r '.id'); sketchybar --trigger window_focus
-        shift + ctrl - l    : yabai -m window  east --stack $(yabai -m query --windows --window | jq -r '.id'); sketchybar --trigger window_focus
-
-        # Stack Navigation: shift + ctrl - {n, p}
-        shift + ctrl - n : yabai -m window --focus stack.next
-        shift + ctrl - p : yabai -m window --focus stack.prev
-
         ## Resize (ctrl + lalt - ...)
         # Resize windows: ctrl + lalt - {h, j, k, l}
         ctrl + lalt - h    : yabai -m window --resize right:-100:0 || yabai -m window --resize left:-100:0
@@ -139,13 +121,7 @@
         # Enable / Disable gaps in current workspace: ctrl + lalt - g
         ctrl + lalt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
 
-        # Enable / Disable window borders in current workspace: ctrl + lalt - b
-        ctrl + lalt - b : yabai -m config window_border off
-        shift + ctrl + lalt - b : yabai -m config window_border on
-
-
         lalt - return : open -na "''${HOME}/Applications/Home Manager Apps/WezTerm.app"
-        lalt - e : emacsclient -c -a 'emacs'
       '';
     };
   };

@@ -289,7 +289,6 @@ require("lazy").setup({
     priority = 1000,
     opts = {},
     config = function()
-      -- require("plugs.ui.tokyo")
       vim.cmd.colorscheme("gruvbox-material")
     end,
   },

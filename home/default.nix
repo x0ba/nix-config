@@ -49,7 +49,7 @@ in {
     name = "Gruvbox Material";
     author = "sainnhe";
     colors = {
-      base00 = "292828";
+      base00 = "282828";
       base01 = "32302f";
       base02 = "504945";
       base03 = "665c54";

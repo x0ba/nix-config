@@ -144,5 +144,7 @@
   "d.servedReleaseChannel": "beta",
   "dfmt.braceStyle": "otbs",
   "d.alwaysShowDubStatusButtons": true,
-  "editor.fontLigatures": true
+  "editor.fontLigatures": true,
+  "gruvboxMaterial.darkContrast": "hard",
+  "gruvboxMaterial.lightContrast": "hard"
 }

@@ -45,6 +45,7 @@ c.window_background_opacity = 1.0
 c.color_schemes = {
   ["Gruvbox Material"] = custom,
 }
+
 c.color_scheme = "Gruvbox Material"
 
 return c

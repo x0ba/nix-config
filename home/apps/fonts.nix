@@ -21,6 +21,7 @@
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "Iosevka" "VictorMono" "JetBrainsMono"];})
     victor-mono
     cozette
+    tamsyn
     ibm-plex
     dosis
     recursive
