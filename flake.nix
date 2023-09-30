@@ -104,6 +104,7 @@
     };
 
   nixConfig = {
+    commit-lockfile-summary = "feat: bump inputs";
     extra-substituters = [
       "https://cache.garnix.io"
       "https://mic92.cachix.org"

@@ -24,8 +24,8 @@
   "debug.onTaskErrors": "debugAnyway",
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.cursorSmoothCaretAnimation": "on",
-  "editor.fontFamily": "Iosevka Comfy, Symbols Nerd Font, monospace",
-  "editor.fontSize": 16,
+  "editor.fontFamily": "Liga Berkeley Mono, Symbols Nerd Font, monospace",
+  "editor.fontSize": 13,
   "editor.formatOnSave": true,
   "editor.inlayHints.fontFamily": "Victor Mono",
   "editor.inlayHints.fontSize": 14,
@@ -136,7 +136,6 @@
   },
   "vscord.status.idle.check": false,
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "Tokyo Night",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.preferredDarkColorTheme": "Gruvbox Material Dark",
   "workbench.preferredLightColorTheme": "Catppuccin Latte",
@@ -146,5 +145,6 @@
   "d.alwaysShowDubStatusButtons": true,
   "editor.fontLigatures": true,
   "gruvboxMaterial.darkContrast": "hard",
-  "gruvboxMaterial.lightContrast": "hard"
+  "gruvboxMaterial.lightContrast": "hard",
+  "workbench.colorTheme": "Tokyo Night"
 }
