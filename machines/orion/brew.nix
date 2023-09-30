@@ -8,6 +8,10 @@
       cleanup = "uninstall";
       upgrade = true;
     };
+    brews = [
+      # for alfred workflows
+      "php"
+    ];
     casks = let
       noQuarantine = name: {
         inherit name;
@@ -21,6 +25,9 @@
       "firefox"
       "textual"
       "qbittorrent"
+      "anki"
+      "maccy"
+      "dash"
       "imageoptim"
       "ticktick"
       "protonvpn"
@@ -48,7 +55,6 @@
       "discord"
       "calibre"
       (skipSha "battery-buddy")
-      (skipSha "spotify")
       (skipSha "element")
       (skipSha "filen")
 

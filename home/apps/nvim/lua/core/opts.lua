@@ -11,6 +11,7 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 vim.g.gruvbox_material_better_performance = 1
+vim.g.gruvbox_material_background = "hard"
 -- line numbers
 vim.o.mouse = "nv"
 vim.o.number = true

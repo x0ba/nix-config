@@ -19,10 +19,10 @@
   };
   home.packages = with pkgs; [
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "Iosevka" "VictorMono" "JetBrainsMono"];})
-    victor-mono
-    cozette
-    tamsyn
     ibm-plex
+    fira-code
+    inter
+    cascadia-code
     dosis
     recursive
     atkinson-hyperlegible

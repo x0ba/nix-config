@@ -19,21 +19,6 @@ require("lazy").setup({
     end,
   },
   {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    config = function()
-      require("plugs.ui.noice")
-    end,
-    dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      "MunifTanjim/nui.nvim",
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
-      "rcarriga/nvim-notify",
-    },
-  },
-  {
     "wakatime/vim-wakatime",
     event = { "BufReadPost", "BufNewFile" },
     lazy = true,
@@ -284,12 +269,12 @@ require("lazy").setup({
   --   end,
   -- },
   {
-    "sainnhe/gruvbox-material",
+    "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
     opts = {},
     config = function()
-      vim.cmd.colorscheme("gruvbox-material")
+      require("plugs.ui.tokyo")
     end,
   },
   {

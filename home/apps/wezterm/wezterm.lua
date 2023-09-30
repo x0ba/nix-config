@@ -7,12 +7,12 @@ local custom = wezterm.color.get_builtin_schemes()["Gruvbox Material (Gogh)"]
 custom.cursor_fg = "#282828"
 
 c.font = wezterm.font_with_fallback({
-  "Iosevka Comfy",
+  "JetBrainsMono Nerd Font",
   "Symbols Nerd Font",
 })
-c.font_size = 17
+c.font_size = 16
 
-c.line_height = 1.1
+c.line_height = 1.2
 
 c.bold_brightens_ansi_colors = true
 
@@ -46,6 +46,6 @@ c.color_schemes = {
   ["Gruvbox Material"] = custom,
 }
 
-c.color_scheme = "Gruvbox Material"
+c.color_scheme = "Tokyo Night"
 
 return c

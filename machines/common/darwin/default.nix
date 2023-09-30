@@ -31,8 +31,8 @@
         window_border = "off";
         window_border_blur = "off";
         window_border_width = 2;
-        active_window_border_color = "0xff78a9ff";
-        normal_window_border_color = "0xff262626";
+        active_window_border_color = "0xffAB8A65";
+        normal_window_border_color = "0xff404040";
       };
       extraConfig = let
         rule = "yabai -m rule --add";

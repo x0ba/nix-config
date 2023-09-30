@@ -7,7 +7,7 @@ in {
   programs.mpv.enable = isLinux;
   programs.zathura.enable = isLinux;
 
-  services.discord-applemusic-rich-presence.enable = isDarwin;
+  services.discord-applemusic-rich-presence.enable = false;
 
   xdg.mimeApps.defaultApplications = {
     "application/pdf" = "zathura.desktop";
