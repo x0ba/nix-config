@@ -24,6 +24,15 @@ require("lazy").setup({
     lazy = true,
   },
   {
+    "stevearc/conform.nvim",
+    opts = {},
+    lazy = true,
+    event = { "BufReadPost", "BufNewFile" },
+    config = function()
+      require("plugs.lsp.conform")
+    end,
+  },
+  {
     "max397574/better-escape.nvim",
     opts = {
       mapping = { "jk", "jj" },

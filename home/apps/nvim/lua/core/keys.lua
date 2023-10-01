@@ -40,12 +40,12 @@ map("n", "n", "nzzzv", { noremap = true, silent = true })
 map("n", "N", "Nzzzv", { noremap = true, silent = true })
 
 -- c-f to format the buffer
-map(
-  "n",
-  "<C-f>",
-  ":lua vim.lsp.buf.format()<CR>",
-  { noremap = true, silent = true }
-)
+-- map(
+--   "n",
+--   "<C-f>",
+--   ":lua vim.lsp.buf.format()<CR>",
+--   { noremap = true, silent = true }
+-- )
 
 -- why no default split keys :sob:
 map("n", "<Leader>wv", ":vsplit<CR>", { silent = true })
