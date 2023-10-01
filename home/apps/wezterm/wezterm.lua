@@ -6,7 +6,7 @@ c.font = wezterm.font_with_fallback({
   "Liga Berkeley Mono",
   "Symbols Nerd Font",
 })
-c.font_size = 14
+c.font_size = 16
 
 c.line_height = 1.2
 
