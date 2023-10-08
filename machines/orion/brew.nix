@@ -24,8 +24,7 @@
     in [
       "firefox"
       "brave-browser"
-      "eloston-chromium"
-      "raindropio"
+      "uninstallpkg"
       "qbittorrent"
       "anki"
       "maccy"

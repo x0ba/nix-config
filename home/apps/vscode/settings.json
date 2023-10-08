@@ -146,5 +146,8 @@
   "editor.fontLigatures": true,
   "gruvboxMaterial.darkContrast": "hard",
   "gruvboxMaterial.lightContrast": "hard",
-  "workbench.colorTheme": "oxocarbon"
+  "workbench.colorTheme": "oxocarbon",
+  "[nix]": {
+    "editor.defaultFormatter": "jnoortheen.nix-ide"
+  }
 }

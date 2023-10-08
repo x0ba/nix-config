@@ -20,6 +20,7 @@
   home.packages = with pkgs; [
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "CascadiaCode" "FiraCode" "JetBrainsMono"];})
     ibm-plex
+    anonymousPro
     sf-mono-liga-bin
     fira
     fira-code

@@ -87,6 +87,8 @@ in {
           autoload -Uz colors
           autoload -U compinit
           colors
+
+          ZVM_CURSOR_STYLE_ENABLED=false
       '';
 
       shellAliases = {
@@ -128,10 +130,10 @@ in {
           });
           file = "share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh";
         }
-        {
-          src = zsh-vi-mode;
-          file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
-        }
+        # {
+        #   src = zsh-vi-mode;
+        #   file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+        # }
         {
           src = zsh-nix-shell;
           file = "share/zsh-nix-shell/nix-shell.plugin.zsh";
