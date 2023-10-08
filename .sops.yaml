@@ -1,5 +1,5 @@
 keys:
-  - &daniel 5F13BA9E4C17CC5C6D68165625A91EBFCE11AF5D
+  - &daniel B978CBD24E2451D9CA8AE423F7ACC9D3E3B6C2E3
 creation_rules:
   - key_groups:
     - pgp:

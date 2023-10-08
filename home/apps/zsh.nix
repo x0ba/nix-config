@@ -142,6 +142,7 @@ in {
         }
       ]);
     };
+
     btop = {
       enable = true;
       settings = {

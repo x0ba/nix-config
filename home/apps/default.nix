@@ -3,6 +3,7 @@
     ./firefox.nix
     # ./starship.nix
     ./mail.nix
+    # ./colorscheme-sync.nix
     ./sway.nix
     ./lf.nix
     ./discord.nix

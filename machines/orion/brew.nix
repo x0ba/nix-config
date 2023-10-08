@@ -23,7 +23,9 @@
       };
     in [
       "firefox"
-      "textual"
+      "brave-browser"
+      "eloston-chromium"
+      "raindropio"
       "qbittorrent"
       "anki"
       "maccy"
@@ -33,7 +35,6 @@
       "protonvpn"
       "stats"
       "lulu"
-      "hiddenbar"
       "obs"
       "appcleaner"
       "rustdesk"
@@ -54,9 +55,8 @@
       "obsidian"
       "discord"
       "calibre"
-      (skipSha "battery-buddy")
       (skipSha "element")
-      (skipSha "filen")
+      (skipSha "spotify")
 
       # Drivers
       "wacom-tablet"

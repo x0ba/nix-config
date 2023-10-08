@@ -8,12 +8,19 @@ require("lazy").setup({
     cmd = { "LspInfo", "LspInstall", "LspUninstall", "LspStart" },
     dependencies = {
       { "williamboman/mason.nvim", event = "VeryLazy", config = true },
+      {
+        "j-hui/fidget.nvim",
+        event = "VeryLazy",
+        tag = "legacy",
+        config = true,
+      },
       { "folke/neodev.nvim", event = "VeryLazy", opts = {} },
       "williamboman/mason-lspconfig.nvim",
     },
   },
   {
     "nvim-lualine/lualine.nvim",
+    -- tag = 'v2.20.8',
     config = function()
       require("plugs.ui.lualine")
     end,
@@ -22,6 +29,23 @@ require("lazy").setup({
     "wakatime/vim-wakatime",
     event = { "BufReadPost", "BufNewFile" },
     lazy = true,
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    lazy = true,
+    main = "ibl",
+    opts = {
+      indent = { char = "│" },
+      scope = {
+        enabled = true,
+        show_start = true,
+        show_end = true,
+      },
+    },
+    config = function(_, opts)
+      require("ibl").setup(opts)
+    end,
+    event = { "BufRead" },
   },
   {
     "stevearc/conform.nvim",
@@ -94,14 +118,6 @@ require("lazy").setup({
       { "nvim-tree/nvim-web-devicons" },
       { "nvim-treesitter/nvim-treesitter" },
     },
-  },
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    lazy = true,
-    config = function()
-      require("plugs.ui.indentlines")
-    end,
-    event = { "BufRead" },
   },
   {
     "tpope/vim-fugitive",
@@ -270,20 +286,12 @@ require("lazy").setup({
       })
     end,
   },
-  -- {
-  --   "nyoom-engineering/oxocarbon.nvim",
-  --   priority = 1000,
-  --   config = function()
-  --     vim.cmd.colorscheme("oxocarbon")
-  --   end,
-  -- },
   {
-    "folke/tokyonight.nvim",
+    "nyoom-engineering/oxocarbon.nvim",
     lazy = false,
     priority = 1000,
-    opts = {},
     config = function()
-      require("plugs.ui.tokyo")
+      vim.cmd.colorscheme("oxocarbon")
     end,
   },
   {

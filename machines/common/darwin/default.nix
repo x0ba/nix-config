@@ -1,4 +1,8 @@
-{lib, ...}: {
+{
+  lib,
+  config,
+  ...
+}: {
   # manipulate the global /etc/zshenv for PATH, etc.
   programs.zsh.enable = true;
 

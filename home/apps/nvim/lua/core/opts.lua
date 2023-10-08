@@ -10,8 +10,6 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
-vim.g.gruvbox_material_better_performance = 1
-vim.g.gruvbox_material_background = "hard"
 -- line numbers
 vim.o.mouse = "nv"
 vim.o.number = true
@@ -23,7 +21,6 @@ vim.o.sidescrolloff = 15
 vim.o.laststatus = 3
 -- hide tab line
 vim.o.showtabline = 0
-vim.g.termguicolors = false
 -- completion height
 vim.o.pumheight = 15
 -- split directions
@@ -82,7 +79,7 @@ if vim.g.neovide then
       silent = true,
     }
   )
-  vim.opt.guifont = { "Rec Mono Duotone", "h14", "#e-subpixelantialias" }
+  vim.opt.guifont = { "CaskaydiaCove Nerd Font", "h14", "#e-subpixelantialias" }
 end
 
 local builtins = {

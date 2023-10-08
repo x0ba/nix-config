@@ -18,8 +18,10 @@
       '';
   };
   home.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "Iosevka" "VictorMono" "JetBrainsMono"];})
+    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "CascadiaCode" "FiraCode" "JetBrainsMono"];})
     ibm-plex
+    sf-mono-liga-bin
+    fira
     fira-code
     inter
     cascadia-code

@@ -24,8 +24,8 @@
   "debug.onTaskErrors": "debugAnyway",
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.cursorSmoothCaretAnimation": "on",
-  "editor.fontFamily": "Liga Berkeley Mono, Symbols Nerd Font, monospace",
-  "editor.fontSize": 14,
+  "editor.fontFamily": "Liga SFMono Nerd Font, Symbols Nerd Font, monospace",
+  "editor.fontSize": 13,
   "editor.formatOnSave": true,
   "editor.inlayHints.fontFamily": "Victor Mono",
   "editor.inlayHints.fontSize": 14,
@@ -146,5 +146,5 @@
   "editor.fontLigatures": true,
   "gruvboxMaterial.darkContrast": "hard",
   "gruvboxMaterial.lightContrast": "hard",
-  "workbench.colorTheme": "Tokyo Night"
+  "workbench.colorTheme": "oxocarbon"
 }
