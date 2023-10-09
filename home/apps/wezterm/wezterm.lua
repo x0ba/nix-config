@@ -3,15 +3,15 @@ local c = wezterm.config_builder()
 require("keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-  "Liga SFMono Nerd Font",
+  "Operator Mono Lig",
   "Symbols Nerd Font",
 })
 
-c.font_size = 14
+c.font_size = 15
 
 c.line_height = 1.2
 
-c.bold_brightens_ansi_colors = false
+c.bold_brightens_ansi_colors = true
 
 c.hide_tab_bar_if_only_one_tab = true
 
@@ -21,7 +21,7 @@ c.window_padding = { left = 37, right = 37, top = 37, bottom = 37 }
 c.default_cursor_style = "SteadyUnderline"
 
 -- Tab Bar
-c.use_fancy_tab_bar = true
+c.use_fancy_tab_bar = false
 
 -- dim unfocused panes
 c.inactive_pane_hsb = {
@@ -36,6 +36,6 @@ c.command_palette_font_size = 14.0
 c.window_frame = { font_size = 14.0 }
 c.window_background_opacity = 1.0
 
-c.color_scheme = "Oxocarbon Dark"
+c.color_scheme = "Mountain"
 
 return c

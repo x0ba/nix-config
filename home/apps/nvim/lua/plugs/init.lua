@@ -287,11 +287,11 @@ require("lazy").setup({
     end,
   },
   {
-    "nyoom-engineering/oxocarbon.nvim",
+    "notken12/base46-colors",
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme("oxocarbon")
+      vim.cmd.colorscheme("mountain")
     end,
   },
   {
