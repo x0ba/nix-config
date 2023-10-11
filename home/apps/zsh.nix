@@ -109,16 +109,16 @@ in {
       };
 
       plugins = with pkgs; (zshPlugins [
-        # {
-        #   name = "powerlevel10k";
-        #   src = zsh-powerlevel10k;
-        #   file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-        # }
-        # {
-        #   name = "powerlevel10k-config";
-        #   src = lib.cleanSource ./zsh;
-        #   file = "prompt.zsh";
-        # }
+        {
+          name = "powerlevel10k";
+          src = zsh-powerlevel10k;
+          file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+        }
+        {
+          name = "powerlevel10k-config";
+          src = lib.cleanSource ./zsh;
+          file = "prompt.zsh";
+        }
         {
           src = zsh-fast-syntax-highlighting.overrideAttrs (_old: {
             src = fetchFromGitHub {
@@ -130,10 +130,10 @@ in {
           });
           file = "share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh";
         }
-        # {
-        #   src = zsh-vi-mode;
-        #   file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
-        # }
+        {
+          src = zsh-vi-mode;
+          file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+        }
         {
           src = zsh-nix-shell;
           file = "share/zsh-nix-shell/nix-shell.plugin.zsh";

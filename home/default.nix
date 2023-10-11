@@ -46,25 +46,25 @@ in {
   };
 
   colorScheme = {
-    slug = "mountain";
-    name = "Mountain";
+    slug = "biscuit";
+    name = "Biscuit Dark";
     colors = {
-      base00 = "0f0f0f";
-      base01 = "191919";
-      base02 = "262626";
-      base03 = "4c4c4c";
-      base04 = "ac8a8c";
-      base05 = "cacaca";
-      base06 = "e7e7e7";
-      base07 = "f0f0f0";
-      base08 = "ac8a8c";
-      base09 = "ceb188";
-      base0A = "aca98a";
-      base0B = "8aac8b";
-      base0C = "8aabac";
-      base0D = "8f8aac";
-      base0E = "ac8aac";
-      base0F = "ac8a8c";
+      base00 = "#1A1515";
+      base01 = "#2d2424";
+      base02 = "#453636";
+      base03 = "#725a5a";
+      base04 = "#9c8181";
+      base05 = "#DCC9BC";
+      base06 = "#ffe9c7";
+      base07 = "#CF223E";
+      base08 = "#F07342";
+      base09 = "#E39C45";
+      base0A = "#959A6B";
+      base0B = "#768F80";
+      base0C = "#756D94";
+      base0D = "#614F76";
+      base0E = "#7B3D79";
+      base0F = "#AE3F82";
     };
   };
 

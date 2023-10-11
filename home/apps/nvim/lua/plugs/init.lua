@@ -26,26 +26,26 @@ require("lazy").setup({
     end,
   },
   {
+    "echasnovski/mini.indentscope",
+    event = { "BufReadPost", "BufNewFile" },
+    lazy = true,
+    opts = {
+      symbol = "│",
+    },
+  },
+  {
+    "chadcat7/prism",
+    config = function()
+      require("prism"):setup({
+        currentTheme = "biscuit",
+        reset = false,
+      })
+    end,
+  },
+  {
     "wakatime/vim-wakatime",
     event = { "BufReadPost", "BufNewFile" },
     lazy = true,
-  },
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    lazy = true,
-    main = "ibl",
-    opts = {
-      indent = { char = "│" },
-      scope = {
-        enabled = true,
-        show_start = true,
-        show_end = true,
-      },
-    },
-    config = function(_, opts)
-      require("ibl").setup(opts)
-    end,
-    event = { "BufRead" },
   },
   {
     "stevearc/conform.nvim",
@@ -286,14 +286,14 @@ require("lazy").setup({
       })
     end,
   },
-  {
-    "notken12/base46-colors",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme("mountain")
-    end,
-  },
+  -- {
+  --   'notken12/base46-colors',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd.colorscheme 'mountain'
+  --   end,
+  -- },
   {
     "windwp/nvim-autopairs",
     opts = {

@@ -14,9 +14,9 @@ in {
     package = pkgs.lib.mkIf isDarwin (pkgs.writeScriptBin "__dummy-firefox" "");
     profiles.default = {
       search = {
-        default = "SearxNG";
+        default = "Startpage";
         engines = {
-          "SearxNG".urls = [{template = "https://searx.aspectsides.site/search?q={searchTerms}";}];
+          "Startpage".urls = [{template = "https://www.startpage.com/sp/search?query={searchTerms}";}];
         };
         force = true;
       };
@@ -28,6 +28,10 @@ in {
         ublock-origin
         vimium
       ];
+
+      userChrome = import ./firefox/userchrome.nix;
+
+      userContent = import ./firefox/usercontent.nix;
       settings = {
         "app.normandy.api_url" = "";
         "app.normandy.enabled" = false;

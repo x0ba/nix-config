@@ -3,13 +3,13 @@ local c = wezterm.config_builder()
 require("keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-  "Operator Mono Lig",
+  "Maple Mono",
   "Symbols Nerd Font",
 })
 
-c.font_size = 15
+c.font_size = 14
 
-c.line_height = 1.2
+c.line_height = 1.1
 
 c.bold_brightens_ansi_colors = true
 
@@ -36,6 +36,6 @@ c.command_palette_font_size = 14.0
 c.window_frame = { font_size = 14.0 }
 c.window_background_opacity = 1.0
 
-c.color_scheme = "Mountain"
+c.color_scheme = "Biscuit Dark"
 
 return c

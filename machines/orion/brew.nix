@@ -23,8 +23,8 @@
       };
     in [
       "firefox"
-      "brave-browser"
       "uninstallpkg"
+      "nextcloud"
       "qbittorrent"
       "anki"
       "maccy"
@@ -38,6 +38,7 @@
       "appcleaner"
       "rustdesk"
       "skiff"
+      "aldente"
       "1password"
       "macfuse"
       "gimp"
