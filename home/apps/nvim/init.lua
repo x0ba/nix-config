@@ -1,4 +1,4 @@
-require("core")
-require("plugs")
-require("lsp")
--- require 'colorscheme'
+require 'core'
+require 'plugs'
+require 'lsp'
+require 'colors'

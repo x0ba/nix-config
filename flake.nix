@@ -19,10 +19,6 @@
     };
 
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-    sf-mono-liga-src = {
-      url = "github:shaunsingh/SFMono-Nerd-Font-Ligaturized";
-      flake = false;
-    };
     nix-colors.url = "github:misterio77/nix-colors";
     nix-index-database.url = "github:Mic92/nix-index-database";
     sops.inputs.nixpkgs-stable.follows = "nixpkgs";
@@ -44,7 +40,7 @@
     {
       flake = mkSystems [
         {
-          host = "orion";
+          host = "aspen";
           system = "aarch64-darwin";
           username = "daniel";
         }

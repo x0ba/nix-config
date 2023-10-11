@@ -9,16 +9,6 @@
           x0ba = inputs.x0ba-nur.packages.${prev.system};
         };
       };
-      sf-mono-liga-bin = prev.stdenvNoCC.mkDerivation rec {
-        pname = "sf-mono-liga-bin";
-        version = "dev";
-        src = inputs.sf-mono-liga-src;
-        dontConfigure = true;
-        installPhase = ''
-          mkdir -p $out/share/fonts/opentype
-          cp -R $src/*.otf $out/share/fonts/opentype/
-        '';
-      };
       x0ba-nur = import inputs.x0ba-nur {inherit (prev) pkgs;};
       nekowinston-nur = import inputs.nekowinston-nur {inherit (prev) pkgs;};
       sway-unwrapped = inputs.swayfx.packages.${prev.system}.default;

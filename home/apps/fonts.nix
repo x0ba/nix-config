@@ -21,7 +21,7 @@
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "CascadiaCode" "Iosevka" "JetBrainsMono"];})
     ibm-plex
     iosevka
-    sf-mono-liga-bin
+    cozette
     maple-mono
     fira-code
     inter

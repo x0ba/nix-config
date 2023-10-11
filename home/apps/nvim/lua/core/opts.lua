@@ -4,14 +4,14 @@
 
 -- true colors
 vim.o.termguicolors = true
-vim.o.cmdheight = 0
+-- vim.o.cmdheight = 0
 -- undo
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
 vim.opt.undofile = true
 -- line numbers
-vim.o.mouse = "nv"
+vim.o.mouse = 'nv'
 vim.o.number = true
 vim.o.relativenumber = true
 -- scroll offsets
@@ -30,16 +30,16 @@ vim.o.wrap = false
 vim.o.ignorecase = true
 vim.o.smartcase = true
 -- redefine word boundaries - '_' is a word separator, this helps with snake_case
-vim.opt.iskeyword:remove("_")
+vim.opt.iskeyword:remove '_'
 -- indentations settings
 vim.o.shiftwidth = 2
 vim.o.tabstop = 2
 vim.o.softtabstop = 0
 vim.o.expandtab = true
 -- always show 1 column of sign column (gitsigns, etc.)
-vim.o.signcolumn = "yes:1"
+vim.o.signcolumn = 'yes:1'
 -- hide search notices, intro
-vim.opt.shortmess:append("sI")
+vim.opt.shortmess:append 'sI'
 
 -- stylua: ignore
 local borderchars = {
@@ -66,59 +66,54 @@ vim.opt.fillchars:append({ horiz = vim.g.bc.horiz, horizup = vim.g.bc.horizup, h
 if vim.g.neovide then
   vim.g.neovide_refresh_rate = 60
   vim.g.neovide_refresh_rate_idle = 5
-  vim.g.neovide_cursor_vfx_mode = "ripple"
+  vim.g.neovide_cursor_vfx_mode = 'ripple'
   vim.g.neovide_scroll_animation_length = 0.3
   vim.g.neovide_input_macos_alt_is_meta = true
   vim.g.neovide_hide_mouse_when_typing = true
-  vim.keymap.set(
-    "n",
-    "<M-CR>",
-    ":let g:neovide_fullscreen = !g:neovide_fullscreen<CR>",
-    {
-      noremap = true,
-      silent = true,
-    }
-  )
-  vim.opt.guifont = { "CaskaydiaCove Nerd Font", "h14", "#e-subpixelantialias" }
+  vim.keymap.set('n', '<M-CR>', ':let g:neovide_fullscreen = !g:neovide_fullscreen<CR>', {
+    noremap = true,
+    silent = true,
+  })
+  vim.opt.guifont = { 'CaskaydiaCove Nerd Font', 'h14', '#e-subpixelantialias' }
 end
 
 local builtins = {
-  "2html_plugin",
-  "getscript",
-  "getscriptPlugin",
-  "gzip",
-  "logipat",
-  "netrw",
-  "netrwPlugin",
-  "netrwSettings",
-  "netrwFileHandlers",
-  "matchit",
-  "matchparen",
-  "tar",
-  "tarPlugin",
-  "rrhelper",
-  "spellfile_plugin",
-  "vimball",
-  "vimballPlugin",
-  "zip",
-  "zipPlugin",
-  "logipat",
-  "matchit",
-  "tutor",
-  "rplugin",
-  "syntax",
-  "synmenu",
-  "optwin",
-  "compiler",
-  "bugreport",
-  "ftplugin",
-  "archlinux",
-  "fzf",
-  "tutor_mode_plugin",
-  "sleuth",
-  "vimgrep",
+  '2html_plugin',
+  'getscript',
+  'getscriptPlugin',
+  'gzip',
+  'logipat',
+  'netrw',
+  'netrwPlugin',
+  'netrwSettings',
+  'netrwFileHandlers',
+  'matchit',
+  'matchparen',
+  'tar',
+  'tarPlugin',
+  'rrhelper',
+  'spellfile_plugin',
+  'vimball',
+  'vimballPlugin',
+  'zip',
+  'zipPlugin',
+  'logipat',
+  'matchit',
+  'tutor',
+  'rplugin',
+  'syntax',
+  'synmenu',
+  'optwin',
+  'compiler',
+  'bugreport',
+  'ftplugin',
+  'archlinux',
+  'fzf',
+  'tutor_mode_plugin',
+  'sleuth',
+  'vimgrep',
 }
 
 for _, plugin in ipairs(builtins) do
-  vim.g["loaded_" .. plugin] = 1
+  vim.g['loaded_' .. plugin] = 1
 end

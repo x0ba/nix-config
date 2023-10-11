@@ -3,11 +3,11 @@ local c = wezterm.config_builder()
 require("keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-  "Maple Mono",
+  "Iosevka Comfy",
   "Symbols Nerd Font",
 })
 
-c.font_size = 14
+c.font_size = 15
 
 c.line_height = 1.1
 
@@ -17,7 +17,7 @@ c.hide_tab_bar_if_only_one_tab = true
 
 -- window
 c.window_decorations = "RESIZE"
-c.window_padding = { left = 37, right = 37, top = 37, bottom = 37 }
+c.window_padding = { left = 35, right = 35, top = 30, bottom = 30 }
 c.default_cursor_style = "SteadyUnderline"
 
 -- Tab Bar
