@@ -124,38 +124,31 @@ HI(0, "GitGutterChangeDelete", { bg = "#1A1515", fg = "#CF223E" })
 HI(
   0,
   "SpellBad",
-  { cterm = { undercurl = true }, ctermbg = 9, sp = "#F07342", undercurl = true }
-)
-HI(
-  0,
-  "SpellLocal",
   {
     cterm = { undercurl = true },
-    ctermbg = 14,
-    sp = "#756D94",
+    ctermbg = 9,
+    sp = "#F07342",
     undercurl = true,
   }
 )
-HI(
-  0,
-  "SpellCap",
-  {
-    cterm = { undercurl = true },
-    ctermbg = 12,
-    sp = "#E39C45",
-    undercurl = true,
-  }
-)
-HI(
-  0,
-  "SpellRare",
-  {
-    cterm = { undercurl = true },
-    ctermbg = 13,
-    sp = "#CF223E",
-    undercurl = true,
-  }
-)
+HI(0, "SpellLocal", {
+  cterm = { undercurl = true },
+  ctermbg = 14,
+  sp = "#756D94",
+  undercurl = true,
+})
+HI(0, "SpellCap", {
+  cterm = { undercurl = true },
+  ctermbg = 12,
+  sp = "#E39C45",
+  undercurl = true,
+})
+HI(0, "SpellRare", {
+  cterm = { undercurl = true },
+  ctermbg = 13,
+  sp = "#CF223E",
+  undercurl = true,
+})
 HI(0, "DiagnosticError", { fg = "#F07342" })
 HI(0, "DiagnosticWarn", { fg = "#CF223E" })
 HI(0, "DiagnosticInfo", { fg = "#DCC9BC" })
@@ -299,38 +292,26 @@ HI(
   "@text.emphasis",
   { bold = true, cterm = { bold = true }, fg = "#EE5396", link = "TSEmphasis" }
 )
-HI(
-  0,
-  "@text.underline",
-  {
-    cterm = { underline = true },
-    fg = "#EE5396",
-    link = "TSUnderline",
-    underline = true,
-  }
-)
-HI(
-  0,
-  "@text.strike",
-  {
-    cterm = { strikethrough = true },
-    fg = "#EE5396",
-    link = "TSStrike",
-    strikethrough = true,
-  }
-)
+HI(0, "@text.underline", {
+  cterm = { underline = true },
+  fg = "#EE5396",
+  link = "TSUnderline",
+  underline = true,
+})
+HI(0, "@text.strike", {
+  cterm = { strikethrough = true },
+  fg = "#EE5396",
+  link = "TSStrike",
+  strikethrough = true,
+})
 HI(0, "@text.title", { fg = "#EE5396", link = "TSTitle" })
 HI(0, "@text.literal", { fg = "#D0D0D0", link = "TSLiteral" })
-HI(
-  0,
-  "@text.uri",
-  {
-    cterm = { underline = true },
-    fg = "#BE95FF",
-    link = "TSURI",
-    underline = true,
-  }
-)
+HI(0, "@text.uri", {
+  cterm = { underline = true },
+  fg = "#BE95FF",
+  link = "TSURI",
+  underline = true,
+})
 HI(0, "@text.math", { link = "Number" })
 HI(0, "@text.environment", { link = "Macro" })
 HI(0, "@text.environment.name", { link = "Type" })
@@ -812,16 +793,12 @@ HI(0, "TelescopePreviewBorder", { default = true, link = "TelescopeBorder" })
 HI(0, "TelescopeNormal", { bg = "#171212" })
 HI(0, "TelescopeMultiSelection", { default = true, link = "Type" })
 HI(0, "TelescopeMultiIcon", { default = true, link = "Identifier" })
-HI(
-  0,
-  "TelescopeMatching",
-  {
-    bold = true,
-    cterm = { bold = true, italic = true },
-    fg = "#3DDBD9",
-    italic = true,
-  }
-)
+HI(0, "TelescopeMatching", {
+  bold = true,
+  cterm = { bold = true, italic = true },
+  fg = "#3DDBD9",
+  italic = true,
+})
 HI(0, "Debug", { fg = "#F07342" })
 HI(0, "Exception", { fg = "#F07342" })
 HI(0, "FoldColumn", { bg = "#1A1515", fg = "#756D94" })
@@ -838,26 +815,18 @@ HI(0, "MoreMsg", { fg = "#768F80" })
 HI(0, "Question", { fg = "#E39C45" })
 HI(0, "DiagnosticVirtualTextInfo", { link = "DiagnosticInfo" })
 HI(0, "SpecialKey", { fg = "#725A5A" })
-HI(
-  0,
-  "DiagnosticUnderlineError",
-  {
-    cterm = { undercurl = true },
-    fg = "#EE5396",
-    sp = "#F07342",
-    undercurl = true,
-  }
-)
-HI(
-  0,
-  "DiagnosticUnderlineWarn",
-  {
-    cterm = { undercurl = true },
-    fg = "#BE95FF",
-    sp = "#CF223E",
-    undercurl = true,
-  }
-)
+HI(0, "DiagnosticUnderlineError", {
+  cterm = { undercurl = true },
+  fg = "#EE5396",
+  sp = "#F07342",
+  undercurl = true,
+})
+HI(0, "DiagnosticUnderlineWarn", {
+  cterm = { undercurl = true },
+  fg = "#BE95FF",
+  sp = "#CF223E",
+  undercurl = true,
+})
 HI(
   0,
   "DiagnosticUnderlineInfo",
@@ -959,16 +928,12 @@ HI(0, "PmenuExtraSel", { link = "PmenuSel" })
 HI(0, "Operator", { fg = "#DCC9BC" })
 HI(0, "MiniCompletionActiveParameter", { link = "CursorLine" })
 HI(0, "ModeMsg", { fg = "#768F80" })
-HI(
-  0,
-  "DiagnosticUnderlineHint",
-  {
-    cterm = { undercurl = true },
-    fg = "#D0D0D0",
-    sp = "#756D94",
-    undercurl = true,
-  }
-)
+HI(0, "DiagnosticUnderlineHint", {
+  cterm = { undercurl = true },
+  fg = "#D0D0D0",
+  sp = "#756D94",
+  undercurl = true,
+})
 HI(0, "@lsp.type.builtinType", { link = "@type.builtin" })
 HI(0, "NvimEnvironmentName", { link = "NvimIdentifier" })
 HI(0, "NvimInvalidAssignment", { link = "NvimInvalid" })
