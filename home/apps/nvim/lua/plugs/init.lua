@@ -18,13 +18,18 @@ require('lazy').setup {
       'williamboman/mason-lspconfig.nvim',
     },
   },
-
   {
     'folke/todo-comments.nvim',
     config = function()
       require 'plugs.ui.todo'
     end,
     event = { 'CursorMoved', 'CursorHold', 'InsertEnter', 'CmdlineEnter' },
+  },
+  {
+    'goolord/alpha-nvim',
+    config = function()
+      require 'plugs.ui.alpha'
+    end,
   },
   {
     'rcarriga/nvim-notify',

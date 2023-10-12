@@ -20,6 +20,7 @@
   home.packages = with pkgs; [
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "CascadiaCode" "Iosevka" "JetBrainsMono"];})
     ibm-plex
+    terminus_font_ttf
     iosevka
     cozette
     maple-mono

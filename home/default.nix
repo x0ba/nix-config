@@ -21,7 +21,9 @@ in {
       file
       minisign
       age
+      hilbish
       git-crypt
+      weechat
       pfetch-rs
       nur.repos.x0ba.lutgen
       nur.repos.x0ba.preview

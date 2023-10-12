@@ -9,7 +9,7 @@ c.font = wezterm.font_with_fallback({
 
 c.font_size = 14
 
-c.line_height = 1.1
+c.line_height = 1.15
 
 c.bold_brightens_ansi_colors = true
 
@@ -19,6 +19,7 @@ c.hide_tab_bar_if_only_one_tab = true
 c.window_decorations = "RESIZE"
 c.window_padding = { left = 35, right = 35, top = 30, bottom = 30 }
 c.default_cursor_style = "SteadyUnderline"
+c.window_close_confirmation = "NeverPrompt"
 
 -- Tab Bar
 c.use_fancy_tab_bar = false

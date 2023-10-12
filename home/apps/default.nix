@@ -1,7 +1,7 @@
 {
   imports = [
     ./firefox.nix
-    # ./starship.nix
+    ./starship.nix
     ./mail.nix
     # ./colorscheme-sync.nix
     ./sway.nix
