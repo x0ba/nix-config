@@ -47,12 +47,12 @@ require('lazy').setup {
     end,
   },
   {
-    'echasnovski/mini.indentscope',
-    event = { 'BufReadPost', 'BufNewFile' },
+    'lukas-reineke/indent-blankline.nvim',
     lazy = true,
-    opts = {
-      symbol = '│',
-    },
+    event = { 'BufReadPost', 'BufNewFile' },
+    config = function()
+      require 'plugs.ui.indentlines'
+    end,
   },
   {
     'wakatime/vim-wakatime',
