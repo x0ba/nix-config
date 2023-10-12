@@ -7,6 +7,7 @@ vim.o.termguicolors = true
 -- vim.o.cmdheight = 0
 -- undo
 vim.opt.swapfile = false
+vim.opt.showmode = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
 vim.opt.undofile = true
@@ -105,6 +106,7 @@ local builtins = {
   'synmenu',
   'optwin',
   'compiler',
+  'tutor',
   'bugreport',
   'ftplugin',
   'archlinux',
@@ -113,7 +115,6 @@ local builtins = {
   'sleuth',
   'vimgrep',
 }
-
-for _, plugin in ipairs(builtins) do
-  vim.g['loaded_' .. plugin] = 1
+for i = 1, #builtins do
+  vim.g['loaded_' .. builtins[i]] = true
 end

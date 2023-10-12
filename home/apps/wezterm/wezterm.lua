@@ -3,11 +3,11 @@ local c = wezterm.config_builder()
 require("keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-  "Iosevka Comfy",
+  "IBM Plex Mono",
   "Symbols Nerd Font",
 })
 
-c.font_size = 15
+c.font_size = 14
 
 c.line_height = 1.1
 

@@ -1,6 +1,5 @@
 require 'plugs.strap'
 require('lazy').setup {
-  'christoomey/vim-tmux-navigator',
   {
     'neovim/nvim-lspconfig',
     event = { 'BufReadPost', 'BufNewFile' },
@@ -12,24 +11,34 @@ require('lazy').setup {
         'j-hui/fidget.nvim',
         event = 'VeryLazy',
         tag = 'legacy',
-        config = true,
+        config = function()
+          require 'plugs.lsp.fidget'
+        end,
       },
-      { 'folke/neodev.nvim', event = 'VeryLazy', opts = {} },
       'williamboman/mason-lspconfig.nvim',
     },
   },
-  -- {
-  --   'nvim-lualine/lualine.nvim',
-  --   -- tag = 'v2.20.8',
-  --   config = function()
-  --     require 'plugs.ui.lualine'
-  --   end,
-  -- },
+
+  {
+    'folke/todo-comments.nvim',
+    config = function()
+      require 'plugs.ui.todo'
+    end,
+    event = { 'CursorMoved', 'CursorHold', 'InsertEnter', 'CmdlineEnter' },
+  },
+  {
+    'rcarriga/nvim-notify',
+    config = function()
+      require 'plugs.ui.notify'
+    end,
+    event = { 'CursorMoved', 'CursorHold', 'InsertEnter', 'CmdlineEnter' },
+  },
   {
     'gelguy/wilder.nvim',
+    lazy = true,
+    event = 'CmdlineEnter',
     config = function()
-      local wilder = require 'wilder'
-      wilder.setup { modes = { ':' } }
+      require 'plugs.ui.wilder'
     end,
   },
   {
@@ -53,6 +62,36 @@ require('lazy').setup {
     config = function()
       require 'plugs.lsp.conform'
     end,
+  },
+  {
+    'doums/monark.nvim',
+    opts = {
+      clear_on_normal = true,
+      sticky = true,
+      offset = 2,
+      timeout = 300,
+      i_idle_to = 1000,
+      modes = {
+        normal = { ' ', 'MonarkNormal' },
+        visual = { ' ', 'MonarkVisual' },
+        visual_l = { ' ', 'MonarkVisualLine' },
+        visual_b = { ' ', 'MonarkVisualBlock' },
+        select = { ' ', 'MonarkSelect' },
+        insert = { ' ', 'MonarkInsert' },
+        replace = { ' ', 'MonarkReplace' },
+        terminal = { ' ', 'MonarkTerminal' },
+      },
+      hl_mode = 'combine',
+      ignore = { 'c' },
+    },
+    event = 'InsertEnter',
+  },
+  {
+    'RRethy/vim-illuminate',
+    config = function()
+      require 'plugs.util.illuminate'
+    end,
+    event = { 'InsertEnter', 'CursorMoved' },
   },
   {
     'max397574/better-escape.nvim',
@@ -124,14 +163,28 @@ require('lazy').setup {
   },
   {
     'mbbill/undotree',
-    lazy = true,
-    cmd = { 'UndotreeToggle' },
-  },
-  {
-    'goolord/alpha-nvim',
-    config = function()
-      require 'plugs.ui.alpha'
+    init = function()
+      vim.g.undotree_WindowLayout = 4
+      vim.g.undotree_ShortIndicators = 0
+      vim.g.undotree_DiffpanelHeight = 10
+      vim.g.undotree_DiffAutoOpen = 1
+      vim.g.undotree_SetFocusWhenToggle = 1
+      vim.g.undotree_SplitWidth = 40
+      vim.g.undotree_TreeNodeShape = '*'
+      vim.g.undotree_TreeVertShape = '|'
+      vim.g.undotree_TreeSplitShape = '/'
+      vim.g.undotree_TreeReturnShape = '\\'
+      vim.g.undotree_DiffCommand = 'diff'
+      vim.g.undotree_RelativeTimestamp = 1
+      vim.g.undotree_HighlightChangedText = 1
+      vim.g.undotree_HighlightChangedWithSign = 1
+      vim.g.undotree_HighlightSyntaxAdd = 'DiffAdd'
+      vim.g.undotree_HighlightSyntaxChange = 'DiffChange'
+      vim.g.undotree_HighlightSyntaxDel = 'DiffDelete'
+      vim.g.undotree_HelpLine = 1
+      vim.g.undotree_CursorLine = 1
     end,
+    cmd = 'UndotreeToggle',
   },
   {
     'folke/flash.nvim',
@@ -341,6 +394,8 @@ require('lazy').setup {
   {
     'stevearc/oil.nvim',
     opts = {},
+    lazy = true,
+    cmd = 'Oil',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       require 'plugs.util.oil'
