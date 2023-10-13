@@ -24,7 +24,6 @@
     in [
       "firefox"
       "uninstallpkg"
-      "nextcloud"
       "qbittorrent"
       "anki"
       "maccy"

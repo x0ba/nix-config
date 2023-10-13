@@ -4,6 +4,10 @@
     --sfsecondary: #2d2424;
   }
 
+  .titlebar-buttonbox-container {
+    display: none;
+  }
+
   .urlbarView {
     display: none !important;
   }
