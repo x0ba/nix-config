@@ -115,9 +115,9 @@ in {
         #   file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
         # }
         # {
-        #   name = "custom_prompt";
+        #   name = "p10k-config";
         #   src = lib.cleanSource ./zsh;
-        #   file = "prompt.zsh";
+        #   file = "p10k.zsh";
         # }
         {
           src = zsh-fast-syntax-highlighting.overrideAttrs (_old: {

@@ -4,7 +4,7 @@
 
 -- true colors
 vim.o.termguicolors = true
--- vim.o.cmdheight = 0
+vim.o.cmdheight = 0
 -- undo
 vim.opt.swapfile = false
 vim.opt.showmode = false

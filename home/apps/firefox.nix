@@ -14,16 +14,17 @@ in {
     package = pkgs.lib.mkIf isDarwin (pkgs.writeScriptBin "__dummy-firefox" "");
     profiles.default = {
       search = {
-        default = "Kagi";
+        default = "Searxng";
         engines = {
-          "Kagi".urls = [{template = "https://kagi.com/search?q={searchTerms}";}];
+          "Searxng".urls = [{template = " https://sx.danielxu.lol/search?q={searchTerms}";}];
         };
         force = true;
       };
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         multi-account-containers
         darkreader
-        onepassword-password-manager
+        # onepassword-password-manager
+        bitwarden
         temporary-containers
         ublock-origin
         vimium

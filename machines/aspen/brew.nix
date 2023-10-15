@@ -23,6 +23,7 @@
       };
     in [
       "firefox"
+      "figma"
       "uninstallpkg"
       "qbittorrent"
       "anki"
@@ -38,7 +39,7 @@
       "rustdesk"
       "skiff"
       "aldente"
-      "1password"
+      "bitwarden"
       "macfuse"
       "gimp"
       "jetbrains-toolbox"

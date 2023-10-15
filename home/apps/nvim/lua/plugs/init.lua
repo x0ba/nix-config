@@ -2,22 +2,43 @@ require 'plugs.strap'
 require('lazy').setup {
   {
     'neovim/nvim-lspconfig',
-    event = { 'BufReadPost', 'BufNewFile' },
+    cmd = 'LspStart',
     lazy = true,
-    cmd = { 'LspInfo', 'LspInstall', 'LspUninstall', 'LspStart' },
-    dependencies = {
-      { 'williamboman/mason.nvim', event = 'VeryLazy', config = true },
-      {
-        'j-hui/fidget.nvim',
-        event = 'VeryLazy',
-        tag = 'legacy',
-        config = function()
-          require 'plugs.lsp.fidget'
-        end,
-      },
-      'williamboman/mason-lspconfig.nvim',
-    },
   },
+  {
+    'andweeb/presence.nvim',
+    config = function()
+      require('presence').setup()
+    end,
+  },
+  {
+    'williamboman/mason-lspconfig.nvim',
+    dependencies = { 'williamboman/mason.nvim' },
+  },
+  {
+    'j-hui/fidget.nvim',
+    lazy = true,
+    event = 'LspAttach',
+    tag = 'legacy',
+    config = function()
+      require 'plugs.lsp.fidget'
+    end,
+  },
+  {
+    'nvim-lualine/lualine.nvim',
+    config = function()
+      require 'plugs.ui.lualine'
+    end,
+  },
+  {
+    'nyoom-engineering/oxocarbon.nvim',
+    priority = 1000,
+    config = function()
+      vim.opt.background = 'dark'
+      vim.cmd.colorscheme 'oxocarbon'
+    end,
+  },
+  { 'williamboman/mason.nvim', event = 'VeryLazy', config = true },
   {
     'folke/todo-comments.nvim',
     config = function()

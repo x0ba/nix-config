@@ -48,25 +48,25 @@ in {
   };
 
   colorScheme = {
-    slug = "biscuit";
-    name = "Biscuit Dark";
+    slug = "oxocarbon";
+    name = "Oxocarbon Dark";
     colors = {
-      base00 = "#1A1515";
-      base01 = "#2d2424";
-      base02 = "#453636";
-      base03 = "#725a5a";
-      base04 = "#9c8181";
-      base05 = "#DCC9BC";
-      base06 = "#ffe9c7";
-      base07 = "#CF223E";
-      base08 = "#F07342";
-      base09 = "#E39C45";
-      base0A = "#959A6B";
-      base0B = "#768F80";
-      base0C = "#756D94";
-      base0D = "#614F76";
-      base0E = "#7B3D79";
-      base0F = "#AE3F82";
+      base00 = "161616";
+      base01 = "262626";
+      base02 = "393939";
+      base03 = "525252";
+      base04 = "dde1e6";
+      base05 = "f2f4f8";
+      base06 = "ffffff";
+      base07 = "08bdba";
+      base08 = "3ddbd9";
+      base09 = "78a9ff";
+      base0A = "ee5396";
+      base0B = "33b1ff";
+      base0C = "ff7eb6";
+      base0D = "42be65";
+      base0E = "be95ff";
+      base0F = "82cfff";
     };
   };
 
