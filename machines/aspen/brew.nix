@@ -9,7 +9,6 @@
       upgrade = true;
     };
     brews = [
-      # for alfred workflows
       "php"
     ];
     casks = let

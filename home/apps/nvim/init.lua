@@ -1,4 +1,2 @@
-require 'core'
-require 'plugs'
-require 'lsp'
--- require 'colors'
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
