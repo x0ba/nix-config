@@ -16,6 +16,7 @@ in {
       nix-your-shell
       atool
       ripgrep
+      lazygit
       cmake
       fd
       file

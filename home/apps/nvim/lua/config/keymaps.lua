@@ -6,7 +6,7 @@ map("n", "<C-j>", "<C-w>j", { noremap = true, silent = false })
 map("n", "<C-k>", "<C-w>k", { noremap = true, silent = false })
 
 -- file trees are overrated
-map("n", "<C-b>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+map("n", "<C-b>", ":Neotree<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- telescope mappings

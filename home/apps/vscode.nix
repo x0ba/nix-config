@@ -14,7 +14,7 @@ in {
     enable = true;
     package = pkgs.vscode;
     extensions = with pkgs.vscode-marketplace; [
-      ibmlover.oxocarbon
+      enkia.tokyo-night
       adrianwilczynski.alpine-js-intellisense
       decaycs.decay
       antfu.icons-carbon

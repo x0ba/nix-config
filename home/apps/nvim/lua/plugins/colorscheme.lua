@@ -1,6 +1,6 @@
 return {
   { -- Theme inspired by Atom
-    "nyoom-engineering/oxocarbon.nvim",
+    "x0ba/oxocarbon.nvim",
     priority = 1000,
   },
   {

@@ -3,7 +3,6 @@ return {
   cmd = "Telescope",
   lazy = true,
   dependencies = {
-    { "plenary.nvim" },
     { "nvim-tree/nvim-web-devicons" },
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     { "nvim-telescope/telescope-project.nvim" },
