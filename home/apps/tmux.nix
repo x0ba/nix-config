@@ -66,7 +66,7 @@ in {
 
       bind-key x kill-pane
       bind-key & kill-window
-      bind-key T run-shell "t"
+      bind-key t run-shell "t"
 
       bind-key > swap-pane -D
       bind-key < swap-pane -U

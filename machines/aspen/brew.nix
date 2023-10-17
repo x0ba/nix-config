@@ -11,6 +11,9 @@
     brews = [
       "php"
     ];
+    masApps = {
+      Bitwarden = 1352778147;
+    };
     casks = let
       noQuarantine = name: {
         inherit name;
@@ -22,23 +25,18 @@
       };
     in [
       "firefox"
-      "figma"
+      "bitwarden"
+      "dozer"
       "uninstallpkg"
-      "qbittorrent"
       "anki"
-      "maccy"
-      "dash"
       "imageoptim"
-      "ticktick"
       "protonvpn"
       "stats"
       "lulu"
       "obs"
       "appcleaner"
-      "rustdesk"
       "skiff"
       "aldente"
-      "bitwarden"
       "macfuse"
       "gimp"
       "jetbrains-toolbox"
@@ -56,12 +54,11 @@
       "calibre"
       (skipSha "element")
       (skipSha "spotify")
-      (skipSha "tetrio")
 
       # Drivers
       "wacom-tablet"
       (skipSha "logitech-options")
     ];
-    taps = ["homebrew/services" "homebrew/cask" "d12frosted/emacs-plus"];
+    taps = ["homebrew/services" "homebrew/cask"];
   };
 }

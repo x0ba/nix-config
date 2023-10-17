@@ -75,7 +75,6 @@
           settings.hooks = {
             alejandra.enable = true;
             luacheck.enable = true;
-            editorconfig-checker.enable = true;
             commitizen.enable = true;
             nil.enable = true;
           };

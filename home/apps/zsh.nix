@@ -71,24 +71,10 @@ in {
           bindkey '^F' autosuggest-accept
           bindkey -a 'F' history-incremental-pattern-search-forward
           bindkey -a 'f' history-incremental-pattern-search-backward
-          bindkey -s '^O' ' _____smooth_fzf^M'
-          bindkey -s '^P' _____toggle_right_prompt
-          bindkey -s '^Y' _____toggle_left_prompt
 
-          bindkey '^?' backward-delete-char
-          bindkey '^H' backward-delete-char
-          bindkey '^U' backward-kill-line
-
-          umask 022
-          zmodload zsh/zle
-          zmodload zsh/zpty
-          zmodload zsh/complist
-
-          autoload -Uz colors
-          autoload -U compinit
-          colors
-
-          ZVM_CURSOR_STYLE_ENABLED=false
+          ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_UNDERLINE
+          ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+          ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
       '';
 
       shellAliases = {

@@ -3,7 +3,7 @@ local c = wezterm.config_builder()
 require("keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-  "IBM Plex Mono",
+  "Liga Berkeley Mono",
   "Symbols Nerd Font",
 })
 
@@ -37,6 +37,6 @@ c.command_palette_font_size = 14.0
 c.window_frame = { font_size = 14.0 }
 c.window_background_opacity = 1.0
 
-c.color_scheme = "Oxocarbon Dark"
+c.color_scheme = "tokyonight_night"
 
 return c

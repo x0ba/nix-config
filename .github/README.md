@@ -12,7 +12,7 @@ Welcome to my Nix dots.
 
 Here's what you can find:
 
-- **[WezTerm](https://wezfurlong.org/wezterm/)** as my terminal, with tmux-like keybindings
+- **[WezTerm](https://wezfurlong.org/wezterm/)** as my terminal, with Tmux-like keybindings
 - **[Neovim](https://neovim.io)** as my tui editor & my JetBrains IdeaVim config
 - **[Taskwarrior](https://taskwarrior.org)** for task management
 - **[Starship](https://starship.rs)** as my prompt
