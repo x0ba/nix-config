@@ -10,7 +10,6 @@
         };
       };
       x0ba-nur = import inputs.x0ba-nur {inherit (prev) pkgs;};
-      nekowinston-nur = import inputs.nekowinston-nur {inherit (prev) pkgs;};
       sway-unwrapped = inputs.swayfx.packages.${prev.system}.default;
     })
     inputs.nix-vscode-extensions.overlays.default

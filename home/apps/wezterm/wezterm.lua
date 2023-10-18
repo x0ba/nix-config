@@ -37,6 +37,6 @@ c.command_palette_font_size = 14.0
 c.window_frame = { font_size = 14.0 }
 c.window_background_opacity = 1.0
 
-c.color_scheme = "tokyonight_night"
+c.color_scheme = "Oxocarbon Dark"
 
 return c

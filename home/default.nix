@@ -50,25 +50,25 @@ in {
   };
 
   colorScheme = {
-    slug = "tokyonight";
-    name = "Tokyonight Night";
+    slug = "oxocarbon";
+    name = "Oxocarbon Dark";
     colors = {
-      base00 = "1A1B26";
-      base01 = "16161E";
-      base02 = "2F3549";
-      base03 = "444B6A";
-      base04 = "787C99";
-      base05 = "A9B1D6";
-      base06 = "CBCCD1";
-      base07 = "D5D6DB";
-      base08 = "C0CAF5";
-      base09 = "A9B1D6";
-      base0A = "0DB9D7";
-      base0B = "9ECE6A";
-      base0C = "B4F9F8";
-      base0D = "2AC3DE";
-      base0E = "BB9AF7";
-      base0F = "F7768E";
+      base00 = "161616";
+      base01 = "262626";
+      base02 = "393939";
+      base03 = "525252";
+      base04 = "dde1e6";
+      base05 = "f2f4f8";
+      base06 = "ffffff";
+      base07 = "08bdba";
+      base08 = "3ddbd9";
+      base09 = "78a9ff";
+      base0A = "ee5396";
+      base0B = "33b1ff";
+      base0C = "ff7eb6";
+      base0D = "42be65";
+      base0E = "be95ff";
+      base0F = "82cfff";
     };
   };
 
