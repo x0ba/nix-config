@@ -23,16 +23,13 @@ in {
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         multi-account-containers
         darkreader
-        # onepassword-password-manager
-        bitwarden
+        onepassword-password-manager
+        # bitwarden
         temporary-containers
         ublock-origin
         vimium
       ];
 
-      userChrome = import ./firefox/userchrome.nix;
-
-      userContent = import ./firefox/usercontent.nix;
       settings = {
         "app.normandy.api_url" = "";
         "app.normandy.enabled" = false;

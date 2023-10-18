@@ -11,9 +11,6 @@
     brews = [
       "php"
     ];
-    masApps = {
-      Bitwarden = 1352778147;
-    };
     casks = let
       noQuarantine = name: {
         inherit name;
@@ -26,7 +23,8 @@
     in [
       "firefox"
       "bitwarden"
-      "dozer"
+      "1password"
+      "hiddenbar"
       "uninstallpkg"
       "anki"
       "imageoptim"

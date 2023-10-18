@@ -18,6 +18,7 @@ in {
       ripgrep
       lazygit
       cmake
+      spicetify-cli
       fd
       file
       minisign
