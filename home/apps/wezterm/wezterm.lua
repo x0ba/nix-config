@@ -9,7 +9,7 @@ c.font = wezterm.font_with_fallback({
 
 c.font_size = 14
 
-c.line_height = 1.2
+c.line_height = 1.3
 
 c.bold_brightens_ansi_colors = true
 

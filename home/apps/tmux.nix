@@ -3,10 +3,10 @@
     pluginName = "t-smart-tmux-session-manager";
     version = "2023-08-04";
     src = pkgs.fetchFromGitHub {
-      owner = "x0ba";
+      owner = "joshmedeski";
       repo = "t-smart-tmux-session-manager";
-      rev = "8c887534d0f59cdde2aef873052d59efacdb7b2a";
-      sha256 = "sha256-PGemYYjyWbHmNvEflK51PdY8oKI/1DZMU5OBjKH9DLw=";
+      rev = "dc1dd911d1eb1d11a6e5c6d22a8cf35d6eeffe27";
+      sha256 = "sha256-3svwMyMyhaFB41TEcidXWuhmAKevfP9VmiFDXV1tR1s=";
     };
   };
 in {
