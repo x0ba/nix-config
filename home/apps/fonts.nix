@@ -18,7 +18,7 @@
       '';
   };
   home.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "CascadiaCode" "Iosevka" "JetBrainsMono"];})
+    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "CascadiaCode" "Iosevka" "JetBrainsMono" "VictorMono"];})
     ibm-plex
     terminus_font_ttf
     iosevka

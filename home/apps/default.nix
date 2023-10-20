@@ -4,6 +4,7 @@
     ./starship.nix
     ./mail.nix
     ./sway.nix
+    ./nushell.nix
     ./fish.nix
     ./lf.nix
     ./discord.nix
