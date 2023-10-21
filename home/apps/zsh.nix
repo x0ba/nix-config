@@ -38,43 +38,34 @@ in {
         export ZVM_CURSOR_BLINKING_BEAM="1"
       '';
 
-      initExtra = with theme.colors; ''
-          if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-            source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-          fi
+      initExtra = ''
+        FZF_TAB_COMMAND=(
+              ${pkgs.fzf}/bin/fzf
+              --ansi
+              --expect='$continuous_trigger' # For continuous completion
+              --nth=2,3 --delimiter='\x00'  # Don't search prefix
+              --layout=reverse --height="''${FZF_TMUX_HEIGHT:=50%}"
+              --tiebreak=begin -m --bind=tab:down,btab:up,change:top,ctrl-space:toggle --cycle
+              '--query=$query'   # $query will be expanded to query string at runtime.
+              '--header-lines=$#headers' # $#headers will be expanded to lines of headers at runtime
+              )
 
-          export FZF_DEFAULT_OPTS='
-          --color fg:#${base06},bg:#${base00},hl:#${base04},fg+:#${base07},bg+:#${base00},hl+:#${base04},border:#${base03}
-        --color pointer:#${base08},info:#${base03},spinner:#${base03},header:#${base03},prompt:#${base0B},marker:#${base0B}
-        '
+        zstyle ':fzf-tab:*' command $FZF_TAB_COMMAND
+        zstyle ':fzf-tab:*' switch-group ',' '.'
+        zstyle ':fzf-tab:complete:_zlua:*' query-string input
+        zstyle ':fzf-tab:complete:*:*' fzf-preview 'preview $realpath'
 
-          FZF_TAB_COMMAND=(
-                ${pkgs.fzf}/bin/fzf
-                --ansi
-                --expect='$continuous_trigger' # For continuous completion
-                --nth=2,3 --delimiter='\x00'  # Don't search prefix
-                --layout=reverse --height="''${FZF_TMUX_HEIGHT:=50%}"
-                --tiebreak=begin -m --bind=tab:down,btab:up,change:top,ctrl-space:toggle --cycle
-                '--query=$query'   # $query will be expanded to query string at runtime.
-                '--header-lines=$#headers' # $#headers will be expanded to lines of headers at runtime
-                )
+        ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp root line)
+        ZSH_HIGHLIGHT_MAXLENGTH=512
+        ZSH_AUTOSUGGEST_USE_ASYNC="true"
 
-          zstyle ':fzf-tab:*' command $FZF_TAB_COMMAND
-          zstyle ':fzf-tab:*' switch-group ',' '.'
-          zstyle ':fzf-tab:complete:_zlua:*' query-string input
-          zstyle ':fzf-tab:complete:*:*' fzf-preview 'preview $realpath'
+        bindkey '^F' autosuggest-accept
+        bindkey -a 'F' history-incremental-pattern-search-forward
+        bindkey -a 'f' history-incremental-pattern-search-backward
 
-          ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp root line)
-          ZSH_HIGHLIGHT_MAXLENGTH=512
-          ZSH_AUTOSUGGEST_USE_ASYNC="true"
-
-          bindkey '^F' autosuggest-accept
-          bindkey -a 'F' history-incremental-pattern-search-forward
-          bindkey -a 'f' history-incremental-pattern-search-backward
-
-          ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_UNDERLINE
-          ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
-          ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+        ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_UNDERLINE
+        ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+        ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
       '';
 
       shellAliases = {
@@ -95,16 +86,6 @@ in {
       };
 
       plugins = with pkgs; (zshPlugins [
-        {
-          name = "powerlevel10k";
-          src = zsh-powerlevel10k;
-          file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-        }
-        {
-          name = "p10k-config";
-          src = lib.cleanSource ./zsh;
-          file = "p10k.zsh";
-        }
         {
           src = zsh-fast-syntax-highlighting.overrideAttrs (_old: {
             src = fetchFromGitHub {

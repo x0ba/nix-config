@@ -146,7 +146,7 @@
   "editor.fontLigatures": true,
   "gruvboxMaterial.darkContrast": "hard",
   "gruvboxMaterial.lightContrast": "hard",
-  "workbench.colorTheme": "Tokyo Night",
+  "workbench.colorTheme": "oxocarbon",
   "[nix]": {
     "editor.defaultFormatter": "jnoortheen.nix-ide"
   }

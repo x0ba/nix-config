@@ -18,12 +18,10 @@
       '';
   };
   home.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "CascadiaCode" "Iosevka" "JetBrainsMono" "VictorMono"];})
-    ibm-plex
+    (nerdfonts.override {fonts = ["CascadiaCode" "Iosevka" "JetBrainsMono" "VictorMono"];})
     terminus_font_ttf
     iosevka
     cozette
-    maple-mono
     fira-code
     inter
     cascadia-code

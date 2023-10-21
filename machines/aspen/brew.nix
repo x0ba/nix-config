@@ -23,6 +23,8 @@
     in [
       "firefox"
       "bitwarden"
+      "alex313031-thorium"
+      "eloston-chromium"
       "1password"
       "hiddenbar"
       "uninstallpkg"
@@ -43,7 +45,6 @@
       "iina"
       "polypane"
       "karabiner-elements"
-      "orion"
       "shottr"
       "linearmouse"
       "veracrypt"
@@ -52,6 +53,7 @@
       "calibre"
       (skipSha "element")
       (skipSha "spotify")
+      (noQuarantine "librewolf")
 
       # Drivers
       "wacom-tablet"

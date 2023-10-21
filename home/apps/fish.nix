@@ -20,16 +20,8 @@
     shellInit = ''
       set fish_greeting
     '';
+
     plugins = [
-      {
-        name = "fzf";
-        src = pkgs.fetchFromGitHub {
-          owner = "patrickf1";
-          repo = "fzf.fish";
-          rev = "8d99f0caa30a626369541f80848ffdbf28e96acc";
-          sha256 = "nTiFD8vWjafYE4HNemyoUr+4SgsqN3lIJlNX6IGk+aQ=";
-        };
-      }
       {
         name = "autopair";
         src = pkgs.fetchFromGitHub {

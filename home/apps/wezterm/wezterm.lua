@@ -2,10 +2,7 @@ local wezterm = require("wezterm")
 local c = wezterm.config_builder()
 require("keys").apply(c)
 
-c.font = wezterm.font_with_fallback({
-  "Maple Mono",
-  "Symbols Nerd Font",
-})
+c.font = wezterm.font_with_fallback({ "Maple Mono", "Symbols Nerd Font" })
 
 c.font_size = 14
 
@@ -25,10 +22,7 @@ c.window_close_confirmation = "NeverPrompt"
 c.use_fancy_tab_bar = false
 
 -- dim unfocused panes
-c.inactive_pane_hsb = {
-  saturation = 1.0,
-  brightness = 0.8,
-}
+c.inactive_pane_hsb = { saturation = 1.0, brightness = 0.8 }
 -- etc.
 c.adjust_window_size_when_changing_font_size = false
 c.audible_bell = "Disabled"

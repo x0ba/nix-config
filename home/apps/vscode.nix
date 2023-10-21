@@ -12,9 +12,9 @@
 in {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode;
+    package = pkgs.vscodium;
     extensions = with pkgs.vscode-marketplace; [
-      enkia.tokyo-night
+      ibmlover.oxocarbon
       adrianwilczynski.alpine-js-intellisense
       decaycs.decay
       antfu.icons-carbon
@@ -50,8 +50,8 @@ in {
   };
 
   home.file = lib.mkIf isDarwin {
-    "Library/Application Support/Code/User/keybindings.json".source = keybindingsJSON;
-    "Library/Application Support/Code/User/settings.json".source = settingsJSON;
+    "Library/Application Support/VSCodium/User/keybindings.json".source = keybindingsJSON;
+    "Library/Application Support/VSCodium/User/settings.json".source = settingsJSON;
   };
   xdg.configFile = lib.mkIf isLinux {
     "Code/User/keybindings.json".source = keybindingsJSON;

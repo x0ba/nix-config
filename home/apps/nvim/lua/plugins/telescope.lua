@@ -3,9 +3,7 @@ return {
   cmd = "Telescope",
   lazy = true,
   dependencies = {
-    { "nvim-tree/nvim-web-devicons" },
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-    { "nvim-telescope/telescope-project.nvim" },
     { "nvim-telescope/telescope-ui-select.nvim" },
   },
   config = function()
@@ -69,16 +67,7 @@ return {
           },
         },
       },
-      extensions = {
-        ["ui-select"] = {
-          require("telescope.themes").get_dropdown({
-            -- even more opts
-          }),
-        },
-      },
     })
-    require("telescope").load_extension("ui-select")
     require("telescope").load_extension("fzf")
-    require("telescope").load_extension("project")
   end,
 }
