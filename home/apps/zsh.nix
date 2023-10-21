@@ -25,7 +25,6 @@ in {
         size = 10000;
         path = "${config.xdg.dataHome}/zsh/history";
       };
-
       envExtra = ''
         export LESSHISTFILE="${config.xdg.dataHome}"/less/history
         export FZF_DEFAULT_COMMAND="fd . --max-depth=1 --hidden"
@@ -36,38 +35,16 @@ in {
         export VISUAL='nvim'
         export ZVM_INIT_MODE="sourcing"
         export ZVM_CURSOR_BLINKING_BEAM="1"
+        export ZSH_AUTOSUGGEST_USE_ASYNC="true"
+        export ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_UNDERLINE
+        export ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+        export ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
       '';
-
       initExtra = ''
-        FZF_TAB_COMMAND=(
-              ${pkgs.fzf}/bin/fzf
-              --ansi
-              --expect='$continuous_trigger' # For continuous completion
-              --nth=2,3 --delimiter='\x00'  # Don't search prefix
-              --layout=reverse --height="''${FZF_TMUX_HEIGHT:=50%}"
-              --tiebreak=begin -m --bind=tab:down,btab:up,change:top,ctrl-space:toggle --cycle
-              '--query=$query'   # $query will be expanded to query string at runtime.
-              '--header-lines=$#headers' # $#headers will be expanded to lines of headers at runtime
-              )
-
-        zstyle ':fzf-tab:*' command $FZF_TAB_COMMAND
-        zstyle ':fzf-tab:*' switch-group ',' '.'
-        zstyle ':fzf-tab:complete:_zlua:*' query-string input
-        zstyle ':fzf-tab:complete:*:*' fzf-preview 'preview $realpath'
-
-        ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp root line)
-        ZSH_HIGHLIGHT_MAXLENGTH=512
-        ZSH_AUTOSUGGEST_USE_ASYNC="true"
-
         bindkey '^F' autosuggest-accept
         bindkey -a 'F' history-incremental-pattern-search-forward
         bindkey -a 'f' history-incremental-pattern-search-backward
-
-        ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_UNDERLINE
-        ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
-        ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
       '';
-
       shellAliases = {
         cleanup = "sudo nix-collect-garbage --delete-older-than 7d";
         bloat = "nix path-info -Sh /run/current-system";
@@ -84,7 +61,6 @@ in {
         fcd = "cd $(find -type d | fzf)";
         rm = "${pkgs.trash-cli}/bin/trash-put";
       };
-
       plugins = with pkgs; (zshPlugins [
         {
           src = zsh-fast-syntax-highlighting.overrideAttrs (_old: {
@@ -135,6 +111,8 @@ in {
         updates.auto_update = true;
       };
     };
+
+    fzf.enable = true;
 
     zoxide = {
       enable = true;

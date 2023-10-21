@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   stylix = {
-    image = ../wallpapers/tokyoleaf.png;
+    image = ../wallpapers/262626.png;
     autoEnable = false;
     targets = {
       bat.enable = true;

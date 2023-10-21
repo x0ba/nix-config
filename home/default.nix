@@ -36,7 +36,6 @@ in {
       jq
       elinks
       glow
-      fzf
       exiftool
       sdcv
       sqlite
