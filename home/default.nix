@@ -37,6 +37,7 @@ in {
       elinks
       glow
       exiftool
+      spotify-player
       sdcv
       sqlite
       statix

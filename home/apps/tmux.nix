@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}: let
   t-smart-tmux-session-manager = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "t-smart-tmux-session-manager";
     version = "2023-08-04";
@@ -13,7 +17,7 @@ in {
   programs.tmux = {
     enable = true;
     sensibleOnTop = true;
-    extraConfig = ''
+    extraConfig = with config.lib.stylix.colors; ''
       set -g history-file "~/.cache/tmux/.tmuxhistory"
       set -g repeat-time 700
       set -g mouse on
@@ -53,7 +57,6 @@ in {
       unbind-key <
       unbind-key >
 
-
       bind -T copy-mode-vi v send -X begin-selection
       bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "pbcopy"
       bind P paste-buffer
@@ -77,20 +80,20 @@ in {
       bind -r h resize-pane -L 5
       bind -r m resize-pane -Z
 
-      set -g mode-style "bg=default,fg=default"
-      set -g status-position bottom
-      set -g status-interval 5
-      set -g @emulate-scroll-for-no-mouse-alternate-buffer on
-
-      set -g status-justify centre
-      set -g status-left "#[fg=black,bg=green]   #[fg=green,bg=red]#{prefix_highlight}#[bg=default]"
-      set -g window-status-format "#[fg=magenta,bg=black] #I:#W #[bg=default,fg=black]"
-      set -g window-status-current-format "#[bg=magenta,fg=black] #I:#W #[bg=default,fg=black] #[bg=black,fg=red] #S #[bg=red,fg=black]   "
-      set -g status-right "#[bg=black,fg=green] %I:%M %p #[fg=green,bg=black]█"
-
-      set -g status-bg default
-      set -g status-fg white
-      set -g status-style "fg=white,bg=default"
+      # set -g mode-style "bg=default,fg=default"
+      # set -g status-position bottom
+      # set -g status-interval 5
+      # set -g @emulate-scroll-for-no-mouse-alternate-buffer on
+      #
+      # set -g status-justify centre
+      # set -g status-left "#[fg=black,bg=green]   #[fg=green,bg=red]#{prefix_highlight}#[bg=default]"
+      # set -g window-status-format "#[fg=magenta,bg=black] #I:#W #[bg=default,fg=black]"
+      # set -g window-status-current-format "#[bg=magenta,fg=black] #I:#W #[bg=default,fg=black] #[bg=black,fg=red] #S #[bg=red,fg=black]   "
+      # set -g status-right "#[bg=black,fg=green] %I:%M %p #[fg=green,bg=black]█"
+      #
+      # set -g status-bg default
+      # set -g status-fg white
+      # set -g status-style "fg=white,bg=default"
 
     '';
     plugins = with pkgs; [

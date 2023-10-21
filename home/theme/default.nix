@@ -4,15 +4,15 @@
     autoEnable = false;
     targets = {
       bat.enable = true;
-      fzf.enable = true;
+      tmux.enable = true;
       fish.enable = true;
       zellij.enable = true;
       wezterm.enable = true;
     };
     fonts = {
       monospace = {
-        name = "Maple Mono";
-        package = pkgs.maple-mono;
+        name = "IBM Plex Mono";
+        package = pkgs.ibm-plex;
       };
       emoji = {
         name = "Symbols Nerd Font";

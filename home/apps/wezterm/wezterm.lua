@@ -15,7 +15,7 @@ c.hide_tab_bar_if_only_one_tab = true
 -- window
 c.window_decorations = "RESIZE"
 c.window_padding = { left = 37, right = 37, top = 37, bottom = 37 }
-c.default_cursor_style = "SteadyUnderline"
+c.default_cursor_style = "SteadyBeam"
 c.window_close_confirmation = "NeverPrompt"
 
 -- Tab Bar

@@ -35,10 +35,7 @@ in {
         export VISUAL='nvim'
         export ZVM_INIT_MODE="sourcing"
         export ZVM_CURSOR_BLINKING_BEAM="1"
-        export ZSH_AUTOSUGGEST_USE_ASYNC="true"
-        export ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_UNDERLINE
-        export ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
-        export ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+        ZSH_AUTOSUGGEST_USE_ASYNC="true"
       '';
       initExtra = ''
         bindkey '^F' autosuggest-accept
