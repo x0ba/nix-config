@@ -24,6 +24,7 @@
       "firefox"
       "bitwarden"
       "eloston-chromium"
+      "alex313031-thorium"
       "1password"
       "hiddenbar"
       "uninstallpkg"
@@ -52,6 +53,7 @@
       "calibre"
       (skipSha "element")
       (skipSha "spotify")
+      (skipSha "nvidia-geforce-now")
 
       # Drivers
       "wacom-tablet"

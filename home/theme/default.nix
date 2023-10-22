@@ -11,8 +11,8 @@
     };
     fonts = {
       monospace = {
-        name = "IBM Plex Mono";
-        package = pkgs.ibm-plex;
+        name = "Liga Berkeley Mono";
+        package = pkgs.fira-code;
       };
       emoji = {
         name = "Symbols Nerd Font";

@@ -31,7 +31,7 @@
           left = "24pt", right = "24pt",
           bottom = "24pt", top = "24pt"
         },
-        default_cursor_style = "SteadyUnderline",
+        default_cursor_style = "SteadyBar",
         window_decorations = "RESIZE",
         enable_scroll_bar    = false,
         warn_about_missing_glyphs = false,

@@ -4,7 +4,7 @@
     settings = {
       character = {
         error_symbol = "[\\$](bold red)";
-        success_symbol = "[\\$](bold green)";
+        success_symbol = "[\\$](bold red)";
         vicmd_symbol = "[\\$](bold yellow)";
         format = "$symbol ";
       };
@@ -19,7 +19,6 @@
       };
 
       line_break.disabled = true;
-      directory.disabled = false;
       nodejs.disabled = true;
       nix_shell.symbol = "[](blue) ";
       python.symbol = "[](blue) ";
