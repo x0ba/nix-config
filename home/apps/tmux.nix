@@ -25,7 +25,6 @@
       set -g history-limit 10000
       set -g pane-border-style "bg=default,fg=black"
       set -g pane-active-border-style "bg=default,fg=green"
-      set-option -g default-shell ${pkgs.fish}/bin/fish
 
 
       set-option -sa terminal-features ",alacritty:RGB"

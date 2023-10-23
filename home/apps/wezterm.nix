@@ -9,7 +9,7 @@
     extraConfig = ''
       local wez = require('wezterm')
       return {
-        default_prog     = { '${pkgs.fish}/bin/fish' },
+        default_prog     = { '${pkgs.zsh}/bin/zsh' },
         -- Performance
         --------------
         front_end        = "WebGpu",
