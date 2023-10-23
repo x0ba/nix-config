@@ -31,6 +31,15 @@
           sha256 = "qt3t1iKRRNuiLWiVoiAYOu+9E7jsyECyIqZJ/oRIT1A=";
         };
       }
+      {
+        name = "fzf";
+        src = pkgs.fetchFromGitHub {
+          owner = "PatrickF1";
+          repo = "fzf.fish";
+          rev = "8d99f0caa30a626369541f80848ffdbf28e96acc";
+          sha256 = "nTiFD8vWjafYE4HNemyoUr+4SgsqN3lIJlNX6IGk+aQ=";
+        };
+      }
     ];
   };
 }

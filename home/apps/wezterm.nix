@@ -1,6 +1,7 @@
 {
   config,
   flakePath,
+  pkgs,
   ...
 }: {
   programs.wezterm = {
@@ -8,7 +9,7 @@
     extraConfig = ''
       local wez = require('wezterm')
       return {
-        default_prog     = { 'zsh' },
+        default_prog     = { '${pkgs.fish}/bin/fish' },
         -- Performance
         --------------
         front_end        = "WebGpu",
@@ -16,12 +17,21 @@
         -- Fonts
         --------
         bold_brightens_ansi_colors = true,
+        keys = {
+          {
+            key = 'p',
+            mods = 'SHIFT|CMD',
+            action = wezterm.action.ActivateCommandPalette,
+          },
+        },
+
         font_rules    = {
           {
             italic = true,
             font   = wez.font("IBM Plex Mono", { italic = true })
           }
         },
+        command_palette_font_size = 14.0,
         font_size         = 14.0,
         line_height       = 1.2,
         harfbuzz_features = { 'calt=1', 'clig=1', 'liga=1' },
@@ -38,7 +48,7 @@
         -- Tabbar
         ---------
         enable_tab_bar               = true,
-        use_fancy_tab_bar            = true,
+        use_fancy_tab_bar            = false,
         hide_tab_bar_if_only_one_tab = true,
         show_tab_index_in_tab_bar    = false,
         -- Miscelaneous
@@ -51,13 +61,6 @@
       }
     '';
   };
-  # # disable the default config created by Home-Manager
-  # xdg.configFile."wezterm/wezterm.lua".enable = false;
-  # # and use my own config instead
-  # xdg.configFile."wezterm" = {
-  #   source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/apps/wezterm";
-  #   recursive = true;
-  # };
   programs.zsh.initExtra = ''
     if [[ "$TERM_PROGRAM" == "WezTerm" ]]; then
       TERM=wezterm

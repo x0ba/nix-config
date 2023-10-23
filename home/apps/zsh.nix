@@ -109,8 +109,6 @@ in {
       };
     };
 
-    fzf.enable = true;
-
     zoxide = {
       enable = true;
       enableZshIntegration = true;

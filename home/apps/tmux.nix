@@ -2,18 +2,7 @@
   pkgs,
   config,
   ...
-}: let
-  t-smart-tmux-session-manager = pkgs.tmuxPlugins.mkTmuxPlugin {
-    pluginName = "t-smart-tmux-session-manager";
-    version = "2023-08-04";
-    src = pkgs.fetchFromGitHub {
-      owner = "joshmedeski";
-      repo = "t-smart-tmux-session-manager";
-      rev = "dc1dd911d1eb1d11a6e5c6d22a8cf35d6eeffe27";
-      sha256 = "sha256-3svwMyMyhaFB41TEcidXWuhmAKevfP9VmiFDXV1tR1s=";
-    };
-  };
-in {
+}: {
   programs.tmux = {
     enable = true;
     sensibleOnTop = true;
@@ -36,6 +25,7 @@ in {
       set -g history-limit 10000
       set -g pane-border-style "bg=default,fg=black"
       set -g pane-active-border-style "bg=default,fg=green"
+      set-option -g default-shell ${pkgs.fish}/bin/fish
 
 
       set-option -sa terminal-features ",alacritty:RGB"
@@ -79,52 +69,11 @@ in {
       bind -r l resize-pane -R 5
       bind -r h resize-pane -L 5
       bind -r m resize-pane -Z
-
-      # set -g mode-style "bg=default,fg=default"
-      # set -g status-position bottom
-      # set -g status-interval 5
-      # set -g @emulate-scroll-for-no-mouse-alternate-buffer on
-      #
-      # set -g status-justify centre
-      # set -g status-left "#[fg=black,bg=green]   #[fg=green,bg=red]#{prefix_highlight}#[bg=default]"
-      # set -g window-status-format "#[fg=magenta,bg=black] #I:#W #[bg=default,fg=black]"
-      # set -g window-status-current-format "#[bg=magenta,fg=black] #I:#W #[bg=default,fg=black] #[bg=black,fg=red] #S #[bg=red,fg=black]   "
-      # set -g status-right "#[bg=black,fg=green] %I:%M %p #[fg=green,bg=black]█"
-      #
-      # set -g status-bg default
-      # set -g status-fg white
-      # set -g status-style "fg=white,bg=default"
-
     '';
     plugins = with pkgs; [
-      {
-        plugin = tmuxPlugins.prefix-highlight;
-        extraConfig = ''
-          set -g @prefix_highlight_prefix_prompt "MOD"
-          set -g @prefix_highlight_copy_prompt "COPY"
-          set -g @prefix_highlight_sync_prompt " "
-          set -g @prefix_highlight_bg "black"
-          set -g @prefix_highlight_fg "red"
-          set -g @prefix_highlight_empty_attr "fg=black,bg=red"
-          set -g @prefix_highlight_copy_mode_attr "fg=blue,bg=black"
-          set -g @prefix_highlight_sync_mode_attr "fg=black,bg=green"
-          set -g @prefix_highlight_show_copy_mode on
-          set -g @prefix_highlight_show_sync_mode on
-          set -g @prefix_highlight_empty_has_affixes off
-          set -g @prefix_highlight_output_prefix ""
-          set -g @prefix_highlight_output_suffix ""
-          set -g @prefix_highlight_empty_prompt ""
-        '';
-      }
-      {
-        plugin = t-smart-tmux-session-manager;
-      }
       {
         plugin = tmuxPlugins.vim-tmux-navigator;
       }
     ];
   };
-  home.packages = [
-    t-smart-tmux-session-manager.src
-  ];
 }

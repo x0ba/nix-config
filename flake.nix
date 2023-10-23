@@ -19,7 +19,7 @@
     };
 
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-    stylix.url = "github:x0ba/stylix";
+    stylix.url = "github:danth/stylix";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     nix-index-database.url = "github:Mic92/nix-index-database";
     sops.inputs.nixpkgs-stable.follows = "nixpkgs";

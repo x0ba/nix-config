@@ -24,7 +24,7 @@
   "debug.onTaskErrors": "debugAnyway",
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.cursorSmoothCaretAnimation": "on",
-  "editor.fontFamily": "IBM Plex Mono, Symbols Nerd Font, monospace",
+  "editor.fontFamily": "Liga Berkeley Mono, Symbols Nerd Font, monospace",
   "editor.fontSize": 14,
   "editor.formatOnSave": true,
   "editor.inlayHints.fontFamily": "Victor Mono",

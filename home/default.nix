@@ -32,8 +32,10 @@ in {
       comma
       imagemagick
       chafa
-      zellij
+      tmux-sessionizer
+      fzf
       jq
+      yt-dlp
       elinks
       glow
       exiftool

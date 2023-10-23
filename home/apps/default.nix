@@ -6,6 +6,7 @@
     ./sway.nix
     ./nushell.nix
     ./fish.nix
+    ./zellij.nix
     ./lf.nix
     ./discord.nix
     ./git.nix
