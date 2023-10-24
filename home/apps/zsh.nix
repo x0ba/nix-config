@@ -39,7 +39,6 @@ in {
       '';
       initExtra = ''
         bindkey '^F' autosuggest-accept
-        bindkey '^T' tms
         bindkey -a 'F' history-incremental-pattern-search-forward
         bindkey -a 'f' history-incremental-pattern-search-backward
       '';

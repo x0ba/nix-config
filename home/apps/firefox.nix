@@ -24,7 +24,9 @@ in {
         multi-account-containers
         darkreader
         onepassword-password-manager
-        # bitwarden
+        clearurls
+        darkreader
+        refined-github
         temporary-containers
         ublock-origin
         vimium

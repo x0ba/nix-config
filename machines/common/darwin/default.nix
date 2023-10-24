@@ -55,6 +55,7 @@
 
         ${ignored ["JetBrains Toolbox" "ProtonVPN" "Sip" "Stats" "1Password" "Pika" "LuLu Alert"]}
         ${unmanaged ["GOG Galaxy" "Steam" "System Settings" "VeraCrypt"]}
+        yabai -m rule --add app="^1Password$" manage=off
         yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
         yabai -m rule --add label="LuLu" app="^LuLu$" title="(Alert)" manage=off
         yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
