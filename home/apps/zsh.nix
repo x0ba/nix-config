@@ -39,6 +39,7 @@ in {
       '';
       initExtra = ''
         bindkey '^F' autosuggest-accept
+        bindkey '^T' tms
         bindkey -a 'F' history-incremental-pattern-search-forward
         bindkey -a 'f' history-incremental-pattern-search-backward
       '';
@@ -57,6 +58,22 @@ in {
         nv = "${pkgs.neovim}/bin/nvim";
         fcd = "cd $(find -type d | fzf)";
         rm = "${pkgs.trash-cli}/bin/trash-put";
+      };
+      oh-my-zsh = {
+        enable = true;
+        plugins =
+          [
+            "colored-man-pages"
+            "colorize"
+            "docker"
+            "docker-compose"
+            "git"
+            "kubectl"
+          ]
+          ++ lib.optionals pkgs.stdenv.isDarwin [
+            "dash"
+            "macos"
+          ];
       };
       plugins = with pkgs; (zshPlugins [
         {

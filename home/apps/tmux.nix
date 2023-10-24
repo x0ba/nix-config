@@ -47,6 +47,8 @@
       unbind-key >
 
       bind -T copy-mode-vi v send -X begin-selection
+      bind-key C-o display-popup -E "tms"
+      bind-key C-j display-popup -E "tms switch"
       bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "pbcopy"
       bind P paste-buffer
       bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "pbcopy"
