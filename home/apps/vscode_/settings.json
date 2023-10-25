@@ -14,7 +14,7 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "catppuccin.accentColor": "lavender",
+  "catppuccin.accentColor": "pink",
   "catppuccin.customUIColors": {
     "all": {
       "statusBar.foreground": "accent",
@@ -25,7 +25,7 @@
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.fontFamily": "Liga Berkeley Mono, Symbols Nerd Font, monospace",
-  "editor.fontSize": 15,
+  "editor.fontSize": 14,
   "editor.formatOnSave": true,
   "editor.inlayHints.fontFamily": "Victor Mono",
   "editor.inlayHints.fontSize": 14,
@@ -134,16 +134,20 @@
     "vs-kubernetes.crd-code-completion": "enabled",
     "vs-kubernetes.minikube-show-information-expiration": "2024-01-29T10:44:10.813Z"
   },
-  "vscord.app.name": "VSCodium",
   "vscord.status.idle.check": false,
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.iconTheme": "catppuccin-mocha",
-  "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
+  "workbench.preferredDarkColorTheme": "Gruvbox Material Dark",
   "workbench.preferredLightColorTheme": "Catppuccin Latte",
   "d.stdlibPath": "auto",
   "d.servedReleaseChannel": "beta",
   "dfmt.braceStyle": "otbs",
   "d.alwaysShowDubStatusButtons": true,
-  "window.titleBarStyle": "custom"
+  "editor.fontLigatures": true,
+  "gruvboxMaterial.darkContrast": "hard",
+  "gruvboxMaterial.lightContrast": "hard",
+  "[nix]": {
+    "editor.defaultFormatter": "jnoortheen.nix-ide"
+  },
+  "workbench.colorTheme": "Catppuccin Mocha"
 }

@@ -14,9 +14,8 @@ in {
     enable = true;
     package = pkgs.vscodium;
     extensions = with pkgs.vscode-marketplace; [
-      ibmlover.oxocarbon
+      catppuccin.catppuccin-vsc
       adrianwilczynski.alpine-js-intellisense
-      decaycs.decay
       antfu.icons-carbon
       astro-build.astro-vscode
       bradlc.vscode-tailwindcss
@@ -33,8 +32,10 @@ in {
       jnoortheen.nix-ide
       kamadorueda.alejandra
       leonardssh.vscord
+      lunuan.kubernetes-templates
       mikestead.dotenv
       mkhl.direnv
+      ms-kubernetes-tools.vscode-kubernetes-tools
       pkief.material-icon-theme
       redhat.vscode-yaml
       rust-lang.rust-analyzer

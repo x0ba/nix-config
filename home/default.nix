@@ -39,8 +39,8 @@ in {
       elinks
       glow
       exiftool
-      spotify-player
       sdcv
+      discordo
       sqlite
       statix
       deadnix

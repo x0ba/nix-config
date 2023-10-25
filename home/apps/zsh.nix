@@ -43,19 +43,11 @@ in {
         bindkey -a 'f' history-incremental-pattern-search-backward
       '';
       shellAliases = {
-        cleanup = "sudo nix-collect-garbage --delete-older-than 7d";
-        bloat = "nix path-info -Sh /run/current-system";
-        g = "git";
+        mv = "mv -i";
+        t = "${pkgs.tmux-sessionizer}/bin/tms";
+        cp = "cp -i";
         tree = "${pkgs.eza}/bin/eza --tree";
-        gaa = "git add .";
-        cls = "clear";
-        commit = "git add . && git commit -m";
-        m = "mkdir -p";
-        push = "git push";
-        pull = "git pull";
-        cat = "${pkgs.bat}/bin/bat";
         nv = "${pkgs.neovim}/bin/nvim";
-        fcd = "cd $(find -type d | fzf)";
         rm = "${pkgs.trash-cli}/bin/trash-put";
       };
       oh-my-zsh = {

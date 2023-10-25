@@ -20,15 +20,18 @@
         keys = {
           {
             key = 'p',
-            mods = 'SHIFT|CMD',
-            action = wezterm.action.ActivateCommandPalette,
-          },
+            mods = 'SHIFT|CMD', action = wezterm.action.ActivateCommandPalette, },
         },
+        font = wezterm.font_with_fallback {
+            "Liga Berkeley Mono",
+            "Symbols Nerd Font",
+        },
+        color_scheme = "Catppuccin Mocha",
 
         font_rules    = {
           {
             italic = true,
-            font   = wez.font("IBM Plex Mono", { italic = true })
+            font   = wez.font("Liga Berkeley Mono", { italic = true })
           }
         },
         command_palette_font_size = 14.0,

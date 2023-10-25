@@ -24,6 +24,7 @@ in {
         multi-account-containers
         darkreader
         onepassword-password-manager
+        stylus
         clearurls
         darkreader
         refined-github
@@ -147,6 +148,8 @@ in {
         "webgl.renderer-string-override" = " ";
         "webgl.vendor-string-override" = " ";
 
+        # set these to false if you're copying this config...
+        # it's to *enable* DRM, not disable it
         "media.eme.enabled" = true;
         "media.gmp-widevinecdm.enabled" = true;
       };

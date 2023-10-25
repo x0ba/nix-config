@@ -3,8 +3,8 @@
     enable = true;
     settings = {
       character = {
-        error_symbol = "[\\$](bold blue)";
-        success_symbol = "[\\$](bold red)";
+        error_symbol = "[\\$](bold red)";
+        success_symbol = "[\\$](bold blue)";
         vicmd_symbol = "[\\$](bold yellow)";
         format = "$symbol ";
       };

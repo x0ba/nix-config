@@ -18,8 +18,9 @@
       '';
   };
   home.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["CascadiaCode" "Iosevka" "JetBrainsMono" "VictorMono"];})
+    (nerdfonts.override {fonts = ["CascadiaCode" "Iosevka" "JetBrainsMono"];})
     terminus_font_ttf
+    victor-mono
     iosevka
     cozette
     fira-code
