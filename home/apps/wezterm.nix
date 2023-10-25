@@ -31,7 +31,7 @@
         font_rules    = {
           {
             italic = true,
-            font   = wez.font("Liga Berkeley Mono", { italic = true })
+            font   = wez.font("Victor Mono", { italic = true })
           }
         },
         command_palette_font_size = 14.0,
@@ -44,7 +44,7 @@
           left = "24pt", right = "24pt",
           bottom = "24pt", top = "24pt"
         },
-        default_cursor_style = "SteadyBar",
+        default_cursor_style = "BlinkingBar",
         window_decorations = "RESIZE",
         enable_scroll_bar    = false,
         warn_about_missing_glyphs = false,

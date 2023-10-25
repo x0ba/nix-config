@@ -1,0 +1,4 @@
+# vim:ft=zsh
+function ntfy() {
+  curl -d "$1" https://ntfy.danielxu.lol
+}

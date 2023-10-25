@@ -1,10 +1,14 @@
 {
   config,
   pkgs,
+  flakePath,
   lib,
   ...
 }: let
-  theme = config.colorScheme;
+  symlink = fileName: {recursive ? false}: {
+    source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/${fileName}";
+    recursive = recursive;
+  };
   zshPlugins = plugins: (map
     (plugin: rec {
       name = src.name;
@@ -13,31 +17,78 @@
     plugins);
 in {
   programs = {
+    atuin = {
+      enable = true;
+      flags = ["--disable-up-arrow"];
+      settings = {
+        inline_height = 30;
+        style = "compact";
+        sync_frequency = "5m";
+      };
+    };
+    btop = {
+      enable = true;
+      settings = {
+        theme_background = false;
+        vim_keys = true;
+      };
+    };
+
+    nix-index.enable = true;
+
+    tealdeer = {
+      enable = true;
+      settings = {
+        style = {
+          description.foreground = "white";
+          command_name.foreground = "green";
+          example_text.foreground = "blue";
+          example_code.foreground = "white";
+          example_variable.foreground = "yellow";
+        };
+        updates.auto_update = true;
+      };
+    };
+
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+      options = ["--cmd cd"];
+    };
+
+    bat.enable = true;
+
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+
+    eza = {
+      enable = true;
+      enableAliases = true;
+      icons = true;
+      extraOptions = [
+        "--group-directories-first"
+      ];
+    };
+
     zsh = {
+      dotDir = ".config/zsh";
       enable = true;
       enableAutosuggestions = true;
-      autocd = true;
       enableCompletion = true;
-      defaultKeymap = "viins";
-      dotDir = ".config/zsh";
-      history = {
-        save = 10000;
-        size = 10000;
-        path = "${config.xdg.dataHome}/zsh/history";
-      };
+      history.path = "${config.xdg.configHome}/zsh/history";
       envExtra = ''
-        export LESSHISTFILE="${config.xdg.dataHome}"/less/history
-        export FZF_DEFAULT_COMMAND="fd . --max-depth=1 --hidden"
-        export SUDO_PROMPT=$'Password for ->\033[32;05;16m %u\033[0m  '
-        export ANDROID_HOME="${config.xdg.dataHome}"/android
-        export DOCKER_CONFIG="${config.xdg.dataHome}"/docker
-        export EDITOR='nvim'
-        export VISUAL='nvim'
+        export LESSHISTFILE="-"
         export ZVM_INIT_MODE="sourcing"
         export ZVM_CURSOR_BLINKING_BEAM="1"
-        ZSH_AUTOSUGGEST_USE_ASYNC="true"
       '';
-      initExtra = ''
+      initExtra = let
+        functionsDir = "${config.home.homeDirectory}/${config.programs.zsh.dotDir}/functions";
+      in ''
+        for script in "${functionsDir}"/**/*; do
+          source "$script"
+        done
         bindkey '^F' autosuggest-accept
         bindkey -a 'F' history-incremental-pattern-search-forward
         bindkey -a 'f' history-incremental-pattern-search-backward
@@ -92,51 +143,9 @@ in {
         }
       ]);
     };
+  };
 
-    btop = {
-      enable = true;
-      settings = {
-        theme_background = false;
-        vim_keys = true;
-      };
-    };
-
-    nix-index.enable = true;
-
-    tealdeer = {
-      enable = true;
-      settings = {
-        style = {
-          description.foreground = "white";
-          command_name.foreground = "green";
-          example_text.foreground = "blue";
-          example_code.foreground = "white";
-          example_variable.foreground = "yellow";
-        };
-        updates.auto_update = true;
-      };
-    };
-
-    zoxide = {
-      enable = true;
-      enableZshIntegration = true;
-      options = ["--cmd cd"];
-    };
-
-    bat.enable = true;
-
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
-
-    eza = {
-      enable = true;
-      enableAliases = true;
-      icons = true;
-      extraOptions = [
-        "--group-directories-first"
-      ];
-    };
+  xdg.configFile = {
+    "zsh/functions" = symlink "home/apps/zsh/functions" {recursive = true;};
   };
 }
