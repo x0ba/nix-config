@@ -23,8 +23,7 @@ in {
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         multi-account-containers
         darkreader
-        onepassword-password-manager
-        stylus
+        bitwarden
         clearurls
         darkreader
         refined-github
