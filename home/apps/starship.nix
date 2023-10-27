@@ -2,29 +2,16 @@
   programs.starship = {
     enable = true;
     settings = {
-      character = {
-        error_symbol = "[\\$](bold red)";
-        success_symbol = "[\\$](bold blue)";
-        vicmd_symbol = "[\\$](bold yellow)";
-        format = "$symbol ";
-      };
-
-      format = "$all";
+      format = "$directory $git_branch$git_status\n$character ";
       add_newline = false;
-
-      hostname = {
-        ssh_only = true;
-        format = "[$hostname](bold blue) ";
-        disabled = false;
+      character = {
+        format = "$symbol";
+        success_symbol = "[󰄾](fg:blue)";
+        error_symbol = "[󰄾](fg:red)";
       };
-
-      line_break.disabled = true;
-      nodejs.disabled = true;
-      nix_shell.symbol = "[](blue) ";
-      python.symbol = "[](blue) ";
-      rust.symbol = "[](red) ";
-      lua.symbol = "[](blue) ";
-      package.symbol = "📦  ";
+      directory = {
+        format = "[ $path ](bg:bright-black)";
+      };
     };
   };
 }

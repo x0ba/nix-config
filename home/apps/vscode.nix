@@ -14,7 +14,7 @@ in {
     enable = true;
     package = pkgs.vscodium;
     extensions = with pkgs.vscode-marketplace; [
-      catppuccin.catppuccin-vsc
+      zhuangtongfa.material-theme
       adrianwilczynski.alpine-js-intellisense
       antfu.icons-carbon
       astro-build.astro-vscode

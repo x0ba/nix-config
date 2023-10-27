@@ -1,9 +1,9 @@
 local map = vim.api.nvim_set_keymap
 
-map("n", "<C-h>", "<C-w>h", { noremap = true, silent = false })
-map("n", "<C-l>", "<C-w>l", { noremap = true, silent = false })
-map("n", "<C-j>", "<C-w>j", { noremap = true, silent = false })
-map("n", "<C-k>", "<C-w>k", { noremap = true, silent = false })
+map("n", "<C-h>", ":TmuxNavigateLeft<CR>", { noremap = true, silent = true })
+map("n", "<C-l>", ":TmuxNavigateRight<CR>", { noremap = true, silent = true })
+map("n", "<C-j>", ":TmuxNavigateDown<CR>", { noremap = true, silent = true })
+map("n", "<C-k>", ":TmuxNavigateUp<CR>", { noremap = true, silent = true })
 
 -- file trees are overrated
 map("n", "<C-b>", ":Neotree<CR>", { noremap = true, silent = true })

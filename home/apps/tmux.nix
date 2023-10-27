@@ -47,8 +47,8 @@
       unbind-key >
 
       bind -T copy-mode-vi v send -X begin-selection
-      bind-key o display-popup -E "tms"
-      bind-key j display-popup -E "tms switch"
+      bind-key C-o display-popup -E "tms"
+      bind-key C-j display-popup -E "tms switch"
       bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "pbcopy"
       bind P paste-buffer
       bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "pbcopy"
@@ -78,9 +78,9 @@
 
       set -g status-justify centre
       set -g status-left "#[fg=black,bg=green]   #[fg=green,bg=red]#{prefix_highlight}#[bg=default]"
-      set -g window-status-format "#[fg=magenta,bg=black] #I:#W #[bg=default,fg=black]"
-      set -g window-status-current-format "#[bg=magenta,fg=black] #I:#W #[bg=default,fg=black] #[bg=black,fg=red] #S #[bg=red,fg=black]   "
-      set -g status-right "#[bg=black,fg=green] %I:%M %p #[fg=green,bg=black]█"
+      set -g window-status-format "#[fg=magenta,bg=brightblack] #I:#W #[bg=default,fg=black]"
+      set -g window-status-current-format "#[bg=magenta,fg=black] #I:#W #[bg=default,fg=black] #[bg=brightblack,fg=red] #S #[bg=red,fg=black]   "
+      set -g status-right "#[bg=brightblack,fg=green] %I:%M %p #[fg=green,bg=black]█"
 
       set -g status-bg default
       set -g status-fg white
@@ -89,6 +89,22 @@
     plugins = with pkgs; [
       {
         plugin = tmuxPlugins.vim-tmux-navigator;
+      }
+      {
+        plugin = tmuxPlugins.resurrect;
+        extraConfig = ''
+          set -g @resurrect-strategy-vim 'session'
+          set -g @resurrect-strategy-nvim 'session'
+          set -g @resurrect-capture-pane-contents 'on'
+        '';
+      }
+      {
+        plugin = tmuxPlugins.continuum;
+        extraConfig = ''
+          set -g @continuum-restore 'on'
+          set -g @continuum-boot 'on'
+          set -g @continuum-save-interval '10'
+        '';
       }
     ];
   };
