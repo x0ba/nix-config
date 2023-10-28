@@ -106,11 +106,11 @@ in {
         plugins =
           [
             "colored-man-pages"
+            "sudo"
             "colorize"
             "docker"
             "docker-compose"
             "git"
-            "kubectl"
           ]
           ++ lib.optionals pkgs.stdenv.isDarwin [
             "dash"

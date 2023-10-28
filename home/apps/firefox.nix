@@ -16,13 +16,12 @@ in {
       search = {
         default = "Searxng";
         engines = {
-          "Searxng".urls = [{template = " https://sx.danielxu.lol/search?q={searchTerms}";}];
+          "Searxng".urls = [{template = " https://se.x0ba.lol/search?q={searchTerms}";}];
         };
         force = true;
       };
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         multi-account-containers
-        darkreader
         bitwarden
         clearurls
         darkreader

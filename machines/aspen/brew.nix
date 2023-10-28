@@ -8,9 +8,6 @@
       cleanup = "uninstall";
       upgrade = true;
     };
-    brews = [
-      "php"
-    ];
     casks = let
       noQuarantine = name: {
         inherit name;

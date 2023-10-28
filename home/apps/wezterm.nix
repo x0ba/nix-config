@@ -1,6 +1,5 @@
 {
   config,
-  flakePath,
   pkgs,
   ...
 }: {
@@ -27,11 +26,11 @@
         font_rules    = {
           {
             italic = true,
-            font   = wez.font("IBM Plex Mono", { italic = true })
+            font   = wez.font("Victor Mono", { italic = true })
           }
         },
         command_palette_font_size = 14.0,
-        font_size         = 14.0,
+        font_size         = 15.0,
         line_height       = 1.2,
         harfbuzz_features = { 'calt=1', 'clig=1', 'liga=1' },
         -- Bling

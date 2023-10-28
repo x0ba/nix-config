@@ -72,7 +72,6 @@
       bind -r m resize-pane -Z
 
       set -g mode-style "bg=default,fg=default"
-      set -g status-position bottom
       set -g status-interval 5
       set -g @emulate-scroll-for-no-mouse-alternate-buffer on
 
