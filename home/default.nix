@@ -22,6 +22,7 @@ in {
       fd
       file
       minisign
+      spotify-player
       age
       hilbish
       git-crypt

@@ -15,6 +15,7 @@ in {
     package = pkgs.vscodium;
     extensions = with pkgs.vscode-marketplace; [
       zhuangtongfa.material-theme
+      ms-vscode-remote.remote-ssh
       adrianwilczynski.alpine-js-intellisense
       antfu.icons-carbon
       astro-build.astro-vscode
