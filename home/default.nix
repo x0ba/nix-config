@@ -40,7 +40,6 @@ in {
       glow
       exiftool
       sdcv
-      discordo
       sqlite
       statix
       deadnix
@@ -57,6 +56,7 @@ in {
     man.enable = true;
     taskwarrior.enable = true;
   };
+
   sops.secrets."wakatime-cfg".path = "${config.xdg.configHome}/wakatime/.wakatime.cfg";
 
   disabledModules = ["targets/darwin/linkapps.nix"];

@@ -19,7 +19,7 @@ return {
       dashboard.button("SPC fg", "  Live grep", ":Telescope live_grep<cr>"),
       dashboard.button(
         "s",
-        "  Show sessions",
+        "  Restore session",
         ':lua require("persistence").load()<cr>'
       ),
       dashboard.button("SPC fp", "  Projects", ":Telescope project<CR>"),

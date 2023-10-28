@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   stylix = {
+    image = ../theme/yoru/wall.png;
     autoEnable = false;
     targets = {
       bat.enable = true;
@@ -10,8 +11,8 @@
     };
     fonts = {
       monospace = {
-        name = "Iosevka Nerd Font";
-        package = pkgs.nerdfonts.override {fonts = ["Iosevka"];};
+        name = "Iosevka";
+        package = pkgs.iosevka;
       };
       emoji = {
         name = "Symbols Nerd Font";
@@ -24,5 +25,4 @@
     };
     base16Scheme = import ./yoru;
   };
-  home.mac-wallpaper = ../theme/oxocarbon/wall.png;
 }
