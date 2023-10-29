@@ -5,7 +5,6 @@
   ...
 }: let
   inherit (pkgs.stdenv.hostPlatform) isDarwin;
-  theme = config.colorScheme;
 in {
   programs.firefox = {
     enable = true;
@@ -31,7 +30,11 @@ in {
         vimium
       ];
 
+      userChrome = import ./firefox/userchrome.nix;
+      userContent = import ./firefox/usercontent.nix;
+
       settings = {
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         "app.normandy.api_url" = "";
         "app.normandy.enabled" = false;
         "app.shield.optoutstudies.enabled" = false;

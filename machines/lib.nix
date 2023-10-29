@@ -1,6 +1,6 @@
 {inputs}: rec {
   overlays = [
-    (final: prev: {
+    (_final: prev: {
       nur = import inputs.nur {
         nurpkgs = prev;
         pkgs = prev;

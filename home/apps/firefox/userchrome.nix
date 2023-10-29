@@ -33,6 +33,9 @@
   .tab-secondary-label { display: none !important; }
   #pageActionButton { display: none !important; }
   #page-action-buttons { display: none !important; }
+  .titlebar-buttonbox-container {
+    display: none;
+  }
   :root {
       --uc-theme-colour:                          var(--window-colour);
       --uc-hover-colour:                          var(--secondary-colour);

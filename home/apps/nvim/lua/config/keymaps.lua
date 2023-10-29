@@ -7,7 +7,6 @@ map("n", "<C-k>", ":TmuxNavigateUp<CR>", { noremap = true, silent = true })
 
 -- file trees are overrated
 map("n", "<C-b>", ":Neotree<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- telescope mappings
 map(

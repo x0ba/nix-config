@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
+  inherit (pkgs.stdenv.hostPlatform) isLinux;
 in {
   programs.imv = {
     enable = isLinux;

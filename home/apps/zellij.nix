@@ -1,9 +1,4 @@
-{
-  pkgs,
-  flakePath,
-  config,
-  ...
-}: {
+{...}: {
   programs.zellij = {
     enable = true;
     settings = {

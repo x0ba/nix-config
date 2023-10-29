@@ -6,7 +6,7 @@
 }: let
   inherit (lib) filterAttrs;
   inherit (pkgs.stdenv) isDarwin isLinux;
-  flakes = filterAttrs (name: value: value ? outputs) inputs;
+  flakes = filterAttrs (_name: value: value ? outputs) inputs;
 in {
   nixpkgs.config.allowUnfree = true;
   nix = {
@@ -23,7 +23,7 @@ in {
       // ((import ../../../flake.nix).nixConfig);
     registry =
       builtins.mapAttrs
-      (name: v: {flake = v;})
+      (_name: v: {flake = v;})
       flakes;
     nixPath =
       if isDarwin

@@ -59,8 +59,6 @@
       imports = [inputs.pre-commit-hooks.flakeModule];
       perSystem = {
         config,
-        self',
-        inputs',
         pkgs,
         system,
         ...
@@ -82,7 +80,7 @@
           };
         };
 
-        devShells.default = config.pre-commit.devShell.overrideAttrs (old: {
+        devShells.default = config.pre-commit.devShell.overrideAttrs (_old: {
           buildInputs = with pkgs; [gum just nix-output-monitor nvd sops];
         });
 

@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
+  inherit (pkgs.stdenv.hostPlatform) isDarwin;
 in {
   imports = [./apps ./langs ./xdg.nix ./secrets/sops.nix ./theme];
 
@@ -16,13 +16,11 @@ in {
       nix-your-shell
       atool
       ripgrep
-      lazygit
       cmake
       spicetify-cli
       fd
       file
       minisign
-      spotify-player
       age
       hilbish
       git-crypt
