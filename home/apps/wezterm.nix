@@ -49,6 +49,8 @@
         -- Miscelaneous
         ---------------
         window_close_confirmation = "NeverPrompt",
+        clean_exit_codes = { 130 },
+        audible_bell = "Disabled",
         inactive_pane_hsb         = {
           saturation = 1.0, brightness = 0.8
         },
