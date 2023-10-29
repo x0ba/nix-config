@@ -25,6 +25,7 @@
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.fontFamily": "Iosevka, Symbols Nerd Font, monospace",
+  "editor.fontLigatures": "'ss14'",
   "editor.fontSize": 15,
   "editor.formatOnSave": true,
   "editor.inlayHints.fontFamily": "Victor Mono",

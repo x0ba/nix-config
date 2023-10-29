@@ -2,16 +2,14 @@
   programs.starship = {
     enable = true;
     settings = {
-      format = "$directory $git_branch$git_status\n$character ";
+      format = "$directory$git_branch$git_status$character ";
       add_newline = false;
       character = {
         format = "$symbol";
-        success_symbol = "[󰄾](fg:blue)";
-        error_symbol = "[󰄾](fg:red)";
+        success_symbol = "[λ](fg:cyan)";
+        error_symbol = "[λ](fg:red)";
       };
-      directory = {
-        format = "[ $path ](bg:bright-black)";
-      };
+      directory.style = "fg:blue";
     };
   };
 }

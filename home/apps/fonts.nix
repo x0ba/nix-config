@@ -21,6 +21,7 @@
     (nerdfonts.override {fonts = ["CascadiaCode" "Iosevka" "JetBrainsMono"];})
     terminus_font_ttf
     victor-mono
+    maple-mono
     iosevka
     cozette
     fira-code

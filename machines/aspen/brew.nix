@@ -20,6 +20,7 @@
     in [
       "firefox"
       "tor-browser"
+      "ticktick"
       "hammerspoon"
       "dash"
       "bitwarden"
