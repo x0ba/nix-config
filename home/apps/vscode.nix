@@ -12,11 +12,11 @@
 in {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium;
+    package = pkgs.vscode;
     extensions = with pkgs.vscode-marketplace; [
-      zhuangtongfa.material-theme
       ms-vscode-remote.remote-ssh
       adrianwilczynski.alpine-js-intellisense
+      leonardssh.vscord
       antfu.icons-carbon
       astro-build.astro-vscode
       bradlc.vscode-tailwindcss
@@ -44,7 +44,6 @@ in {
       tamasfe.even-better-toml
       tomoki1207.pdf
       unifiedjs.vscode-mdx
-      valentjn.vscode-ltex
       vscodevim.vim
       webfreak.code-d
     ];
@@ -52,8 +51,8 @@ in {
   };
 
   home.file = lib.mkIf isDarwin {
-    "Library/Application Support/VSCodium/User/keybindings.json".source = keybindingsJSON;
-    "Library/Application Support/VSCodium/User/settings.json".source = settingsJSON;
+    "Library/Application Support/Code/User/keybindings.json".source = keybindingsJSON;
+    "Library/Application Support/Code/User/settings.json".source = settingsJSON;
   };
   xdg.configFile = lib.mkIf isLinux {
     "Code/User/keybindings.json".source = keybindingsJSON;

@@ -11,8 +11,8 @@
     };
     fonts = {
       monospace = {
-        name = "Iosevka";
-        package = pkgs.iosevka;
+        name = "Cascadia Code";
+        package = pkgs.cascadia-code;
       };
       emoji = {
         name = "Symbols Nerd Font";
@@ -23,6 +23,6 @@
         package = pkgs.ibm-plex;
       };
     };
-    base16Scheme = import ./yoru;
+    base16Scheme = import ./catppuccin;
   };
 }

@@ -26,7 +26,6 @@
     cozette
     fira-code
     inter
-    cascadia-code
     dosis
     recursive
     atkinson-hyperlegible

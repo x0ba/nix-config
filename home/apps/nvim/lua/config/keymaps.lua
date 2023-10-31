@@ -45,7 +45,7 @@ map("n", "<Leader>wv", ":vsplit<CR>", { silent = true })
 map("n", "<Leader>wh", ":split<CR>", { silent = true })
 
 -- Fugitive
-map("n", "<Leader>gs", ":Neogit<CR>", { silent = true })
+map("n", "<Leader>ng", ":Neogit<CR>", { silent = true })
 
 vim.keymap.set({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>")
 vim.keymap.set({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>")

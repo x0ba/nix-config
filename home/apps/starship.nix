@@ -6,10 +6,10 @@
       add_newline = false;
       character = {
         format = "$symbol";
-        success_symbol = "[λ](fg:cyan)";
+        success_symbol = "[λ](fg:blue)";
         error_symbol = "[λ](fg:red)";
       };
-      directory.style = "fg:blue";
+      directory.style = "fg:cyan";
     };
   };
 }

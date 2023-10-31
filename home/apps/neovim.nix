@@ -6,12 +6,7 @@
 }: {
   programs.neovim = {
     enable = true;
-    package = pkgs.symlinkJoin {
-      name = "neovim";
-      paths = [pkgs.neovim-nightly];
-      buildInputs = [pkgs.makeWrapper pkgs.gcc];
-      postBuild = "wrapProgram $out/bin/nvim --prefix CC : ${pkgs.lib.getExe pkgs.gcc}";
-    };
+    withNodeJs = true;
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;

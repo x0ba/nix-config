@@ -13,7 +13,6 @@
       sway-unwrapped = inputs.swayfx.packages.${prev.system}.default;
     })
     inputs.nix-vscode-extensions.overlays.default
-    inputs.neovim-nightly-overlay.overlay
   ];
   hmCommonConfig = {username}: ({
     config,

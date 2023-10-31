@@ -30,8 +30,8 @@ in {
         vimium
       ];
 
-      userChrome = import ./firefox/userchrome.nix;
       userContent = import ./firefox/usercontent.nix;
+      userChrome = import ./firefox/userchrome.nix;
 
       settings = {
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
