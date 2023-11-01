@@ -54,7 +54,6 @@
       "calibre"
       (skipSha "element")
       (skipSha "spotify")
-      (noQuarantine "librewolf")
 
       # Drivers
       "wacom-tablet"

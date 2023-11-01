@@ -7,11 +7,12 @@
 
       require("keys").apply(c)
 
-      c.font_size         = 14.5
+      c.font = wezterm.font_with_fallback({ "Liga Berkeley Mono", "Symbols Nerd Font" })
+      c.font_size         = 15
       c.line_height       = 1.2
-      c.harfbuzz_features = { "calt=1", "ss01=1" }
+      -- c.harfbuzz_features = { "calt=1", "ss01=1" }
       c.window_decorations = "RESIZE"
-      c.window_padding = { left = 24, right = 24, top = 24, bottom = 24 }
+      c.window_padding = { left = 28, right = 28, top = 28, bottom = 28 }
       c.inactive_pane_hsb = { saturation = 1.0, brightness = 0.8 }
       c.adjust_window_size_when_changing_font_size = false
       c.audible_bell = "Disabled"
