@@ -1,12 +1,18 @@
 return {
-  -- { -- Theme inspired by Atom
-  --   "x0ba/oxocarbon.nvim",
-  --   priority = 1000,
-  -- },
-  -- {
-  --   "x0ba/base46-colors",
-  --   priority = 1000,
-  -- },
+  {
+    "catppuccin/nvim",
+    priority = 1000,
+    name = "catppuccin",
+    opts = {
+      color_overrides = {
+        mocha = {
+          base = "#000000",
+          mantle = "#010101",
+          crust = "#020202",
+        },
+      },
+    },
+  },
   {
     "LazyVim/LazyVim",
     opts = {

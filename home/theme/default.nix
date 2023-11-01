@@ -11,8 +11,8 @@
     };
     fonts = {
       monospace = {
-        name = "Cascadia Code";
-        package = pkgs.cascadia-code;
+        name = "IBM Plex Mono";
+        package = pkgs.ibm-plex;
       };
       emoji = {
         name = "Symbols Nerd Font";
@@ -23,6 +23,6 @@
         package = pkgs.ibm-plex;
       };
     };
-    base16Scheme = import ./catppuccin;
+    base16Scheme = import ./oledppuccin;
   };
 }

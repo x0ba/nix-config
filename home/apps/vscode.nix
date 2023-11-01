@@ -14,6 +14,7 @@ in {
     enable = true;
     package = pkgs.vscode;
     extensions = with pkgs.vscode-marketplace; [
+      piousdeer.adwaita-theme
       ms-vscode-remote.remote-ssh
       adrianwilczynski.alpine-js-intellisense
       leonardssh.vscord

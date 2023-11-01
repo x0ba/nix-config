@@ -14,21 +14,13 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "catppuccin.accentColor": "lavender",
-  "catppuccin.customUIColors": {
-    "all": {
-      "statusBar.foreground": "accent",
-      "statusBar.noFolderForeground": "accent"
-    }
-  },
   "debug.onTaskErrors": "debugAnyway",
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.cursorSmoothCaretAnimation": "on",
-  "editor.fontFamily": "Cascadia Code, Symbols Nerd Font, monospace",
-  "editor.fontLigatures": "'ss01', 'calt'",
+  "editor.fontFamily": "Liga Berkeley Mono, Symbols Nerd Font, monospace",
   "editor.fontSize": 15,
   "editor.formatOnSave": true,
-  "editor.inlayHints.fontFamily": "Cascadia Code",
+  "editor.inlayHints.fontFamily": "Victor Mono",
   "editor.inlayHints.fontSize": 14,
   "editor.inlayHints.padding": true,
   "editor.inlineSuggest.enabled": true,
@@ -50,6 +42,7 @@
   "search.useParentIgnoreFiles": true,
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.fontSize": 14,
+  "editor.fontLigatures": "'calt'",
   "typescript.inlayHints.parameterNames.enabled": "all",
   "update.mode": "none",
   "vim.camelCaseMotion.enable": true,
@@ -139,14 +132,20 @@
   },
   "vscord.status.idle.check": false,
   "window.autoDetectColorScheme": true,
-  "workbench.colorTheme": "Catppuccin Mocha",
-  "workbench.iconTheme": "catppuccin-mocha",
-  "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
-  "workbench.preferredLightColorTheme": "Catppuccin Latte",
   "d.stdlibPath": "auto",
   "d.servedReleaseChannel": "beta",
   "dfmt.braceStyle": "otbs",
   "d.alwaysShowDubStatusButtons": true,
   "window.titleBarStyle": "custom",
-  "window.commandCenter": false
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.iconTheme": "catppuccin-mocha",
+  "catppuccin.colorOverrides": {
+    "mocha": {
+      "base": "#000000",
+      "mantle": "#010101",
+      "crust": "#020202"
+    }
+  },
+  "window.commandCenter": false,
+  "catppuccin.accentColor": "lavender"
 }
