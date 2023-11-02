@@ -11,6 +11,7 @@ in {
   home = {
     packages = with pkgs; [
       trash-cli
+      taskwarrior-tui
       git-lfs
       just
       nix-your-shell

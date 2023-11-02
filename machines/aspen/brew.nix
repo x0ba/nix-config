@@ -19,10 +19,8 @@
       };
     in [
       "firefox"
-      "tor-browser"
-      "ticktick"
-      "hammerspoon"
-      "dash"
+      "todoist"
+      "arc"
       "bitwarden"
       "raycast"
       "1password"
@@ -33,8 +31,8 @@
       "stats"
       "lulu"
       "numi"
-      "ticktick"
       "obs"
+      "shottr"
       "appcleaner"
       "skiff"
       "aldente"
@@ -53,8 +51,8 @@
       "discord"
       "calibre"
       (skipSha "element")
+      (skipSha "beeper")
       (skipSha "spotify")
-      (noQuarantine "librewolf")
 
       # Drivers
       "wacom-tablet"

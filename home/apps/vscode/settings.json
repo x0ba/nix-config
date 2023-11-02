@@ -17,7 +17,8 @@
   "debug.onTaskErrors": "debugAnyway",
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.cursorSmoothCaretAnimation": "on",
-  "editor.fontFamily": "Liga Berkeley Mono, Symbols Nerd Font, monospace",
+  "editor.fontFamily": "Cascadia Code",
+  "editor.fontLigatures": "'ss01', 'calt'",
   "editor.fontSize": 15,
   "editor.formatOnSave": true,
   "editor.inlayHints.fontFamily": "Victor Mono",
@@ -42,7 +43,6 @@
   "search.useParentIgnoreFiles": true,
   "telemetry.telemetryLevel": "off",
   "terminal.integrated.fontSize": 14,
-  "editor.fontLigatures": "'calt'",
   "typescript.inlayHints.parameterNames.enabled": "all",
   "update.mode": "none",
   "vim.camelCaseMotion.enable": true,
@@ -139,13 +139,6 @@
   "window.titleBarStyle": "custom",
   "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.iconTheme": "catppuccin-mocha",
-  "catppuccin.colorOverrides": {
-    "mocha": {
-      "base": "#000000",
-      "mantle": "#010101",
-      "crust": "#020202"
-    }
-  },
   "window.commandCenter": false,
   "catppuccin.accentColor": "lavender"
 }

@@ -1,16 +1,10 @@
 local wezterm = require("wezterm")
 local c = wezterm.config_builder()
-local oledppuccin = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
-oledppuccin.background = "#000000"
-oledppuccin.tab_bar.background = "#040404"
-oledppuccin.tab_bar.inactive_tab.bg_color = "#0f0f0f"
-oledppuccin.tab_bar.new_tab.bg_color = "#080808"
-oledppuccin.ansi[6] = "#c6a0f6"
-
 require("keys").apply(c)
 
 c.font =
   wezterm.font_with_fallback({ "Liga Berkeley Mono", "Symbols Nerd Font" })
+c.harfbuzz_features = { "calt=1" }
 c.line_height = 1.2
 c.font_size = 15.0
 c.window_decorations = "RESIZE"
@@ -23,11 +17,9 @@ c.default_cursor_style = "BlinkingBar"
 c.command_palette_font_size = 13.0
 c.window_frame = { font_size = 13.0 }
 
-c.color_schemes = {
-  ["OLEDppuccin"] = oledppuccin,
-}
-
-c.color_scheme = "OLEDppuccin"
+wezterm.plugin
+  .require("https://github.com/catppuccin/wezterm")
+  .apply_to_config(c, { sync = true })
 
 wezterm.plugin
   .require("https://github.com/nekowinston/wezterm-bar")

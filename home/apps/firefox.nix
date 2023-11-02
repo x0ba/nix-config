@@ -21,8 +21,9 @@ in {
       };
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         multi-account-containers
-        bitwarden
         clearurls
+        languagetool
+        onepassword-password-manager
         darkreader
         refined-github
         temporary-containers
@@ -30,14 +31,15 @@ in {
         vimium
       ];
 
-      userContent = import ./firefox/usercontent.nix;
-      userChrome = import ./firefox/userchrome.nix;
+      # userContent = import ./firefox/usercontent.nix;
+      # userChrome = import ./firefox/userchrome.nix;
 
       settings = {
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         "app.normandy.api_url" = "";
         "app.normandy.enabled" = false;
         "app.shield.optoutstudies.enabled" = false;
+        "browser.tabs.drawInTitlebar" = true;
         "app.update.auto" = false;
         "beacon.enabled" = false;
         "breakpad.reportURL" = "";
