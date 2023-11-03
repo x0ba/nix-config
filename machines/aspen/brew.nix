@@ -19,7 +19,6 @@
       };
     in [
       "1password"
-      "aldente"
       "anki"
       "appcleaner"
       "bitwarden"
@@ -35,28 +34,24 @@
       "linearmouse"
       "lulu"
       "macfuse"
-      "numi"
+      "mos"
       "obs"
       "obsidian"
       "polypane"
       "protonvpn"
       "qutebrowser"
       "raycast"
-      "raycast"
-      "shottr"
       "shottr"
       "skiff"
       "stats"
       "todoist"
       "uninstallpkg"
       "veracrypt"
-      (skipSha "beeper")
       (skipSha "element")
       (skipSha "spotify")
 
       # Drivers
       "wacom-tablet"
-      (skipSha "logitech-options")
     ];
     taps = ["homebrew/services" "homebrew/cask"];
   };
