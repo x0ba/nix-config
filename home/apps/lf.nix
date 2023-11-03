@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  xdg.configFile."lf/icons".source = ./zsh/lficons;
   programs.lf = {
     enable = true;
     commands = {
@@ -47,9 +48,11 @@
       '';
     };
     settings = {
-      icons = true;
       preview = true;
       hidden = true;
+      drawbox = true;
+      icons = true;
+      ignorecase = true;
     };
     previewer.source = "${pkgs.nur.repos.x0ba.preview}/bin/preview";
     keybindings = {

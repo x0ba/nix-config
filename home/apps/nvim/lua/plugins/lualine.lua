@@ -1,99 +1,35 @@
-local M = {}
-M.theme = function()
-  local colors = {
-    innerbg = nil,
-  }
-  return {
-    inactive = {
-      a = { bg = colors.innerbg },
-      b = { bg = colors.innerbg },
-      c = { bg = colors.innerbg },
-      y = { bg = colors.innerbg },
-      z = { bg = colors.innerbg, gui = "bold" },
-    },
-    visual = {
-      a = { bg = colors.innerbg },
-      b = { bg = colors.innerbg },
-      c = { bg = colors.innerbg },
-      y = { bg = colors.innerbg },
-      z = { bg = colors.innerbg, gui = "bold" },
-    },
-    replace = {
-      a = { bg = colors.innerbg },
-      b = { bg = colors.innerbg },
-      c = { bg = colors.innerbg },
-      y = { bg = colors.innerbg },
-      z = { bg = colors.innerbg, gui = "bold" },
-    },
-    normal = {
-      a = { bg = colors.innerbg },
-      b = { bg = colors.innerbg },
-      c = { bg = colors.innerbg },
-      y = { bg = colors.innerbg },
-      z = { bg = colors.innerbg, gui = "bold" },
-    },
-    insert = {
-      a = { bg = colors.innerbg },
-      b = { bg = colors.innerbg },
-      c = { bg = colors.innerbg },
-      y = { bg = colors.innerbg },
-      z = { bg = colors.innerbg, gui = "bold" },
-    },
-    command = {
-
-      a = { bg = colors.innerbg },
-      b = { bg = colors.innerbg },
-      c = { bg = colors.innerbg },
-      y = { bg = colors.innerbg },
-      z = { bg = colors.innerbg, gui = "bold" },
-    },
-  }
-end
-
 return {
   {
     "nvim-lualine/lualine.nvim",
     version = false,
     event = "VeryLazy",
-    opts = function()
-      local icons = require("lazyvim.config").icons
-      -- local Util = require("lazyvim.util")
-
-      return {
+    config = function()
+      require("lualine").setup({
         options = {
           icons_enabled = true,
-          theme = M.theme(),
-          component_separators = { left = "", right = "" },
-          section_separators = { left = "", right = "" },
+          theme = "catppuccin",
+          component_separators = { left = "", right = "" },
+          section_separators = { left = "", right = "" },
+          always_divide_middle = true,
           globalstatus = true,
-          disabled_filetypes = { statusline = { "dashboard", "alpha" } },
+          refresh = {
+            statusline = 1000,
+            tabline = 1000,
+            winbar = 1000,
+          },
         },
         sections = {
-          lualine_a = {},
-          lualine_b = {},
-          lualine_c = {},
-          lualine_x = {},
-          lualine_y = {
-            {
-              "diagnostics",
-              symbols = {
-                error = icons.diagnostics.Error,
-                warn = icons.diagnostics.Warn,
-                info = icons.diagnostics.Info,
-                hint = icons.diagnostics.Hint,
-              },
-              padding = { left = 1, right = 1 },
-            },
-          },
-          lualine_z = {
-            { "filetype", icon_only = true, padding = { left = 1, right = 1 } },
-            { "mode", padding = { left = 0, right = 1 } },
-            { "branch", padding = { left = 0, right = 1 } },
-            { "location", padding = { left = 0, right = 1 } },
-          },
+          lualine_a = { "mode" },
+          lualine_b = { "branch", "diff", "diagnostics" },
+          lualine_c = { "searchcount" },
+          lualine_x = { "filetype" },
+          lualine_y = { "progress" },
+          lualine_z = { "location" },
         },
-        extensions = { "neo-tree", "lazy" },
-      }
+        tabline = {},
+        inactive_winbar = {},
+        extensions = {},
+      })
     end,
   },
 }
