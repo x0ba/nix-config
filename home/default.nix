@@ -33,7 +33,6 @@ in {
       imagemagick
       chafa
       tmux-sessionizer
-      fzf
       jq
       yt-dlp
       elinks

@@ -34,6 +34,23 @@ in {
       };
     };
 
+    fzf = {
+      enable = true;
+      colors = {
+        fg = "#cdd6f4";
+        "fg+" = "#cdd6f4";
+        hl = "#f38ba8";
+        "hl+" = "#f38ba8";
+        header = "#ff69b4";
+        info = "#cba6f7";
+        marker = "#f5e0dc";
+        pointer = "#f5e0dc";
+        prompt = "#cba6f7";
+        spinner = "#f5e0dc";
+      };
+      defaultOptions = ["--height=30%" "--layout=reverse" "--info=inline"];
+    };
+
     nix-index.enable = true;
 
     tealdeer = {
@@ -78,10 +95,14 @@ in {
       enableAutosuggestions = true;
       enableCompletion = true;
       history.path = "${config.xdg.configHome}/zsh/history";
-      envExtra = ''
-        export LESSHISTFILE="-"
-        export ZVM_INIT_MODE="sourcing"
-        export ZVM_CURSOR_BLINKING_BEAM="1"
+      initExtraFirst = ''
+        zvm_config() {
+          ZVM_VI_HIGHLIGHT_BACKGROUND="black"
+          ZVM_VI_HIGHLIGHT_FOREGROUND="white"
+          ZVM_INIT_MODE="sourcing"
+          ZVM_INSERT_MODE_CURSOR="$ZVM_CURSOR_BLINKING_BEAM"
+          ZVM_VI_HIGHLIGHT_EXTRASTYLE=bold,underline
+        }
       '';
       initExtra = let
         functionsDir = "${config.home.homeDirectory}/${config.programs.zsh.dotDir}/functions";
@@ -92,6 +113,9 @@ in {
         bindkey '^F' autosuggest-accept
         bindkey -a 'F' history-incremental-pattern-search-forward
         bindkey -a 'f' history-incremental-pattern-search-backward
+      '';
+      envExtra = ''
+        export LESSHISTFILE="-"
       '';
       shellAliases = {
         mv = "mv -i";
@@ -130,7 +154,13 @@ in {
           file = "share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh";
         }
         {
-          src = zsh-vi-mode;
+          src = zsh-vi-mode.overrideAttrs (old: {
+            src = fetchFromGitHub {
+              inherit (old.src) repo owner;
+              rev = "a3d717831c1864de8eabf20b946d66afc67e6695";
+              hash = "sha256-peoyY+krpK/7dA3TW6PEpauDwZLe+riVWfwpFYnRn1Q=";
+            };
+          });
           file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
         }
         {

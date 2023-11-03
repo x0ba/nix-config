@@ -12,10 +12,9 @@
 in {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode;
+    package = pkgs.vscodium;
     extensions = with pkgs.vscode-marketplace; [
-      piousdeer.adwaita-theme
-      ms-vscode-remote.remote-ssh
+      astro-build.astro-vscode
       adrianwilczynski.alpine-js-intellisense
       leonardssh.vscord
       antfu.icons-carbon
@@ -52,12 +51,12 @@ in {
   };
 
   home.file = lib.mkIf isDarwin {
-    "Library/Application Support/Code/User/keybindings.json".source = keybindingsJSON;
-    "Library/Application Support/Code/User/settings.json".source = settingsJSON;
+    "Library/Application Support/VSCodium/User/keybindings.json".source = keybindingsJSON;
+    "Library/Application Support/VSCodium/User/settings.json".source = settingsJSON;
   };
   xdg.configFile = lib.mkIf isLinux {
-    "Code/User/keybindings.json".source = keybindingsJSON;
-    "Code/User/settings.json".source = settingsJSON;
+    "VSCodium/User/keybindings.json".source = keybindingsJSON;
+    "VSCodium/User/settings.json".source = settingsJSON;
   };
-  xdg.mimeApps.defaultApplications."text/plain" = "code.desktop";
+  xdg.mimeApps.defaultApplications."text/plain" = "codium.desktop";
 }

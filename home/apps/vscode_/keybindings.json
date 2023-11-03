@@ -6,11 +6,13 @@
   },
   {
     "key": "alt+,",
-    "command": "workbench.action.previousEditor"
+    "command": "workbench.action.previousEditor",
+    "when": "editorFocus"
   },
   {
     "key": "alt+.",
-    "command": "workbench.action.nextEditor"
+    "command": "workbench.action.nextEditor",
+    "when": "editorFocus"
   },
   {
     "key": "shift+cmd+]",
@@ -24,12 +26,12 @@
   },
   {
     "key": "ctrl+t",
-    "command": "workbench.action.terminal.focus",
+    "command": "terminal.focus",
     "when": "editorTextFocus"
   },
   {
     "key": "ctrl+t",
-    "command": "workbench.action.terminal.toggleTerminal",
+    "command": "workbench.action.focusLastEditorGroup",
     "when": "terminalFocus"
   },
   {
@@ -39,7 +41,7 @@
   },
   {
     "key": "ctrl+n",
-    "command": "workbench.action.toggleSidebarVisibility",
+    "command": "workbench.action.focusLastEditorGroup",
     "when": "filesExplorerFocus"
   }
 ]
