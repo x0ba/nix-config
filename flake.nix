@@ -68,11 +68,12 @@
           check.enable = true;
           settings.hooks = {
             alejandra.enable = true;
-            stylua.enable = true;
+            commitizen.enable = true;
             editorconfig-checker.enable = true;
             luacheck.enable = true;
-            commitizen.enable = true;
             nil.enable = true;
+            shellcheck.enable = true;
+            stylua.enable = true;
           };
         };
 
