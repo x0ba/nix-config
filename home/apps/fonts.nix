@@ -18,17 +18,11 @@
       '';
   };
   home.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["CascadiaCode" "Iosevka" "JetBrainsMono"];})
-    terminus_font_ttf
+    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     victor-mono
+    ibm-plex
     cascadia-code
-    maple-mono
     iosevka
-    cozette
-    fira-code
-    inter
-    dosis
-    recursive
     atkinson-hyperlegible
   ];
 }

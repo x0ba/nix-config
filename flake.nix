@@ -21,9 +21,6 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     stylix.url = "github:danth/stylix";
     nix-index-database.url = "github:Mic92/nix-index-database";
-    sops.inputs.nixpkgs-stable.follows = "nixpkgs";
-    sops.inputs.nixpkgs.follows = "nixpkgs";
-    sops.url = "github:Mic92/sops-nix/1c673ba1053ad3e421fe043702237497bda0c621";
     swayfx.inputs.flake-compat.follows = "";
     swayfx.inputs.nixpkgs.follows = "nixpkgs";
     swayfx.url = "github:willpower3309/swayfx";

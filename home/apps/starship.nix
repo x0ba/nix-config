@@ -2,14 +2,29 @@
   programs.starship = {
     enable = true;
     settings = {
-      format = "$directory$git_branch$git_status$character ";
+      scan_timeout = 10;
+      # prompt
+      format = "$directory$git_branch$git_metrics$nix_shell$package$character";
       add_newline = false;
+      line_break.disabled = true;
+      directory.style = "cyan";
       character = {
-        format = "$symbol";
-        success_symbol = "[λ](fg:blue)";
-        error_symbol = "[λ](fg:red)";
+        success_symbol = "[λ](green)";
+        error_symbol = "[λ](red)";
       };
-      directory.style = "fg:cyan";
+      # git
+      git_branch = {
+        style = "purple";
+        symbol = "";
+      };
+      git_metrics = {
+        disabled = false;
+        added_style = "bold yellow";
+        deleted_style = "bold red";
+      };
+      # package management
+      package.format = "version [$version](bold green) ";
+      nix_shell.symbol = " ";
     };
   };
 }

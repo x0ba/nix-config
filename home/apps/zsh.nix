@@ -111,8 +111,6 @@ in {
           source "$script"
         done
         bindkey '^F' autosuggest-accept
-        bindkey -a 'F' history-incremental-pattern-search-forward
-        bindkey -a 'f' history-incremental-pattern-search-backward
       '';
       envExtra = ''
         export LESSHISTFILE="-"
@@ -177,5 +175,6 @@ in {
 
   xdg.configFile = {
     "zsh/functions" = symlink "home/apps/zsh/functions" {recursive = true;};
+    "lsd" = symlink "home/apps/lsd" {recursive = true;};
   };
 }

@@ -19,28 +19,6 @@ in {
         --font-display: "IBM Plex Sans", sans-serif;
         --font-code: "Cascadia Code", "Symbols Nerd Font", mono;
       }
-
-      @media (max-width: 1024px) {
-        nav[aria-label="Servers sidebar"] {
-          display: none;
-        }
-        .platform-osx div[class^="base_"] > div[class^="content_"] > div[class^="sidebar_"],
-        .platform-osx div[class^="base_"] > div[class^="content_"] > main[class^="container_"],
-        .platform-osx div[class^="base_"] > div[class^="content_"] > div[class^="chat_"] {
-          padding-top: 32px !important;
-        }
-      }
-
-      @media (max-width: 768px) {
-        div[class^="base_"] > div[class^="content_"] > div[class^="sidebar_"] {
-          display: none;
-        }
-      }
-
-      main[class^="chatContent_"] form div[class^="buttons_"],
-      main[class^="chatContent_"] form div[class^="attachWrapper_"] {
-        display: none;
-      }
     '';
     json = pkgs.writeTextFile {
       name = "discord-settings.json";

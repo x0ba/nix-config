@@ -50,7 +50,6 @@
     settings = {
       preview = true;
       hidden = true;
-      drawbox = true;
       icons = true;
       ignorecase = true;
     };
@@ -63,6 +62,7 @@
       gD = "cd ~/Downloads/";
       gd = "cd ~/Documents/";
       gc = "cd ~/.config/nixpkgs";
+      gC = "cd ~/Code";
       gp = "cd ~/Pictures";
       au = "unarchive";
       dd = "trash";

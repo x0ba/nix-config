@@ -1,16 +1,10 @@
 {
   lib,
   config,
-  pkgs,
   ...
 }: {
   # manipulate the global /etc/zshenv for PATH, etc.
   programs.zsh.enable = true;
-  programs.fish.enable = true;
-  system.activationScripts.postActivation.text = ''
-    # Set the default shell as fish for the user. MacOS doesn't do this like nixOS does
-    sudo chsh -s ${pkgs.zsh}/bin/zsh daniel
-  '';
 
   system.stateVersion = 4;
 
@@ -65,6 +59,7 @@
         # etc.
         ${rule} manage=off border=off app="Shottr"
         ${rule} manage=off sticky=on  app="OBS Studio"
+        borders active_color=0xffb4befe inactive_color=0xff000000 style=round width=2.0 2>/dev/null 1>&2 &
       '';
     };
     skhd = {

@@ -8,35 +8,37 @@
       cleanup = "uninstall";
       upgrade = true;
     };
+    brews = [
+      "borders"
+    ];
     casks = let
-      noQuarantine = name: {
-        inherit name;
-        args = {no_quarantine = true;};
-      };
       skipSha = name: {
         inherit name;
         args = {require_sha = false;};
+      };
+      noQuarantine = name: {
+        inherit name;
+        args = {no_quarantine = true;};
       };
     in [
       "1password"
       "anki"
       "appcleaner"
-      "bitwarden"
+      "eloston-chromium"
+      "blender"
       "calibre"
-      "docker"
-      "firefox"
       "gimp"
       "iina"
       "imageoptim"
       "jetbrains-toolbox"
       "karabiner-elements"
-      "krita"
       "linearmouse"
       "lulu"
       "macfuse"
       "mos"
       "obs"
       "obsidian"
+      "orion"
       "polypane"
       "protonvpn"
       "qutebrowser"
@@ -44,8 +46,8 @@
       "shottr"
       "skiff"
       "stats"
-      "todoist"
       "uninstallpkg"
+      "utm"
       "veracrypt"
       (skipSha "element")
       (skipSha "spotify")
@@ -53,6 +55,6 @@
       # Drivers
       "wacom-tablet"
     ];
-    taps = ["homebrew/services" "homebrew/cask"];
+    taps = ["homebrew/services" "homebrew/cask" "FelixKratz/formulae"];
   };
 }

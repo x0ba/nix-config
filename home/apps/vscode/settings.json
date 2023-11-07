@@ -7,8 +7,14 @@
       "statusBar.noFolderForeground": "accent"
     }
   },
+  "catppuccin.colorOverrides": {
+    "mocha": {
+      "base": "#000000",
+      "mantle": "#010101",
+      "crust": "#020202"
+    }
+  },
   "catppuccin.boldKeywords": false,
-  "catppuccin.extraBordersEnabled": false,
   "catppuccin.italicKeywords": true,
   "debug.onTaskErrors": "debugAnyway",
   "diffEditor.ignoreTrimWhitespace": false,
@@ -17,13 +23,13 @@
   "editor.smoothScrolling": true,
   "terminal.integrated.smoothScrolling": true,
   "terminal.integrated.fontSize": 14,
-  "editor.fontFamily": "Liga Berkeley Mono, Symbols Nerd Font, monospace",
+  "editor.fontFamily": "Cascadia Code, Symbols Nerd Font, monospace",
   "editor.fontLigatures": "'calt', 'ss01'",
   "editor.fontSize": 15,
   "editor.formatOnSave": true,
   "editor.guides.bracketPairs": true,
   "editor.inlayHints.enabled": "onUnlessPressed",
-  "editor.inlayHints.fontSize": 8,
+  "editor.inlayHints.fontSize": 15,
   "editor.inlayHints.padding": true,
   "editor.inlineSuggest.enabled": true,
   "editor.lineNumbers": "relative",
@@ -44,7 +50,6 @@
     "vs-kubernetes.crd-code-completion": "enabled"
   },
   "window.autoDetectColorScheme": true,
-  "window.commandCenter": false,
   "window.titleBarStyle": "custom",
   "workbench.colorTheme": "Catppuccin Mocha",
   "workbench.iconTheme": "catppuccin-mocha",
@@ -202,5 +207,9 @@
   // vscord
   "vscord.status.buttons.button1.git.active.enabled": true,
   "vscord.status.idle.check": true,
-  "vscord.status.idle.timeout": 180
+  "vscord.status.idle.timeout": 180,
+  "window.commandCenter": false,
+  "editor.cursorBlinking": "solid",
+  "catppuccin.extraBordersEnabled": true,
+  "catppuccin.bracketMode": "monochromatic"
 }

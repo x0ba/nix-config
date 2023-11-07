@@ -4,7 +4,6 @@
   ...
 }: {
   home.packages = with pkgs; [chroma pandoc w3m];
-  sops.secrets."aerc-accounts".path = "${config.xdg.configHome}/aerc/accounts.conf";
   programs = {
     aerc = {
       enable = true;
