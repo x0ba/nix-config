@@ -24,7 +24,6 @@
       "1password"
       "anki"
       "appcleaner"
-      "eloston-chromium"
       "blender"
       "calibre"
       "gimp"
@@ -41,9 +40,9 @@
       "orion"
       "polypane"
       "protonvpn"
-      "qutebrowser"
       "raycast"
       "shottr"
+      "sioyek"
       "skiff"
       "stats"
       "uninstallpkg"
@@ -55,6 +54,6 @@
       # Drivers
       "wacom-tablet"
     ];
-    taps = ["homebrew/services" "homebrew/cask" "FelixKratz/formulae"];
+    taps = ["homebrew/cask" "FelixKratz/formulae"];
   };
 }

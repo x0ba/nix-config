@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  xdg.configFile."lf/icons".source = ./zsh/lficons;
+  xdg.configFile."lf/icons".source = ./lf/icons;
   programs.lf = {
     enable = true;
     commands = {
