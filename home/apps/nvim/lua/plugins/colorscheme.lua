@@ -4,13 +4,13 @@ return {
     priority = 1000,
     name = "catppuccin",
     opts = {
-      color_overrides = {
-        mocha = {
-          base = "#000000",
-          mantle = "#010101",
-          crust = "#020202",
-        },
-      },
+      -- color_overrides = {
+      --   mocha = {
+      --     base = "#000000",
+      --     mantle = "#010101",
+      --     crust = "#020202",
+      --   },
+      -- },
       integrations = {
         treesitter_context = true,
         telescope = true,

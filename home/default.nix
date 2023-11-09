@@ -6,7 +6,7 @@
 }: let
   inherit (pkgs.stdenv.hostPlatform) isDarwin;
 in {
-  imports = [./apps ./xdg.nix ./theme];
+  imports = [./apps ./xdg.nix ./secrets/sops.nix ./theme];
 
   home = {
     packages = with pkgs; [
@@ -29,6 +29,7 @@ in {
       jq
       yt-dlp
       elinks
+      sops
       glow
       exiftool
       sdcv

@@ -28,6 +28,7 @@
     [
       nix-index-database.hmModules.nix-index
       caarlos0-nur.homeManagerModules.default
+      sops.homeManagerModules.sops
       stylix.homeManagerModules.stylix
       x0ba-nur.homeManagerModules.default
       ./.
