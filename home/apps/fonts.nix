@@ -19,7 +19,7 @@
   };
   home.packages = with pkgs; [
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
-    victor-mono
+    inter
     ibm-plex
     cascadia-code
     iosevka

@@ -114,6 +114,7 @@ in {
       '';
       envExtra = ''
         export LESSHISTFILE="-"
+        export MANPAGER='nvim +Man!'
       '';
       shellAliases = {
         mv = "mv -i";

@@ -8,9 +8,6 @@
       cleanup = "uninstall";
       upgrade = true;
     };
-    brews = [
-      "borders"
-    ];
     casks = let
       skipSha = name: {
         inherit name;
