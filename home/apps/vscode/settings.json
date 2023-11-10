@@ -16,7 +16,7 @@
   "editor.smoothScrolling": true,
   "terminal.integrated.smoothScrolling": true,
   "terminal.integrated.fontSize": 14,
-  "editor.fontFamily": "Monaspace Neon, Symbols Nerd Font, monospace",
+  "editor.fontFamily": "Rec Mono Duotone, Symbols Nerd Font, monospace",
   "editor.fontLigatures": "'calt', 'ss14'",
   "editor.fontSize": 15,
   "editor.formatOnSave": true,
@@ -201,8 +201,7 @@
   "vscord.status.buttons.button1.git.active.enabled": true,
   "vscord.status.idle.check": true,
   "vscord.status.idle.timeout": 180,
-  "window.commandCenter": false,
   "editor.cursorBlinking": "solid",
   "catppuccin.extraBordersEnabled": true,
-  "catppuccin.bracketMode": "monochromatic"
+  "window.commandCenter": false
 }

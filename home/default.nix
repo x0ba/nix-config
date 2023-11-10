@@ -10,31 +10,37 @@ in {
 
   home = {
     packages = with pkgs; [
-      trash-cli
-      taskwarrior-tui
-      git-lfs
-      just
-      nix-your-shell
-      atool
-      ripgrep
+      age
+      # mutt-wizard
+      # atool
+      # chafa
+      # neomutt
+      # isync
+      # msmtp
+      pass
+      comma
+      deadnix
+      elinks
+      exiftool
       fd
       file
-      age
       git-crypt
+      git-lfs
+      glow
+      jq
+      just
+      nix-your-shell
       nur.repos.x0ba.lutgen
       nur.repos.x0ba.preview
-      comma
-      chafa
-      tmux-sessionizer
-      jq
-      yt-dlp
-      elinks
-      sops
-      glow
-      exiftool
+      ripgrep
       sdcv
+      sops
+      spicetify-cli
       statix
-      deadnix
+      taskwarrior-tui
+      tmux-sessionizer
+      trash-cli
+      yt-dlp
     ];
 
     sessionVariables = lib.mkIf isDarwin {
