@@ -21,6 +21,8 @@
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     inter
     ibm-plex
+    recursive
+    hack-font
     cascadia-code
     iosevka
     atkinson-hyperlegible

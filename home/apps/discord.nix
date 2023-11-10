@@ -15,10 +15,10 @@ in {
     css = ''
       @import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha.theme.css");
       :root {
-        --font-primary: "IBM Plex Sans", sans-serif;
-        --font-headline: "IBM Plex Sans", sans-serif;
-        --font-display: "IBM Plex Sans", sans-serif;
-        --font-code: "Cascadia Code", "Symbols Nerd Font", mono;
+        --font-primary: "Recursive Sans Linear Static", sans-serif;
+        --font-headline: "Recursive Sans Linear Static", sans-serif;
+        --font-display: "Recursive Sans Linear Static", sans-serif;
+        --font-code: "Rec Mono Duotone", "Symbols Nerd Font", mono;
       }
 
       @media (max-width: 1024px) {
