@@ -45,6 +45,7 @@
       "uninstallpkg"
       "utm"
       "veracrypt"
+      "osu"
       (skipSha "spotify")
 
       # Drivers
