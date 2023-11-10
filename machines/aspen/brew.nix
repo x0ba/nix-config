@@ -45,12 +45,11 @@
       "uninstallpkg"
       "utm"
       "veracrypt"
-      (skipSha "element")
       (skipSha "spotify")
 
       # Drivers
       "wacom-tablet"
     ];
-    taps = ["homebrew/cask" "FelixKratz/formulae"];
+    taps = ["homebrew/cask"];
   };
 }
