@@ -6,16 +6,17 @@ c.font = wezterm.font_with_fallback({
   "Monaspace Neon",
   "Symbols Nerd Font",
 })
-c.front_end = "WebGpu"
-c.line_height = 1.2
-c.font_size = 15
 c.font_rules = {
   {
     italic = true,
     font = wezterm.font("Monaspace Radon", { italic = true }),
   },
 }
-c.harfbuzz_features = { "calt=1", "ss01=1", "ss02=1", "ss04=1" }
+c.front_end = "WebGpu"
+c.line_height = 1.2
+c.font_size = 15
+c.harfbuzz_features =
+  { "liga=1", "dlig=1", "calt=1", "ss01=1", "ss02=1", "ss04=1" }
 c.command_palette_font_size = c.font_size * 1.1
 c.window_frame = {
   font = wezterm.font("IBM Plex Sans"),

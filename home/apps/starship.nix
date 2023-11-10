@@ -7,7 +7,7 @@
       format = "$directory$git_branch$git_metrics$nix_shell$package$character";
       add_newline = false;
       line_break.disabled = true;
-      directory.style = "italic";
+      directory.style = "cyan italic";
       character = {
         success_symbol = "[λ](green)";
         error_symbol = "[λ](red)";
