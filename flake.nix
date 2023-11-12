@@ -40,7 +40,7 @@
     {
       flake = mkSystems [
         {
-          host = "aspen";
+          host = "toaster";
           system = "aarch64-darwin";
           username = "daniel";
         }

@@ -59,7 +59,7 @@
         # etc.
         ${rule} manage=off border=off app="Shottr"
         ${rule} manage=off sticky=on  app="OBS Studio"
-        borders active_color=0xffb4befe inactive_color=0xff000000 style=round width=2.0 2>/dev/null 1>&2 &
+        borders active_color=0xffb4befe inactive_color=0xff000000 width=2.0 2>/dev/null 1>&2 &
       '';
     };
     skhd = {

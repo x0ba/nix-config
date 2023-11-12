@@ -8,6 +8,9 @@
       cleanup = "uninstall";
       upgrade = true;
     };
+    brews = [
+      "borders"
+    ];
     casks = let
       skipSha = name: {
         inherit name;
@@ -51,6 +54,6 @@
       # Drivers
       "wacom-tablet"
     ];
-    taps = ["homebrew/cask"];
+    taps = ["homebrew/cask" "FelixKratz/formulae"];
   };
 }
