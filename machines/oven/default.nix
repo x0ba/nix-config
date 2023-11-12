@@ -6,7 +6,7 @@
   imports = [./hardware.nix];
 
   networking = {
-    hostName = "starfall";
+    hostName = "oven";
     networkmanager.enable = true;
     firewall.enable = true;
   };

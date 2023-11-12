@@ -45,12 +45,12 @@
           username = "daniel";
         }
         {
-          host = "starfall";
+          host = "oven";
           system = "x86_64-linux";
           username = "daniel";
         }
         {
-          host = "andromeda";
+          host = "fridge";
           system = "x86_64-linux";
           username = "daniel";
         }

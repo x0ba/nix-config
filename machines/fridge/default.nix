@@ -11,7 +11,7 @@
   };
 
   networking = {
-    hostName = "andromeda";
+    hostName = "fridge";
     networkmanager.enable = true;
     firewall.enable = true;
   };
