@@ -15,9 +15,9 @@ in {
     css = ''
       @import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha.theme.css");
       :root {
-        --font-primary: "Recursive Sans Linear Static", sans-serif;
-        --font-headline: "Recursive Sans Linear Static", sans-serif;
-        --font-display: "Recursive Sans Linear Static", sans-serif;
+        --font-primary: "Recursive Sans Casual Static", sans-serif;
+        --font-headline: "Recursive Sans Casual Static", sans-serif;
+        --font-display: "Recursive Sans Casual Static", sans-serif;
         --font-code: "Rec Mono Duotone", "Symbols Nerd Font", mono;
       }
 
