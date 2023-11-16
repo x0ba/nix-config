@@ -11,12 +11,8 @@ in {
   home = {
     packages = with pkgs; [
       age
-      # mutt-wizard
-      # atool
-      # chafa
-      # neomutt
-      # isync
-      # msmtp
+      atool
+      chafa
       pass
       comma
       deadnix

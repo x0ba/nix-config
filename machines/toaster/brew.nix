@@ -8,9 +8,6 @@
       cleanup = "uninstall";
       upgrade = true;
     };
-    brews = [
-      "borders"
-    ];
     casks = let
       skipSha = name: {
         inherit name;
@@ -24,7 +21,6 @@
       "1password"
       "anki"
       "appcleaner"
-      "blender"
       "calibre"
       "gimp"
       "iina"
@@ -50,6 +46,7 @@
       "veracrypt"
       "osu"
       (skipSha "spotify")
+      (skipSha "tetrio")
 
       # Drivers
       "wacom-tablet"

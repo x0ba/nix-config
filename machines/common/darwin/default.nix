@@ -1,6 +1,6 @@
 {
   lib,
-  config,
+  pkgs,
   ...
 }: {
   # manipulate the global /etc/zshenv for PATH, etc.
@@ -17,6 +17,13 @@
   services = {
     yabai = {
       enable = true;
+      package = pkgs.yabai.overrideAttrs (prev: {
+        version = "6.0.1";
+        src = pkgs.fetchzip {
+          inherit (prev.src) url;
+          hash = "sha256-CXkGVoJcGSkooxe7eIhwaM6FkOI45NVw5jdLJAzgFBM=";
+        };
+      });
       enableScriptingAddition = true;
       logFile = "/var/tmp/yabai.log";
       config = {
@@ -32,11 +39,6 @@
         left_padding = 07;
         right_padding = 07;
         window_shadow = "off";
-        window_border = "off";
-        window_border_blur = "off";
-        window_border_width = 2;
-        active_window_border_color = "0xffAB8A65";
-        normal_window_border_color = "0xff404040";
       };
       extraConfig = let
         rule = "yabai -m rule --add";
@@ -59,7 +61,6 @@
         # etc.
         ${rule} manage=off border=off app="Shottr"
         ${rule} manage=off sticky=on  app="OBS Studio"
-        borders active_color=0xffb4befe inactive_color=0xff000000 width=2.0 2>/dev/null 1>&2 &
       '';
     };
     skhd = {

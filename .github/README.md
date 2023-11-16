@@ -18,7 +18,7 @@ Here's what you can find:
 - **[Starship](https://starship.rs)** as my prompt
 - **Firefox** with privacy-centered settings
 - Other random bits of config tools I've collected over the years
-- The **[Oxocarbon](https://github.com/nyoom-engineering/oxocarbon.nvim)** theme, wherever possible
+- The **[Catppuccin](https://github.com/catppuccin/catppuccin)** theme, wherever possible
 - macOS:
   - **[Yabai](https://github.com/koekeishiya/yabai)** as my WM
 - Linux:

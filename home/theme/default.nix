@@ -11,7 +11,7 @@
     };
     fonts = {
       monospace = {
-        name = "IBM Plex Mono";
+        name = "Liga Berkeley Mono";
         package = pkgs.ibm-plex;
       };
       emoji = {
@@ -23,6 +23,6 @@
         package = pkgs.ibm-plex;
       };
     };
-    base16Scheme = import ./oledppuccin;
+    base16Scheme = import ./catppuccin;
   };
 }
