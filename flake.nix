@@ -9,7 +9,6 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nur.url = "github:nix-community/nur";
-    caarlos0-nur.url = "github:caarlos0/nur";
     x0ba-nur.url = "github:x0ba/nur";
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";

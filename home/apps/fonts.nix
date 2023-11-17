@@ -20,6 +20,7 @@
   home.packages = with pkgs; [
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     inter
+    nur.repos.x0ba.monaspace
     ibm-plex
     recursive
     hack-font

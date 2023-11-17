@@ -5,7 +5,6 @@
         nurpkgs = prev;
         pkgs = prev;
         repoOverrides = {
-          caarlos0 = inputs.caarlos0-nur.packages.${prev.system};
           x0ba = inputs.x0ba-nur.packages.${prev.system};
         };
       };

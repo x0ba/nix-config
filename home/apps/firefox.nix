@@ -1,6 +1,10 @@
 {pkgs, ...}: let
   inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
 in {
+  programs.chromium = {
+    enable = true;
+    package = pkgs.ungoogled-chromium;
+  };
   programs.firefox = {
     # since I'm using firefox from brew on darwin, I need to build a dummy package
     # to still manage it via home-manager
