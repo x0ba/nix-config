@@ -15,6 +15,7 @@ in {
     package = pkgs.vscodium;
     extensions = with pkgs.vscode-marketplace; [
       astro-build.astro-vscode
+      github.copilot
       adrianwilczynski.alpine-js-intellisense
       leonardssh.vscord
       antfu.icons-carbon

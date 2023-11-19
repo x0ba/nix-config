@@ -49,7 +49,7 @@
         yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
         sudo yabai --load-sa
 
-        ${ignored ["JetBrains Toolbox" "ProtonVPN" "Sip" "Stats" "1Password" "Pika" "LuLu Alert"]}
+        ${ignored ["JetBrains Toolbox" "ProtonVPN" "Stats" "1Password" "Pika" "LuLu Alert"]}
         ${unmanaged ["GOG Galaxy" "Steam" "System Settings" "VeraCrypt"]}
         yabai -m rule --add app="^1Password$" manage=off
         yabai -m rule --add app="^Stats$" manage=off

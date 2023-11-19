@@ -21,6 +21,7 @@
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     inter
     nur.repos.x0ba.monaspace
+    iosevka-comfy.comfy
     ibm-plex
     recursive
     hack-font
