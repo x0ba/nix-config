@@ -8,9 +8,9 @@
   base06 = "ffffff";
   base07 = "08bdba";
   base08 = "3ddbd9";
-  base09 = "78a9ff";
+  base09 = "33b1ff";
   base0A = "ee5396";
-  base0B = "33b1ff";
+  base0B = "78a9ff";
   base0C = "ff7eb6";
   base0D = "42be65";
   base0E = "be95ff";

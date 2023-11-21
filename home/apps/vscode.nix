@@ -14,6 +14,7 @@ in {
     enable = true;
     package = pkgs.vscodium;
     extensions = with pkgs.vscode-marketplace; [
+      ibmlover.oxocarbon
       astro-build.astro-vscode
       github.copilot
       adrianwilczynski.alpine-js-intellisense

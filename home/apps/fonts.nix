@@ -19,14 +19,9 @@
   };
   home.packages = with pkgs; [
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
-    inter
-    nur.repos.x0ba.monaspace
-    iosevka-comfy.comfy
+    nur.repos.x0ba.inter
+    nur.repos.x0ba.ia-writer-quattro
     ibm-plex
-    recursive
-    hack-font
-    cascadia-code
     iosevka
-    atkinson-hyperlegible
   ];
 }

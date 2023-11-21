@@ -53,6 +53,5 @@
       # Drivers
       "wacom-tablet"
     ];
-    taps = ["homebrew/cask" "FelixKratz/formulae"];
   };
 }

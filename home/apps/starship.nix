@@ -1,13 +1,15 @@
 {
   programs.starship = {
-    enable = true;
+    enable = false;
     settings = {
       scan_timeout = 10;
+      enableTransience = true;
+      enableFishIntegration = true;
       # prompt
       format = "$directory$git_branch$git_metrics$nix_shell$package$character";
       add_newline = false;
       line_break.disabled = true;
-      directory.style = "cyan italic";
+      directory.style = "cyan";
       character = {
         success_symbol = "[λ](green)";
         error_symbol = "[λ](red)";

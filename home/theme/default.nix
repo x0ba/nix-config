@@ -23,6 +23,6 @@
         package = pkgs.ibm-plex;
       };
     };
-    base16Scheme = import ./catppuccin;
+    base16Scheme = import ./oxocarbon;
   };
 }

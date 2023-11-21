@@ -6,12 +6,10 @@
       bloat = "nix path-info -Sh /run/current-system";
       g = "git";
       tree = "${pkgs.eza}/bin/eza --tree";
-      gaa = "git add .";
+      gaa = "${pkgs.git}/bin/git add .";
       cls = "clear";
-      commit = "git add . && git commit -m";
+      commit = "${pkgs.git}/bin/git add . && ${pkgs.git}/bin/git commit -m";
       m = "mkdir -p";
-      push = "git push";
-      pull = "git pull";
       cat = "${pkgs.bat}/bin/bat";
       nv = "${pkgs.neovim}/bin/nvim";
       fcd = "cd $(find -type d | fzf)";
@@ -19,6 +17,10 @@
     };
     shellInit = ''
       set fish_greeting
+      function starship_transient_prompt_func
+        starship module character
+      end
+      enable_transience
     '';
 
     plugins = [

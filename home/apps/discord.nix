@@ -13,14 +13,12 @@ in {
   ];
   home.activation.discordSettings = let
     css = ''
-      @import url("https://catppuccin.github.io/discord/dist/catppuccin-mocha.theme.css");
       :root {
-        --font-primary: "IBM Plex Sans", sans-serif;
-        --font-headline: "IBM Plex Sans", sans-serif;
-        --font-display: "IBM Plex Sans", sans-serif;
-        --font-code: "Monaspace Neon", "Symbols Nerd Font", mono;
+        --font-primary: "Inter", sans-serif;
+        --font-headline: "Inter", sans-serif;
+        --font-display: "Inter", sans-serif;
+        font-feature-settings: 'liga' 1, 'calt' 1, 'ss01' 1, 'ss02' 1, 'ss03' 1;
       }
-
     '';
     json = pkgs.writeTextFile {
       name = "discord-settings.json";

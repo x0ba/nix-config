@@ -14,6 +14,10 @@ in {
       source = mkSymlink "config";
       recursive = true;
     };
+    "wezterm/colors" = {
+      source = mkSymlink "colors";
+      recursive = true;
+    };
     "wezterm/bar".source = pkgs.fetchFromGitHub {
       owner = "nekowinston";
       repo = "wezterm-bar";

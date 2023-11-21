@@ -16,7 +16,6 @@
     # Dev tools
     alejandra
     go
-    neovide
     asmfmt
     sccache
     cargo
