@@ -75,21 +75,16 @@
       set -g status-interval 5
       set -g @emulate-scroll-for-no-mouse-alternate-buffer on
 
-      set -g status-left "#[fg=blue,bold,bg=#1e1e2e]  #S  "
-      set -g status-right "#[fg=#b4befe,bold,bg=#1e1e2e]%a %Y-%m-%d 󱑒 %l:%M %p"
-      set -ga status-right "#($HOME/.config/tmux/scripts/cal.sh)"
-      set -g status-justify left
-      set -g status-left-length 200    # increase length (from 10)
-      set -g status-right-length 200    # increase length (from 10)
-      set -g status-position top       # macOS / darwin style
-      set -g status-style 'bg=#1e1e2e' # transparent
-      set -g window-status-current-format '#[fg=magenta,bg=#1e1e2e]*#I #W#{?window_zoomed_flag,(),} '
-      set -g window-status-format '#[fg=gray,bg=#1e1e2e] #I #W'
-      set -g window-status-last-style 'fg=white,bg=black'
-      set -g default-terminal "''${TERM}"
-      set -g message-command-style bg=default,fg=yellow
-      set -g message-style bg=default,fg=yellow
-      set -g mode-style bg=default,fg=yellow
+      set -g status-justify centre
+      set -g status-left "#[fg=black,bg=green]   #[fg=green,bg=red]#{prefix_highlight}#[bg=default]"
+      set -g window-status-format "#[fg=magenta,bg=black] #I:#W #[bg=default,fg=black]"
+      set -g window-status-current-format "#[bg=magenta,fg=black] #I:#W #[bg=default,fg=black] #[bg=black,fg=red] #S #[bg=red,fg=black]   "
+      set -g status-right "#[bg=black,fg=green] %I:%M %p #[fg=green,bg=black]█"
+
+      set -g status-bg default
+      set -g status-fg white
+      set -g status-style "fg=white,bg=default"
+
     '';
     plugins = with pkgs; [
       {

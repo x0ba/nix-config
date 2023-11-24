@@ -13,11 +13,35 @@ in {
   ];
   home.activation.discordSettings = let
     css = ''
+      @import url(//dablulite.github.io/css-snippets/ConsistentChatbar/import.css);
+
       :root {
-        --font-primary: "Inter", sans-serif;
-        --font-headline: "Inter", sans-serif;
-        --font-display: "Inter", sans-serif;
-        font-feature-settings: 'liga' 1, 'calt' 1, 'ss01' 1, 'ss02' 1, 'ss03' 1;
+        --font-primary: "IBM Plex Sans", sans-serif;
+        --font-headline: "IBM Plex Sans", sans-serif;
+        --font-display: "IBM Plex Sans", sans-serif;
+        --font-code: "Iosevka Comfy", "Symbols Nerd Font", mono;
+      }
+
+      @media (max-width: 1024px) {
+        nav[aria-label="Servers sidebar"] {
+          display: none;
+        }
+        .platform-osx div[class^="base_"] > div[class^="content_"] > div[class^="sidebar_"],
+        .platform-osx div[class^="base_"] > div[class^="content_"] > main[class^="container_"],
+        .platform-osx div[class^="base_"] > div[class^="content_"] > div[class^="chat_"] {
+          padding-top: 32px !important;
+        }
+      }
+
+      @media (max-width: 768px) {
+        div[class^="base_"] > div[class^="content_"] > div[class^="sidebar_"] {
+          display: none;
+        }
+      }
+
+      main[class^="chatContent_"] form div[class^="buttons_"],
+      main[class^="chatContent_"] form div[class^="attachWrapper_"] {
+        display: none;
       }
     '';
     json = pkgs.writeTextFile {

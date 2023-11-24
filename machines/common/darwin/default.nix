@@ -5,11 +5,6 @@
 }: {
   # manipulate the global /etc/zshenv for PATH, etc.
   programs.zsh.enable = true;
-  system.activationScripts.postActivation.text = ''
-    # Set the default shell as fish for the user. MacOS doesn't do this like nixOS does
-    sudo chsh -s ${pkgs.zsh}/bin/zsh daniel
-  '';
-
   system.stateVersion = 4;
 
   security.pam.enableSudoTouchIdAuth = true;
@@ -82,9 +77,6 @@
               ]
               cmd) (lib.range 1 10));
       in ''
-        #!/usr/bin/env sh
-
-
         ctrl - left  : yabai -m space --focus prev
         ctrl - right : yabai -m space --focus next
 
@@ -136,6 +128,7 @@
         ctrl + lalt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
 
         lalt - return : open -na "''${HOME}/Applications/Home Manager Apps/WezTerm.app"
+        lalt - e : emacsclient -c
       '';
     };
   };

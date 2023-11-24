@@ -8,6 +8,12 @@
       cleanup = "uninstall";
       upgrade = true;
     };
+    brews = [
+      {
+        name = "d12frosted/emacs-plus/emacs-plus";
+        start_service = true;
+      }
+    ];
     casks = let
       skipSha = name: {
         inherit name;
@@ -19,9 +25,9 @@
       };
     in [
       "1password"
-      "anki"
       "appcleaner"
       "calibre"
+      "eloston-chromium"
       "firefox"
       "gimp"
       "iina"
@@ -29,15 +35,13 @@
       "jetbrains-toolbox"
       "karabiner-elements"
       "linearmouse"
-      "lulu"
       "macfuse"
       "mos"
       "obs"
       "obsidian"
       "orion"
+      "osu"
       "polypane"
-      "protonvpn"
-      "eloston-chromium"
       "raycast"
       "shottr"
       "sioyek"
@@ -46,12 +50,14 @@
       "uninstallpkg"
       "utm"
       "veracrypt"
-      "osu"
       (skipSha "spotify")
       (skipSha "tetrio")
 
       # Drivers
       "wacom-tablet"
+    ];
+    taps = [
+      "homebrew/services"
     ];
   };
 }

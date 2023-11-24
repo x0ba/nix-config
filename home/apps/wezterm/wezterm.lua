@@ -3,16 +3,16 @@ local c = wezterm.config_builder()
 require("config.keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-  "Liga Berkeley Mono",
+  "Iosevka",
   "Symbols Nerd Font",
 })
 c.front_end = "WebGpu"
 c.line_height = 1.2
-c.font_size = 15
-c.harfbuzz_features = { "liga=1", "dlig=1", "calt=1" }
-c.command_palette_font_size = c.font_size * 1.1
+c.font_size = 16
+c.harfbuzz_features = { "calt=1", "ss14=1" }
+c.command_palette_font_size = 15
 c.window_frame = {
-  font = wezterm.font("Inter"),
+  font = wezterm.font("IBM Plex Sans"),
   font_size = c.font_size,
 }
 

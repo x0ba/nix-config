@@ -20,8 +20,11 @@
   home.packages = with pkgs; [
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     nur.repos.x0ba.inter
+    nur.repos.x0ba.otf-apple
     nur.repos.x0ba.ia-writer-quattro
+    cascadia-code
     ibm-plex
     iosevka
+    iosevka-comfy.comfy
   ];
 }
