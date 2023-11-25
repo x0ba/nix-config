@@ -1,24 +1,25 @@
 {
   imports = [
-    ./firefox.nix
-    ./starship.nix
-    ./discord.nix
-    ./mail.nix
-    ./sway.nix
-    ./nushell.nix
-    ./fish.nix
     ./alacritty.nix
-    ./zellij.nix
-    ./lf.nix
     ./discord.nix
-    ./git.nix
-    ./media.nix
-    ./gpg.nix
-    ./zsh.nix
-    ./tmux.nix
+    ./discord.nix
+    ./firefox.nix
+    ./fish.nix
     ./fonts.nix
+    ./git.nix
+    ./gpg.nix
+    ./lf.nix
+    ./mail.nix
+    ./media.nix
+    ./mutt.nix
     ./neovim.nix
+    ./nushell.nix
+    ./starship.nix
+    ./sway.nix
+    ./tmux.nix
     ./vscode.nix
     ./wezterm.nix
+    ./zellij.nix
+    ./zsh.nix
   ];
 }

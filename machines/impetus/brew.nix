@@ -13,6 +13,7 @@
         name = "d12frosted/emacs-plus/emacs-plus";
         start_service = true;
       }
+      "mu"
     ];
     casks = let
       skipSha = name: {

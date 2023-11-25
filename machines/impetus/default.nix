@@ -1,8 +1,8 @@
 {
   imports = [./brew.nix];
 
-  networking.computerName = "toaster";
-  networking.hostName = "toaster";
+  networking.computerName = "impetus";
+  networking.hostName = "impetus";
 
   nix.settings.extra-platforms = [
     "aarch64-darwin"

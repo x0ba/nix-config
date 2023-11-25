@@ -47,6 +47,7 @@
       isync
       msmtp
       neomutt
+      # mu
       notmuch
       w3m
     ];

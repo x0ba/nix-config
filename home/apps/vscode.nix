@@ -14,7 +14,7 @@ in {
     enable = true;
     package = pkgs.vscodium;
     extensions = with pkgs.vscode-marketplace; [
-      t0kyob0y.another-colorscheme
+      subframe7536.theme-maple
       ibmlover.oxocarbon
       astro-build.astro-vscode
       github.copilot

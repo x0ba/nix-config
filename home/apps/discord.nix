@@ -16,10 +16,10 @@ in {
       @import url(//dablulite.github.io/css-snippets/ConsistentChatbar/import.css);
 
       :root {
-        --font-primary: "IBM Plex Sans", sans-serif;
-        --font-headline: "IBM Plex Sans", sans-serif;
-        --font-display: "IBM Plex Sans", sans-serif;
-        --font-code: "Iosevka Comfy", "Symbols Nerd Font", mono;
+        --font-primary: "Lexend Deca", sans-serif;
+        --font-headline: "Lexend Deca", sans-serif;
+        --font-display: "Lexend Deca", sans-serif;
+        --font-code: "Maple Mono", "Symbols Nerd Font", mono;
       }
 
       @media (max-width: 1024px) {
