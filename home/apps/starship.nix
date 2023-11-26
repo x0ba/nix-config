@@ -1,10 +1,8 @@
-{
+{...}: {
   programs.starship = {
     enable = false;
     settings = {
       scan_timeout = 10;
-      enableTransience = true;
-      enableFishIntegration = true;
       # prompt
       format = "$directory$git_branch$git_metrics$nix_shell$package$character";
       add_newline = false;

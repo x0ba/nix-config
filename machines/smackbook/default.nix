@@ -1,8 +1,8 @@
 {
   imports = [./brew.nix];
 
-  networking.computerName = "impetus";
-  networking.hostName = "impetus";
+  networking.computerName = "smackbook";
+  networking.hostName = "smackbook";
 
   nix.settings.extra-platforms = [
     "aarch64-darwin"

@@ -20,12 +20,12 @@
   home.packages = with pkgs; [
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     nur.repos.x0ba.inter
+    nur.repos.x0ba.liga-sfmono
     lexend
-    manrope
     nur.repos.x0ba.ia-writer-quattro
     cascadia-code
     ibm-plex
     maple-mono
-    iosevka-comfy.comfy
+    maple-mono-NF
   ];
 }

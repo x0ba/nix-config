@@ -6,6 +6,7 @@ c.font = wezterm.font_with_fallback({
   "Maple Mono",
   "Symbols Nerd Font",
 })
+
 c.front_end = "WebGpu"
 c.line_height = 1.2
 c.font_size = 15

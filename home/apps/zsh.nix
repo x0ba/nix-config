@@ -103,6 +103,9 @@ in {
           ZVM_VI_HIGHLIGHT_EXTRASTYLE=bold,underline
           ZVM_VI_HIGHLIGHT_FOREGROUND=white
         }
+        if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
+          source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
+        fi
       '';
       initExtra = let
         functionsDir = "${config.home.homeDirectory}/${config.programs.zsh.dotDir}/functions";

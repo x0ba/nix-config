@@ -9,11 +9,7 @@
       upgrade = true;
     };
     brews = [
-      {
-        name = "d12frosted/emacs-plus/emacs-plus";
-        start_service = true;
-      }
-      "mu"
+      "macchanger"
     ];
     casks = let
       skipSha = name: {
@@ -38,6 +34,7 @@
       "linearmouse"
       "macfuse"
       "mos"
+      "netnewswire"
       "obs"
       "obsidian"
       "orion"
