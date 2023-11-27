@@ -201,5 +201,6 @@
   "vscord.status.idle.timeout": 180,
   "editor.cursorBlinking": "solid",
   "catppuccin.extraBordersEnabled": true,
-  "github.copilot.advanced": {}
+  "github.copilot.advanced": {},
+  "workbench.colorTheme": "oxocarbon"
 }

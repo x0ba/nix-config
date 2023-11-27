@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  inputs,
   flakePath,
   lib,
   ...
@@ -36,19 +37,6 @@ in {
 
     fzf = {
       enable = true;
-      colors = {
-        fg = "#cdd6f4";
-        "fg+" = "#cdd6f4";
-        hl = "#f38ba8";
-        "hl+" = "#f38ba8";
-        header = "#ff69b4";
-        info = "#cba6f7";
-        marker = "#f5e0dc";
-        pointer = "#f5e0dc";
-        prompt = "#cba6f7";
-        spinner = "#f5e0dc";
-      };
-      defaultOptions = ["--height=30%" "--layout=reverse" "--info=inline"];
     };
 
     nix-index.enable = true;
@@ -107,13 +95,30 @@ in {
           source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
         fi
       '';
-      initExtra = let
+      initExtra = with config.lib.stylix.colors; let
         functionsDir = "${config.home.homeDirectory}/${config.programs.zsh.dotDir}/functions";
       in ''
         for script in "${functionsDir}"/**/*; do
           source "$script"
         done
         bindkey '^F' autosuggest-accept
+
+        export FZF_DEFAULT_OPTS='
+        --color fg:#${base06},bg:#${base00},hl:#${base04},fg+:#${base07},bg+:#${base00},hl+:#${base04},border:#${base03}
+        --color pointer:#${base08},info:#${base03},spinner:#${base03},header:#${base03},prompt:#${base0B},marker:#${base0B}
+        '
+
+        FZF_TAB_COMMAND=(
+          ${pkgs.fzf}/bin/fzf
+          --ansi
+          --expect='$continuous_trigger' # For continuous completion
+          --nth=2,3 --delimiter='\x00'  # Don't search prefix
+          --layout=reverse --height="''${FZF_TMUX_HEIGHT:=50%}"
+          --tiebreak=begin -m --bind=tab:down,btab:up,change:top,ctrl-space:toggle --cycle
+          '--query=$query'   # $query will be expanded to query string at runtime.
+          '--header-lines=$#headers' # $#headers will be expanded to lines of headers at runtime
+        )
+        zstyle ':fzf-tab:*' command $FZF_TAB_COMMAND
       '';
       envExtra = ''
         export LESSHISTFILE="-"
