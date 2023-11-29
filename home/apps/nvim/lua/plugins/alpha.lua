@@ -1,41 +1,109 @@
 return {
   "goolord/alpha-nvim",
   config = function()
+    local function apply_gradient_hl(text)
+      local lines = {}
+      for i, line in ipairs(text) do
+        local tbl = {
+          type = "text",
+          val = line,
+          opts = {
+            hl = "HeaderGradient" .. i,
+            shrink_margin = false,
+            position = "center",
+          },
+        }
+        table.insert(lines, tbl)
+      end
+
+      return {
+        type = "group",
+        val = lines,
+        opts = { position = "center" },
+      }
+    end
     local alpha = require("alpha")
+    local theta = require("alpha.themes.theta")
     local dashboard = require("alpha.themes.dashboard")
-    dashboard.section.header.val = {
-      "                                              ",
-      "       ███████████           █████      ██",
-      "      ███████████             █████ ",
-      "      ████████████████ ███████████ ███   ███████",
-      "     ████████████████ ████████████ █████ ██████████████",
-      "    ██████████████    █████████████ █████ █████ ████ █████",
-      "  ██████████████████████████████████ █████ █████ ████ █████",
-      " ██████  ███ █████████████████ ████ █████ █████ ████ ██████",
+
+    local header = {
+      "          ':::::    ':::::.  ::::'         ",
+      "            :::::     '::::.:::::          ",
+      "      .......:::::..... ::::::::           ",
+      "     ::::::::::::::::::. ::::::    ::::.   ",
+      "    ::::::::::::::::::::: :::::.  .::::'   ",
+      "           .....           ::::' :::::'    ",
+      "          :::::            '::' :::::'     ",
+      " ........:::::               ' :::::::::::.",
+      ":::::::::::::                 :::::::::::::",
+      " ::::::::::: ..              :::::         ",
+      "     .::::: .:::            :::::          ",
+      "    .:::::  :::::          '''''    .....  ",
+      "    :::::   ':::::.  ......:::::::::::::'  ",
+      "     :::     ::::::. ':::::::::::::::::'   ",
+      "            .:::::::: '::::::::::          ",
+      "           .::::''::::.     '::::.         ",
+      "          .::::'   ::::.     '::::.        ",
+      "         .::::      ::::      '::::.       ",
+      " ",
+      "nix geht mehr",
     }
-    dashboard.section.buttons.val = {
-      dashboard.button("n", "  New file", ":ene <bar> startinsert <cr>"),
-      dashboard.button("SPC ff", "  Find file", ":Telescope find_files<cr>"),
-      dashboard.button("SPC fg", "  Live grep", ":Telescope live_grep<cr>"),
-      dashboard.button(
-        "s",
-        "  Restore session",
-        ':lua require("persistence").load()<cr>'
-      ),
-      dashboard.button("SPC fp", "  Projects", ":Telescope project<CR>"),
-      dashboard.button("q", "  Quit", ":qa<CR>"),
+
+    local buttons = {
+      type = "group",
+      position = "center",
+      val = {
+        dashboard.button("n", "  New file", ":ene <bar> startinsert <cr>"),
+        dashboard.button(
+          "SPC ff",
+          "  Find file",
+          ":Telescope find_files<cr>"
+        ),
+        dashboard.button(
+          "SPC fg",
+          "  Live grep",
+          ":Telescope live_grep<cr>"
+        ),
+        dashboard.button(
+          "s",
+          "  Show sessions",
+          ":SessionManager load_session<cr>"
+        ),
+        dashboard.button("SPC fp", "  Projects", ":Telescope project<CR>"),
+        dashboard.button("q", "  Quit", ":qa<CR>"),
+      },
     }
-    local version = vim.version()
-    dashboard.section.footer.val = "neovim v"
-      .. version.major
-      .. "."
-      .. version.minor
-      .. "."
-      .. version.patch
-      .. "      "
-      .. require("lazy").stats().count
-      .. " plugins"
+
+    local v = vim.version()
+    local vStr = string.format("v%d.%d.%d", v.major, v.minor, v.patch)
+
+    local footer = {
+      type = "group",
+      position = "center",
+      val = {
+        {
+          type = "text",
+          val = "neovim " .. vStr,
+          opts = { hl = "Comment", position = "center" },
+        },
+        {
+          type = "text",
+          val = require("lazy").stats().count .. " plugins",
+          opts = { hl = "Comment", position = "center" },
+        },
+      },
+    }
     dashboard.config.opts.noautocmd = true
-    alpha.setup(dashboard.config)
+
+    theta.config.layout = {
+      { type = "padding", val = 4 },
+      apply_gradient_hl(header),
+      { type = "padding", val = 1 },
+      buttons,
+      { type = "padding", val = 1 },
+      footer,
+    }
+
+    alpha.setup(theta.config)
   end,
 }

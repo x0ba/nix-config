@@ -177,11 +177,6 @@
   user_pref("browser.menu.showViewImageInfo", true);
   user_pref("findbar.highlightAll", true);
 
-  user_pref("apz.overscroll.enabled", true);
-  user_pref("general.smoothScroll", true);
-  user_pref("general.smoothScroll.msdPhysics.enabled", true);
-  user_pref("mousewheel.default.delta_multiplier_y", 300);
-
   user_pref("privacy.userContext.enabled", true);
 
 ''
