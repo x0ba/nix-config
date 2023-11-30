@@ -16,7 +16,7 @@
   "editor.smoothScrolling": true,
   "terminal.integrated.smoothScrolling": true,
   "terminal.integrated.fontSize": 14,
-  "editor.fontFamily": "Maple Mono, Symbols Nerd Font, monospace",
+  "editor.fontFamily": "Liga SFMono Nerd Font, Symbols Nerd Font, monospace",
   "editor.fontLigatures": "'calt', 'ss01', 'cv02', 'cv03', 'ss02'",
   "editor.fontSize": 15,
   "editor.formatOnSave": true,

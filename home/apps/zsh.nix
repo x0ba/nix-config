@@ -68,13 +68,9 @@ in {
       nix-direnv.enable = true;
     };
 
-    eza = {
+    lsd = {
       enable = true;
       enableAliases = true;
-      icons = true;
-      extraOptions = [
-        "--group-directories-first"
-      ];
     };
 
     zsh = {
@@ -126,27 +122,10 @@ in {
       '';
       shellAliases = {
         mv = "mv -i";
-        t = "${pkgs.tmux-sessionizer}/bin/tms";
         cp = "cp -i";
-        tree = "${pkgs.eza}/bin/eza --tree";
+        tree = "${pkgs.lsd}/bin/lsd --tree";
         nv = "${pkgs.neovim}/bin/nvim";
         rm = "${pkgs.trash-cli}/bin/trash-put";
-      };
-      oh-my-zsh = {
-        enable = true;
-        plugins =
-          [
-            "colored-man-pages"
-            "sudo"
-            "colorize"
-            "docker"
-            "docker-compose"
-            "git"
-          ]
-          ++ lib.optionals pkgs.stdenv.isDarwin [
-            "dash"
-            "macos"
-          ];
       };
       plugins = with pkgs; (zshPlugins [
         # {
@@ -190,5 +169,6 @@ in {
 
   xdg.configFile = {
     "zsh/functions" = symlink "home/apps/zsh/functions" {recursive = true;};
+    "lsd" = symlink "home/apps/lsd" {recursive = true;};
   };
 }

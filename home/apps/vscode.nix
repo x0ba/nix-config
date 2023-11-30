@@ -12,37 +12,31 @@
 in {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium;
     extensions = with pkgs.vscode-marketplace; [
       ibmlover.oxocarbon
       astro-build.astro-vscode
       github.copilot
       adrianwilczynski.alpine-js-intellisense
-      leonardssh.vscord
       antfu.icons-carbon
-      astro-build.astro-vscode
-      bradlc.vscode-tailwindcss
-      catppuccin.catppuccin-vsc-icons
       dbaeumer.vscode-eslint
       denoland.vscode-deno
-      eamodio.gitlens
       esbenp.prettier-vscode
       github.copilot
       github.vscode-pull-request-github
-      gitlab.gitlab-workflow
       golang.go
-      graphql.vscode-graphql-syntax
       jnoortheen.nix-ide
       kamadorueda.alejandra
-      leonardssh.vscord
-      lunuan.kubernetes-templates
       mikestead.dotenv
       mkhl.direnv
       ms-kubernetes-tools.vscode-kubernetes-tools
       pkief.material-icon-theme
       redhat.vscode-yaml
       rust-lang.rust-analyzer
+      ms-vscode-remote.remote-ssh
+      ms-vscode-remote.remote-ssh-edit
+      ms-vscode.remote-explorer
       sumneko.lua
+      ms-azuretools.vscode-docker
       tamasfe.even-better-toml
       tomoki1207.pdf
       unifiedjs.vscode-mdx
@@ -53,12 +47,12 @@ in {
   };
 
   home.file = lib.mkIf isDarwin {
-    "Library/Application Support/VSCodium/User/keybindings.json".source = keybindingsJSON;
-    "Library/Application Support/VSCodium/User/settings.json".source = settingsJSON;
+    "Library/Application Support/Code/User/keybindings.json".source = keybindingsJSON;
+    "Library/Application Support/Code/User/settings.json".source = settingsJSON;
   };
   xdg.configFile = lib.mkIf isLinux {
-    "VSCodium/User/keybindings.json".source = keybindingsJSON;
-    "VSCodium/User/settings.json".source = settingsJSON;
+    "Code/User/keybindings.json".source = keybindingsJSON;
+    "Code/User/settings.json".source = settingsJSON;
   };
-  xdg.mimeApps.defaultApplications."text/plain" = "codium.desktop";
+  xdg.mimeApps.defaultApplications."text/plain" = "code.desktop";
 }

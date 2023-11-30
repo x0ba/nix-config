@@ -3,7 +3,7 @@ local c = wezterm.config_builder()
 require("config.keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-  "Maple Mono",
+  "Liga SFMono Nerd Font",
   "Symbols Nerd Font",
 })
 
@@ -11,7 +11,7 @@ c.front_end = "WebGpu"
 c.line_height = 1.2
 c.font_size = 15
 c.harfbuzz_features = { "calt=1", "ss01=1", "cv02=1", "cv03=1", "ss02=1" }
-c.command_palette_font_size = c.font_size * 1.1
+c.command_palette_font_size = c.font_size
 c.window_frame = {
   font = wezterm.font("Lexend Deca"),
   font_size = c.font_size,

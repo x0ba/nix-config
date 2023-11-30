@@ -23,6 +23,7 @@
     in [
       "1password"
       "appcleaner"
+      "arc"
       "calibre"
       "eloston-chromium"
       "firefox"

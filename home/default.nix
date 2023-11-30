@@ -16,7 +16,6 @@ in {
       age
       atool
       chafa
-      pass
       comma
       deadnix
       elinks
@@ -31,6 +30,8 @@ in {
       nix-your-shell
       nur.repos.x0ba.lutgen
       nur.repos.x0ba.preview
+      pass
+      pfetch-rs
       ripgrep
       sdcv
       sops

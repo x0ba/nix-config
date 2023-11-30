@@ -21,11 +21,12 @@
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     nur.repos.x0ba.inter
     nur.repos.x0ba.liga-sfmono
+    nur.repos.x0ba.otf-apple
     lexend
     nur.repos.x0ba.ia-writer-quattro
+    inter
     cascadia-code
     ibm-plex
     maple-mono
-    maple-mono-NF
   ];
 }
