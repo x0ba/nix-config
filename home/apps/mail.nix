@@ -14,7 +14,6 @@
         ui = {
           border-char-vertical = "│";
           border-char-horizontal = "─";
-          styleset-name = "catppuccin-mocha";
           spinner = "▰▱▱▱▱▱▱,▰▰▱▱▱▱▱,▰▰▰▱▱▱▱,▰▰▰▰▱▱▱,▰▰▰▰▰▱▱,▰▰▰▰▰▰▱,▰▰▰▰▰▰▰";
           spinner-interval = "40ms";
         };

@@ -87,9 +87,6 @@ in {
           ZVM_VI_HIGHLIGHT_EXTRASTYLE=bold,underline
           ZVM_VI_HIGHLIGHT_FOREGROUND=white
         }
-        # if [[ -r "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh" ]]; then
-        #   source "''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh"
-        # fi
       '';
       initExtra = with config.lib.stylix.colors; let
         functionsDir = "${config.home.homeDirectory}/${config.programs.zsh.dotDir}/functions";
@@ -126,18 +123,10 @@ in {
         tree = "${pkgs.lsd}/bin/lsd --tree";
         nv = "${pkgs.neovim}/bin/nvim";
         rm = "${pkgs.trash-cli}/bin/trash-put";
+        # switch between yubikeys for the same GPG key
+        switch_yubikeys = ''gpg-connect-agent "scd serialno" "learn --force" "/bye"'';
       };
       plugins = with pkgs; (zshPlugins [
-        # {
-        #   name = "powerlevel10k";
-        #   src = pkgs.zsh-powerlevel10k;
-        #   file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-        # }
-        # {
-        #   name = "powerlevel10k-config";
-        #   src = lib.cleanSource ./zsh;
-        #   file = "powerlevel.zsh";
-        # }
         {
           src = zsh-fast-syntax-highlighting.overrideAttrs (_old: {
             src = fetchFromGitHub {
