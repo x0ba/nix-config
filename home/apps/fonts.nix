@@ -22,8 +22,8 @@
     nur.repos.x0ba.inter
     nur.repos.x0ba.liga-sfmono
     nur.repos.x0ba.otf-apple
-    lexend
     nur.repos.x0ba.ia-writer-quattro
+    lexend
     inter
     ibm-plex
     maple-mono

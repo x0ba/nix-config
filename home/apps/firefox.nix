@@ -4,7 +4,7 @@
   lib,
   ...
 }: let
-  inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
+  inherit (pkgs.stdenv.hostPlatform) isDarwin;
 in {
   programs.firefox = {
     # since I'm using firefox from brew on darwin, I need to build a dummy package

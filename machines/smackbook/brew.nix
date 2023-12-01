@@ -16,10 +16,6 @@
         inherit name;
         args = {require_sha = false;};
       };
-      noQuarantine = name: {
-        inherit name;
-        args = {no_quarantine = true;};
-      };
     in [
       "1password"
       "appcleaner"

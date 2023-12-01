@@ -8,7 +8,7 @@
   } @ inputs: let
     inherit (import ./machines/lib.nix {inherit inputs overlays;}) mkSystems;
     overlays = [
-      (final: prev: {
+      (_final: prev: {
         nur = import inputs.nur {
           nurpkgs = prev;
           pkgs = prev;

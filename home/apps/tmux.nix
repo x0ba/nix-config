@@ -1,12 +1,8 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
   programs.tmux = {
     enable = true;
     sensibleOnTop = true;
-    extraConfig = with config.lib.stylix.colors; ''
+    extraConfig = ''
       set -g history-file "~/.cache/tmux/.tmuxhistory"
       set -g repeat-time 700
       set -g mouse on
