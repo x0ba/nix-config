@@ -5,7 +5,6 @@
       command_timeout = 3000;
       format = "$username$hostname$nix_shell$character";
       right_format = "$directory$git_branch$git_commit$git_state$git_status";
-
       character = {
         success_symbol = "[λ](bold green)";
         error_symbol = "[λ](bold red)";
