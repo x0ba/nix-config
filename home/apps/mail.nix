@@ -1,5 +1,5 @@
 {config, ...}: {
-  sops.secrets."aerc-accounts".path = "${config.xdg.configHome}/aerc/accounts.conf";
+  # sops.secrets."aerc-accounts".path = "${config.xdg.configHome}/aerc/accounts.conf";
   programs = {
     aerc = {
       enable = true;

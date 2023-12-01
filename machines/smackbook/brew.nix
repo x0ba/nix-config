@@ -49,6 +49,8 @@
       "uninstallpkg"
       "utm"
       "veracrypt"
+      "yubico-authenticator"
+      "yubico-yubikey-manager"
       (skipSha "spotify")
       (skipSha "tetrio")
 

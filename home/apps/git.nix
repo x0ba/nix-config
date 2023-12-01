@@ -6,7 +6,7 @@
 
     signing = {
       signByDefault = true;
-      key = "B978CBD24E2451D9CA8AE423F7ACC9D3E3B6C2E3";
+      key = "242CE11D4552BFD795AF94286CB88DB2D39E0378";
     };
 
     diff-so-fancy.enable = true;

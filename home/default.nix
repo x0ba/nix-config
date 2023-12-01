@@ -14,6 +14,7 @@ in {
   home = {
     packages = with pkgs; [
       age
+      yubikey-personalization
       atool
       chafa
       comma

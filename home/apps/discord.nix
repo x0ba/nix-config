@@ -16,9 +16,9 @@ in {
       @import url(//dablulite.github.io/css-snippets/ConsistentChatbar/import.css);
 
       :root {
-        --font-primary: "Inter", sans-serif;
-        --font-headline: "Inter", sans-serif;
-        --font-display: "Inter", sans-serif;
+        --font-primary: "SF Pro Text", sans-serif;
+        --font-headline: "SF Pro Text", sans-serif;
+        --font-display: "SF Pro Text", sans-serif;
         --font-code: "Liga SFMono Nerd Font", "Symbols Nerd Font", mono;
       }
 
