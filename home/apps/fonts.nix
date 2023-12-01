@@ -25,7 +25,6 @@
     lexend
     nur.repos.x0ba.ia-writer-quattro
     inter
-    cascadia-code
     ibm-plex
     maple-mono
   ];
