@@ -17,15 +17,6 @@
     plugins);
 in {
   programs = {
-    atuin = {
-      enable = true;
-      flags = ["--disable-up-arrow"];
-      settings = {
-        inline_height = 30;
-        style = "compact";
-        sync_frequency = "5m";
-      };
-    };
     btop = {
       enable = true;
       settings = {
@@ -94,23 +85,6 @@ in {
           source "$script"
         done
         bindkey '^F' autosuggest-accept
-
-        export FZF_DEFAULT_OPTS='
-        --color fg:#${base06},bg:#${base00},hl:#${base04},fg+:#${base07},bg+:#${base00},hl+:#${base04},border:#${base03}
-        --color pointer:#${base08},info:#${base03},spinner:#${base03},header:#${base03},prompt:#${base0B},marker:#${base0B}
-        '
-
-        FZF_TAB_COMMAND=(
-          ${pkgs.fzf}/bin/fzf
-          --ansi
-          --expect='$continuous_trigger' # For continuous completion
-          --nth=2,3 --delimiter='\x00'  # Don't search prefix
-          --layout=reverse --height="''${FZF_TMUX_HEIGHT:=50%}"
-          --tiebreak=begin -m --bind=tab:down,btab:up,change:top,ctrl-space:toggle --cycle
-          '--query=$query'   # $query will be expanded to query string at runtime.
-          '--header-lines=$#headers' # $#headers will be expanded to lines of headers at runtime
-        )
-        zstyle ':fzf-tab:*' command $FZF_TAB_COMMAND
       '';
       envExtra = ''
         export LESSHISTFILE="-"
@@ -147,7 +121,10 @@ in {
           });
           file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
         }
-
+        {
+          src = fzf-zsh;
+          file = "share/fzf-zsh/fzf-zsh.plugin.zsh";
+        }
         {
           src = zsh-nix-shell;
           file = "share/zsh-nix-shell/nix-shell.plugin.zsh";
