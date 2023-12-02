@@ -147,6 +147,7 @@ in {
           });
           file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
         }
+
         {
           src = zsh-nix-shell;
           file = "share/zsh-nix-shell/nix-shell.plugin.zsh";
