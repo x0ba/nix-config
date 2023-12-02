@@ -17,18 +17,6 @@ in {
     yubikey-personalization
   ];
 
-  # two amazing examples of glorious XDG compliance
-  home.file = {
-    "Library/Application Support/Mozilla/NativeMessagingHosts/gpgmejson.json" = {
-      enable = isDarwin;
-      text = mailvelopeConfig;
-    };
-    ".mozilla/native-messaging-hosts/gpgmejson.json" = {
-      enable = isLinux;
-      text = mailvelopeConfig;
-    };
-  };
-
   programs.gpg = {
     enable = true;
     scdaemonSettings."disable-ccid" = true;
