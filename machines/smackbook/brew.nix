@@ -8,9 +8,6 @@
       cleanup = "uninstall";
       upgrade = true;
     };
-    brews = [
-      "macchanger"
-    ];
     casks = let
       skipSha = name: {
         inherit name;
@@ -33,12 +30,9 @@
       "obsidian"
       "orion"
       "osu"
-      "polypane"
-      "shottr"
       "skiff"
       "stats"
       "uninstallpkg"
-      "utm"
       "veracrypt"
       "yubico-authenticator"
       "yubico-yubikey-manager"
