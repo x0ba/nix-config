@@ -29,7 +29,6 @@
       "obs"
       "obsidian"
       "orion"
-      "osu"
       "skiff"
       "stats"
       "uninstallpkg"
@@ -37,7 +36,6 @@
       "yubico-authenticator"
       "yubico-yubikey-manager"
       (skipSha "spotify")
-      (skipSha "tetrio")
 
       # Drivers
       "wacom-tablet"
