@@ -11,8 +11,8 @@
     };
     fonts = {
       monospace = {
-        name = "Liga Berkeley Mono";
-        package = pkgs.ibm-plex;
+        name = "Cascadia Code";
+        package = pkgs.cascadia-code;
       };
       emoji = {
         name = "Symbols Nerd Font";
@@ -23,6 +23,6 @@
         package = pkgs.ibm-plex;
       };
     };
-    base16Scheme = import ./oxocarbon;
+    base16Scheme = import ./catppuccin;
   };
 }

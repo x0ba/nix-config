@@ -17,8 +17,6 @@ c.window_frame = {
   font_size = c.font_size,
 }
 
-c.color_scheme = "Oxocarbon Dark"
-
 c.window_decorations = "RESIZE"
 c.window_padding = { left = 28, right = 28, top = 28, bottom = 28 }
 c.adjust_window_size_when_changing_font_size = false
@@ -26,6 +24,11 @@ c.audible_bell = "Disabled"
 c.default_cursor_style = "BlinkingBar"
 c.inactive_pane_hsb = { brightness = 0.90 }
 c.use_fancy_tab_bar = false
-c.hide_tab_bar_if_only_one_tab = true
+
+require("bar.plugin").apply_to_config(c)
+require("catppuccin.plugin").apply_to_config(c, {
+  sync = true,
+  sync_flavors = { dark = "mocha" },
+})
 
 return c
