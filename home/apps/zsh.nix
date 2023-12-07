@@ -85,6 +85,10 @@ in {
           source "$script"
         done
         bindkey '^F' autosuggest-accept
+        bindkey '^[[A' history-substring-search-up
+        bindkey '^[[B' history-substring-search-down
+        bindkey -M vicmd 'k' history-substring-search-up
+        bindkey -M vicmd 'j' history-substring-search-down
       '';
       envExtra = ''
         export LESSHISTFILE="-"
@@ -124,6 +128,10 @@ in {
         {
           src = fzf-zsh;
           file = "share/fzf-zsh/fzf-zsh.plugin.zsh";
+        }
+        {
+          src = zsh-history-substring-search;
+          file = "share/zsh-history-substring-search/zsh-history-substring-search.zsh";
         }
         {
           src = zsh-nix-shell;
