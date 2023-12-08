@@ -13,8 +13,8 @@ in {
   programs.vscode = {
     enable = true;
     extensions = with pkgs.vscode-marketplace; [
-      ibmlover.oxocarbon
       astro-build.astro-vscode
+      catppuccin.catppuccin-vsc-icons
       github.copilot
       adrianwilczynski.alpine-js-intellisense
       antfu.icons-carbon

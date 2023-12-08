@@ -1,31 +1,30 @@
 {
   config,
+  lib,
   pkgs,
   ...
-}: {
+}: let
+  inherit (pkgs.stdenv.hostPlatform) isLinux;
+in {
   accounts.email.maildirBasePath = "${config.xdg.dataHome}/mail";
+
   accounts.email.accounts = {
     "personal" = {
       primary = true;
-      address = "daniel.xu.dev@gmail.com";
-      userName = "daniel.xu.dev@gmail.com";
-      realName = "Daniel Xu";
-      passwordCommand = "gopass -o mail/personal";
+      passwordCommand = "${pkgs.gopass}/bin/gopass -o mail/personal";
       maildir.path = "personal";
 
-      aliases = [
-        "dax@omg.lol"
-      ];
+      aliases = ["hey@x0ba.lol"];
 
       imap = {
-        host = "imap.gmail.com";
+        host = "imap.fastmail.com";
         port = 993;
         tls.enable = true;
       };
 
       smtp = {
-        host = "smtp.gmail.com";
-        port = 587;
+        host = "smtp.fastmail.com";
+        port = 465;
         tls.enable = true;
       };
 
@@ -35,22 +34,24 @@
         expunge = "both";
       };
 
-      notmuch.enable = true;
+      imapnotify = {
+        enable = true;
+        onNotify = "${pkgs.isync}/bin/mbsync %s";
+        onNotifyPost = "${pkgs.notmuch}/bin/notmuch new && ${pkgs.libnotify}/bin/libnotify 'New mail arrived'";
+      };
+
       msmtp.enable = true;
-      neomutt.enable = true;
+      neomutt = {
+        enable = true;
+      };
+      notmuch.enable = true;
     };
   };
 
-  home = {
-    packages = with pkgs; [
-      isync
-      msmtp
-      neomutt
-      # mu
-      notmuch
-      w3m
-    ];
-  };
+  home.packages = with pkgs; [w3m];
+
+  services.imapnotify.enable = isLinux;
+
   programs = {
     mbsync.enable = true;
     msmtp.enable = true;
@@ -263,5 +264,26 @@
       ];
     };
     notmuch.enable = true;
+  };
+
+  # need to use setsid on video/* mpv
+  xdg.configFile = {
+    "neomutt/mailcap".text = let
+      openurl = "${config.xdg.configHome}/neomutt/openurl";
+    in ''
+      text/plain; $EDITOR %s ;
+      text/html; ${openurl} %s ; nametemplate=%s.html
+      text/html; ${lib.getExe pkgs.lynx} -assume_charset=%{charset} -display_charset=utf-8 -dump -width=1024 %s; nametemplate=%s.html; copiousoutput;
+      image/*; ${openurl} %s ;
+      video/*; ${lib.getExe pkgs.mpv} --quiet %s &; copiousoutput
+      audio/*; ${lib.getExe pkgs.mpv} %s ;
+      application/pdf; ${openurl} %s ;
+      application/pgp-encrypted; ${lib.getExe pkgs.gnupg} -d '%s'; copiousoutput;
+      application/pgp-keys; ${lib.getExe pkgs.gnupg} --import '%s'; copiousoutput;
+    '';
+    "neomutt/openurl" = {
+      source = ./neomutt/openurl;
+      executable = true;
+    };
   };
 }

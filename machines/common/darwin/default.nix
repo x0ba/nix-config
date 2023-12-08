@@ -15,7 +15,7 @@
 
   services = {
     yabai = {
-      enable = true;
+      enable = false;
       package = pkgs.yabai.overrideAttrs (prev: {
         version = "6.0.1";
         src = pkgs.fetchzip {
@@ -57,7 +57,7 @@
         sudo yabai --load-sa
 
         ${ignored ["JetBrains Toolbox" "Mullvad VPN" "Sip" "iStat Menus"]}
-        ${unmanaged ["GOG Galaxy" "Steam" "System Settings"]}
+        ${unmanaged ["GOG Galaxy" "Steam" "System Settings" "1Password"]}
         yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
         yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
 
@@ -83,10 +83,10 @@
       in ''
         #!/usr/bin/env sh
         # focus window
-        lalt + ctrl - h : yabai -m window --focus west
-        lalt + ctrl - j : yabai -m window --focus south
-        lalt + ctrl - k : yabai -m window --focus north
-        lalt + ctrl - l : yabai -m window --focus east
+        lalt - h : yabai -m window --focus west
+        lalt - j : yabai -m window --focus south
+        lalt - k : yabai -m window --focus north
+        lalt - l : yabai -m window --focus east
         # move window
         lalt + shift - h : yabai -m window --warp west
         lalt + shift - j : yabai -m window --warp south
@@ -105,7 +105,7 @@
         lalt + shift - r : yabai -m space --rotate 270
 
         # open terminal
-        lalt - return : open -na "''${HOME}/Applications/Home Manager Apps/WezTerm.app"
+        lalt - return : open -na "Ghostty"
 
         # ONLY WORKS WITH SIP DISABLED:
         # fast focus space left/right

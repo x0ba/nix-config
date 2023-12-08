@@ -11,7 +11,6 @@
     ./lf.nix
     ./mail.nix
     ./media.nix
-    ./mutt.nix
     ./neovim.nix
     ./nushell.nix
     ./starship.nix

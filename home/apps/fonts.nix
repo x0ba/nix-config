@@ -22,7 +22,7 @@
     nur.repos.x0ba.inter
     nur.repos.x0ba.liga-sfmono
     nur.repos.x0ba.otf-apple
-    nur.repos.x0ba.ia-writer-quattro
+    ia-writer-quattro
     cascadia-code
     lexend
     inter
