@@ -144,6 +144,7 @@
       inputs.flake-compat.follows = "";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    ghostty.url = "github:clo4/ghostty-hm-module";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-utils.url = "github:numtide/flake-utils";

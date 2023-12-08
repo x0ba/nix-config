@@ -27,6 +27,7 @@
   modules = with inputs;
     [
       nix-index-database.hmModules.nix-index
+      ghostty.homeModules.default
       caarlos0-nur.homeManagerModules.default
       sops.homeManagerModules.sops
       stylix.homeManagerModules.stylix

@@ -5,7 +5,6 @@
     targets = {
       bat.enable = true;
       # alacritty.enable = true;
-      fish.enable = true;
       zellij.enable = true;
       # wezterm.enable = true;
     };

@@ -1,6 +1,6 @@
 {
   imports = [
-    ./alacritty.nix
+    ./ghostty.nix
     ./discord.nix
     ./discord.nix
     ./firefox.nix
@@ -13,7 +13,7 @@
     ./media.nix
     ./neovim.nix
     ./nushell.nix
-    ./starship.nix
+    # ./starship.nix
     ./sway.nix
     ./tmux.nix
     ./vscode.nix

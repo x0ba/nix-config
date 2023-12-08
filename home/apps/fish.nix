@@ -17,10 +17,6 @@
     };
     shellInit = ''
       set fish_greeting
-      function starship_transient_prompt_func
-        starship module character
-      end
-      enable_transience
     '';
 
     plugins = [

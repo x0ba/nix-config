@@ -289,6 +289,21 @@
         "type": "github"
       }
     },
+    "ghostty": {
+      "locked": {
+        "lastModified": 1695482156,
+        "narHash": "sha256-PFyViLT7eCi/jN6fZ9kFUZF4mYye9Mplm/SEwhUvCDM=",
+        "owner": "clo4",
+        "repo": "ghostty-hm-module",
+        "rev": "3ccb4b02eb84316e7ccbf007a6e29495f7e6bee4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "clo4",
+        "repo": "ghostty-hm-module",
+        "type": "github"
+      }
+    },
     "gitignore": {
       "inputs": {
         "nixpkgs": [
@@ -358,11 +373,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1701572887,
-        "narHash": "sha256-oCPwQZT0Inis4zcYhtFHUp7Rym1zglKPLDcRird35q8=",
+        "lastModified": 1701980277,
+        "narHash": "sha256-qSMnoUIZl3lyaAXgXGQ4qnA5jufnNrBAI0bYw7kJgtE=",
         "owner": "Mic92",
         "repo": "nix-index-database",
-        "rev": "41afa8d1c061beda68502bcc67f2788f3a77042b",
+        "rev": "ca1f1798f63ada20dffcb8b23039b00a597dafe9",
         "type": "github"
       },
       "original": {
@@ -382,11 +397,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1701912043,
-        "narHash": "sha256-LsvFmHMvxVEboeo7f0fQEuOowvSnIO/XkKy+qO4wShk=",
+        "lastModified": 1701998434,
+        "narHash": "sha256-AHJchP91Lfc6LyxGoiP9zdxUVsVLWeioE+LmJbOUZMM=",
         "owner": "nix-community",
         "repo": "nix-vscode-extensions",
-        "rev": "4d0920203567d47ddb76d5c56548329e1265d3a2",
+        "rev": "4d7b6fe4e29c0529d0a5f836ba41b93baa84f9e3",
         "type": "github"
       },
       "original": {
@@ -463,11 +478,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1701914507,
-        "narHash": "sha256-edxBu57KRrEKMgKszcsr2pPiv8kNVnfAMbYxNyqHhME=",
+        "lastModified": 1702008380,
+        "narHash": "sha256-GBMeWQcvvszYEbbbE2/zlePhFyI0xgPBkBiIvBSvil4=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "0aa2c2ede9676a20091b7f3b45863c65174c0622",
+        "rev": "8dd8702ad58a632d5f3f0ed9ade98b8729ba5d49",
         "type": "github"
       },
       "original": {
@@ -510,6 +525,7 @@
         "darwin": "darwin",
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
+        "ghostty": "ghostty",
         "home-manager": "home-manager",
         "nix-index-database": "nix-index-database",
         "nix-vscode-extensions": "nix-vscode-extensions",

@@ -9,6 +9,22 @@
     source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/${fileName}";
     recursive = recursive;
   };
+  catppuccin-zsh-fsh = pkgs.stdenvNoCC.mkDerivation {
+    name = "catppuccin-zsh-fsh";
+    src = pkgs.fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "zsh-fsh";
+      rev = "7cdab58bddafe0565f84f6eaf2d7dd109bd6fc18";
+      sha256 = "sha256-31lh+LpXGe7BMZBhRWvvbOTkwjOM77FPNaGy6d26hIA=";
+    };
+    phases = ["buildPhase"];
+    buildPhase = ''
+      mkdir -p $out/share/zsh/site-functions/themes
+      ls $src/themes
+      cp $src/themes/* $out/share/zsh/site-functions/themes/
+    '';
+  };
+
   zshPlugins = plugins: (map
     (plugin: rec {
       name = src.name;
@@ -28,6 +44,8 @@ in {
     fzf = {
       enable = true;
     };
+
+    starship.enable = true;
 
     nix-index.enable = true;
 
@@ -105,17 +123,6 @@ in {
       };
       plugins = with pkgs; (zshPlugins [
         {
-          src = zsh-fast-syntax-highlighting.overrideAttrs (_old: {
-            src = fetchFromGitHub {
-              owner = "zdharma-continuum";
-              repo = "fast-syntax-highlighting";
-              rev = "cf318e06a9b7c9f2219d78f41b46fa6e06011fd9";
-              hash = "sha256-RVX9ZSzjBW3LpFs2W86lKI6vtcvDWP6EPxzeTcRZua4=";
-            };
-          });
-          file = "share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh";
-        }
-        {
           src = zsh-vi-mode.overrideAttrs (old: {
             src = fetchFromGitHub {
               inherit (old.src) repo owner;
@@ -137,12 +144,25 @@ in {
           src = zsh-nix-shell;
           file = "share/zsh-nix-shell/nix-shell.plugin.zsh";
         }
+        {
+          src = zsh-fast-syntax-highlighting.overrideAttrs (_old: {
+            src = fetchFromGitHub {
+              owner = "zdharma-continuum";
+              repo = "fast-syntax-highlighting";
+              rev = "cf318e06a9b7c9f2219d78f41b46fa6e06011fd9";
+              hash = "sha256-RVX9ZSzjBW3LpFs2W86lKI6vtcvDWP6EPxzeTcRZua4=";
+            };
+          });
+          file = "share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh";
+        }
       ]);
     };
   };
 
   xdg.configFile = {
+    "fsh".source = "${catppuccin-zsh-fsh}/share/zsh/site-functions/themes";
     "zsh/functions" = symlink "home/apps/zsh/functions" {recursive = true;};
     "lsd" = symlink "home/apps/lsd" {recursive = true;};
+    "starship.toml" = symlink "home/apps/starship/config.toml" {};
   };
 }
