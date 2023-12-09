@@ -8,6 +8,10 @@ right_format = """$all"""
 [directory.substitutions]
 '~/tests/starship-custom' = 'work-project'
 
+[character]
+success_symbol = "[λ](bold green)"
+error_symbol = "[λ](bold red)"
+
 
 [aws]
 format = 'on [$symbol($profile )(\($region\) )]($style)'

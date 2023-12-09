@@ -1,11 +1,18 @@
-{pkgs, ...}: {
+{
+  config,
+  flakePath,
+  pkgs,
+  ...
+}: let
+  mkSymlink = path: config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/apps/fish/${path}";
+in {
   programs.fish = {
     enable = true;
     shellAliases = {
       cleanup = "sudo nix-collect-garbage --delete-older-than 7d";
       bloat = "nix path-info -Sh /run/current-system";
       g = "git";
-      tree = "${pkgs.eza}/bin/eza --tree";
+      tree = "${pkgs.lsd}/bin/lsd --tree";
       gaa = "${pkgs.git}/bin/git add .";
       cls = "clear";
       commit = "${pkgs.git}/bin/git add . && ${pkgs.git}/bin/git commit -m";
@@ -17,6 +24,8 @@
     };
     shellInit = ''
       set fish_greeting
+      set -U fish_vi_key_bindings
+      set -Ux EDITOR nvim
     '';
 
     plugins = [
@@ -39,5 +48,11 @@
         };
       }
     ];
+  };
+  xdg.configFile = {
+    "fish/themes" = {
+      source = mkSymlink "themes";
+      recursive = true;
+    };
   };
 }
