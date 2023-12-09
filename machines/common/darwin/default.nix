@@ -5,6 +5,11 @@
 }: {
   # manipulate the global /etc/zshenv for PATH, etc.
   programs.zsh.enable = true;
+  programs.fish.enable = true;
+  system.activationScripts.postActivation.text = ''
+    # Set the default shell as fish for the user. MacOS doesn't do this like nixOS does
+    sudo chsh -s ${pkgs.fish}/bin/fish daniel
+  '';
   system.stateVersion = 4;
 
   security.pam.enableSudoTouchIdAuth = true;

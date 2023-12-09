@@ -1,9 +1,9 @@
 {...}: {
   programs.ghostty = {
     enable = true;
-    shellIntegration.enable = true;
     settings = {
       font-family = "Liga Berkeley Mono";
+      window-inherit-working-directory = true;
       unfocused-split-opacity = 0.96;
       font-size = 15;
       window-theme = "dark";

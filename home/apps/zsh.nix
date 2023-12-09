@@ -45,8 +45,6 @@ in {
       enable = true;
     };
 
-    starship.enable = true;
-
     nix-index.enable = true;
 
     tealdeer = {
@@ -164,6 +162,5 @@ in {
     "fsh".source = "${catppuccin-zsh-fsh}/share/zsh/site-functions/themes";
     "zsh/functions" = symlink "home/apps/zsh/functions" {recursive = true;};
     "lsd" = symlink "home/apps/lsd" {recursive = true;};
-    "starship.toml" = symlink "home/apps/starship/config.toml" {};
   };
 }

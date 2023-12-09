@@ -12,8 +12,7 @@
     ./mail.nix
     ./media.nix
     ./neovim.nix
-    ./nushell.nix
-    # ./starship.nix
+    ./starship.nix
     ./sway.nix
     ./tmux.nix
     ./vscode.nix

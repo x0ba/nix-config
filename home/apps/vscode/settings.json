@@ -15,7 +15,7 @@
   "editor.smoothScrolling": true,
   "terminal.integrated.smoothScrolling": true,
   "terminal.integrated.fontSize": 14,
-  "editor.fontFamily": "Cascadia Code, Symbols Nerd Font, monospace",
+  "editor.fontFamily": "Liga Berkeley Mono, Symbols Nerd Font, monospace",
   "editor.fontLigatures": "'calt', 'ss01'",
   "editor.fontSize": 15,
   "editor.formatOnSave": true,

@@ -1,30 +1,19 @@
-{...}: {
+{lib, ...}: {
   programs.starship = {
     enable = true;
+    enableTransience = true;
+    enableFishIntegration = false;
     settings = {
-      scan_timeout = 10;
-      # prompt
-      format = "$directory$git_branch$git_metrics$nix_shell$package$character";
       add_newline = false;
-      line_break.disabled = true;
-      directory.style = "green";
+      format = lib.concatStrings [
+        "$directory"
+        "$character"
+      ];
+      right_format = "$all";
       character = {
-        success_symbol = "[λ](blue)";
-        error_symbol = "[λ](red)";
+        success_symbol = "[λ](bold green)";
+        error_symbol = "[λ](bold red)";
       };
-      # git
-      git_branch = {
-        style = "purple";
-        symbol = "";
-      };
-      git_metrics = {
-        disabled = false;
-        added_style = "bold yellow";
-        deleted_style = "bold red";
-      };
-      # package management
-      package.format = "version [$version](bold green) ";
-      nix_shell.symbol = " ";
     };
   };
 }

@@ -19,14 +19,10 @@
   };
   home.packages = with pkgs; [
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
-    nur.repos.x0ba.inter
-    nur.repos.x0ba.liga-sfmono
-    nur.repos.x0ba.otf-apple
     ia-writer-quattro
     cascadia-code
-    lexend
     inter
     ibm-plex
-    maple-mono
+    roboto-mono
   ];
 }

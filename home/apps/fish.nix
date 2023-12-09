@@ -24,8 +24,14 @@ in {
     };
     shellInit = ''
       set fish_greeting
-      set -U fish_vi_key_bindings
+      set -U fish_key_bindings fish_vi_key_bindings
       set -Ux EDITOR nvim
+      bind -M insert \cf accept-autosuggestion
+      function starship_transient_prompt_func
+        starship module character
+      end
+      starship init fish | source
+      enable_transience
     '';
 
     plugins = [
