@@ -14,6 +14,7 @@ in {
     enable = true;
     extensions = with pkgs.vscode-marketplace; [
       astro-build.astro-vscode
+      ziglang.vscode-zig
       catppuccin.catppuccin-vsc-icons
       github.copilot
       adrianwilczynski.alpine-js-intellisense

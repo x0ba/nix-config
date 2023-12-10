@@ -31,17 +31,11 @@ in {
       nix-your-shell
       nur.repos.x0ba.lutgen
       nur.repos.x0ba.preview
-      pass
-      pfetch-rs
       ripgrep
       sdcv
       sops
-      spicetify-cli
-      statix
-      taskwarrior-tui
       tmux-sessionizer
       trash-cli
-      yt-dlp
     ];
 
     activation = lib.mkIf pkgs.stdenv.isDarwin {

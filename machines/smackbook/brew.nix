@@ -13,40 +13,44 @@
         inherit name;
         args = {require_sha = false;};
       };
+      noQuarantine = name: {
+        inherit name;
+        args = {no_quarantine = true;};
+      };
     in [
       "1password"
-      "appcleaner"
-      "calibre"
-      "lulu"
+      "bitwarden"
       "brave-browser"
-      "tor-browser"
+      "calibre"
       "gimp"
       "iina"
       "imageoptim"
-      "easy-move-plus-resize"
-      "rectangle"
       "jetbrains-toolbox"
       "karabiner-elements"
+      "keka"
       "linearmouse"
+      "little-snitch"
       "macfuse"
       "mullvad-browser"
       "mullvadvpn"
       "obs"
       "obsidian"
-      "orion"
+      "rectangle"
       "skiff"
-      "stats"
+      "tor-browser"
       "uninstallpkg"
       "veracrypt"
       "yubico-authenticator"
       "yubico-yubikey-manager"
+      (noQuarantine "easy-move-plus-resize")
       (skipSha "spotify")
+      (skipSha "element")
 
       # Drivers
       "wacom-tablet"
     ];
     taps = [
-      "homebrew/services"
+      "homebrew/cask"
     ];
   };
 }

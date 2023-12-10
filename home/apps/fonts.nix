@@ -20,6 +20,7 @@
   home.packages = with pkgs; [
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     ia-writer-quattro
+    iosevka-comfy.comfy
     cascadia-code
     inter
     ibm-plex

@@ -3,13 +3,13 @@ local c = wezterm.config_builder()
 require("config.keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-  "Cascadia Code",
+  "Iosevka Comfy",
   "Symbols Nerd Font",
 })
 
 c.front_end = "WebGpu"
-c.line_height = 1.2
-c.font_size = 15
+c.line_height = 1.1
+c.font_size = 16
 c.harfbuzz_features = { "calt=1", "ss01=1" }
 c.command_palette_font_size = c.font_size * 1.1
 c.window_frame = {

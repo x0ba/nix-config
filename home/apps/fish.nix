@@ -19,7 +19,6 @@ in {
       m = "mkdir -p";
       cat = "${pkgs.bat}/bin/bat";
       nv = "${pkgs.neovim}/bin/nvim";
-      fcd = "cd $(find -type d | fzf)";
       rm = "${pkgs.trash-cli}/bin/trash-put";
     };
     shellInit = ''
