@@ -3,7 +3,7 @@
     enable = true;
     settings = {
       font-family = "Liga Berkeley Mono";
-      shell-integration-features = "no-cursor";
+      window-decoration = false;
       window-inherit-working-directory = true;
       unfocused-split-opacity = 0.96;
       font-size = 15;

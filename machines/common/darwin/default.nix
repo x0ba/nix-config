@@ -20,7 +20,7 @@
 
   services = {
     yabai = {
-      enable = false;
+      enable = true;
       package = pkgs.yabai.overrideAttrs (prev: {
         version = "6.0.1";
         src = pkgs.fetchzip {
@@ -110,7 +110,7 @@
         lalt + shift - r : yabai -m space --rotate 270
 
         # open terminal
-        lalt - return : open -na "Ghostty"
+        lalt - return : open -na "WezTerm"
 
         # ONLY WORKS WITH SIP DISABLED:
         # fast focus space left/right

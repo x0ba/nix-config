@@ -3,7 +3,7 @@ local c = wezterm.config_builder()
 require("config.keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-  "Iosevka Comfy",
+  "Liga Berkeley Mono",
   "Symbols Nerd Font",
 })
 
