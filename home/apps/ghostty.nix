@@ -3,6 +3,7 @@
     enable = true;
     settings = {
       font-family = "Liga Berkeley Mono";
+      shell-integration-features = "no-cursor";
       window-inherit-working-directory = true;
       unfocused-split-opacity = 0.96;
       font-size = 15;
@@ -18,7 +19,7 @@
       adjust-font-baseline = 3;
       clipboard-read = "allow";
       clipboard-paste-protection = false;
-      font-feature = ["zero" "ss01" "ss02" "ss03" "ss04" "ss05" "ss06" "calt" "liga"];
+      font-feature = ["zero" "calt" "liga"];
       theme = "catppuccin-mocha";
     };
   };

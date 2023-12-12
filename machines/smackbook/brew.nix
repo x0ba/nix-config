@@ -39,6 +39,7 @@
       "skiff"
       "tor-browser"
       "uninstallpkg"
+      "utm"
       "veracrypt"
       "yubico-authenticator"
       "yubico-yubikey-manager"

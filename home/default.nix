@@ -16,6 +16,7 @@ in {
       age
       gh
       atool
+      xcp
       chafa
       comma
       deadnix
