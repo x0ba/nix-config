@@ -19,7 +19,7 @@
       };
     in [
       "1password"
-      "bitwarden"
+      "appcleaner"
       "brave-browser"
       "calibre"
       "gimp"

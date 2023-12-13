@@ -38,4 +38,10 @@ in {
       source ${config.programs.wezterm.package}/etc/profile.d/wezterm.sh
     fi
   '';
+  programs.fish.interactiveShellInit = ''
+    if test "$TERM_PROGRAM" = "WezTerm"
+        set -gx TERM wezterm
+        source ${config.programs.wezterm.package}/etc/profile.d/wezterm.fish
+    end
+  '';
 }
