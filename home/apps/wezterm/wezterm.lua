@@ -18,7 +18,7 @@ c.window_frame = {
 }
 
 c.window_decorations = "RESIZE"
-c.window_padding = { left = 20, right = 20, top = 20, bottom = 20 }
+c.window_padding = { left = 25, right = 25, top = 25, bottom = 25 }
 c.adjust_window_size_when_changing_font_size = false
 c.audible_bell = "Disabled"
 c.default_cursor_style = "BlinkingBar"
