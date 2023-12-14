@@ -8,6 +8,7 @@ in {
     gopass
     gopass-jsonapi
     yubikey-personalization
+    yubikey-manager
   ];
 
   programs.gpg = {
