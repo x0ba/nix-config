@@ -32,6 +32,7 @@
       "little-snitch"
       "macfuse"
       "mullvad-browser"
+      "raycast"
       "mullvadvpn"
       "obs"
       "obsidian"

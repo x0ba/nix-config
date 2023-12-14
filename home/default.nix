@@ -17,6 +17,7 @@ in {
       gh
       atool
       xcp
+      yubikey-manager
       chafa
       comma
       deadnix

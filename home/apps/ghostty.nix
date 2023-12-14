@@ -15,8 +15,8 @@
       cursor-style-blink = true;
       window-padding-x = 10;
       window-padding-y = 10;
-      adjust-cell-height = 6;
       adjust-font-baseline = 3;
+      adjust-cell-height = 7;
       clipboard-read = "allow";
       clipboard-paste-protection = false;
       font-feature = ["zero" "calt" "liga"];
