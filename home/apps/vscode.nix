@@ -15,34 +15,45 @@ in {
     extensions = with pkgs.vscode-marketplace; [
       astro-build.astro-vscode
       ziglang.vscode-zig
-      catppuccin.catppuccin-vsc-icons
-      github.copilot
-      adrianwilczynski.alpine-js-intellisense
-      antfu.icons-carbon
-      dbaeumer.vscode-eslint
-      denoland.vscode-deno
-      esbenp.prettier-vscode
-      github.copilot
-      github.vscode-pull-request-github
-      golang.go
-      jnoortheen.nix-ide
-      kamadorueda.alejandra
-      mikestead.dotenv
-      mkhl.direnv
-      ms-kubernetes-tools.vscode-kubernetes-tools
-      pkief.material-icon-theme
-      redhat.vscode-yaml
-      rust-lang.rust-analyzer
       ms-vscode-remote.remote-ssh
       ms-vscode-remote.remote-ssh-edit
       ms-vscode.remote-explorer
-      sumneko.lua
       ms-azuretools.vscode-docker
+      adrianwilczynski.alpine-js-intellisense
+      antfu.icons-carbon
+      astro-build.astro-vscode
+      bradlc.vscode-tailwindcss
+      catppuccin.catppuccin-vsc-icons
+      charliermarsh.ruff
+      dbaeumer.vscode-eslint
+      denoland.vscode-deno
+      dhall.dhall-lang
+      dhall.vscode-dhall-lsp-server
+      eamodio.gitlens
+      editorconfig.editorconfig
+      esbenp.prettier-vscode
+      github.copilot
+      github.vscode-pull-request-github
+      gitlab.gitlab-workflow
+      golang.go
+      graphql.vscode-graphql-syntax
+      jnoortheen.nix-ide
+      kamadorueda.alejandra
+      leonardssh.vscord
+      mads-hartmann.bash-ide-vscode
+      mikestead.dotenv
+      mkhl.direnv
+      mkhl.shfmt
+      pkief.material-icon-theme
+      redhat.vscode-yaml
+      rust-lang.rust-analyzer
+      serayuzgur.crates
+      sumneko.lua
       tamasfe.even-better-toml
       tomoki1207.pdf
       unifiedjs.vscode-mdx
+      usernamehw.errorlens
       vscodevim.vim
-      webfreak.code-d
     ];
     mutableExtensionsDir = true;
   };
