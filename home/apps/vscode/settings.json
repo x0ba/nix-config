@@ -15,13 +15,13 @@
   "editor.smoothScrolling": true,
   "terminal.integrated.smoothScrolling": true,
   "terminal.integrated.fontSize": 14,
-  "editor.fontFamily": "Liga Berkeley Mono, Symbols Nerd Font, monospace",
-  "editor.fontLigatures": "'calt', 'ss14'",
+  "editor.fontFamily": "Cascadia Code, Symbols Nerd Font, monospace",
+  "editor.fontLigatures": "'calt', 'ss01'",
   "editor.fontSize": 15,
   "editor.formatOnSave": true,
   "editor.guides.bracketPairs": true,
   "editor.inlayHints.enabled": "onUnlessPressed",
-  "editor.inlayHints.fontSize": 12,
+  "editor.inlayHints.fontSize": 10,
   "editor.inlayHints.padding": true,
   "editor.inlineSuggest.enabled": true,
   "editor.lineNumbers": "relative",
@@ -119,8 +119,13 @@
   "vim.highlightedyank.enable": true,
   "vim.hlsearch": true,
   "vim.incsearch": true,
-  "vim.insertModeKeyBindings": [],
   "vim.leader": "<space>",
+  "vim.insertModeKeyBindingsNonRecursive": [
+    {
+      "before": ["j", "j"],
+      "after": ["<esc>"]
+    }
+  ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {
       "before": ["r", "h"],
@@ -217,8 +222,5 @@
   "vscord.status.image.small.editing.key": "https://cdn.discordapp.com/emojis/886512498772168755.gif",
   "vscord.status.image.small.editing.text": "hecking",
   "vscord.status.image.small.viewing.key": "https://cdn.discordapp.com/emojis/903437275881439285.png",
-  "vscord.status.image.small.viewing.text": "looking",
-  "zig.path": "",
-  "zig.zls.path": "",
-  "zig.initialSetupDone": true
+  "vscord.status.image.small.viewing.text": "looking"
 }
