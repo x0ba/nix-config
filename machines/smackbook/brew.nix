@@ -31,19 +31,16 @@
       "linearmouse"
       "little-snitch"
       "macfuse"
-      "mullvad-browser"
       "raycast"
       "mullvadvpn"
       "obs"
       "obsidian"
       "rectangle"
       "skiff"
-      "tor-browser"
       "uninstallpkg"
       "utm"
       "veracrypt"
       "yubico-authenticator"
-      "yubico-yubikey-manager"
       (noQuarantine "easy-move-plus-resize")
       (skipSha "spotify")
       (skipSha "element")
