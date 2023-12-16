@@ -31,15 +31,17 @@
       "linearmouse"
       "little-snitch"
       "macfuse"
-      "raycast"
       "mullvadvpn"
       "obs"
       "obsidian"
+      "raycast"
       "rectangle"
       "skiff"
+      "tor-browser"
       "uninstallpkg"
       "utm"
       "veracrypt"
+      "vivaldi"
       "yubico-authenticator"
       (noQuarantine "easy-move-plus-resize")
       (skipSha "spotify")

@@ -18,6 +18,7 @@ in {
       atool
       xcp
       chafa
+      curl
       comma
       deadnix
       elinks
