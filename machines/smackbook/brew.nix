@@ -41,7 +41,6 @@
       "uninstallpkg"
       "utm"
       "veracrypt"
-      "vivaldi"
       "yubico-authenticator"
       (noQuarantine "easy-move-plus-resize")
       (skipSha "spotify")
