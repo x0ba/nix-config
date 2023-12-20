@@ -25,6 +25,7 @@ in {
       exiftool
       fd
       file
+      pfetch-rs
       git-crypt
       git-lfs
       glow

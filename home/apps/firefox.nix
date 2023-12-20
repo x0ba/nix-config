@@ -12,9 +12,9 @@ in {
     package = pkgs.lib.mkIf isDarwin (pkgs.writeScriptBin "__dummy-firefox" "");
     profiles.default = {
       search = {
-        default = "Searxng";
+        default = "Brave";
         engines = {
-          "Searxng".urls = [{template = " https://se.x0ba.lol/search?q={searchTerms}";}];
+          "Brave".urls = [{template = "https://search.brave.com/search?q={searchTerms}";}];
         };
         force = true;
       };

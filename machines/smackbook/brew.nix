@@ -21,6 +21,8 @@
       "1password"
       "appcleaner"
       "brave-browser"
+      "knockknock"
+      "firefox"
       "calibre"
       "gimp"
       "iina"
