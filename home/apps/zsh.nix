@@ -120,6 +120,22 @@ in {
         # switch between yubikeys for the same GPG key
         switch_yubikeys = ''gpg-connect-agent "scd serialno" "learn --force" "/bye"'';
       };
+      oh-my-zsh = {
+        enable = true;
+        plugins =
+          [
+            "colored-man-pages"
+            "colorize"
+            "docker"
+            "docker-compose"
+            "git"
+            "kubectl"
+          ]
+          ++ lib.optionals pkgs.stdenv.isDarwin [
+            "dash"
+            "macos"
+          ];
+      };
       plugins = with pkgs; (zshPlugins [
         {
           src = zsh-vi-mode.overrideAttrs (old: {
