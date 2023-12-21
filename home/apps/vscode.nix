@@ -24,7 +24,6 @@ in {
       astro-build.astro-vscode
       bradlc.vscode-tailwindcss
       catppuccin.catppuccin-vsc-icons
-      charliermarsh.ruff
       dbaeumer.vscode-eslint
       denoland.vscode-deno
       dhall.dhall-lang

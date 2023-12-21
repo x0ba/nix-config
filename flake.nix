@@ -145,6 +145,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ghostty.url = "github:clo4/ghostty-hm-module";
+    schizofox.url = "github:schizofox/schizofox";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-utils.url = "github:numtide/flake-utils";

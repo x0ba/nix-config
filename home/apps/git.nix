@@ -36,11 +36,7 @@
       ".envrc"
     ];
 
-    package = pkgs.symlinkJoin {
-      name = "git";
-      paths = [pkgs.git];
-      postBuild = "rm $out/etc/gitconfig";
-    };
+    package = pkgs.git.override {osxkeychainSupport = false;};
 
     extraConfig = {
       credential.helper = "gopass";

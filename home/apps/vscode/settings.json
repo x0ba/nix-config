@@ -21,7 +21,7 @@
   "editor.formatOnSave": true,
   "editor.guides.bracketPairs": true,
   "editor.inlayHints.enabled": "onUnlessPressed",
-  "editor.inlayHints.fontSize": 8,
+  "editor.inlayHints.fontSize": 10,
   "editor.inlayHints.padding": true,
   "editor.inlineSuggest.enabled": true,
   "editor.lineNumbers": "relative",

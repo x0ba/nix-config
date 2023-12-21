@@ -21,9 +21,8 @@
       "1password"
       "appcleaner"
       "brave-browser"
-      "knockknock"
-      "firefox"
       "calibre"
+      "firefox"
       "gimp"
       "iina"
       "imageoptim"
@@ -44,6 +43,7 @@
       "utm"
       "veracrypt"
       "yubico-authenticator"
+      "yubico-yubikey-manager"
       (noQuarantine "easy-move-plus-resize")
       (skipSha "spotify")
       (skipSha "element")

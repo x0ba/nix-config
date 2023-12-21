@@ -21,13 +21,6 @@
   services = {
     yabai = {
       enable = true;
-      # package = pkgs.yabai.overrideAttrs (prev: {
-      #   version = "6.0.1";
-      #   src = pkgs.fetchzip {
-      #     inherit (prev.src) url;
-      #     hash = "sha256-CXkGVoJcGSkooxe7eIhwaM6FkOI45NVw5jdLJAzgFBM=";
-      #   };
-      # });
       enableScriptingAddition = true;
       logFile = "/var/tmp/yabai.log";
       config = {
@@ -37,9 +30,6 @@
         mouse_drop_action = "swap";
         mouse_follows_focus = "off";
         window_animation_duration = "0.0";
-        window_border = "on";
-        window_border_blur = "on";
-        window_border_width = 2;
         window_gap = 5;
         left_padding = 5;
         right_padding = 5;
@@ -48,9 +38,6 @@
         window_origin_display = "default";
         window_placement = "second_child";
         window_shadow = "float";
-        active_window_border_color = "0xfff5c2e7";
-
-        normal_window_border_color = "0xffcba6f7";
       };
       extraConfig = let
         rule = "yabai -m rule --add";
