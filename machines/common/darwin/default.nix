@@ -54,7 +54,7 @@
         yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
 
         # etc.
-        ${rule} manage=off border=off app="CleanShot"
+        yabai -m rule --add app="CleanShot X" manage=off mouse_follows_focus=off
         ${rule} manage=off sticky=on  app="OBS Studio"
       '';
     };

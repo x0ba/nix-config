@@ -20,7 +20,7 @@ in {
       };
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         multi-account-containers
-        onepassword-password-manager
+        bitwarden
         temporary-containers
         ublock-origin
         vimium

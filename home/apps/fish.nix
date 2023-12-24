@@ -19,6 +19,7 @@ in {
       commit = "git add . && git commit -m";
 
       nv = "nvim";
+      nm = "neomutt";
 
       n = "nix";
       nd = "nix develop -c $SHELL";
@@ -45,6 +46,7 @@ in {
       cat = "${pkgs.bat}/bin/bat";
       nv = "${pkgs.neovim}/bin/nvim";
       rm = "${pkgs.trash-cli}/bin/trash-put";
+      backup = "${pkgs.restic}/bin/restic backup ~/Documents/ ~/Desktop ~/Pictures/ ~/.local/share/gopass";
       # Clear screen and scrollback
       clear = "printf '\\033[2J\\033[3J\\033[1;1H'";
     };

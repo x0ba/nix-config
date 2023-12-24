@@ -68,7 +68,9 @@
         };
 
         devShells.default = config.pre-commit.devShell.overrideAttrs (_old: {
-          buildInputs = with pkgs; [gum just nix-output-monitor nvd sops];
+          buildInputs = with pkgs;
+            [alejandra just nil nix-output-monitor nvd]
+            ++ lib.optionals stdenv.isDarwin [inputs.darwin.packages.${system}.darwin-rebuild];
         });
 
         legacyPackages.homeConfigurations = let
@@ -133,7 +135,7 @@
 
     stylix.url = "github:danth/stylix";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-    nix-index-database.url = "github:Mic92/nix-index-database";
+    nix-index-database.url = "github:nix-community/nix-index-database";
     sops = {
       url = "github:Mic92/sops-nix/1c673ba1053ad3e421fe043702237497bda0c621";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -145,7 +147,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ghostty.url = "github:clo4/ghostty-hm-module";
-    schizofox.url = "github:schizofox/schizofox";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-utils.url = "github:numtide/flake-utils";

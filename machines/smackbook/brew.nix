@@ -18,21 +18,23 @@
         args = {no_quarantine = true;};
       };
     in [
-      "1password"
+      # "1password"
       "appcleaner"
-      "brave-browser"
+      "bitwarden"
       "calibre"
       "firefox"
       "gimp"
       "iina"
       "imageoptim"
+      "proton-drive"
       "jetbrains-toolbox"
       "karabiner-elements"
       "keka"
       "linearmouse"
       "little-snitch"
       "macfuse"
-      "mullvadvpn"
+      "protonvpn"
+      "insomnia"
       "obs"
       "obsidian"
       "raycast"
@@ -40,12 +42,14 @@
       "skiff"
       "tor-browser"
       "uninstallpkg"
+      "tailscale"
       "utm"
       "veracrypt"
       "yubico-authenticator"
       "yubico-yubikey-manager"
       (noQuarantine "easy-move-plus-resize")
       (skipSha "spotify")
+      (skipSha "protonmail-bridge")
       (skipSha "element")
 
       # Drivers

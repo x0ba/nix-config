@@ -7,8 +7,8 @@
   extraSpecialArgs = {
     flakePath =
       if pkgs.stdenv.isDarwin
-      then "/Users/${username}/.config/nixpkgs"
-      else "/home/${username}/.config/nixpkgs";
+      then "/Users/${username}/.config/flake"
+      else "/home/${username}/.config/flake";
     inherit inputs;
   };
   hmStandaloneConfig = let
@@ -29,7 +29,6 @@
       nix-index-database.hmModules.nix-index
       ghostty.homeModules.default
       caarlos0-nur.homeManagerModules.default
-      schizofox.homeManagerModules.default
       sops.homeManagerModules.sops
       stylix.homeManagerModules.stylix
       x0ba-nur.homeManagerModules.default

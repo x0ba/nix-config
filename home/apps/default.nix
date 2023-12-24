@@ -2,7 +2,6 @@
   imports = [
     ./ghostty.nix
     ./discord.nix
-    ./discord.nix
     ./firefox.nix
     ./fish.nix
     ./fonts.nix
