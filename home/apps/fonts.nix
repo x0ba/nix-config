@@ -20,6 +20,7 @@
   home.packages = with pkgs; [
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     ia-writer-quattro
+    scientifica
     nur.repos.x0ba.fragment-mono
     monaspace
     jetbrains-mono

@@ -16,7 +16,7 @@
   "terminal.integrated.smoothScrolling": true,
   "terminal.integrated.fontSize": 14,
   "editor.fontFamily": "Cascadia Code, Symbols Nerd Font, monospace",
-  "editor.fontLigatures": "'calt' 'ss01'",
+  "editor.fontLigatures": "'calt', 'ss01'",
   "editor.fontSize": 15,
   "editor.formatOnSave": true,
   "editor.guides.bracketPairs": true,
@@ -31,6 +31,7 @@
   "extensions.ignoreRecommendations": true,
   "git.autofetch": true,
   "git.openRepositoryInParentFolders": "never",
+  "githubPullRequests.pullBranch": "always",
   "ltex.additionalRules.enablePickyRules": true,
   "ltex.additionalRules.motherTongue": "de-AT",
   "markdown.preview.fontFamily": "IBM Plex Sans, sans-serif",
@@ -43,7 +44,7 @@
   },
   "window.autoDetectColorScheme": true,
   "window.titleBarStyle": "custom",
-  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.colorTheme": "Rosé Pine",
   "workbench.iconTheme": "catppuccin-mocha",
   "workbench.layoutControl.enabled": false,
   "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
@@ -205,5 +206,6 @@
   "vscord.status.image.small.viewing.key": "https://cdn.discordapp.com/emojis/903437275881439285.png",
   "vscord.status.image.small.viewing.text": "looking",
   "git.enableSmartCommit": true,
-  "window.commandCenter": false
+  "window.commandCenter": false,
+  "editor.fontVariations": false
 }

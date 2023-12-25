@@ -21,7 +21,7 @@
       "appcleaner"
       "bitwarden"
       "calibre"
-      "firefox"
+      "eloston-chromium"
       "gimp"
       "iina"
       "imageoptim"
@@ -34,6 +34,8 @@
       "macfuse"
       "obs"
       "obsidian"
+      "onionshare"
+      "orion"
       "proton-drive"
       "protonvpn"
       "raycast"
@@ -43,7 +45,6 @@
       "yubico-authenticator"
       "yubico-yubikey-manager"
       (skipSha "spotify")
-      (skipSha "protonmail-bridge")
       (skipSha "element")
 
       # Drivers

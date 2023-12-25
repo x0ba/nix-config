@@ -18,6 +18,8 @@ in {
       gaa = "git add .";
       commit = "git add . && git commit -m";
 
+      switch_yubikeys = ''gpg-connect-agent "scd serialno" "learn --force" "/bye"'';
+
       nv = "nvim";
       nm = "neomutt";
 
@@ -29,13 +31,6 @@ in {
       nbn = "nix build nixpkgs#";
       nf = "nix flake";
 
-      nr = "nixos-rebuild --flake .";
-      nrs = "nixos-rebuild --flake . switch";
-      snr = "sudo nixos-rebuild --flake .";
-      snrs = "sudo nixos-rebuild --flake . switch";
-      hm = "home-manager --flake .";
-      hms = "home-manager --flake . switch";
-
       mutt = "neomutt";
     };
     shellAliases = {
@@ -46,13 +41,14 @@ in {
       cat = "${pkgs.bat}/bin/bat";
       nv = "${pkgs.neovim}/bin/nvim";
       rm = "${pkgs.trash-cli}/bin/trash-put";
-      backup = "${pkgs.restic}/bin/restic backup ~/Documents/ ~/Desktop ~/Pictures/ ~/.local/share/gopass";
+      backup = "${pkgs.restic}/bin/restic backup ~/Documents/ ~/Desktop ~/Pictures/ ~/.local/share/gopass ~/Library/Keychains";
       # Clear screen and scrollback
       clear = "printf '\\033[2J\\033[3J\\033[1;1H'";
     };
     interactiveShellInit = ''
       bind \ee edit_command_buffer
       bind -M insert \cf accept-autosuggestion
+      ${pkgs.nix-your-shell}/bin/nix-your-shell fish | source
 
       set fish_greeting
 

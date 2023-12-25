@@ -13,13 +13,15 @@ in {
   ];
   home.activation.discordSettings = let
     css = ''
+      @import url("https://raw.githubusercontent.com/rose-pine/discord/main/rose-pine.theme.css") (prefers-color-scheme: dark);
+      @import url("https://catppuccin.github.io/discord/dist/catppuccin-latte-lavender.theme.css") (prefers-color-scheme: light);
       @import url(//dablulite.github.io/css-snippets/ConsistentChatbar/import.css);
 
       :root {
         --font-primary: "IBM Plex Sans", sans-serif;
         --font-headline: "IBM Plex Sans", sans-serif;
         --font-display: "IBM Plex Sans", sans-serif;
-        --font-code: "JetBrains Mono", "Symbols Nerd Font", mono;
+        --font-code: "Cascadia Code", "Symbols Nerd Font", mono;
       }
 
       @media (max-width: 1024px) {

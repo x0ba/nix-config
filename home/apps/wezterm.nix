@@ -14,10 +14,6 @@ in {
       source = mkSymlink "config";
       recursive = true;
     };
-    "wezterm/colors" = {
-      source = mkSymlink "colors";
-      recursive = true;
-    };
     "wezterm/bar".source = pkgs.fetchFromGitHub {
       owner = "nekowinston";
       repo = "wezterm-bar";
@@ -29,6 +25,12 @@ in {
       repo = "wezterm";
       sha256 = "sha256-McSWoZaJeK+oqdK/0vjiRxZGuLBpEB10Zg4+7p5dIGY=";
       rev = "b1a81bae74d66eaae16457f2d8f151b5bd4fe5da";
+    };
+    "wezterm/rose-pine".source = pkgs.fetchFromGitHub {
+      owner = "neapsix";
+      repo = "wezterm";
+      sha256 = "sha256-yKAdZa1NotM+w8q1u2N2oxxfBo3YcoS5ZdRr+retAB0=";
+      rev = "8f14b2017478e8cdb65a54ade169680a9a45a51a";
     };
   };
 
