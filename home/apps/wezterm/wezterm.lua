@@ -28,7 +28,8 @@ c.adjust_window_size_when_changing_font_size = false
 c.audible_bell = "Disabled"
 c.default_cursor_style = "SteadyBlock"
 c.inactive_pane_hsb = { brightness = 0.90 }
-c.use_fancy_tab_bar = false
+c.use_fancy_tab_bar = true
+c.hide_tab_bar_if_only_one_tab = true
 
 -- require("bar.plugin").apply_to_config(c)
 -- require("catppuccin.plugin").apply_to_config(c, {

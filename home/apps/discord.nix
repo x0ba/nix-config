@@ -13,37 +13,11 @@ in {
   ];
   home.activation.discordSettings = let
     css = ''
-      @import url("https://raw.githubusercontent.com/rose-pine/discord/main/rose-pine.theme.css") (prefers-color-scheme: dark);
-      @import url("https://catppuccin.github.io/discord/dist/catppuccin-latte-lavender.theme.css") (prefers-color-scheme: light);
-      @import url(//dablulite.github.io/css-snippets/ConsistentChatbar/import.css);
-
       :root {
         --font-primary: "IBM Plex Sans", sans-serif;
         --font-headline: "IBM Plex Sans", sans-serif;
         --font-display: "IBM Plex Sans", sans-serif;
         --font-code: "Cascadia Code", "Symbols Nerd Font", mono;
-      }
-
-      @media (max-width: 1024px) {
-        nav[aria-label="Servers sidebar"] {
-          display: none;
-        }
-        .platform-osx div[class^="base_"] > div[class^="content_"] > div[class^="sidebar_"],
-        .platform-osx div[class^="base_"] > div[class^="content_"] > main[class^="container_"],
-        .platform-osx div[class^="base_"] > div[class^="content_"] > div[class^="chat_"] {
-          padding-top: 32px !important;
-        }
-      }
-
-      @media (max-width: 768px) {
-        div[class^="base_"] > div[class^="content_"] > div[class^="sidebar_"] {
-          display: none;
-        }
-      }
-
-      main[class^="chatContent_"] form div[class^="buttons_"],
-      main[class^="chatContent_"] form div[class^="attachWrapper_"] {
-        display: none;
       }
     '';
     json = pkgs.writeTextFile {
