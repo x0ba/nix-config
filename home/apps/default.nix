@@ -8,7 +8,6 @@
     ./git.nix
     ./gpg.nix
     ./lf.nix
-    ./mail.nix
     ./media.nix
     ./neovim.nix
     ./starship.nix

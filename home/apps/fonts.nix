@@ -21,13 +21,9 @@
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     ia-writer-quattro
     scientifica
-    nur.repos.x0ba.fragment-mono
-    monaspace
-    jetbrains-mono
-    iosevka-comfy.comfy
+    maple-mono
     cascadia-code
     inter
     ibm-plex
-    roboto-mono
   ];
 }
