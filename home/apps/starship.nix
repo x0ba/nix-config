@@ -9,7 +9,7 @@
       right_format = "$directory$git_branch$git_commit$git_state$git_status";
 
       character = {
-        success_symbol = "[λ](bold blue)";
+        success_symbol = "[λ](bold green)";
         error_symbol = "[λ](bold red)";
         vimcmd_symbol = "[](bold purple)";
         vimcmd_replace_symbol = "[](bold green)";
