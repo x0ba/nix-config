@@ -63,6 +63,7 @@
             editorconfig-checker.enable = true;
             luacheck.enable = true;
             nil.enable = true;
+            shellcheck.enable = true;
             stylua.enable = true;
           };
         };
