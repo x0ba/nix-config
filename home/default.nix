@@ -11,32 +11,29 @@ in {
   home = {
     packages = with pkgs; [
       age
-      gh
-      restic
       atool
-      xcp
       chafa
-      curl
       comma
       deadnix
-      elinks
       exiftool
       fd
       file
-      pfetch-rs
+      gh
       git-crypt
       git-lfs
       glow
-      jq
+      gocryptfs
       just
-      nix-your-shell
+      mosh
+      nix-output-monitor
       nur.repos.x0ba.lutgen
       nur.repos.x0ba.preview
+      nvd
       ripgrep
-      sdcv
       sops
-      tmux-sessionizer
       trash-cli
+      wakatime
+      watchexec
     ];
 
     sessionVariables = lib.mkIf isDarwin {
@@ -50,4 +47,7 @@ in {
     man.enable = true;
     taskwarrior.enable = true;
   };
+
+  sops.secrets."sshconfig".path = "${config.home.homeDirectory}/.ssh/config";
+  sops.secrets."wakatime-cfg".path = "${config.xdg.configHome}/wakatime/.wakatime.cfg";
 }

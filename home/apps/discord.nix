@@ -14,10 +14,10 @@ in {
   home.activation.discordSettings = let
     css = ''
       :root {
-        --font-primary: "IBM Plex Sans", sans-serif;
-        --font-headline: "IBM Plex Sans", sans-serif;
-        --font-display: "IBM Plex Sans", sans-serif;
-        --font-code: "Cascadia Code", "Symbols Nerd Font", mono;
+        --font-primary: "Geist", sans-serif;
+        --font-headline: "Geist", sans-serif;
+        --font-display: "Geist", sans-serif;
+        --font-code: "Geist Mono", "Symbols Nerd Font", mono;
       }
     '';
     json = pkgs.writeTextFile {

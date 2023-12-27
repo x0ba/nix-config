@@ -20,10 +20,10 @@
   home.packages = with pkgs; [
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     ia-writer-quattro
-    scientifica
-    maple-mono
+    nur.repos.x0ba.geist-mono
+    nur.repos.x0ba.geist-sans
+    monaspace
     cascadia-code
-    inter
     ibm-plex
   ];
 }

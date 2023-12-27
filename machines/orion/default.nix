@@ -1,8 +1,8 @@
 {
   imports = [./brew.nix];
 
-  networking.computerName = "smackbook";
-  networking.hostName = "smackbook";
+  networking.computerName = "orion";
+  networking.hostName = "orion";
 
   nix.settings.extra-platforms = [
     "aarch64-darwin"

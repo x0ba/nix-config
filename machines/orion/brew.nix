@@ -19,9 +19,11 @@
       };
     in [
       "appcleaner"
+      "arc"
       "bitwarden"
       "calibre"
       "eloston-chromium"
+      "floorp"
       "gimp"
       "iina"
       "imageoptim"
@@ -34,7 +36,6 @@
       "macfuse"
       "obs"
       "obsidian"
-      "onionshare"
       "orion"
       "proton-drive"
       "protonvpn"
@@ -45,6 +46,7 @@
       "yubico-authenticator"
       "yubico-yubikey-manager"
       (skipSha "spotify")
+      (skipSha "steam")
       (skipSha "element")
 
       # Drivers

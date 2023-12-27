@@ -27,18 +27,18 @@
     {
       flake = mkSystems [
         {
-          host = "smackbook";
+          host = "orion";
           system = "aarch64-darwin";
           username = "daniel";
           extraModules = [inputs.x0ba-nur.darwinModules.default];
         }
         {
-          host = "oven";
+          host = "draco";
           system = "x86_64-linux";
           username = "daniel";
         }
         {
-          host = "fridge";
+          host = "andromeda";
           system = "x86_64-linux";
           username = "daniel";
         }

@@ -6,7 +6,7 @@
   imports = [./hardware.nix];
 
   networking = {
-    hostName = "oven";
+    hostName = "draco";
     networkmanager.enable = true;
     firewall.enable = true;
   };

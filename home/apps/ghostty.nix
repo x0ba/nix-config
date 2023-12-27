@@ -2,7 +2,7 @@
   programs.ghostty = {
     enable = true;
     settings = {
-      font-family = "Liga Berkeley Mono";
+      font-family = "Maple Mono";
       window-decoration = false;
       window-inherit-working-directory = true;
       unfocused-split-opacity = 0.96;
@@ -20,7 +20,7 @@
       clipboard-read = "allow";
       clipboard-paste-protection = false;
       font-feature = ["zero" "calt" "liga"];
-      theme = "catppuccin-mocha";
+      theme = "rose-pine";
     };
   };
 }

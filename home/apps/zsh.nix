@@ -25,8 +25,29 @@ in {
       };
     };
 
+    direnv.enable = true;
+    direnv.nix-direnv.enable = true;
+
     fzf = {
       enable = true;
+      colors = {
+        fg = "#e0def4";
+        "fg+" = "#e0def4";
+        hl = "#eb6f92";
+        "hl+" = "#eb6f92";
+        header = "#eb6f92";
+        info = "#c4a7e7";
+        marker = "#ebbcba";
+        pointer = "#ebbcba";
+        prompt = "#c4a7e7";
+        spinner = "#ebbcba";
+      };
+      defaultOptions = ["--height=30%" "--layout=reverse" "--info=inline"];
+    };
+
+    lsd = {
+      enable = true;
+      enableAliases = true;
     };
 
     nix-index.enable = true;
@@ -47,22 +68,10 @@ in {
 
     zoxide = {
       enable = true;
-      enableZshIntegration = true;
-      enableFishIntegration = true;
       options = ["--cmd cd"];
     };
 
     bat.enable = true;
-
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
-
-    lsd = {
-      enable = true;
-      enableAliases = true;
-    };
 
     zsh = {
       dotDir = ".config/zsh";
@@ -114,7 +123,6 @@ in {
             "docker"
             "docker-compose"
             "git"
-            "kubectl"
           ]
           ++ lib.optionals pkgs.stdenv.isDarwin [
             "dash"
