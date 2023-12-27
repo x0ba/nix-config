@@ -15,9 +15,9 @@ Here's what you can find:
 - **[Neovim](https://neovim.io)** as my tui editor & my JetBrains IdeaVim config
 - **[Taskwarrior](https://taskwarrior.org)** for task management
 - **[Starship](https://starship.rs)** as my prompt
-- **Firefox** with privacy-centered settings, though I've been using [Ungoogled Chromium](https://github.com/ungoogled-software/ungoogled-chromium) as my main browser recently
 - Other random bits of config tools I've collected over the years
-- The **[Catppuccin](https://github.com/catppuccin/catppuccin)** theme, wherever possible
+- **Firefox** with privacy-centered settings, though I've been using [Arc](https://arc.net) as my main browser recently
+- The **[Rose Pine](rosepinetheme.com)** theme, wherever possible
 - macOS:
   - **[Yabai](https://github.com/koekeishiya/yabai)** as my WM
 - Linux:
