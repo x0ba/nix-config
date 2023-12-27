@@ -5,17 +5,17 @@ local window_frame = require("rose-pine/lua/rose-pine").window_frame()
 require("config.keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-  "Geist Mono",
+  "IBM Plex Mono",
   "Symbols Nerd Font",
 })
 
 c.front_end = "WebGpu"
 c.line_height = 1.2
 c.font_size = 15
-c.harfbuzz_features = { "calt=1", "ss01=1" }
+c.harfbuzz_features = { "calt=1" }
 c.command_palette_font_size = c.font_size * 1.1
 c.window_frame = {
-  font = wezterm.font("Geist"),
+  font = wezterm.font("IBM Plex Sans"),
   font_size = c.font_size,
 }
 
