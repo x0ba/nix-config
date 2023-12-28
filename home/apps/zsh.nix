@@ -15,8 +15,32 @@
       inherit (plugin) file src;
     })
     plugins);
+  catppuccin-zsh-fsh = pkgs.stdenvNoCC.mkDerivation {
+    name = "catppuccin-zsh-fsh";
+    src = pkgs.fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "zsh-fsh";
+      rev = "7cdab58bddafe0565f84f6eaf2d7dd109bd6fc18";
+      sha256 = "sha256-31lh+LpXGe7BMZBhRWvvbOTkwjOM77FPNaGy6d26hIA=";
+    };
+    phases = ["buildPhase"];
+    buildPhase = ''
+      mkdir -p $out/share/zsh/site-functions/themes
+      ls $src/themes
+      cp $src/themes/* $out/share/zsh/site-functions/themes/
+    '';
+  };
 in {
   programs = {
+    atuin = {
+      enable = true;
+      flags = ["--disable-up-arrow"];
+      settings = {
+        inline_height = 30;
+        style = "compact";
+      };
+    };
+
     btop = {
       enable = true;
       settings = {
@@ -31,16 +55,16 @@ in {
     fzf = {
       enable = true;
       colors = {
-        fg = "#e0def4";
-        "fg+" = "#e0def4";
-        hl = "#eb6f92";
-        "hl+" = "#eb6f92";
-        header = "#eb6f92";
-        info = "#c4a7e7";
-        marker = "#ebbcba";
-        pointer = "#ebbcba";
-        prompt = "#c4a7e7";
-        spinner = "#ebbcba";
+        fg = "#cdd6f4";
+        "fg+" = "#cdd6f4";
+        hl = "#f38ba8";
+        "hl+" = "#f38ba8";
+        header = "#ff69b4";
+        info = "#cba6f7";
+        marker = "#f5e0dc";
+        pointer = "#f5e0dc";
+        prompt = "#cba6f7";
+        spinner = "#f5e0dc";
       };
       defaultOptions = ["--height=30%" "--layout=reverse" "--info=inline"];
     };
@@ -71,7 +95,26 @@ in {
       options = ["--cmd cd"];
     };
 
-    bat.enable = true;
+    bat = let
+      src = pkgs.fetchFromGitHub {
+        owner = "catppuccin";
+        repo = "bat";
+        rev = "ba4d16880d63e656acced2b7d4e034e4a93f74b1";
+        sha256 = "sha256-6WVKQErGdaqb++oaXnY3i6/GuH2FhTgK0v4TN4Y0Wbw=";
+      };
+    in {
+      enable = true;
+      themes = {
+        "catppuccin-latte" = {
+          inherit src;
+          file = "Catppuccin-latte.tmTheme";
+        };
+        "catppuccin-frappe" = {
+          inherit src;
+          file = "Catppuccin-frappe.tmTheme";
+        };
+      };
+    };
 
     zsh = {
       dotDir = ".config/zsh";
@@ -95,20 +138,15 @@ in {
           source "$script"
         done
         bindkey '^F' autosuggest-accept
-        bindkey '^[[A' history-substring-search-up
-        bindkey '^[[B' history-substring-search-down
-        bindkey -M vicmd 'k' history-substring-search-up
-        bindkey -M vicmd 'j' history-substring-search-down
       '';
       envExtra = ''
         export LESSHISTFILE="-"
-        export MANPAGER='nvim +Man!'
-        export EDITOR='nvim'
       '';
       shellAliases = {
         mv = "mv -i";
         cp = "cp -i";
         tree = "${pkgs.lsd}/bin/lsd --tree";
+        cat = "${pkgs.bat}/bin/bat --theme='catppuccin-frappe'";
         nv = "${pkgs.neovim}/bin/nvim";
         rm = "${pkgs.trash-cli}/bin/trash-put";
         # switch between yubikeys for the same GPG key
@@ -141,12 +179,8 @@ in {
           file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
         }
         {
-          src = fzf-zsh;
-          file = "share/fzf-zsh/fzf-zsh.plugin.zsh";
-        }
-        {
-          src = zsh-history-substring-search;
-          file = "share/zsh-history-substring-search/zsh-history-substring-search.zsh";
+          src = zsh-fzf-tab;
+          file = "share/fzf-tab/fzf-tab.plugin.zsh";
         }
         {
           src = zsh-nix-shell;
@@ -168,6 +202,7 @@ in {
   };
 
   xdg.configFile = {
+    "fsh".source = "${catppuccin-zsh-fsh}/share/zsh/site-functions/themes";
     "zsh/functions" = symlink "home/apps/zsh/functions" {recursive = true;};
     "lsd" = symlink "home/apps/lsd" {recursive = true;};
   };

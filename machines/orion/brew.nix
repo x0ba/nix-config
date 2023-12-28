@@ -15,13 +15,13 @@ in {
     enable = true;
     caskArgs.require_sha = true;
     casks = [
+      "1password"
       "appcleaner"
-      "arc"
       "bitwarden"
+      "brave-browser"
       "calibre"
       (noQuarantine "easy-move-plus-resize")
       (skipSha "element")
-      "eloston-chromium"
       "gimp"
       "iina"
       "imageoptim"

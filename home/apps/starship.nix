@@ -51,7 +51,7 @@
       };
 
       battery.disabled = true;
-      line_break.disabled = true;
+      line_break.disabled = false;
 
       directory = {
         read_only = "(ro)";
