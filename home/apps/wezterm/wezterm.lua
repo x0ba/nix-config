@@ -6,7 +6,6 @@ c.font = wezterm.font_with_fallback({
   "Liga Berkeley Mono",
   "Symbols Nerd Font",
 })
-
 c.front_end = "WebGpu"
 c.line_height = 1.2
 c.font_size = 15
@@ -23,7 +22,6 @@ c.adjust_window_size_when_changing_font_size = false
 c.audible_bell = "Disabled"
 c.default_cursor_style = "BlinkingBar"
 c.inactive_pane_hsb = { brightness = 0.90 }
-c.use_fancy_tab_bar = true
 
 require("bar.plugin").apply_to_config(c)
 require("catppuccin.plugin").apply_to_config(c, {

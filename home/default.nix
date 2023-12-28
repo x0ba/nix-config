@@ -10,6 +10,7 @@ in {
 
   home = {
     packages = with pkgs; [
+      _1password
       age
       atool
       chafa
@@ -25,7 +26,6 @@ in {
       gocryptfs
       just
       nix-output-monitor
-      nur.repos.x0ba.lutgen
       nur.repos.x0ba.preview
       nvd
       ripgrep
