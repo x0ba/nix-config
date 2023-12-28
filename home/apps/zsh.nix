@@ -124,11 +124,11 @@ in {
       history.path = "${config.xdg.configHome}/zsh/history";
       initExtraFirst = ''
         zvm_config() {
-          ZVM_INIT_MODE=sourcing
-          ZVM_CURSOR_STYLE_ENABLED=false
-          ZVM_VI_HIGHLIGHT_BACKGROUND=black
+          ZVM_VI_HIGHLIGHT_BACKGROUND="black"
+          ZVM_VI_HIGHLIGHT_FOREGROUND="white"
+          ZVM_INIT_MODE="sourcing"
+          ZVM_INSERT_MODE_CURSOR="$ZVM_CURSOR_BLINKING_BEAM"
           ZVM_VI_HIGHLIGHT_EXTRASTYLE=bold,underline
-          ZVM_VI_HIGHLIGHT_FOREGROUND=white
         }
       '';
       initExtra = let

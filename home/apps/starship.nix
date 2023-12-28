@@ -9,8 +9,9 @@
       right_format = "$directory$git_branch$git_commit$git_state$git_status";
 
       character = {
-        success_symbol = "[λ](bold green)";
-        error_symbol = "[λ](bold red)";
+        # i love escaping things in nix it's so fun
+        success_symbol = "[\\$](bold green)";
+        error_symbol = "[\\$](bold red)";
         vimcmd_symbol = "[](bold purple)";
         vimcmd_replace_symbol = "[](bold green)";
         vimcmd_replace_one_symbol = "[](bold green)";
