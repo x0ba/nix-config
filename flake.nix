@@ -7,21 +7,7 @@
     ...
   } @ inputs: let
     inherit (import ./machines/lib.nix {inherit inputs overlays;}) mkSystems;
-    overlays = [
-      (_final: prev: {
-        nur = import inputs.nur {
-          nurpkgs = prev;
-          pkgs = prev;
-          repoOverrides = {
-            caarlos0 = inputs.caarlos0-nur.packages.${prev.system};
-            x0ba = inputs.x0ba-nur.packages.${prev.system};
-          };
-        };
-        x0ba-nur = import inputs.x0ba-nur {inherit (prev) pkgs;};
-        sway-unwrapped = inputs.swayfx.packages.${prev.system}.default;
-      })
-      inputs.nix-vscode-extensions.overlays.default
-    ];
+    overlays = import ./pkgs/overlays.nix {inherit inputs;};
   in
     flake-parts.lib.mkFlake {inherit self inputs;}
     {
@@ -134,7 +120,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix.url = "github:danth/stylix";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.url = "github:nix-community/nix-index-database";
     sops = {

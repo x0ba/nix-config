@@ -20,6 +20,12 @@ in {
       sha256 = "sha256-3acxqJ9HMA5hASWq/sVL9QQjfEw5Xrh2fT9nFuGjzHM=";
       rev = "e96b81460b3ad11a7461934dcb7889ce5079f97f";
     };
+    "wezterm/catppuccin".source = pkgs.fetchFromGitHub {
+      owner = "catppuccin";
+      repo = "wezterm";
+      sha256 = "sha256-McSWoZaJeK+oqdK/0vjiRxZGuLBpEB10Zg4+7p5dIGY=";
+      rev = "b1a81bae74d66eaae16457f2d8f151b5bd4fe5da";
+    };
     "wezterm/rose-pine".source = pkgs.fetchFromGitHub {
       owner = "x0ba";
       repo = "rose-pine-wezterm";

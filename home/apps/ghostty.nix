@@ -2,7 +2,7 @@
   programs.ghostty = {
     enable = true;
     settings = {
-      font-family = "Maple Mono";
+      font-family = "IBM Plex Mono";
       window-decoration = false;
       window-inherit-working-directory = true;
       unfocused-split-opacity = 0.96;

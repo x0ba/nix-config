@@ -6,7 +6,7 @@
 }: let
   inherit (pkgs.stdenv.hostPlatform) isDarwin;
 in {
-  imports = [./apps ./xdg.nix ./secrets/sops.nix ./theme];
+  imports = [./apps ./xdg.nix ./secrets/sops.nix];
 
   home = {
     packages = with pkgs; [
@@ -24,7 +24,6 @@ in {
       glow
       gocryptfs
       just
-      mosh
       nix-output-monitor
       nur.repos.x0ba.lutgen
       nur.repos.x0ba.preview

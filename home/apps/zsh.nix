@@ -88,7 +88,7 @@ in {
           ZVM_VI_HIGHLIGHT_FOREGROUND=white
         }
       '';
-      initExtra = with config.lib.stylix.colors; let
+      initExtra = let
         functionsDir = "${config.home.homeDirectory}/${config.programs.zsh.dotDir}/functions";
       in ''
         for script in "${functionsDir}"/**/*; do

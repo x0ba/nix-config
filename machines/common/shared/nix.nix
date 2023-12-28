@@ -6,7 +6,7 @@
 }: let
   inherit (lib) filterAttrs;
   inherit (pkgs.stdenv) isDarwin isLinux;
-  flakes = filterAttrs (_name: value: value ? outputs) inputs;
+  flakes = filterAttrs (name: value: value ? outputs) inputs;
 in {
   nixpkgs.config.allowUnfree = true;
   nix = {
@@ -14,26 +14,19 @@ in {
     package = pkgs.nixVersions.nix_2_19;
     settings =
       {
-        auto-optimise-store = pkgs.stdenv.isLinux;
+        auto-optimise-store = true;
         experimental-features = ["auto-allocate-uids" "flakes" "nix-command" "repl-flake"];
-        trusted-users = ["@staff" "@sudo" "daniel"];
+        trusted-users = ["@sudo" "@wheel" "daniel"];
         use-xdg-base-directories = true;
         warn-dirty = false;
       }
-      // ((import ../../../flake.nix).nixConfig);
-    registry =
-      builtins.mapAttrs
-      (_name: v: {flake = v;})
-      flakes;
+      // (import ../../../flake.nix).nixConfig;
+    registry = builtins.mapAttrs (name: v: {flake = v;}) flakes;
     nixPath =
       if isDarwin
-      then [
-        {nixpkgs = "${inputs.nixpkgs.outPath}";}
-      ]
+      then lib.mkForce [{nixpkgs = "${inputs.nixpkgs.outPath}";}]
       else if isLinux
-      then [
-        "nixpkgs=${inputs.nixpkgs.outPath}"
-      ]
-      else [];
+      then ["nixpkgs=${inputs.nixpkgs.outPath}"]
+      else throw "Unsupported platform";
   };
 }

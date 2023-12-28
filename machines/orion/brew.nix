@@ -1,29 +1,27 @@
-{config, ...}: {
+{config, ...}: let
+  noQuarantine = name: {
+    inherit name;
+    args.no_quarantine = true;
+  };
+  skipSha = name: {
+    inherit name;
+    args.require_sha = false;
+  };
+in {
+  # make brew available in PATH
   environment.systemPath = [config.homebrew.brewPrefix];
+
   homebrew = {
     enable = true;
     caskArgs.require_sha = true;
-    onActivation = {
-      autoUpdate = true;
-      cleanup = "uninstall";
-      upgrade = true;
-    };
-    casks = let
-      skipSha = name: {
-        inherit name;
-        args = {require_sha = false;};
-      };
-      noQuarantine = name: {
-        inherit name;
-        args = {no_quarantine = true;};
-      };
-    in [
+    casks = [
       "appcleaner"
       "arc"
       "bitwarden"
       "calibre"
+      (noQuarantine "easy-move-plus-resize")
+      (skipSha "element")
       "eloston-chromium"
-      "floorp"
       "gimp"
       "iina"
       "imageoptim"
@@ -34,26 +32,25 @@
       "linearmouse"
       "little-snitch"
       "macfuse"
+      "mullvad-browser"
       "obs"
       "obsidian"
-      "orion"
-      "proton-drive"
       "protonvpn"
       "raycast"
+      "signal"
+      (skipSha "spotify")
+      (skipSha "steam")
       "tor-browser"
       "uninstallpkg"
       "veracrypt"
+      "wacom-tablet"
       "yubico-authenticator"
       "yubico-yubikey-manager"
-      (skipSha "spotify")
-      (skipSha "steam")
-      (skipSha "element")
-
-      # Drivers
-      "wacom-tablet"
     ];
-    taps = [
-      "homebrew/cask"
-    ];
+    onActivation = {
+      autoUpdate = true;
+      upgrade = true;
+    };
+    taps = ["homebrew/cask"];
   };
 }
