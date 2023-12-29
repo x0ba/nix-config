@@ -1,5 +1,5 @@
 {
-  description = "x0ba's nix config";
+  description = "a starry night";
 
   outputs = {
     flake-parts,
