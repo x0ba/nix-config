@@ -12,22 +12,21 @@ in {
     packages = with pkgs; [
       _1password
       age
-      atool
-      chafa
+      age-plugin-yubikey
       comma
-      deadnix
-      exiftool
       fd
+      ffmpeg
       file
       gh
       git-crypt
       git-lfs
       glow
       gocryptfs
+      imagemagick
       just
       nix-output-monitor
-      nur.repos.x0ba.preview
       nvd
+      ranger
       ripgrep
       sops
       trash-cli

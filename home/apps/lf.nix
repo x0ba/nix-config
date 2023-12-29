@@ -48,12 +48,10 @@
       '';
     };
     settings = {
-      preview = true;
       hidden = true;
       icons = true;
       ignorecase = true;
     };
-    previewer.source = "${pkgs.nur.repos.x0ba.preview}/bin/preview";
     keybindings = {
       d = "";
       m = "";
