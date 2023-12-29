@@ -1,9 +1,12 @@
 {
+  lib,
+  osConfig,
+  ...
+}: {
   imports = [
     ./ghostty.nix
     ./discord.nix
     ./firefox.nix
-    ./fish.nix
     ./fonts.nix
     ./git.nix
     ./gpg.nix
@@ -15,7 +18,12 @@
     ./tmux.nix
     ./vscode.nix
     ./wezterm.nix
-    ./zellij.nix
     ./zsh.nix
   ];
+
+  options.isGraphical = lib.mkOption {
+    default = osConfig.isGraphical;
+    description = "Whether the system is a graphical target";
+    type = lib.types.bool;
+  };
 }

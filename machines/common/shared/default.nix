@@ -1,7 +1,7 @@
 {
   imports = [
     ./nix.nix
-    # ./podman.nix
+    ./podman.nix
     ./user.nix
   ];
 }

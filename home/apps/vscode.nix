@@ -12,7 +12,7 @@
   snippetsDir = config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/apps/vscode/snippets";
 in {
   programs.vscode = {
-    enable = true;
+    enable = config.isGraphical;
     extensions =
       (with pkgs.vscode-extensions; [
         # patches

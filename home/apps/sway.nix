@@ -1,11 +1,11 @@
 {
   config,
-  lib,
   flakePath,
+  lib,
+  osConfig,
   pkgs,
   ...
 }: let
-  inherit (pkgs.stdenv.hostPlatform) isLinux;
   fonts = {
     names = ["IBM Plex Sans" "Symbols Nerd Font"];
     size = 12.0;
@@ -21,38 +21,38 @@
   lat = 48.210033;
   lng = 16.363449;
 in {
-  fonts.fontconfig.enable = true;
+  config = lib.mkIf (config.isGraphical && pkgs.stdenv.isLinux && (osConfig.dotfiles.desktop == "sway")) {
+    fonts.fontconfig.enable = true;
 
-  home = lib.mkIf isLinux {
-    packages = with pkgs; [
-      blueberry
-      kooha
-      libnotify
-      pavucontrol
-      sway-contrib.grimshot
-      swaynotificationcenter
-      wl-clipboard
-    ];
-  };
-
-  services = lib.mkIf isLinux {
-    clipman.enable = true;
-    gnome-keyring = {
-      enable = true;
-      components = ["secrets"];
+    home = {
+      packages = with pkgs; [
+        blueberry
+        kooha
+        libnotify
+        pavucontrol
+        sway-contrib.grimshot
+        swaynotificationcenter
+        wl-clipboard
+      ];
     };
-    wlsunset = {
-      enable = true;
-      latitude = toString lat;
-      longitude = toString lng;
-    };
-    udiskie.enable = true;
-  };
 
-  wayland.windowManager.sway = let
-    modifier = "Mod4";
-  in
-    lib.mkIf isLinux {
+    services = {
+      clipman.enable = true;
+      gnome-keyring = {
+        enable = true;
+        components = ["secrets"];
+      };
+      wlsunset = {
+        enable = true;
+        latitude = toString lat;
+        longitude = toString lng;
+      };
+      udiskie.enable = true;
+    };
+
+    wayland.windowManager.sway = let
+      modifier = "Mod4";
+    in {
       enable = true;
       package = null;
       config = rec {
@@ -96,7 +96,7 @@ in {
           modFocus = "${mod}+Ctrl";
           hyper = "Mod4+Mod1+Shift+Ctrl";
 
-          pcmanfm = "${pkgs.pcmanfm}/bin/pcmanfm";
+          filebrowser = "${pkgs.gnome.nautilus}/bin/nautilus";
           screenshot = "${pkgs.sway-contrib.grimshot}/bin/grimshot copy area";
           playerctl = "${pkgs.playerctl}/bin/playerctl";
           wpctl = pkgs.wireplumber + "/bin/wpctl";
@@ -110,7 +110,7 @@ in {
           "${mod}+Shift+q" = "kill";
           # Start Applications
           "${mod}+Shift+Return" = "exec ${terminal}";
-          "${mod}+e" = "exec --no-startup-id ${pcmanfm}";
+          "${mod}+e" = "exec --no-startup-id ${filebrowser}";
           "${hyper}+p" = "exec --no-startup-id ${screenshot}";
 
           # change focus
@@ -164,31 +164,31 @@ in {
           "${mod}+m" = "[class=\"discord\"] scratchpad show";
 
           # switch to workspace
-          "${modFocus}+1" = "workspace $ws1";
-          "${modFocus}+2" = "workspace $ws2";
-          "${modFocus}+3" = "workspace $ws3";
-          "${modFocus}+4" = "workspace $ws4";
-          "${modFocus}+5" = "workspace $ws5";
-          "${modFocus}+6" = "workspace $ws6";
-          "${modFocus}+7" = "workspace $ws7";
-          "${modFocus}+8" = "workspace $ws8";
-          "${modFocus}+9" = "workspace $ws9";
-          "${modFocus}+0" = "workspace $ws10";
+          "${modFocus}+1" = "workspace 1";
+          "${modFocus}+2" = "workspace 2";
+          "${modFocus}+3" = "workspace 3";
+          "${modFocus}+4" = "workspace 4";
+          "${modFocus}+5" = "workspace 5";
+          "${modFocus}+6" = "workspace 6";
+          "${modFocus}+7" = "workspace 7";
+          "${modFocus}+8" = "workspace 8";
+          "${modFocus}+9" = "workspace 9";
+          "${modFocus}+0" = "workspace 10";
           # Move to workspace with focused container
-          "${modMove}+1" = "move container to workspace $ws1;  workspace $ws1";
-          "${modMove}+2" = "move container to workspace $ws2;  workspace $ws2";
-          "${modMove}+3" = "move container to workspace $ws3;  workspace $ws3";
-          "${modMove}+4" = "move container to workspace $ws4;  workspace $ws4";
-          "${modMove}+5" = "move container to workspace $ws5;  workspace $ws5";
-          "${modMove}+6" = "move container to workspace $ws6;  workspace $ws6";
-          "${modMove}+7" = "move container to workspace $ws7;  workspace $ws7";
-          "${modMove}+8" = "move container to workspace $ws8;  workspace $ws8";
-          "${modMove}+9" = "move container to workspace $ws9;  workspace $ws9";
-          "${modMove}+0" = "move container to workspace $ws10; workspace $ws10";
+          "${modMove}+1" = "move container to workspace 1;  workspace 1";
+          "${modMove}+2" = "move container to workspace 2;  workspace 2";
+          "${modMove}+3" = "move container to workspace 3;  workspace 3";
+          "${modMove}+4" = "move container to workspace 4;  workspace 4";
+          "${modMove}+5" = "move container to workspace 5;  workspace 5";
+          "${modMove}+6" = "move container to workspace 6;  workspace 6";
+          "${modMove}+7" = "move container to workspace 7;  workspace 7";
+          "${modMove}+8" = "move container to workspace 8;  workspace 8";
+          "${modMove}+9" = "move container to workspace 9;  workspace 9";
+          "${modMove}+0" = "move container to workspace 10; workspace 10";
           # rofi instead of drun
           "${mod}+space" = "exec --no-startup-id ${menu} -show drun -dpi $dpi";
           # 1password
-          "${mod}+Shift+space" = "exec ${pkgs._1password-gui}/bin/1password-gui --quick-access";
+          "${mod}+Shift+space" = "exec ${pkgs._1password-gui}/bin/1password --quick-access";
 
           # audio
           "XF86AudioRaiseVolume" = "exec --no-startup-id ${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 1.0";
@@ -258,20 +258,17 @@ in {
           inner = 5;
           outer = 2;
         };
+        bars = [
+          {
+            inherit fonts;
+            mode = "hide";
+            position = "top";
+            statusCommand = "${config.programs.i3status-rust.package}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
+          }
+        ];
       };
 
       extraConfig = ''
-        set $ws1  1:Ⅰ
-        set $ws2  2:Ⅱ
-        set $ws3  3:Ⅲ
-        set $ws4  4:Ⅳ
-        set $ws5  5:Ⅴ
-        set $ws6  6:Ⅵ
-        set $ws7  7:Ⅶ
-        set $ws8  8:Ⅷ
-        set $ws9  9:Ⅸ
-        set $ws10 10:Ⅹ
-
         for_window [floating] border pixel 2
 
         # floating sticky
@@ -353,4 +350,5 @@ in {
         xdgAutostart = true;
       };
     };
+  };
 }
