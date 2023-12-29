@@ -7,7 +7,6 @@ c.font = wezterm.font_with_fallback({
   "Symbols Nerd Font",
 })
 c.front_end = "WebGpu"
-c.line_height = 1.1
 c.font_size = 15
 c.harfbuzz_features = { "calt=1" }
 c.command_palette_font_size = c.font_size * 1.1

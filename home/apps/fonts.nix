@@ -20,8 +20,7 @@
   home.packages = with pkgs; [
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     ia-writer-quattro
-    victor-mono
-    cascadia-code
+    inter
     ibm-plex
     xkcd-font
   ];
