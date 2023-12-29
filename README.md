@@ -17,7 +17,7 @@ Here's what you can find:
 - **[Starship](https://starship.rs)** as my prompt
 - Other random bits of config tools I've collected over the years
 - **Firefox** with privacy-centered settings, though I've been using [Arc](https://arc.net) as my main browser recently
-- The **[Rose Pine](rosepinetheme.com)** theme, wherever possible
+- The **[Catppuccin](https://github.com/catppuccin)** theme, wherever possible
 - macOS:
   - **[Yabai](https://github.com/koekeishiya/yabai)** as my WM
 - Linux:

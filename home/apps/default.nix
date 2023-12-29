@@ -3,7 +3,6 @@
     ./ghostty.nix
     ./discord.nix
     ./firefox.nix
-    ./fish.nix
     ./fonts.nix
     ./git.nix
     ./gpg.nix
@@ -15,7 +14,6 @@
     ./tmux.nix
     ./vscode.nix
     ./wezterm.nix
-    ./zellij.nix
     ./zsh.nix
   ];
 }
