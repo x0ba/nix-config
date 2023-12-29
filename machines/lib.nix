@@ -26,7 +26,6 @@
     host,
     system,
     username,
-    isGraphical ? false,
     extraModules ? [],
   }: let
     ldTernary = l: d:
@@ -47,27 +46,12 @@
       modules = with inputs;
         [
           {
-            options = let
-              inherit (pkgs) lib;
-            in {
-              dotfiles = {
-                username = lib.mkOption {
-                  type = lib.types.str;
-                  default = username;
-                  description = "The username of the user";
-                };
-                desktop = lib.mkOption {
-                  type = lib.types.enum ["gnome" "sway"];
-                  default = "sway";
-                  description = "The desktop environment to use";
-                };
+            options.dotfiles.username = with pkgs.lib;
+              mkOption {
+                description = "Main user of this configuration.";
+                type = types.str;
+                default = username;
               };
-              isGraphical = lib.mkOption {
-                type = lib.types.bool;
-                default = isGraphical;
-                description = "Whether the system is a isGraphical target";
-              };
-            };
           }
           ./common/shared
           ./common/${hostPlatform}

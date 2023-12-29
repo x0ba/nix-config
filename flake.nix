@@ -17,26 +17,21 @@
           system = "aarch64-darwin";
           username = "daniel";
           extraModules = [inputs.x0ba-nur.darwinModules.default];
-          isGraphical = true;
         }
         {
           host = "draco";
           system = "x86_64-linux";
           username = "daniel";
-          isGraphical = true;
         }
         {
           host = "andromeda";
           system = "x86_64-linux";
           username = "daniel";
-          isGraphical = true;
         }
       ];
       imports = [inputs.pre-commit-hooks.flakeModule];
       perSystem = {
         config,
-        self',
-        inputs',
         pkgs,
         system,
         ...

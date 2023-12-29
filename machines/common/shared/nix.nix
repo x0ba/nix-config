@@ -4,10 +4,9 @@
   pkgs,
   ...
 }: let
-  inherit (builtins) attrValues mapAttrs;
   inherit (lib) filterAttrs;
   inherit (pkgs.stdenv) isDarwin isLinux;
-  flakeInputs = filterAttrs (name: value: (value ? outputs) && (name != "self")) inputs;
+  flakes = filterAttrs (name: value: value ? outputs) inputs;
 in {
   nixpkgs.config.allowUnfree = true;
   nix = {
@@ -22,12 +21,12 @@ in {
         warn-dirty = false;
       }
       // (import ../../../flake.nix).nixConfig;
-    registry = mapAttrs (name: v: {flake = v;}) flakeInputs;
+    registry = builtins.mapAttrs (name: v: {flake = v;}) flakes;
     nixPath =
       if isDarwin
-      then lib.mkForce (mapAttrs (k: v: v.outPath) flakeInputs)
+      then lib.mkForce [{nixpkgs = "${inputs.nixpkgs.outPath}";}]
       else if isLinux
-      then attrValues (mapAttrs (k: v: "${k}=${v.outPath}") flakeInputs)
+      then ["nixpkgs=${inputs.nixpkgs.outPath}"]
       else throw "Unsupported platform";
   };
 }
