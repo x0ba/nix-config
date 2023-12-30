@@ -40,6 +40,7 @@ in {
       "signal"
       (skipSha "spotify")
       (skipSha "steam")
+      "thunderbird"
       "tor-browser"
       "uninstallpkg"
       "veracrypt"

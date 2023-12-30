@@ -55,7 +55,7 @@ return {
       val = {
         dashboard.button("n", "  New file", ":ene <bar> startinsert <cr>"),
         dashboard.button(
-          "SPC ff",
+          "SPC fd",
           "  Find file",
           ":Telescope find_files<cr>"
         ),

@@ -11,7 +11,7 @@ map("n", "<C-b>", ":Neotree<CR>", { noremap = true, silent = true })
 -- telescope mappings
 map(
   "n",
-  "<leader>ff",
+  "<leader>fd",
   ":Telescope find_files<CR>",
   { noremap = true, silent = true }
 )

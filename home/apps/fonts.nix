@@ -23,7 +23,7 @@
       ia-writer-quattro
       inter
       ibm-plex
-      xkcd-font
+      scientifica
     ];
   };
 }

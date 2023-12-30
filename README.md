@@ -16,8 +16,8 @@ Here's what you can find:
 - **[Taskwarrior](https://taskwarrior.org)** for task management
 - **[Starship](https://starship.rs)** as my prompt
 - Other random bits of config tools I've collected over the years
-- **Firefox** with privacy-centered settings, though I've been using [Arc](https://arc.net) as my main browser recently
-- The **[Rose Pine](rosepinetheme.com)** theme, wherever possible
+- **Firefox** with privacy-centered settings, though I've been using a combination of Brave and Mullvad Browser recently.
+- The **[Catppuccin](https://github.com/catppuccin)** theme, wherever possible
 - macOS:
   - **[Yabai](https://github.com/koekeishiya/yabai)** as my WM
 - Linux:
@@ -47,7 +47,6 @@ $ curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh 
 ```console
 $ sudo tmutil addexclusion -v /nix
 ```
-
 
 ### Building the flake
 
