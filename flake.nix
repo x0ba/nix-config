@@ -31,12 +31,6 @@
           username = "daniel";
           isGraphical = true;
         }
-        {
-          host = "corvus";
-          system = "x86_64-linux";
-          username = "ubuntu";
-          isGraphical = false;
-        }
       ];
       imports = [inputs.pre-commit-hooks.flakeModule];
       perSystem = {
