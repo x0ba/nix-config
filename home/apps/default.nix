@@ -14,7 +14,6 @@
     ./mail.nix
     ./media.nix
     ./neovim.nix
-    ./rice.nix
     ./starship.nix
     ./sway.nix
     ./tmux.nix
