@@ -22,7 +22,7 @@
         version = "6.0.2";
         src = pkgs.fetchzip {
           inherit (prev.src) url;
-          hash = "sha256-CXkGVoJcGSkooxe7eIhwaM6FkOI45NVw5jdLJAzgFBM=";
+          hash = "sha256-aFM0rtHrHsLEziDWhRwqeCy70dSAOAX4HDpqHqvnoWs=";
         };
       });
       logFile = "/var/tmp/yabai.log";

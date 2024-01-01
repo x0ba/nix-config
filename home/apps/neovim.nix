@@ -6,65 +6,87 @@
 }: {
   programs.neovim = {
     enable = true;
-    withNodeJs = true;
     defaultEditor = true;
+
     viAlias = true;
     vimAlias = true;
+    vimdiffAlias = true;
+
+    withNodeJs = true;
+
+    package = pkgs.symlinkJoin {
+      name = "neovim";
+      paths = [pkgs.neovim-unwrapped];
+      buildInputs = [pkgs.makeWrapper pkgs.gcc];
+      postBuild = "wrapProgram $out/bin/nvim --prefix CC : ${pkgs.gcc}/bin/gcc";
+    };
+
+    extraPackages = with pkgs; [
+      # external deps
+      fd
+      ripgrep
+
+      # python
+      black
+      isort
+      nodePackages.pyright
+
+      # lua
+      stylua
+      lua-language-server
+      luaPackages.tl
+      luaPackages.teal-language-server
+
+      # data
+      taplo
+
+      # go
+      go
+
+      # webdev
+      nodePackages."@astrojs/language-server"
+      nodePackages."@tailwindcss/language-server"
+      nodePackages.alex
+      nodePackages.bash-language-server
+      nodePackages.dockerfile-language-server-nodejs
+      nodePackages.graphql
+      nodePackages.graphql-language-service-cli
+      nodePackages.intelephense
+      nodePackages.typescript
+      nodePackages.typescript-language-server
+      nodePackages.vscode-langservers-extracted
+      nodePackages.yaml-language-server
+
+      # rust
+      cargo
+      rust-analyzer
+      rustc
+      rustfmt
+
+      # etc
+      alejandra
+      deno
+      ltex-ls
+      nil
+      nodePackages.prettier
+      proselint
+      shellcheck
+      shfmt
+      tree-sitter
+
+      # nvim-spectre
+      gnused
+      (writeShellScriptBin "gsed" "exec ${gnused}/bin/sed")
+
+      # needed for some plugin build steps
+      gnumake
+      unzip
+      yarn
+    ];
   };
 
-  home.packages = with pkgs; [
-    # Dev tools
-    alejandra
-    go
-    asmfmt
-    sccache
-    cargo
-    black
-    delve
-    elixir_ls
-    rustc
-    gawk
-    go
-    stylua
-    gocode-gomod
-    gomodifytags
-    gopkgs
-    gopls
-    gotests
-    go-outline
-    go-tools
-    java-language-server
-    kotlin-language-server
-    ktlint
-    lldb
-    nodejs
-    rust-analyzer
-    selene
-    nil
-    shellcheck
-    shfmt
-    solc
-    marksman
-    sumneko-lua-language-server
-    texlab
-    uncrustify
-    nixpkgs-fmt
-    zls
-    nodePackages.jsonlint
-    nodePackages.jsonlint
-    nodePackages.node2nix
-    nodePackages.prettier
-    nodePackages.pyright
-    nodePackages.stylelint
-    nodePackages.typescript-language-server
-    nodePackages.vls
-    nodePackages.vscode-langservers-extracted
-    nodePackages.yaml-language-server
-    nodePackages.yarn
-  ];
-
   xdg.configFile."nvim" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/apps/nvim";
+    source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/apps/neovim";
     recursive = true;
   };
 }

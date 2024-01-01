@@ -33,6 +33,7 @@ in {
       "little-snitch"
       "macfuse"
       "mullvad-browser"
+      "nextcloud"
       "obs"
       "obsidian"
       "protonvpn"
@@ -40,8 +41,10 @@ in {
       "signal"
       (skipSha "spotify")
       (skipSha "steam")
+      "tailscale"
       "thunderbird"
       "tor-browser"
+      "todoist"
       "uninstallpkg"
       "veracrypt"
       "wacom-tablet"
