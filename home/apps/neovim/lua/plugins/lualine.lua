@@ -1,7 +1,7 @@
+---@type LazyPluginSpec[]
 return {
   {
     "nvim-lualine/lualine.nvim",
-    version = false,
     event = "VeryLazy",
     config = function()
       require("lualine").setup({

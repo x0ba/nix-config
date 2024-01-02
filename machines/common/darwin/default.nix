@@ -30,6 +30,7 @@
         auto_balance = "off";
         focus_follows_mouse = "off";
         layout = "bsp";
+        mouse_modifier = "alt";
         mouse_drop_action = "swap";
         mouse_follows_focus = "off";
         window_animation_duration = "0.0";
@@ -93,11 +94,13 @@
         ctrl + lalt - k    : yabai -m window --resize bottom:0:-100 || yabai -m window --resize top:0:-100
         ctrl + lalt - l : yabai -m window --resize right:100:0 || yabai -m window --resize left:100:0
         # toggle sticky/floating
-        lalt - space : yabai -m window --toggle float; sketchybar --trigger window_focus
+        lalt - space: yabai -m window --toggle float; yabai -m window --grid 4:4:1:1:2:2
         lalt + shift - space: yabai -m window --toggle float
         # rotate
         lalt + shift - e : yabai -m space --balance
-        lalt + shift - r : yabai -m space --rotate 270
+        lalt - r : yabai -m space --rotate 90
+        # fullscreen
+        lalt - f : yabai -m window --toggle zoom-fullscreen
 
         # open terminal
         lalt - return : open -na "WezTerm"

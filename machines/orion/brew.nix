@@ -39,6 +39,7 @@ in {
       "protonvpn"
       "raycast"
       "signal"
+      (skipSha "spacelauncher")
       (skipSha "spotify")
       (skipSha "steam")
       "tailscale"

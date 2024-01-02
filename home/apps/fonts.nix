@@ -21,7 +21,7 @@
     home.packages = with pkgs; [
       (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
       ia-writer-quattro
-      inter
+      monaspace
       ibm-plex
       scientifica
     ];

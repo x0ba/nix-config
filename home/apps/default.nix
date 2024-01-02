@@ -19,6 +19,7 @@
     ./tmux.nix
     ./vscode.nix
     ./wezterm.nix
+    ./zellij.nix
     ./zsh.nix
   ];
 

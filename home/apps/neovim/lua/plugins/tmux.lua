@@ -1,4 +1,7 @@
+---@type LazyPluginSpec[]
 return {
-  "christoomey/vim-tmux-navigator",
-  event = "UIEnter",
+  {
+    "christoomey/vim-tmux-navigator",
+    event = "UIEnter",
+  },
 }

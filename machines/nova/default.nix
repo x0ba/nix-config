@@ -6,7 +6,7 @@
   imports = [./hardware.nix];
 
   networking = {
-    hostName = "draco";
+    hostName = "nova";
     networkmanager.enable = true;
     firewall.enable = true;
   };

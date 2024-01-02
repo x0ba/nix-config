@@ -1,8 +1,11 @@
+---@type LazyPluginSpec[]
 return {
-  "norcalli/nvim-colorizer.lua",
-  -- lazy = true,
-  -- event = "BufRead",
-  config = function()
-    require("colorizer").setup()
-  end,
+  {
+    "norcalli/nvim-colorizer.lua",
+    lazy = true,
+    event = "BufRead",
+    config = function()
+      require("colorizer").setup()
+    end,
+  },
 }

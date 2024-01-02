@@ -20,7 +20,7 @@
           isGraphical = true;
         }
         {
-          host = "draco";
+          host = "nova";
           system = "x86_64-linux";
           username = "daniel";
           isGraphical = true;
