@@ -24,6 +24,7 @@ in {
       gocryptfs
       imagemagick
       just
+      lutgen
       nix-output-monitor
       nvd
       ranger

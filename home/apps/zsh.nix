@@ -147,7 +147,6 @@ in {
         cp = "cp -i";
         tree = "${pkgs.lsd}/bin/lsd --tree";
         cat = "${pkgs.bat}/bin/bat --theme='catppuccin-frappe'";
-        nv = "${pkgs.neovim}/bin/nvim";
         rm = "${pkgs.trash-cli}/bin/trash-put";
         # switch between yubikeys for the same GPG key
         switch_yubikeys = ''gpg-connect-agent "scd serialno" "learn --force" "/bye"'';
