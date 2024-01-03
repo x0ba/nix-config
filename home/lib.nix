@@ -29,9 +29,10 @@
 
   modules = with inputs;
     [
-      nix-index-database.hmModules.nix-index
-      ghostty.homeModules.default
       caarlos0-nur.homeManagerModules.default
+      catppuccin.homeManagerModules.catppuccin
+      ghostty.homeModules.default
+      nix-index-database.hmModules.nix-index
       sops.homeManagerModules.sops
       x0ba-nur.homeManagerModules.default
       ./.

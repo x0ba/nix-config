@@ -14,6 +14,12 @@ in {
   homebrew = {
     enable = true;
     caskArgs.require_sha = true;
+    masApps = {
+      "Skiff Desktop" = 1615488683;
+    };
+    brews = [
+      "php"
+    ];
     casks = [
       "1password"
       "appcleaner"
@@ -33,7 +39,6 @@ in {
       "little-snitch"
       "macfuse"
       "mullvad-browser"
-      "nextcloud"
       "obs"
       "obsidian"
       "protonvpn"
@@ -43,7 +48,6 @@ in {
       (skipSha "spotify")
       (skipSha "steam")
       "tailscale"
-      "thunderbird"
       "tor-browser"
       "todoist"
       "uninstallpkg"

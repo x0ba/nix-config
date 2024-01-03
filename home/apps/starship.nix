@@ -1,6 +1,7 @@
 {...}: {
   programs.starship = {
     enable = true;
+    catppuccin.enable = true;
     enableTransience = true;
     enableFishIntegration = false;
     settings = {

@@ -1,6 +1,6 @@
 ---@type LazyPluginSpec[]
 return {
   {
-    "wakatime/vim-wakatime",
+    "mrjones2014/smart-splits.nvim",
   },
 }

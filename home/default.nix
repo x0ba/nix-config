@@ -47,6 +47,8 @@ in {
     taskwarrior.enable = true;
   };
 
+  catppuccin.flavour = "frappe";
+
   sops.secrets."sshconfig".path = "${config.home.homeDirectory}/.ssh/config";
   sops.secrets."wakatime-cfg".path = "${config.xdg.configHome}/wakatime/.wakatime.cfg";
 }

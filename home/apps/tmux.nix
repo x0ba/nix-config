@@ -1,4 +1,15 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  t-smart-tmux-session-manager = pkgs.tmuxPlugins.mkTmuxPlugin {
+    pluginName = "t-smart-tmux-session-manager";
+    version = "2024-01-02";
+    src = pkgs.fetchFromGitHub {
+      owner = "joshmedeski";
+      repo = "t-smart-tmux-session-manager";
+      rev = "3fd8c7bc6220fb7dc661a096f0bf378bc23d6504";
+      sha256 = "sha256-DwjUBCyFjvlA1kSiElZKfG2XRyN01+QIopvggN6dkqM=";
+    };
+  };
+in {
   programs.tmux = {
     enable = true;
     sensibleOnTop = true;
@@ -42,9 +53,8 @@
       unbind-key <
       unbind-key >
 
+
       bind -T copy-mode-vi v send -X begin-selection
-      bind-key C-o display-popup -E "tms"
-      bind-key C-j display-popup -E "tms switch"
       bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "pbcopy"
       bind P paste-buffer
       bind -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "pbcopy"
@@ -68,6 +78,7 @@
       bind -r m resize-pane -Z
 
       set -g mode-style "bg=default,fg=default"
+      set -g status-position bottom
       set -g status-interval 5
       set -g @emulate-scroll-for-no-mouse-alternate-buffer on
 
@@ -84,8 +95,33 @@
     '';
     plugins = with pkgs; [
       {
+        plugin = tmuxPlugins.prefix-highlight;
+        extraConfig = ''
+          set -g @prefix_highlight_prefix_prompt "MOD"
+          set -g @prefix_highlight_copy_prompt "COPY"
+          set -g @prefix_highlight_sync_prompt " "
+          set -g @prefix_highlight_bg "black"
+          set -g @prefix_highlight_fg "red"
+          set -g @prefix_highlight_empty_attr "fg=black,bg=red"
+          set -g @prefix_highlight_copy_mode_attr "fg=blue,bg=black"
+          set -g @prefix_highlight_sync_mode_attr "fg=black,bg=green"
+          set -g @prefix_highlight_show_copy_mode on
+          set -g @prefix_highlight_show_sync_mode on
+          set -g @prefix_highlight_empty_has_affixes off
+          set -g @prefix_highlight_output_prefix ""
+          set -g @prefix_highlight_output_suffix ""
+          set -g @prefix_highlight_empty_prompt ""
+        '';
+      }
+      {
+        plugin = t-smart-tmux-session-manager;
+      }
+      {
         plugin = tmuxPlugins.vim-tmux-navigator;
       }
     ];
   };
+  home.packages = [
+    t-smart-tmux-session-manager.src
+  ];
 }

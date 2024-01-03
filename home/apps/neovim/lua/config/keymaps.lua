@@ -44,6 +44,7 @@ vim.keymap.set(
   '<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
   {
     desc = "Search current word",
+    remap = true,
   }
 )
 vim.keymap.set(
@@ -52,6 +53,7 @@ vim.keymap.set(
   '<esc><cmd>lua require("spectre").open_visual()<CR>',
   {
     desc = "Search current word",
+    remap = true,
   }
 )
 vim.keymap.set(
@@ -60,6 +62,7 @@ vim.keymap.set(
   '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>',
   {
     desc = "Search on current file",
+    remap = true,
   }
 )
 

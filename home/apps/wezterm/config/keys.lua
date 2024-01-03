@@ -2,6 +2,18 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 
+local direction_keys = {
+  Left = "h",
+  Down = "j",
+  Up = "k",
+  Right = "l",
+  -- reverse lookup
+  h = "Left",
+  j = "Down",
+  k = "Up",
+  l = "Right",
+}
+
 local shortcuts = {}
 
 local map = function(key, mods, action)
