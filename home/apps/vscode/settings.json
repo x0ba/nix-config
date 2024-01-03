@@ -44,7 +44,6 @@
   },
   "window.autoDetectColorScheme": true,
   "window.titleBarStyle": "custom",
-  "workbench.colorTheme": "Catppuccin Frappé",
   "workbench.iconTheme": "catppuccin-frappe",
   "workbench.layoutControl.enabled": false,
   "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
@@ -207,5 +206,6 @@
   "vscord.status.image.small.viewing.text": "looking",
   "git.enableSmartCommit": true,
   "window.commandCenter": false,
-  "editor.fontVariations": false
+  "editor.fontVariations": false,
+  "workbench.colorTheme": "Catppuccin Frappé"
 }

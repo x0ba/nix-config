@@ -70,10 +70,11 @@ in {
           '';
         }))
         adrianwilczynski.alpine-js-intellisense
-        mvllow.rose-pine
+        ibmlover.oxocarbon
         antfu.icons-carbon
         arcanis.vscode-zipfs
         astro-build.astro-vscode
+        bashmish.es6-string-css
         bradlc.vscode-tailwindcss
         catppuccin.catppuccin-vsc-icons
         charliermarsh.ruff
@@ -84,19 +85,24 @@ in {
         editorconfig.editorconfig
         esbenp.prettier-vscode
         github.copilot
+        github.vscode-github-actions
         gitlab.gitlab-workflow
         golang.go
         graphql.vscode-graphql-syntax
+        gruntfuggly.todo-tree
         jock.svg
         lunuan.kubernetes-templates
         mikestead.dotenv
         mkhl.direnv
         ms-kubernetes-tools.vscode-kubernetes-tools
+        ms-vscode.live-server
         oscarotero.vento-syntax
         pkief.material-icon-theme
         redhat.vscode-yaml
+        ryanluker.vscode-coverage-gutters
         serayuzgur.crates
         tamasfe.even-better-toml
+        tobermory.es6-string-html
         tomoki1207.pdf
         unifiedjs.vscode-mdx
         usernamehw.errorlens
