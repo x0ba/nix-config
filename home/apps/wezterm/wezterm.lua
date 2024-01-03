@@ -6,6 +6,7 @@ c.font = wezterm.font_with_fallback({
   "Monaspace Neon",
   "Symbols Nerd Font",
 })
+
 c.front_end = "WebGpu"
 c.font_size = 15
 c.line_height = 1.2
