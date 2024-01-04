@@ -20,21 +20,6 @@
         "type": "github"
       }
     },
-    "catppuccin": {
-      "locked": {
-        "lastModified": 1702771919,
-        "narHash": "sha256-l6zkit3WPXuukWrQDpaNVNEQ2Y0lq1K+7OQmvtqFIJU=",
-        "owner": "Stonks3141",
-        "repo": "ctp-nix",
-        "rev": "4a76ba2815b6db301597630d14e4e40f4fb5fb0f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Stonks3141",
-        "repo": "ctp-nix",
-        "type": "github"
-      }
-    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -261,11 +246,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1704310877,
-        "narHash": "sha256-xUNF4HNNvr2lGFVIGYkR8ar9EGAwwNAu9zEk757Y41U=",
+        "lastModified": 1704318258,
+        "narHash": "sha256-xZHtsT1RhAIrbIufyxjMuaA3A1vvFhb+lUcIFaHRDj8=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "66bed8c7853673ba7919664f94a99deea137b916",
+        "rev": "89b1adf64e178c08b6590f58ae20703bf952158a",
         "type": "github"
       },
       "original": {
@@ -305,7 +290,6 @@
     "root": {
       "inputs": {
         "caarlos0-nur": "caarlos0-nur",
-        "catppuccin": "catppuccin",
         "darwin": "darwin",
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
@@ -428,11 +412,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1704313126,
-        "narHash": "sha256-7flBfTLvMP1u04mO+9MsD2JXW1tfnUtU829+xIo/jZk=",
+        "lastModified": 1704314747,
+        "narHash": "sha256-TjKpkMqyoM7pgRIHUm8npPCd9LwVJ9cB2Z1FQX/amBY=",
         "owner": "x0ba",
         "repo": "nur",
-        "rev": "3d42c46953a252426412516845d4bfe4de1aae71",
+        "rev": "d90ef1a4ac9651ee949049c5b9a17d4e8b38120a",
         "type": "github"
       },
       "original": {
