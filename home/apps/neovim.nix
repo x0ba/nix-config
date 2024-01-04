@@ -42,6 +42,7 @@
 
       # go
       go
+      pkgs.nur.repos.x0ba.gonvim-tools
 
       # webdev
       nodePackages."@astrojs/language-server"
@@ -73,6 +74,9 @@
       shellcheck
       shfmt
       tree-sitter
+      pkgs.nur.repos.x0ba.jq-lsp
+      pkgs.nur.repos.x0ba.helm-ls
+      pkgs.nur.repos.bandithedoge.nodePackages.emmet-ls
 
       # nvim-spectre
       gnused
