@@ -36,8 +36,6 @@
       ".envrc"
     ];
 
-    package = pkgs.git.override {osxkeychainSupport = false;};
-
     extraConfig = {
       credential.helper = "gopass";
       init.defaultBranch = "main";

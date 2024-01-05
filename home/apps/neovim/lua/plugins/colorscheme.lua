@@ -1,3 +1,4 @@
+---@type LazyPluginSpec[]
 return {
   {
     "catppuccin/nvim",
@@ -24,14 +25,22 @@ return {
           enabled = true,
           style = "nvchad",
         },
+        treesitter_context = {
+          enabled = true,
+        },
         dropbar = {
           enabled = true,
           color_mode = true,
         },
+        harpoon = {
+          enabled = true,
+        },
+        fidget = {
+          enabled = true,
+        },
       },
     },
   },
-  -- { "rose-pine/neovim", name = "rose-pine" },
   {
     "LazyVim/LazyVim",
     opts = {

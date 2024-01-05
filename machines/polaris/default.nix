@@ -15,7 +15,7 @@
   };
 
   networking = {
-    hostName = "atlas";
+    hostName = "polaris";
     networkmanager.enable = true;
     firewall.enable = true;
   };

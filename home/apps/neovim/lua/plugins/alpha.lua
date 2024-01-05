@@ -48,7 +48,6 @@ return {
         "          .::::'   ::::.     '::::.        ",
         "         .::::      ::::      '::::.       ",
         " ",
-        "nix geht mehr",
       }
 
       local buttons = {

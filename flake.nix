@@ -20,13 +20,13 @@
           isGraphical = true;
         }
         {
-          host = "nova";
+          host = "andromeda";
           system = "x86_64-linux";
           username = "daniel";
           isGraphical = true;
         }
         {
-          host = "atlas";
+          host = "polaris";
           system = "x86_64-linux";
           username = "daniel";
           isGraphical = true;
@@ -136,7 +136,6 @@
       inputs.flake-compat.follows = "";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    ghostty.url = "github:clo4/ghostty-hm-module";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-utils.url = "github:numtide/flake-utils";

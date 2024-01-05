@@ -1,6 +1,14 @@
 // vim:ft=jsonc
 {
+  "workbench.colorTheme": "Catppuccin Frappé",
   "catppuccin.accentColor": "lavender",
+  "catppuccin.colorOverrides": {
+    "mocha": {
+      "base": "#000000",
+      "mantle": "#010101",
+      "crust": "#020202"
+    }
+  },
   "catppuccin.customUIColors": {
     "all": {
       "statusBar.foreground": "accent",
@@ -15,7 +23,7 @@
   "editor.smoothScrolling": true,
   "terminal.integrated.smoothScrolling": true,
   "terminal.integrated.fontSize": 14,
-  "editor.fontFamily": "Monaspace Neon, Symbols Nerd Font, monospace",
+  "editor.fontFamily": "CommitMono, Symbols Nerd Font, monospace",
   "editor.fontLigatures": "'calt', 'liga', 'dlig', 'ss01'",
   "editor.fontSize": 15,
   "editor.formatOnSave": true,
@@ -206,6 +214,5 @@
   "vscord.status.image.small.viewing.text": "looking",
   "git.enableSmartCommit": true,
   "window.commandCenter": false,
-  "editor.fontVariations": false,
-  "workbench.colorTheme": "Catppuccin Frappé"
+  "editor.fontVariations": false
 }

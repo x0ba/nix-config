@@ -6,7 +6,7 @@
   imports = [./hardware.nix];
 
   networking = {
-    hostName = "nova";
+    hostName = "andromeda";
     networkmanager.enable = true;
     firewall.enable = true;
   };

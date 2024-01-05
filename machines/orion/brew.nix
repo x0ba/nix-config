@@ -26,7 +26,6 @@ in {
       "bitwarden"
       "brave-browser"
       "calibre"
-      (noQuarantine "easy-move-plus-resize")
       (skipSha "element")
       "gimp"
       "iina"
@@ -42,14 +41,13 @@ in {
       "obs"
       "obsidian"
       "protonvpn"
-      "raycast"
       "signal"
       (skipSha "spacelauncher")
       (skipSha "spotify")
       (skipSha "steam")
       "tailscale"
+      (skipSha "tetrio")
       "tor-browser"
-      "todoist"
       "uninstallpkg"
       "veracrypt"
       "wacom-tablet"

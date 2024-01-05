@@ -25,7 +25,10 @@ in {
       imagemagick
       just
       lutgen
+      mosh
       nix-output-monitor
+      nur.repos.x0ba.icat
+      nur.repos.x0ba.preview
       nvd
       ranger
       ripgrep
@@ -46,8 +49,6 @@ in {
     man.enable = true;
     taskwarrior.enable = true;
   };
-
-  catppuccin.flavour = "frappe";
 
   sops.secrets."sshconfig".path = "${config.home.homeDirectory}/.ssh/config";
   sops.secrets."wakatime-cfg".path = "${config.xdg.configHome}/wakatime/.wakatime.cfg";

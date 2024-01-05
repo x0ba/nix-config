@@ -18,13 +18,6 @@
     yabai = {
       enable = true;
       enableScriptingAddition = true;
-      package = pkgs.yabai.overrideAttrs (prev: {
-        version = "6.0.2";
-        src = pkgs.fetchzip {
-          inherit (prev.src) url;
-          hash = "sha256-aFM0rtHrHsLEziDWhRwqeCy70dSAOAX4HDpqHqvnoWs=";
-        };
-      });
       logFile = "/var/tmp/yabai.log";
       config = {
         auto_balance = "off";

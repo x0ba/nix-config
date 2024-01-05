@@ -23,7 +23,7 @@
       ia-writer-quattro
       monaspace
       ibm-plex
-      scientifica
+      commit-mono
     ];
   };
 }

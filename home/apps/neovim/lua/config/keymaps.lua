@@ -1,38 +1,9 @@
 local map = vim.api.nvim_set_keymap
-
-map("n", "<C-h>", ":TmuxNavigateLeft<CR>", { noremap = true, silent = true })
-map("n", "<C-l>", ":TmuxNavigateRight<CR>", { noremap = true, silent = true })
-map("n", "<C-j>", ":TmuxNavigateDown<CR>", { noremap = true, silent = true })
-map("n", "<C-k>", ":TmuxNavigateUp<CR>", { noremap = true, silent = true })
+local harpoon = require("harpoon")
+harpoon:setup()
 
 -- file trees are overrated
-map("n", "<C-b>", ":Neotree<CR>", { noremap = true, silent = true })
-
--- telescope mappings
-map(
-  "n",
-  "<leader>fd",
-  ":Telescope find_files<CR>",
-  { noremap = true, silent = true }
-)
-map(
-  "n",
-  "<leader>fg",
-  ":Telescope live_grep<CR>",
-  { noremap = true, silent = true }
-)
-map(
-  "n",
-  "<leader>fp",
-  ":Telescope project<CR>",
-  { noremap = true, silent = true }
-)
-map(
-  "n",
-  "<leader><leader>",
-  ":Telescope buffers<CR>",
-  { noremap = true, silent = true }
-)
+map("n", "<C-b>", ":Lf<CR>", { noremap = true, silent = true })
 
 -- spectre mappings
 vim.keymap.set("n", "<leader>S", '<cmd>lua require("spectre").toggle()<CR>', {
@@ -76,52 +47,36 @@ map("n", "N", "Nzzzv", { noremap = true, silent = true })
 map("n", "<Leader>wv", ":vsplit<CR>", { silent = true })
 map("n", "<Leader>wh", ":split<CR>", { silent = true })
 
--- Fugitive
+-- Neogit
 map("n", "<Leader>gg", ":Neogit<CR>", { noremap = true, silent = true })
 
+-- Gitsigns
 vim.keymap.set({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>")
 vim.keymap.set({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>")
 
-map(
-  "n",
-  "<Leader>a",
-  ":lua require('harpoon.mark').add_file()<CR>",
-  { silent = true }
-)
-map(
-  "n",
-  "<C-e>",
-  ":lua require('harpoon.ui').toggle_quick_menu()<CR>",
-  { silent = true }
-)
-map(
-  "n",
-  "<C-q>",
-  ":lua require('harpoon.ui').nav_file(1)<CR>",
-  { silent = true }
-)
-map(
-  "n",
-  "<C-w>",
-  ":lua require('harpoon.ui').nav_file(2)<CR>",
-  { silent = true }
-)
-map(
-  "n",
-  "<C-z>",
-  ":lua require('harpoon.ui').nav_file(3)<CR>",
-  { silent = true }
-)
-map(
-  "n",
-  "<C-x>",
-  ":lua require('harpoon.ui').nav_file(4)<CR>",
-  { silent = true }
-)
+-- Harpoon Keybindings
+vim.keymap.set("n", "<leader>a", function()
+  harpoon:list():append()
+end, { remap = true })
+vim.keymap.set("n", "<C-e>", function()
+  harpoon.ui:toggle_quick_menu(harpoon:list())
+end, { remap = true })
 
+vim.keymap.set("n", "<C-h>", function()
+  harpoon:list():select(1)
+end, { remap = true })
+vim.keymap.set("n", "<C-g>", function()
+  harpoon:list():select(2)
+end, { remap = true })
+vim.keymap.set("n", "<C-n>", function()
+  harpoon:list():select(3)
+end, { remap = true })
+vim.keymap.set("n", "<C-i>", function()
+  harpoon:list():select(4)
+end, { remap = true })
+
+-- Undotree
 map("n", "<Leader>u", ":UndotreeToggle<CR>", { silent = true })
-
-map("n", "<Leader>t", ":ToggleTerm<CR>", { silent = true })
 
 -- bufferline
 map("n", "<tab>", ":BufferLineCycleNext<CR>", { silent = true })
@@ -151,20 +106,6 @@ vim.keymap.set(
   "<leader>q",
   vim.diagnostic.setloclist,
   { desc = "Open diagnostics list" }
-)
-
--- folds
-map(
-  "n",
-  "zR",
-  ':lua require("ufo").openAllFolds<CR>',
-  { noremap = true, silent = true }
-)
-map(
-  "n",
-  "zM",
-  ':lua require("ufo").closeAllFolds<CR>',
-  { noremap = true, silent = true }
 )
 
 -- remaps

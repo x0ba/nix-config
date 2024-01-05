@@ -19,7 +19,6 @@
         ''${{
           printf 'File Name: '
           read ans
-          $EDITOR $ans
         }}
       '';
       open = ''
@@ -49,12 +48,15 @@
     };
     settings = {
       hidden = true;
+      preview = true;
       icons = true;
       ignorecase = true;
     };
+    previewer.source = "${pkgs.nur.repos.x0ba.preview}/bin/preview";
     keybindings = {
       d = "";
       m = "";
+      o = "open $f";
       gh = "cd ~";
       gm = "cd ~/Music/";
       gD = "cd ~/Downloads/";

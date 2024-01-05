@@ -69,9 +69,10 @@ in {
       defaultOptions = ["--height=30%" "--layout=reverse" "--info=inline"];
     };
 
-    lsd = {
+    eza = {
       enable = true;
       enableAliases = true;
+      icons = true;
     };
 
     nix-index.enable = true;
@@ -145,7 +146,7 @@ in {
       shellAliases = {
         mv = "mv -i";
         cp = "cp -i";
-        tree = "${pkgs.lsd}/bin/lsd --tree";
+        tree = "${pkgs.eza}/bin/eza --tree";
         cat = "${pkgs.bat}/bin/bat --theme='catppuccin-frappe'";
         rm = "${pkgs.trash-cli}/bin/trash-put";
         # switch between yubikeys for the same GPG key
@@ -203,6 +204,5 @@ in {
   xdg.configFile = {
     "fsh".source = "${catppuccin-zsh-fsh}/share/zsh/site-functions/themes";
     "zsh/functions" = symlink "home/apps/zsh/functions" {recursive = true;};
-    "lsd" = symlink "home/apps/lsd" {recursive = true;};
   };
 }

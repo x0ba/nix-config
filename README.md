@@ -7,42 +7,34 @@
 
 Welcome to my Nix dots.
 
-## Overview
+## Software
 
-Here's what you can find:
+- Terminal: [Wezterm](https://github.com/wez/wezterm) (Nightly build from [my nur](https://github.com/x0ba/nur))
+- Font: [Commit Mono](https://commitmono.com/)
+- Colorscheme: [Catppuccin](https://github.com/catppuccin/catppuccin)
+- Shell: [zsh](https://www.zsh.org/)
+- Editor: [Neovim](https://github.com/neovim/neovim) for smaller editing, and [VSCode](https://code.visualstudio.com/) for larger projects
 
-- **[WezTerm](https://wezfurlong.org/wezterm/)** as my terminal, with tmux-like keybindings
-- **[Neovim](https://neovim.io)** as my tui editor & my JetBrains IdeaVim config
-- **[Taskwarrior](https://taskwarrior.org)** for task management
-- **[Starship](https://starship.rs)** as my prompt
-- Other random bits of config tools I've collected over the years
-- **Firefox** with privacy-centered settings, though I've been using a combination of Brave and Mullvad Browser recently.
-- The **[Catppuccin](https://github.com/catppuccin)** theme, wherever possible
-- macOS:
-  - **[Yabai](https://github.com/koekeishiya/yabai)** as my WM
-- Linux:
-  - **[sway](https://swaywm.org)** as my WM
-
-### Notes for a new install
+## Notes for a new install
 
 This flake technically has an impurity at its core, because it assumes that it will be stored in `~/.config/flake` and will create symlinks pointing there.
 This is so I can edit some dotfiles (e.g. VSCode `settings.json`) in place and have programs hot reload them.
 
-#### macOS
+### macOS
 
-##### Install the [Xcode Command Line Tools](https://developer.apple.com/download/all/)
+#### Install the [Xcode Command Line Tools](https://developer.apple.com/download/all/)
 
 ```console
 $ xcode-select --install
 ```
 
-##### Install [Homebrew](https://brew.sh)
+#### Install [Homebrew](https://brew.sh)
 
 ```console
 $ curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
 ```
 
-##### Exclude `/nix/` from Time Machine:
+#### Exclude `/nix/` from Time Machine:
 
 ```console
 $ sudo tmutil addexclusion -v /nix
