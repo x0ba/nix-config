@@ -49,7 +49,6 @@
               check.enable = true;
               settings.hooks = {
                 nixpkgs-fmt.enable = true;
-                deadnix.enable = true;
                 commitizen.enable = true;
                 editorconfig-checker.enable = true;
                 nil.enable = true;
