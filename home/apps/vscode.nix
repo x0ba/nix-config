@@ -1,17 +1,16 @@
-{ config
-, flakePath
-, lib
-, pkgs
-, ...
-}:
-let
+{
+  config,
+  flakePath,
+  lib,
+  pkgs,
+  ...
+}: let
   inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
 
   settingsJSON = config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/apps/vscode/settings.json";
   keybindingsJSON = config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/apps/vscode/keybindings.json";
   snippetsDir = config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/apps/vscode/snippets";
-in
-{
+in {
   programs.vscode = {
     enable = config.isGraphical;
     extensions =
@@ -35,7 +34,7 @@ in
         # other extensions like Go/Rust are only really used with devShells,
         # nix & shell are universal enough for me to want them everywhere.
         (jnoortheen.nix-ide.overrideAttrs (prev: {
-          nativeBuildInputs = prev.nativeBuildInputs ++ [ pkgs.jq pkgs.moreutils ];
+          nativeBuildInputs = prev.nativeBuildInputs ++ [pkgs.jq pkgs.moreutils];
           postInstall = ''
             cd "$out/$installPrefix"
             jq -e '
@@ -51,7 +50,7 @@ in
           '';
         }))
         (mads-hartmann.bash-ide-vscode.overrideAttrs (prev: {
-          nativeBuildInputs = prev.nativeBuildInputs ++ [ pkgs.jq pkgs.moreutils ];
+          nativeBuildInputs = prev.nativeBuildInputs ++ [pkgs.jq pkgs.moreutils];
           postInstall = ''
             cd "$out/$installPrefix"
             jq -e '
@@ -61,7 +60,7 @@ in
           '';
         }))
         (mkhl.shfmt.overrideAttrs (prev: {
-          nativeBuildInputs = prev.nativeBuildInputs ++ [ pkgs.jq pkgs.moreutils ];
+          nativeBuildInputs = prev.nativeBuildInputs ++ [pkgs.jq pkgs.moreutils];
           postInstall = ''
             cd "$out/$installPrefix"
             jq -e '

@@ -1,8 +1,8 @@
-{ inputs
-, pkgs
-, username
-, isNixOS ? true
-,
+{
+  inputs,
+  pkgs,
+  username,
+  isNixOS ? true,
 }: rec {
   inherit (pkgs.stdenv) isLinux isDarwin;
 
@@ -35,5 +35,5 @@
       x0ba-nur.homeManagerModules.default
       ./.
     ]
-    ++ pkgs.lib.optionals (!isNixOS) [ hmStandaloneConfig ];
+    ++ pkgs.lib.optionals (!isNixOS) [hmStandaloneConfig];
 }

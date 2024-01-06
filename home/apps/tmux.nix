@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   t-smart-tmux-session-manager = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "t-smart-tmux-session-manager";
     version = "2024-01-02";
@@ -10,8 +9,7 @@ let
       sha256 = "sha256-DwjUBCyFjvlA1kSiElZKfG2XRyN01+QIopvggN6dkqM=";
     };
   };
-in
-{
+in {
   programs.tmux = {
     enable = true;
     sensibleOnTop = true;

@@ -1,9 +1,7 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   inherit (pkgs.stdenv.hostPlatform) isLinux;
   key = "0x6CB88DB2D39E0378";
-in
-{
+in {
   home.packages = with pkgs; [
     pinentry
     git-credential-gopass

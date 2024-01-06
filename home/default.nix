@@ -1,13 +1,12 @@
-{ config
-, lib
-, pkgs
-, ...
-}:
-let
-  inherit (pkgs.stdenv.hostPlatform) isDarwin;
-in
 {
-  imports = [ ./apps ./xdg.nix ./secrets/sops.nix ];
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  inherit (pkgs.stdenv.hostPlatform) isDarwin;
+in {
+  imports = [./apps ./xdg.nix ./secrets/sops.nix];
 
   home = {
     packages = with pkgs; [

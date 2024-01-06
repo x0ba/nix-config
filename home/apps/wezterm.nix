@@ -1,17 +1,16 @@
-{ config
-, flakePath
-, lib
-, pkgs
-, ...
-}:
-let
-  mkSymlink = path: config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/apps/wezterm/${path}";
-in
 {
+  config,
+  flakePath,
+  lib,
+  pkgs,
+  ...
+}: let
+  mkSymlink = path: config.lib.file.mkOutOfStoreSymlink "${flakePath}/home/apps/wezterm/${path}";
+in {
   # use the GUI version & config when we have a gui, else just get terminfo
   config = lib.mkMerge [
     (lib.mkIf (!config.isGraphical) {
-      home.packages = [ pkgs.wezterm.terminfo ];
+      home.packages = [pkgs.wezterm.terminfo];
     })
 
     (lib.mkIf config.isGraphical {

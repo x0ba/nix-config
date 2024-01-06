@@ -1,6 +1,7 @@
-{ config
-, lib
-, ...
+{
+  config,
+  lib,
+  ...
 }: {
   config = lib.mkIf config.isGraphical {
     programs.ghostty = {
@@ -21,7 +22,7 @@
         window-padding-y = 10;
         clipboard-read = "allow";
         clipboard-paste-protection = false;
-        font-feature = [ "zero" "calt" "liga" ];
+        font-feature = ["zero" "calt" "liga"];
         theme = "catppuccin-frappe";
       };
     };

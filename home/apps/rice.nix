@@ -1,9 +1,9 @@
-{ config
-, lib
-, pkgs
-, ...
-}:
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   inherit (pkgs.stdenv.hostPlatform) isLinux;
   ctp = {
     base = "#1e1e2e";
@@ -13,8 +13,7 @@ let
     red = "#f38ba8";
     mauve = "#cba6f7";
   };
-in
-{
+in {
   config = lib.mkIf config.isGraphical {
     programs.i3status-rust = lib.mkIf isLinux {
       enable = true;

@@ -1,12 +1,11 @@
-{ pkgs
-, config
-, lib
-, ...
-}:
-let
-  inherit (pkgs.stdenv.hostPlatform) isLinux;
-in
 {
+  pkgs,
+  config,
+  lib,
+  ...
+}: let
+  inherit (pkgs.stdenv.hostPlatform) isLinux;
+in {
   config = lib.mkIf config.isGraphical {
     programs.imv = {
       enable = isLinux;
