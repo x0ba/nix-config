@@ -1,4 +1,4 @@
-{ inputs }: [
+{inputs}: [
   inputs.swayfx.overlays.default
   inputs.nix-vscode-extensions.overlays.default
   (final: prev: {
@@ -13,13 +13,13 @@
       nurpkgs = prev;
       pkgs = prev;
       repoOverrides = {
-        x0ba = import inputs.x0ba-nur { inherit (prev) pkgs; };
+        x0ba = import inputs.x0ba-nur {inherit (prev) pkgs;};
         caarlos0 = import inputs.caarlos0-nur {
           inherit (prev) pkgs;
           overlays = [
-            (_final: prev: {
+            (final: prev: {
               discord-applemusic-rich-presence = prev.discord-applemusic-rich-presence.overrideAttrs {
-                patches = [ ./patches/discord-applemusic-rich-presence.patch ];
+                patches = [./patches/discord-applemusic-rich-presence.patch];
               };
             })
           ];
