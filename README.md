@@ -10,7 +10,7 @@ Welcome to my Nix dots.
 ## Software
 
 - Terminal: [Wezterm](https://github.com/wez/wezterm) (Nightly build from [my nur](https://github.com/x0ba/nur))
-- Font: [Commit Mono](https://Monaspace Neon.com/)
+- Font: [Monaspace](https://https://monaspace.githubnext.com/)
 - Colorscheme: [Catppuccin](https://github.com/catppuccin/catppuccin)
 - Shell: [zsh](https://www.zsh.org/)
 - Editor: [Neovim](https://github.com/neovim/neovim) for smaller editing, and [VSCode](https://code.visualstudio.com/) for larger projects

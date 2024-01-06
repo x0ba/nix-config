@@ -29,7 +29,6 @@ in
       mosh
       nix-output-monitor
       nur.repos.x0ba.icat
-      nur.repos.x0ba.preview
       nvd
       ranger
       ripgrep
