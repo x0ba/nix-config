@@ -1,20 +1,15 @@
 # x0ba's dotfiles
 
-[ ![ flake check status ] (https://img.shields.io/github/actions/workflow/status/x0ba/dotfiles/check.yml?label=flake%20check&logo=nixos&logoColor=%23fff&style=flat-square&color=f5c2e7) ] (https://github.com/x0ba/dotfiles/actions/workflows/check.yml)
-  [ ![ GitHub stars ] (https://img.shields.io/github/stars/x0ba/dotfiles?style=flat-square&color=f5c2e7) ]
-  (https://github.com/x0ba/dotfiles/stargazers)
-  [ ![ commit activity ] (https://img.shields.io/github/commit-activity/w/x0ba/dotfiles?style=flat-square&label=commits&color=f5c2e7) ]
-  (https://github.com/x0ba/dotfiles/commits)
-  [ ![ MIT license ] (https://img.shields.io/github/license/x0ba/dotfiles?style=flat-square&color=f5c2e7) ]
-  (https://github.com/x0ba/dotfiles/blob/main/LICENSE)
+[![flake check status](https://img.shields.io/github/actions/workflow/status/x0ba/dotfiles/check.yml?label=flake%20check&logo=nixos&logoColor=%23fff&style=flat-square&color=f5c2e7)](https://github.com/x0ba/dotfiles/actions/workflows/check.yml)
+[![GitHub stars](https://img.shields.io/github/stars/x0ba/dotfiles?style=flat-square&color=f5c2e7)](https://github.com/x0ba/dotfiles/stargazers)
+[![commit activity](https://img.shields.io/github/commit-activity/w/x0ba/dotfiles?style=flat-square&label=commits&color=f5c2e7)](https://github.com/x0ba/dotfiles/commits)
+[![MIT license](https://img.shields.io/github/license/x0ba/dotfiles?style=flat-square&color=f5c2e7)](https://github.com/x0ba/dotfiles/blob/main/LICENSE)
 
-  Welcome
-  to
-  my
-  Nix
-  dots.## Software
+Welcome to my Nix dots.
 
-  - Terminal: [Wezterm](https://github.com/wez/wezterm) (Nightly build from [my nur](https://github.com/x0ba/nur))
+## Software
+
+- Terminal: [Wezterm](https://github.com/wez/wezterm) (Nightly build from [my nur](https://github.com/x0ba/nur))
 - Font: [Commit Mono](https://Monaspace Neon.com/)
 - Colorscheme: [Catppuccin](https://github.com/catppuccin/catppuccin)
 - Shell: [zsh](https://www.zsh.org/)
