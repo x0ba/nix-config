@@ -1,11 +1,11 @@
-{
-  config,
-  pkgs,
-  flakePath,
-  lib,
-  ...
-}: let
-  symlink = fileName: {recursive ? false}: {
+{ config
+, pkgs
+, flakePath
+, lib
+, ...
+}:
+let
+  symlink = fileName: { recursive ? false }: {
     source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/${fileName}";
     recursive = recursive;
   };
@@ -23,18 +23,19 @@
       rev = "7cdab58bddafe0565f84f6eaf2d7dd109bd6fc18";
       sha256 = "sha256-31lh+LpXGe7BMZBhRWvvbOTkwjOM77FPNaGy6d26hIA=";
     };
-    phases = ["buildPhase"];
+    phases = [ "buildPhase" ];
     buildPhase = ''
       mkdir -p $out/share/zsh/site-functions/themes
       ls $src/themes
       cp $src/themes/* $out/share/zsh/site-functions/themes/
     '';
   };
-in {
+in
+{
   programs = {
     atuin = {
       enable = true;
-      flags = ["--disable-up-arrow"];
+      flags = [ "--disable-up-arrow" ];
       settings = {
         inline_height = 30;
         style = "compact";
@@ -66,7 +67,7 @@ in {
         prompt = "#cba6f7";
         spinner = "#f5e0dc";
       };
-      defaultOptions = ["--height=30%" "--layout=reverse" "--info=inline"];
+      defaultOptions = [ "--height=30%" "--layout=reverse" "--info=inline" ];
     };
 
     eza = {
@@ -93,29 +94,31 @@ in {
 
     zoxide = {
       enable = true;
-      options = ["--cmd cd"];
+      options = [ "--cmd cd" ];
     };
 
-    bat = let
-      src = pkgs.fetchFromGitHub {
-        owner = "catppuccin";
-        repo = "bat";
-        rev = "ba4d16880d63e656acced2b7d4e034e4a93f74b1";
-        sha256 = "sha256-6WVKQErGdaqb++oaXnY3i6/GuH2FhTgK0v4TN4Y0Wbw=";
-      };
-    in {
-      enable = true;
-      themes = {
-        "catppuccin-latte" = {
-          inherit src;
-          file = "Catppuccin-latte.tmTheme";
+    bat =
+      let
+        src = pkgs.fetchFromGitHub {
+          owner = "catppuccin";
+          repo = "bat";
+          rev = "ba4d16880d63e656acced2b7d4e034e4a93f74b1";
+          sha256 = "sha256-6WVKQErGdaqb++oaXnY3i6/GuH2FhTgK0v4TN4Y0Wbw=";
         };
-        "catppuccin-frappe" = {
-          inherit src;
-          file = "Catppuccin-frappe.tmTheme";
+      in
+      {
+        enable = true;
+        themes = {
+          "catppuccin-latte" = {
+            inherit src;
+            file = "Catppuccin-latte.tmTheme";
+          };
+          "catppuccin-frappe" = {
+            inherit src;
+            file = "Catppuccin-frappe.tmTheme";
+          };
         };
       };
-    };
 
     zsh = {
       dotDir = ".config/zsh";
@@ -132,14 +135,16 @@ in {
           ZVM_VI_HIGHLIGHT_EXTRASTYLE=bold,underline
         }
       '';
-      initExtra = let
-        functionsDir = "${config.home.homeDirectory}/${config.programs.zsh.dotDir}/functions";
-      in ''
-        for script in "${functionsDir}"/**/*; do
-          source "$script"
-        done
-        bindkey '^F' autosuggest-accept
-      '';
+      initExtra =
+        let
+          functionsDir = "${config.home.homeDirectory}/${config.programs.zsh.dotDir}/functions";
+        in
+        ''
+          for script in "${functionsDir}"/**/*; do
+            source "$script"
+          done
+          bindkey '^F' autosuggest-accept
+        '';
       envExtra = ''
         export LESSHISTFILE="-"
       '';
@@ -203,6 +208,6 @@ in {
 
   xdg.configFile = {
     "fsh".source = "${catppuccin-zsh-fsh}/share/zsh/site-functions/themes";
-    "zsh/functions" = symlink "home/apps/zsh/functions" {recursive = true;};
+    "zsh/functions" = symlink "home/apps/zsh/functions" { recursive = true; };
   };
 }

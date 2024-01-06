@@ -1,7 +1,6 @@
-{
-  lib,
-  osConfig,
-  ...
+{ lib
+, osConfig
+, ...
 }: {
   imports = [
     ./discord.nix

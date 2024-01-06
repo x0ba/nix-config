@@ -1,11 +1,12 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: let
+{ config
+, pkgs
+, lib
+, ...
+}:
+let
   inherit (pkgs.stdenv) isLinux;
-in {
+in
+{
   config = lib.mkIf config.isGraphical {
     programs.firefox = {
       # since I'm using firefox from brew on darwin, I need to build a dummy package
@@ -15,7 +16,7 @@ in {
         search = {
           default = "Brave";
           engines = {
-            "Brave".urls = [{template = "https://search.brave.com/search?q={searchTerms}";}];
+            "Brave".urls = [{ template = "https://search.brave.com/search?q={searchTerms}"; }];
           };
           force = true;
         };
