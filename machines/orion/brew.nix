@@ -1,8 +1,4 @@
 {config, ...}: let
-  noQuarantine = name: {
-    inherit name;
-    args.no_quarantine = true;
-  };
   skipSha = name: {
     inherit name;
     args.require_sha = false;

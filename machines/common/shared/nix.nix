@@ -22,10 +22,10 @@ in {
         warn-dirty = false;
       }
       // (import ../../../flake.nix).nixConfig;
-    registry = mapAttrs (name: v: {flake = v;}) flakeInputs;
+    registry = mapAttrs (_name: v: {flake = v;}) flakeInputs;
     nixPath =
       if isDarwin
-      then lib.mkForce (mapAttrs (k: v: v.outPath) flakeInputs)
+      then lib.mkForce (mapAttrs (_k: v: v.outPath) flakeInputs)
       else if isLinux
       then attrValues (mapAttrs (k: v: "${k}=${v.outPath}") flakeInputs)
       else throw "Unsupported platform";

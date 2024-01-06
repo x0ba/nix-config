@@ -35,8 +35,6 @@
       imports = [inputs.pre-commit-hooks.flakeModule];
       perSystem = {
         config,
-        self',
-        inputs',
         pkgs,
         system,
         ...
