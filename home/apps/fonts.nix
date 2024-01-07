@@ -22,6 +22,7 @@
       (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
       ia-writer-quattro
       monaspace
+      nur.repos.x0ba.pixel-code
       ibm-plex
       commit-mono
     ];

@@ -14,8 +14,6 @@ in {
     ];
     home.activation.discordSettings = let
       css = ''
-        @import url("https://catppuccin.github.io/discord/dist/catppuccin-frappe-lavender.theme.css") (prefers-color-scheme: dark);
-        @import url("https://catppuccin.github.io/discord/dist/catppuccin-latte-lavender.theme.css") (prefers-color-scheme: light);
         @import url(//dablulite.github.io/css-snippets/ConsistentChatbar/import.css);
 
         :root {

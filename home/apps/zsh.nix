@@ -54,25 +54,39 @@ in {
 
     fzf = {
       enable = true;
-      colors = {
-        fg = "#cdd6f4";
-        "fg+" = "#cdd6f4";
-        hl = "#f38ba8";
-        "hl+" = "#f38ba8";
-        header = "#ff69b4";
-        info = "#cba6f7";
-        marker = "#f5e0dc";
-        pointer = "#f5e0dc";
-        prompt = "#cba6f7";
-        spinner = "#f5e0dc";
-      };
       defaultOptions = ["--height=30%" "--layout=reverse" "--info=inline"];
     };
 
-    eza = {
+    lsd = {
       enable = true;
       enableAliases = true;
-      icons = true;
+      settings = {
+        classic = false;
+        blocks = ["permission" "user" "group" "size" "date" "name"];
+        date = "+%y.%m.%d %H:%M";
+        dereference = false;
+        ignore-globs = [".git"];
+        color = {
+          when = "auto";
+          theme = "custom";
+        };
+        icons = {
+          when = "auto";
+          theme = "fancy";
+          separator = " ";
+        };
+        header = false;
+        hyperlink = "auto";
+        indicators = true;
+        layout = "grid";
+        permission = "octal";
+        size = "default";
+        sorting = {
+          column = "name";
+          dir-grouping = "first";
+        };
+        symlink-arrow = "󰌷";
+      };
     };
 
     nix-index.enable = true;
@@ -146,7 +160,7 @@ in {
       shellAliases = {
         mv = "mv -i";
         cp = "cp -i";
-        tree = "${pkgs.eza}/bin/eza --tree";
+        tree = "${pkgs.lsd}/bin/lsd --tree";
         cat = "${pkgs.bat}/bin/bat --theme='catppuccin-frappe'";
         rm = "${pkgs.trash-cli}/bin/trash-put";
         # switch between yubikeys for the same GPG key

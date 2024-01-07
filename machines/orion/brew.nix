@@ -33,6 +33,7 @@ in {
       "linearmouse"
       "little-snitch"
       "macfuse"
+      "monal"
       "mullvad-browser"
       "obs"
       "obsidian"

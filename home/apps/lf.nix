@@ -18,7 +18,7 @@
       mkfile = ''
         ''${{
           printf 'File Name: '
-          read ans
+          touch ans
         }}
       '';
       open = ''

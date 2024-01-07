@@ -1,6 +1,6 @@
 // vim:ft=jsonc
 {
-  "workbench.colorTheme": "Catppuccin Frappé",
+  "workbench.colorTheme": "oxocarbon",
   "catppuccin.accentColor": "lavender",
   "catppuccin.colorOverrides": {
     "mocha": {
