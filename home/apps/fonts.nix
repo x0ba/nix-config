@@ -22,11 +22,10 @@
       (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
       ia-writer-quattro
       monaspace
-      nur.repos.x0ba.pixel-code
       nur.repos.x0ba.apple-fonts
       nur.repos.x0ba.liga-sfmono
       ibm-plex
-      commit-mono
+      cascadia-code
     ];
   };
 }

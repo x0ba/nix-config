@@ -37,6 +37,7 @@ in {
       "mullvad-browser"
       "obs"
       "obsidian"
+      "orion"
       "protonvpn"
       "signal"
       (skipSha "spacelauncher")

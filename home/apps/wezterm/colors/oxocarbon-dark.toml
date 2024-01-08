@@ -1,8 +1,8 @@
 [colors]
 background = '#161616'
 foreground = '#ffffff'
-cursor_bg = '#ffffff'
-cursor_border = '#ffffff'
+cursor_bg = '#56bab9'
+cursor_border = '#56bab9'
 cursor_fg = '#161616'
 
 ansi = [
@@ -27,11 +27,11 @@ brights = [
 ]
 
 [colors.tab_bar]
-background = "#262626"
+background = "#161616"
 
 [colors.tab_bar.active_tab]
-bg_color = '#161616'
-fg_color = '#ffffff'
+bg_color = '#ee5396'
+fg_color = '#161616'
 intensity = 'Normal'
 italic = false
 strikethrough = false
@@ -57,4 +57,3 @@ underline = 'None'
 [metadata]
 name = 'Oxocarbon Dark'
 origin_url = 'https://github.com/nyoom-engineering/oxocarbon'
-
