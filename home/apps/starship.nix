@@ -1,65 +1,30 @@
 {...}: {
   programs.starship = {
     enable = true;
-    # catppuccin.enable = true;
-    enableTransience = true;
-    enableFishIntegration = false;
     settings = {
-      command_timeout = 3000;
-      format = "$username$hostname$nix_shell$character";
-      right_format = "$directory$git_branch$git_commit$git_state$git_status";
-
+      scan_timeout = 10;
+      # prompt
+      format = "$directory$git_branch$git_metrics$nix_shell$package$character";
+      add_newline = false;
+      line_break.disabled = true;
+      directory.style = "cyan";
       character = {
-        success_symbol = "[∆](bold green)";
-        error_symbol = "[∆](bold red)";
-        vimcmd_symbol = "[](bold purple)";
-        vimcmd_replace_symbol = "[](bold green)";
-        vimcmd_replace_one_symbol = "[](bold green)";
-        vimcmd_visual_symbol = "[](bold yellow)";
+        success_symbol = "[λ](green)";
+        error_symbol = "[λ](red)";
       };
-
-      username = {
-        format = "[$user]($style) ";
-        disabled = false;
-        show_always = true;
-      };
-
-      hostname = {
-        ssh_only = true;
-        ssh_symbol = "";
-        format = "at [$hostname](bold blue) ";
-        disabled = false;
-      };
-
-      git_commit.format = ''( [\($hash$tag\)]($style))'';
-      git_state.format = " [\\($state( $progress_current/$progress_total)\\)]($style)";
-
-      git_status = {
-        ahead = "↑";
-        behind = "↓";
-        conflicted = "±";
-        deleted = "×";
-        diverged = "↕";
-        modified = "‼";
-        renamed = "≡";
-        stashed = "⌂";
-        format = ''( [\[$all_status$ahead_behind\]]($style))'';
-      };
-
+      # git
       git_branch = {
-        format = " → [$symbol$branch(:$remote_branch)]($style)";
+        style = "purple";
         symbol = "";
       };
-
-      battery.disabled = true;
-      line_break.disabled = false;
-
-      directory = {
-        read_only = "(ro)";
-        format = "[$read_only]($read_only_style) [$path]($style)";
+      git_metrics = {
+        disabled = false;
+        added_style = "bold yellow";
+        deleted_style = "bold red";
       };
-
-      nix_shell.format = "[(\\($name\\))]($style) ";
+      # package management
+      package.format = "version [$version](bold green) ";
+      nix_shell.symbol = " ";
     };
   };
 }

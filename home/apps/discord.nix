@@ -17,10 +17,10 @@ in {
         @import url(//dablulite.github.io/css-snippets/ConsistentChatbar/import.css);
 
         :root {
-          --font-primary: "IBM Plex Sans", sans-serif;
-          --font-headline: "IBM Plex Sans", sans-serif;
-          --font-display: "IBM Plex Sans", sans-serif;
-          --font-code: "Monaspace Neon", "Symbols Nerd Font", mono;
+          --font-primary: "SF Pro Text", sans-serif;
+          --font-headline: "SF Pro Text", sans-serif;
+          --font-display: "SF Pro Text", sans-serif;
+          --font-code: "Liga SFMono Nerd Font", "Symbols Nerd Font", mono;
         }
       '';
       json = pkgs.writeTextFile {

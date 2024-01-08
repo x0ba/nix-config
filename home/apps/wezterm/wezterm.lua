@@ -3,7 +3,7 @@ local c = wezterm.config_builder()
 require("config.keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-  "Monaspace Neon",
+  "Liga SFMono Nerd Font",
   "Symbols Nerd Font",
 })
 
@@ -13,7 +13,7 @@ c.line_height = 1.2
 c.harfbuzz_features = { "calt=1", "liga=1", "dlig=1" }
 c.command_palette_font_size = c.font_size * 1.1
 c.window_frame = {
-  font = wezterm.font("IBM Plex Sans"),
+  font = wezterm.font("SF Pro Text"),
   font_size = c.font_size,
 }
 

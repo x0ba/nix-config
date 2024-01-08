@@ -110,26 +110,7 @@ in {
       options = ["--cmd cd"];
     };
 
-    bat = let
-      src = pkgs.fetchFromGitHub {
-        owner = "catppuccin";
-        repo = "bat";
-        rev = "ba4d16880d63e656acced2b7d4e034e4a93f74b1";
-        sha256 = "sha256-6WVKQErGdaqb++oaXnY3i6/GuH2FhTgK0v4TN4Y0Wbw=";
-      };
-    in {
-      enable = true;
-      themes = {
-        "catppuccin-latte" = {
-          inherit src;
-          file = "Catppuccin-latte.tmTheme";
-        };
-        "catppuccin-frappe" = {
-          inherit src;
-          file = "Catppuccin-frappe.tmTheme";
-        };
-      };
-    };
+    bat.enable = true;
 
     zsh = {
       dotDir = ".config/zsh";
