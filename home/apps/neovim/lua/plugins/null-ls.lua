@@ -18,7 +18,7 @@ return {
           builtins.formatting.shfmt,
 
           builtins.code_actions.statix,
-          builtins.formatting.nixpkgs_fmt,
+          builtins.formatting.alejandra,
 
           builtins.formatting.rustfmt,
 

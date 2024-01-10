@@ -114,6 +114,13 @@ in {
 
     zsh = {
       dotDir = ".config/zsh";
+      dirHashes = {
+        dl = "${config.home.homeDirectory}/Downloads";
+        docs = "${config.home.homeDirectory}/Documents";
+        code = "${config.home.homeDirectory}/Code";
+        dots = "${config.xdg.configHome}/flake";
+        pics = "${config.home.homeDirectory}/Pictures";
+      };
       enable = true;
       enableAutosuggestions = true;
       enableCompletion = true;

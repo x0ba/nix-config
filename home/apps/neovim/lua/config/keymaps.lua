@@ -5,6 +5,14 @@ harpoon:setup()
 -- file trees are overrated
 map("n", "<C-b>", ":Lf<CR>", { noremap = true, silent = true })
 
+-- telescope stuff
+map(
+  "n",
+  "<leader>fb",
+  ":Telescope buffers<CR>",
+  { noremap = true, silent = true }
+)
+
 -- spectre mappings
 vim.keymap.set("n", "<leader>S", '<cmd>lua require("spectre").toggle()<CR>', {
   desc = "Toggle Spectre",
@@ -75,12 +83,12 @@ vim.keymap.set("n", "<C-i>", function()
   harpoon:list():select(4)
 end, { remap = true })
 
--- Undotree
-map("n", "<Leader>u", ":UndotreeToggle<CR>", { silent = true })
-
--- bufferline
-map("n", "<tab>", ":BufferLineCycleNext<CR>", { silent = true })
-map("n", "<C-tab>", ":BufferLineCyclePrev<CR>", { silent = true })
+-- buffers
+map("n", "<tab>", ":bnext<CR>", { silent = true })
+map("n", "<C-tab>", ":bprevious<CR>", { silent = true })
+map("n", "H", ":bprevious<CR>", { silent = true })
+map("n", "L", ":bnext<CR>", { silent = true })
+vim.keymap.set("n", "<leader>q", ":bd<CR>", { silent = true, remap = true })
 
 -- diagnostics
 vim.keymap.set(

@@ -21,9 +21,7 @@
     home.packages = with pkgs; [
       (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
       ia-writer-quattro
-      monaspace
       nur.repos.x0ba.apple-fonts
-      nur.repos.x0ba.liga-sfmono
       ibm-plex
       cascadia-code
     ];

@@ -6,17 +6,12 @@ return {
       servers = {
         pyright = {},
         html = {},
+        astro = {},
         cssls = {},
         tsserver = {},
         ccls = { offset_encoding = "utf-8" },
         nil_ls = {},
       },
-    },
-  },
-  {
-    "j-hui/fidget.nvim",
-    opts = {
-      -- options
     },
   },
 }

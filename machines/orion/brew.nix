@@ -12,6 +12,9 @@ in {
     caskArgs.require_sha = true;
     masApps = {
       "Skiff Desktop" = 1615488683;
+      "Adguard for Safari" = 1440147259;
+      "1Password for Safari" = 1569813296;
+      "Vimari" = 1480933944;
     };
     brews = [
       "php"
@@ -37,7 +40,6 @@ in {
       "mullvad-browser"
       "obs"
       "obsidian"
-      "orion"
       "protonvpn"
       "signal"
       (skipSha "spacelauncher")
