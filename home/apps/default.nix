@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    ./cli.nix
     ./discord.nix
     ./firefox.nix
     ./fonts.nix

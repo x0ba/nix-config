@@ -84,8 +84,6 @@ vim.keymap.set("n", "<C-i>", function()
 end, { remap = true })
 
 -- buffers
-map("n", "<tab>", ":bnext<CR>", { silent = true })
-map("n", "<C-tab>", ":bprevious<CR>", { silent = true })
 map("n", "H", ":bprevious<CR>", { silent = true })
 map("n", "L", ":bnext<CR>", { silent = true })
 vim.keymap.set("n", "<leader>q", ":bd<CR>", { silent = true, remap = true })

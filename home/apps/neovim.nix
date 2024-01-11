@@ -86,6 +86,7 @@
       gnumake
       unzip
       yarn
+      nodejs_21
     ];
   };
 

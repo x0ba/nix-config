@@ -2,7 +2,6 @@
   config,
   pkgs,
   flakePath,
-  lib,
   ...
 }: let
   symlink = fileName: {recursive ? false}: {
@@ -15,103 +14,8 @@
       inherit (plugin) file src;
     })
     plugins);
-  catppuccin-zsh-fsh = pkgs.stdenvNoCC.mkDerivation {
-    name = "catppuccin-zsh-fsh";
-    src = pkgs.fetchFromGitHub {
-      owner = "catppuccin";
-      repo = "zsh-fsh";
-      rev = "7cdab58bddafe0565f84f6eaf2d7dd109bd6fc18";
-      sha256 = "sha256-31lh+LpXGe7BMZBhRWvvbOTkwjOM77FPNaGy6d26hIA=";
-    };
-    phases = ["buildPhase"];
-    buildPhase = ''
-      mkdir -p $out/share/zsh/site-functions/themes
-      ls $src/themes
-      cp $src/themes/* $out/share/zsh/site-functions/themes/
-    '';
-  };
 in {
   programs = {
-    atuin = {
-      enable = true;
-      flags = ["--disable-up-arrow"];
-      settings = {
-        inline_height = 30;
-        style = "compact";
-      };
-    };
-
-    btop = {
-      enable = true;
-      settings = {
-        theme_background = false;
-        vim_keys = true;
-      };
-    };
-
-    direnv.enable = true;
-    direnv.nix-direnv.enable = true;
-
-    fzf = {
-      enable = true;
-      defaultOptions = ["--height=30%" "--layout=reverse" "--info=inline"];
-    };
-
-    lsd = {
-      enable = true;
-      enableAliases = true;
-      settings = {
-        classic = false;
-        blocks = ["permission" "user" "group" "size" "date" "name"];
-        date = "+%y.%m.%d %H:%M";
-        dereference = false;
-        ignore-globs = [".git"];
-        color = {
-          when = "auto";
-          theme = "custom";
-        };
-        icons = {
-          when = "auto";
-          theme = "fancy";
-          separator = " ";
-        };
-        header = false;
-        hyperlink = "auto";
-        indicators = true;
-        layout = "grid";
-        permission = "octal";
-        size = "default";
-        sorting = {
-          column = "name";
-          dir-grouping = "first";
-        };
-        symlink-arrow = "󰌷";
-      };
-    };
-
-    nix-index.enable = true;
-
-    tealdeer = {
-      enable = true;
-      settings = {
-        style = {
-          description.foreground = "white";
-          command_name.foreground = "green";
-          example_text.foreground = "blue";
-          example_code.foreground = "white";
-          example_variable.foreground = "yellow";
-        };
-        updates.auto_update = true;
-      };
-    };
-
-    zoxide = {
-      enable = true;
-      options = ["--cmd cd"];
-    };
-
-    bat.enable = true;
-
     zsh = {
       dotDir = ".config/zsh";
       dirHashes = {
@@ -127,11 +31,11 @@ in {
       history.path = "${config.xdg.configHome}/zsh/history";
       initExtraFirst = ''
         zvm_config() {
-          ZVM_VI_HIGHLIGHT_BACKGROUND="black"
-          ZVM_VI_HIGHLIGHT_FOREGROUND="white"
-          ZVM_INIT_MODE="sourcing"
-          ZVM_INSERT_MODE_CURSOR="$ZVM_CURSOR_BLINKING_BEAM"
+          ZVM_INIT_MODE=sourcing
+          ZVM_CURSOR_STYLE_ENABLED=false
+          ZVM_VI_HIGHLIGHT_BACKGROUND=black
           ZVM_VI_HIGHLIGHT_EXTRASTYLE=bold,underline
+          ZVM_VI_HIGHLIGHT_FOREGROUND=white
         }
       '';
       initExtra = let
@@ -154,21 +58,6 @@ in {
         run = "${pkgs.comma}/bin/,";
         # switch between yubikeys for the same GPG key
         switch_yubikeys = ''gpg-connect-agent "scd serialno" "learn --force" "/bye"'';
-      };
-      oh-my-zsh = {
-        enable = true;
-        plugins =
-          [
-            "colored-man-pages"
-            "colorize"
-            "docker"
-            "docker-compose"
-            "git"
-          ]
-          ++ lib.optionals pkgs.stdenv.isDarwin [
-            "dash"
-            "macos"
-          ];
       };
       plugins = with pkgs; (zshPlugins [
         {
@@ -205,7 +94,6 @@ in {
   };
 
   xdg.configFile = {
-    "fsh".source = "${catppuccin-zsh-fsh}/share/zsh/site-functions/themes";
     "zsh/functions" = symlink "home/apps/zsh/functions" {recursive = true;};
   };
 }

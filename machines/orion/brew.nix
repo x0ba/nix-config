@@ -28,6 +28,7 @@ in {
       (skipSha "element")
       "gimp"
       "iina"
+      "hiddenbar"
       "imageoptim"
       "insomnia"
       "jetbrains-toolbox"
@@ -41,16 +42,12 @@ in {
       "obs"
       "obsidian"
       "protonvpn"
-      "signal"
-      (skipSha "spacelauncher")
-      (skipSha "spotify")
-      (skipSha "steam")
+      "shottr"
       "tailscale"
-      (skipSha "tetrio")
       "tor-browser"
       "uninstallpkg"
       "veracrypt"
-      "wacom-tablet"
+      # "wacom-tablet"
       "yubico-authenticator"
       "yubico-yubikey-manager"
     ];
