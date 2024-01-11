@@ -42,7 +42,7 @@ in {
       "obs"
       "obsidian"
       "protonvpn"
-      "shottr"
+      (skipSha "spotify")
       "tailscale"
       "tor-browser"
       "uninstallpkg"

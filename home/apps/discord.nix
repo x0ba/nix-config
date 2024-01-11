@@ -24,7 +24,7 @@ in {
             --font-primary: "IBM Plex Sans", sans-serif;
             --font-headline: "IBM Plex Sans", sans-serif;
             --font-display: "IBM Plex Sans", sans-serif;
-            --font-code: "Cascadia Code", "Symbols Nerd Font", mono;
+            --font-code: "IBM Plex Mono", "Symbols Nerd Font", mono;
           }
         '';
       json = pkgs.writeTextFile {

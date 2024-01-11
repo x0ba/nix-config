@@ -24,6 +24,7 @@ in {
         code = "${config.home.homeDirectory}/Code";
         dots = "${config.xdg.configHome}/flake";
         pics = "${config.home.homeDirectory}/Pictures";
+        cloud = "${config.home.homeDirectory}/Library/Mobile Documents/com~apple~CloudDocs";
       };
       enable = true;
       enableAutosuggestions = true;

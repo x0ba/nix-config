@@ -1,8 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{lib, ...}: {
   # manipulate the global /etc/zshenv for PATH, etc.
   programs.zsh.enable = true;
   programs.fish.enable = true;
@@ -116,6 +112,32 @@
           # send window to desktop and follow focus
           ${mapKeymaps "lalt + shift - Num : yabai -m window --space Num; yabai -m space --focus Num"}
         '';
+    };
+  };
+  launchd.agents = {
+    "yubikey" = {
+      script = ''
+        #!/usr/bin/env bash
+        yubikey_present=false
+        while true; do
+            if system_profiler SPUSBDataType | grep -q 'YubiKey'; then
+                if [ "$yubikey_present" = false ]; then
+                    launchctl load -w ~/Library/LaunchAgents/org.nix-community.home.sops-nix.plist
+                    yubikey_present=true
+                fi
+            else
+                if [ "$yubikey_present" = true ]; then
+                    launchctl unload -w ~/Library/LaunchAgents/org.nix-community.home.sops-nix.plist
+                    yubikey_present=false
+                fi
+            fi
+            sleep 5
+        done
+      '';
+      serviceConfig = {
+        Label = "org.nix-community.home.yubikey";
+        KeepAlive = true;
+      };
     };
   };
 }
