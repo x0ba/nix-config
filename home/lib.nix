@@ -30,6 +30,7 @@
   modules = with inputs;
     [
       caarlos0-nur.homeManagerModules.default
+      nix-colors.homeManagerModules.default
       nix-index-database.hmModules.nix-index
       sops.homeManagerModules.sops
       x0ba-nur.homeManagerModules.default

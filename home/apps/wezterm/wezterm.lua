@@ -3,7 +3,7 @@ local c = wezterm.config_builder()
 require("config.keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-  "IBM Plex Mono",
+  "BlexMono Nerd Font",
   "Symbols Nerd Font",
 })
 

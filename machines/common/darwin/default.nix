@@ -101,7 +101,7 @@
           lalt - f : yabai -m window --toggle zoom-fullscreen
 
           # open terminal
-          lalt - return : open -na "WezTerm"
+          lalt - return : open -na "''${HOME}/Applications/Home Manager Apps/Alacritty.app"
 
           # ONLY WORKS WITH SIP DISABLED:
           # fast focus space left/right

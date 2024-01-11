@@ -1,6 +1,4 @@
 local map = vim.api.nvim_set_keymap
-local harpoon = require("harpoon")
-harpoon:setup()
 
 -- file trees are overrated
 map("n", "<C-b>", ":Lf<CR>", { noremap = true, silent = true })
@@ -61,27 +59,6 @@ map("n", "<Leader>gg", ":Neogit<CR>", { noremap = true, silent = true })
 -- Gitsigns
 vim.keymap.set({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>")
 vim.keymap.set({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>")
-
--- Harpoon Keybindings
-vim.keymap.set("n", "<leader>a", function()
-  harpoon:list():append()
-end, { remap = true })
-vim.keymap.set("n", "<C-e>", function()
-  harpoon.ui:toggle_quick_menu(harpoon:list())
-end, { remap = true })
-
-vim.keymap.set("n", "<C-h>", function()
-  harpoon:list():select(1)
-end, { remap = true })
-vim.keymap.set("n", "<C-g>", function()
-  harpoon:list():select(2)
-end, { remap = true })
-vim.keymap.set("n", "<C-n>", function()
-  harpoon:list():select(3)
-end, { remap = true })
-vim.keymap.set("n", "<C-i>", function()
-  harpoon:list():select(4)
-end, { remap = true })
 
 -- buffers
 map("n", "H", ":bprevious<CR>", { silent = true })

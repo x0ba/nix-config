@@ -23,7 +23,7 @@
   "editor.smoothScrolling": true,
   "terminal.integrated.smoothScrolling": true,
   "terminal.integrated.fontSize": 14,
-  "editor.fontFamily": "IBM Plex Mono, Symbols Nerd Font, monospace",
+  "editor.fontFamily": "BlexMono Nerd Font, Symbols Nerd Font, monospace",
   "editor.fontLigatures": "'calt', 'liga', 'dlig'",
   "editor.fontSize": 15,
   "editor.formatOnSave": true,

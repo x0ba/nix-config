@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    ./alacritty.nix
     ./cli.nix
     ./discord.nix
     ./firefox.nix

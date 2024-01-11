@@ -1,25 +1,31 @@
-{config, ...}: {
-  home.sessionVariables.STARSHIP_CACHE = "${config.xdg.cacheHome}/starship";
-
+{...}: {
   programs.starship = {
     enable = true;
+    enableZshIntegration = true;
     settings = {
+      scan_timeout = 10;
+      # prompt
+      format = "$directory$git_branch$git_metrics$nix_shell$package$character";
+      add_newline = false;
+      line_break.disabled = true;
+      directory.style = "cyan";
       character = {
-        success_symbol = "[›](bold green)";
-        error_symbol = "[›](bold red)";
+        success_symbol = "[λ](green)";
+        error_symbol = "[λ](red)";
       };
-
-      git_status = {
-        deleted = "✗";
-        modified = "✶";
-        staged = "✓";
-        stashed = "≡";
+      # git
+      git_branch = {
+        style = "purple";
+        symbol = "";
       };
-
-      nix_shell = {
-        symbol = " ";
-        heuristic = true;
+      git_metrics = {
+        disabled = false;
+        added_style = "bold yellow";
+        deleted_style = "bold red";
       };
+      # package management
+      package.format = "version [$version](bold green) ";
+      nix_shell.symbol = " ";
     };
   };
 }
