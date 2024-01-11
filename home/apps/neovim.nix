@@ -40,6 +40,10 @@
       # data
       taplo
 
+      # markdown
+      marksman
+      markdownlint-cli
+
       # go
       go
       pkgs.nur.repos.x0ba.gonvim-tools

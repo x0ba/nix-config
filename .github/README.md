@@ -25,26 +25,26 @@ This is so I can edit some dotfiles (e.g. VSCode `settings.json`) in place and h
 #### Install the [Xcode Command Line Tools](https://developer.apple.com/download/all/)
 
 ```console
-$ xcode-select --install
+xcode-select --install
 ```
 
 #### Install [Homebrew](https://brew.sh)
 
 ```console
-$ curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
 ```
 
-#### Exclude `/nix/` from Time Machine:
+#### Exclude `/nix/` from Time Machine
 
 ```console
-$ sudo tmutil addexclusion -v /nix
+sudo tmutil addexclusion -v /nix
 ```
 
 ### Building the flake
 
 ```console
-$ nix --experimental-features "nix-command flakes" develop # enter the devShell
-$ just switch
+nix --experimental-features "nix-command flakes" develop # enter the devShell
+just switch
 ```
 
 I personally use [`nix-direnv`](https://github.com/nix-community/nix-direnv) to automatically enter this devShell on my machines.

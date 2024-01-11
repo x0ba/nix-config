@@ -2,6 +2,7 @@ vim.o.hlsearch = false
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.wo.signcolumn = "yes"
+vim.wo.conceallevel = 2
 
 -- Decrease update time
 vim.o.updatetime = 250
