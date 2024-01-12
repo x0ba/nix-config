@@ -23,6 +23,7 @@ in {
       "1password"
       "appcleaner"
       "bitwarden"
+      "bluej"
       "brave-browser"
       "calibre"
       (skipSha "element")

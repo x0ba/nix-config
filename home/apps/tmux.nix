@@ -89,10 +89,9 @@ in {
       bind c new-window -c '#{pane_current_path}'
       # TODO: repeat this for all bindings
       bind -N "⌘+g lazygit " g new-window -c "#{pane_current_path}" -n "" "lazygit 2> /dev/null"
-      bind -N "⌘+G gh-dash " G new-window -c "#{pane_current_path}" -n "" "ghd 2> /dev/null"
+      bind -N "⌘+G gh-dash " G new-window -c "#{pane_current_path}" -n "" "gh-dash 2> /dev/null"
       bind B new-window -n '👷' b
       bind D new-window -n '👷' d
-      bind-key T run-shell "t"
       bind h select-pane -L
       bind j select-pane -D
       bind k select-pane -U
@@ -122,13 +121,13 @@ in {
           set -g @fzf-url-history-limit '2000'
         '';
       }
-      {
-        plugin = tmux-nerd-font-window-name;
-        extraConfig = ''
-          set -g @tmux-nerd-font-window-name-shell-icon ''
-          set -g @tmux-nerd-font-window-name-show-name false
-        '';
-      }
+      # {
+      #   plugin = tmux-nerd-font-window-name;
+      #   extraConfig = ''
+      #     set -g @tmux-nerd-font-window-name-shell-icon ''
+      #     set -g @tmux-nerd-font-window-name-show-name false
+      #   '';
+      # }
       {
         plugin = tmuxPlugins.tmux-thumbs;
         extraConfig = ''

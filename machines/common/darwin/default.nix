@@ -70,48 +70,44 @@
                 ))
               ]
               cmd) (lib.range 1 10));
-      in
-        /*
-        bash
-        */
-        ''
-          #!/usr/bin/env sh
-          # focus window
-          lalt - h : yabai -m window --focus west
-          lalt - j : yabai -m window --focus south
-          lalt - k : yabai -m window --focus north
-          lalt - l : yabai -m window --focus east
-          # move window
-          lalt + shift - h : yabai -m window --warp west
-          lalt + shift - j : yabai -m window --warp south
-          lalt + shift - k : yabai -m window --warp north
-          lalt + shift - l : yabai -m window --warp east
-          # resize window
-          ctrl + lalt - h    : yabai -m window --resize right:-100:0 || yabai -m window --resize left:-100:0
-          ctrl + lalt - j    : yabai -m window --resize bottom:0:100 || yabai -m window --resize top:0:100
-          ctrl + lalt - k    : yabai -m window --resize bottom:0:-100 || yabai -m window --resize top:0:-100
-          ctrl + lalt - l : yabai -m window --resize right:100:0 || yabai -m window --resize left:100:0
-          # toggle sticky/floating
-          lalt - space: yabai -m window --toggle float; yabai -m window --grid 4:4:1:1:2:2
-          lalt + shift - space: yabai -m window --toggle float
-          # rotate
-          lalt + shift - e : yabai -m space --balance
-          lalt - r : yabai -m space --rotate 90
-          # fullscreen
-          lalt - f : yabai -m window --toggle zoom-fullscreen
+      in ''
+        #!/usr/bin/env sh
+        # focus window
+        lalt - h : yabai -m window --focus west
+        lalt - j : yabai -m window --focus south
+        lalt - k : yabai -m window --focus north
+        lalt - l : yabai -m window --focus east
+        # move window
+        lalt + shift - h : yabai -m window --warp west
+        lalt + shift - j : yabai -m window --warp south
+        lalt + shift - k : yabai -m window --warp north
+        lalt + shift - l : yabai -m window --warp east
+        # resize window
+        ctrl + lalt - h    : yabai -m window --resize right:-100:0 || yabai -m window --resize left:-100:0
+        ctrl + lalt - j    : yabai -m window --resize bottom:0:100 || yabai -m window --resize top:0:100
+        ctrl + lalt - k    : yabai -m window --resize bottom:0:-100 || yabai -m window --resize top:0:-100
+        ctrl + lalt - l : yabai -m window --resize right:100:0 || yabai -m window --resize left:100:0
+        # toggle sticky/floating
+        lalt - space: yabai -m window --toggle float; yabai -m window --grid 4:4:1:1:2:2
+        lalt + shift - space: yabai -m window --toggle float
+        # rotate
+        lalt + shift - e : yabai -m space --balance
+        lalt - r : yabai -m space --rotate 90
+        # fullscreen
+        lalt - f : yabai -m window --toggle zoom-fullscreen
 
-          # open terminal
-          lalt - return : open -na "''${HOME}/Applications/Home Manager Apps/Alacritty.app"
+        # open terminal
+        lalt - return : open -na "''${HOME}/Applications/Ghostty.app"
 
-          # ONLY WORKS WITH SIP DISABLED:
-          # fast focus space left/right
-          ctrl - left  : yabai -m space --focus prev
-          ctrl - right : yabai -m space --focus next
-          # switch to space
-          ${mapKeymaps "lalt - Num : yabai -m space --focus Num"}
-          # send window to desktop and follow focus
-          ${mapKeymaps "lalt + shift - Num : yabai -m window --space Num; yabai -m space --focus Num"}
-        '';
+        # ONLY WORKS WITH SIP DISABLED:
+        # fast focus space left/right
+        ctrl - left  : yabai -m space --focus prev
+        ctrl - right : yabai -m space --focus next
+        # switch to space
+        ${mapKeymaps "lalt - Num : yabai -m space --focus Num"}
+        # send window to desktop and follow focus
+        ${mapKeymaps "lalt + shift - Num : yabai -m window --space Num; yabai -m space --focus Num"}
+      '';
     };
   };
   launchd.agents = {
