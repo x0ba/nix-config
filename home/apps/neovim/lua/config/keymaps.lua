@@ -1,7 +1,7 @@
 local map = vim.api.nvim_set_keymap
 
 -- file trees are overrated
-map("n", "<C-b>", ":Lf<CR>", { noremap = true, silent = true })
+map("n", "<C-e>", ":Lf<CR>", { noremap = true, silent = true })
 
 -- telescope stuff
 map(

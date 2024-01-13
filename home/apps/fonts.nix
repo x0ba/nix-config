@@ -22,7 +22,6 @@
       (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
       ia-writer-quattro
       nur.repos.x0ba.apple-fonts
-      overpass
       ibm-plex
       cascadia-code
     ];

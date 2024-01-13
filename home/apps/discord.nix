@@ -17,9 +17,9 @@ in {
         @import url(//dablulite.github.io/css-snippets/ConsistentChatbar/import.css);
 
         :root {
-          --font-primary: "Overpass", sans-serif;
-          --font-headline: "Overpass", sans-serif;
-          --font-display: "Overpass", sans-serif;
+          --font-primary: "IBM Plex Sans", sans-serif;
+          --font-headline: "IBM Plex Sans", sans-serif;
+          --font-display: "IBM Plex Sans", sans-serif;
           --font-code: "SF Mono", "Symbols Nerd Font", mono;
         }
       '';

@@ -1,7 +1,16 @@
-{lib, ...}: {
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}: {
   # manipulate the global /etc/zshenv for PATH, etc.
   programs.zsh.enable = true;
   programs.fish.enable = true;
+  system.activationScripts.postActivation.text = ''
+    # Set the default shell as fish for the user. MacOS doesn't do this like nixOS does
+    sudo chsh -s ${pkgs.zsh}/bin/zsh daniel
+  '';
 
   system.stateVersion = 4;
 
@@ -28,7 +37,7 @@
         left_padding = 5;
         right_padding = 5;
         top_padding = 5;
-        bottom_padding = 5;
+        bottom_padding = 40;
         window_origin_display = "default";
         window_placement = "second_child";
         window_shadow = "float";
@@ -97,7 +106,7 @@
         lalt - f : yabai -m window --toggle zoom-fullscreen
 
         # open terminal
-        lalt - return : open -na "''${HOME}/Applications/Ghostty.app"
+        lalt - return : open -na Ghostty.app
 
         # ONLY WORKS WITH SIP DISABLED:
         # fast focus space left/right
@@ -108,6 +117,36 @@
         # send window to desktop and follow focus
         ${mapKeymaps "lalt + shift - Num : yabai -m window --space Num; yabai -m space --focus Num"}
       '';
+    };
+    spacebar = {
+      enable = true;
+      package = pkgs.spacebar;
+      config = {
+        position = "bottom";
+        height = 35;
+        title = "on";
+        spaces = "on";
+        power = "on";
+        clock = "off";
+        right_shell = "off";
+        padding_left = 20;
+        padding_right = 20;
+        spacing_left = 25;
+        spacing_right = 25;
+        text_font = ''"IBM Plex Sans:Regular:14.0"'';
+        icon_font = ''"IBM Plex Sans:Regular:14.0"'';
+        background_color = "0xff161616";
+        foreground_color = "0xffffffff";
+        space_icon_color = "0xff78a9ff";
+        power_icon_strip = " ";
+        space_icon_strip = "I II III IV V VI VII VIII IX X";
+        spaces_for_all_displays = "on";
+        display_separator = "on";
+        display_separator_icon = "|";
+        clock_format = ''"%d/%m/%y %R"'';
+        right_shell_icon = " ";
+        right_shell_command = "whoami";
+      };
     };
   };
   launchd.agents = {

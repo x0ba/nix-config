@@ -31,6 +31,7 @@ in {
       yq
       nix-output-monitor
       gitmux
+      nil
       nur.repos.x0ba.icat
       nvd
       ranger
