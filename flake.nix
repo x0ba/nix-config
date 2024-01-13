@@ -50,7 +50,6 @@
             alejandra.enable = true;
             commitizen.enable = true;
             nil.enable = true;
-            shellcheck.enable = true;
           };
         };
 

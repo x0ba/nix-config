@@ -4,13 +4,14 @@
   lib,
   ...
 }: let
-  inherit (pkgs.stdenv) isLinux;
+  inherit (pkgs.stdenv) isDarwin isLinux;
 in {
   config = lib.mkIf config.isGraphical {
     programs.firefox = {
+      enable = true;
       # since I'm using firefox from brew on darwin, I need to build a dummy package
       # to still manage it via home-manager
-      enable = isLinux;
+      package = pkgs.lib.mkIf isDarwin (pkgs.writeScriptBin "__dummy-firefox" "");
       profiles.default = {
         search = {
           default = "Brave";
@@ -29,18 +30,18 @@ in {
 
         userChrome = with config.colorScheme.colors; ''
           :root {
-          --window-colour:                #${base01-hex};
-          --secondary-colour:             #${base04-hex};
-          --inverted-colour:              #${base05-hex};
+          --window-colour:                #${base01};
+          --secondary-colour:             #${base04};
+          --inverted-colour:              #${base05};
 
-          --uc-identity-color-blue:       #${base08-hex};
-          --uc-identity-color-turquoise:  #${base09-hex};
-          --uc-identity-color-green:      #${base0A-hex};
-          --uc-identity-color-yellow:     #${base0B-hex};
-          --uc-identity-color-orange:     #${base0C-hex};
-          --uc-identity-color-red:        #${base0D-hex};
-          --uc-identity-color-pink:       #${base0E-hex};
-          --uc-identity-color-purple:     #${base0F-hex};
+          --uc-identity-color-blue:       #${base08};
+          --uc-identity-color-turquoise:  #${base09};
+          --uc-identity-color-green:      #${base0A};
+          --uc-identity-color-yellow:     #${base0B};
+          --uc-identity-color-orange:     #${base0C};
+          --uc-identity-color-red:        #${base0D};
+          --uc-identity-color-pink:       #${base0E};
+          --uc-identity-color-purple:     #${base0F};
 
           /* URL colour in URL bar suggestions */
           --urlbar-popup-url-color: var(--uc-identity-color-purple) !important;
