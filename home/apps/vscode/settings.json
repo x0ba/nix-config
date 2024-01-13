@@ -42,7 +42,7 @@
   "githubPullRequests.pullBranch": "always",
   "ltex.additionalRules.enablePickyRules": true,
   "ltex.additionalRules.motherTongue": "de-AT",
-  "markdown.preview.fontFamily": "IBM Plex Sans, sans-serif",
+  "markdown.preview.fontFamily": "Overpass, sans-serif",
   "search.useGlobalIgnoreFiles": true,
   "search.useParentIgnoreFiles": true,
   "typescript.inlayHints.parameterNames.enabled": "all",
