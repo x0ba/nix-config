@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  config,
   ...
 }: {
   # manipulate the global /etc/zshenv for PATH, etc.
@@ -9,13 +8,34 @@
   programs.fish.enable = true;
   system.activationScripts.postActivation.text = ''
     # Set the default shell as fish for the user. MacOS doesn't do this like nixOS does
-    sudo chsh -s ${pkgs.zsh}/bin/zsh daniel
+    sudo chsh -s ${pkgs.fish}/bin/fish daniel
   '';
 
-  system.stateVersion = 4;
-
   security.pam.enableSudoTouchIdAuth = true;
-  system.defaults.alf.stealthenabled = 1;
+  system.stateVersion = 4;
+  system.defaults = {
+    alf.stealthenabled = 1;
+    NSGlobalDomain = {
+      AppleKeyboardUIMode = 3;
+      ApplePressAndHoldEnabled = false;
+      AppleFontSmoothing = 1;
+      _HIHideMenuBar = true;
+      InitialKeyRepeat = 10;
+      KeyRepeat = 1;
+      "com.apple.mouse.tapBehavior" = 1;
+      "com.apple.swipescrolldirection" = true;
+    };
+    dock = {
+      autohide = true;
+      showhidden = true;
+      mru-spaces = false;
+    };
+    finder = {
+      AppleShowAllExtensions = true;
+      QuitMenuItem = true;
+      FXEnableExtensionChangeWarning = true;
+    };
+  };
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
@@ -134,12 +154,12 @@
         spacing_left = 25;
         spacing_right = 25;
         text_font = ''"IBM Plex Sans:Regular:14.0"'';
-        icon_font = ''"IBM Plex Sans:Regular:14.0"'';
+        icon_font = ''"Symbols Nerd Font:Regular:14.0"'';
         background_color = "0xff161616";
         foreground_color = "0xffffffff";
         space_icon_color = "0xff78a9ff";
         power_icon_strip = " ";
-        space_icon_strip = "I II III IV V VI VII VIII IX X";
+        space_icon_strip = "一 二 三 四 五 六 七 八 九 十";
         spaces_for_all_displays = "on";
         display_separator = "on";
         display_separator_icon = "|";

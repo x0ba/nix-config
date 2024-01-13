@@ -11,12 +11,10 @@
       run = "${pkgs.comma}/bin/,";
       # switch between yubikeys for the same GPG key
       switch_yubikeys = ''gpg-connect-agent "scd serialno" "learn --force" "/bye"'';
-      neovide = "/Applications/Neovide.app/Contents/MacOS/neovide --frameless --multigrid";
     };
     interactiveShellInit = ''
 
       set -g fish_greeting ""
-      ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
 
       set -U fish_color_autosuggestion      brblack
       set -U fish_color_cancel              -r

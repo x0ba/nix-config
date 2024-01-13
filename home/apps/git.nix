@@ -4,12 +4,18 @@
     userName = "x0ba";
     userEmail = "dax@omg.lol";
 
+    delta = {
+      enable = true;
+      options = {
+        line-numbers = true;
+      };
+    };
+
     signing = {
       signByDefault = true;
       key = "242CE11D4552BFD795AF94286CB88DB2D39E0378";
     };
 
-    diff-so-fancy.enable = true;
     aliases = {
       # get plain text diffs for patches
       patch = "!git --no-pager diff --no-color";

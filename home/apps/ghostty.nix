@@ -9,6 +9,7 @@
       enable = true;
       settings = with config.colorScheme.colors; {
         font-family = "SF Mono";
+        command = "${pkgs.fish}/bin/fish";
         window-decoration = false;
         window-inherit-working-directory = true;
         unfocused-split-opacity = 0.96;

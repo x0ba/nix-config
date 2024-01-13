@@ -10,15 +10,17 @@ in {
   homebrew = {
     enable = true;
     caskArgs.require_sha = true;
+    onActivation = {
+      autoUpdate = true;
+      upgrade = true;
+      cleanup = "zap";
+    };
     masApps = {
       "Skiff Desktop" = 1615488683;
       "Adguard for Safari" = 1440147259;
       "1Password for Safari" = 1569813296;
       "Vimari" = 1480933944;
     };
-    brews = [
-      "php"
-    ];
     casks = [
       "1password"
       "appcleaner"
@@ -43,6 +45,7 @@ in {
       "obs"
       "obsidian"
       "protonvpn"
+      "raycast"
       (skipSha "spotify")
       "tailscale"
       "tor-browser"
@@ -51,9 +54,5 @@ in {
       "yubico-authenticator"
       "yubico-yubikey-manager"
     ];
-    onActivation = {
-      autoUpdate = true;
-      upgrade = true;
-    };
   };
 }

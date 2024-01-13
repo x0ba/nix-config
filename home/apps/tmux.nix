@@ -21,17 +21,6 @@
       sha256 = "sha256-ydWdL2bdHb58F+i1+nwfRqI9T85ez1Cw6YAZIgz/2V4=";
     };
   };
-  tmux-nerd-font-window-name = pkgs.tmuxPlugins.mkTmuxPlugin {
-    pluginName = "tmux-nerd-font-window-name";
-    rtpFilePath = "tmux-nerd-font-window-name.tmux";
-    version = "2024-01-02";
-    src = pkgs.fetchFromGitHub {
-      owner = "joshmedeski";
-      repo = "tmux-nerd-font-window-name";
-      rev = "410d5becb3a5c118d5fabf89e1633d137906caf1";
-      sha256 = "sha256-HqSaOcnb4oC0AtS0aags2A5slsPiikccUSuZ1sVuago";
-    };
-  };
   tmux-fzf-url = pkgs.tmuxPlugins.mkTmuxPlugin {
     pluginName = "tmux-fzf-url";
     rtpFilePath = "fzf-url.tmux";
@@ -48,6 +37,7 @@ in {
     enable = true;
     extraConfig = ''
       set-option -g focus-events on
+      set -g default-shell ${pkgs.fish}/bin/fish
 
       set-option -g display-time 3000
 
