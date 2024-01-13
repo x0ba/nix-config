@@ -7,7 +7,7 @@
     programs.ghostty = {
       enable = true;
       settings = with config.colorScheme.colors; {
-        font-family = "Liga Berkeley Mono";
+        font-family = "SF Mono";
         window-decoration = false;
         window-inherit-working-directory = true;
         unfocused-split-opacity = 0.96;
@@ -22,7 +22,6 @@
         window-padding-y = 25;
         clipboard-read = "allow";
         clipboard-paste-protection = false;
-        font-feature = ["zero" "calt" "liga"];
         adjust-cell-height = 6;
         adjust-font-baseline = 2;
         background = "${base00}";

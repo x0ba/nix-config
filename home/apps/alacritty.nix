@@ -11,11 +11,11 @@
 
       font = {
         size = 15;
-        normal.family = "BlexMono Nerd Font";
+        normal.family = "SF Mono";
         normal.style = "Light";
-        bold.family = "BlexMono Nerd Font";
+        bold.family = "SF Mono";
         bold.style = "Bold";
-        italic.family = "BlexMono Nerd Font";
+        italic.family = "SF Mono";
         italic.style = "Italic";
         offset = {
           x = 0;

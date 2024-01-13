@@ -8,6 +8,7 @@
     ./cli.nix
     ./discord.nix
     ./firefox.nix
+    ./fish.nix
     ./fonts.nix
     ./ghostty.nix
     ./git.nix

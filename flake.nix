@@ -52,7 +52,6 @@
             editorconfig-checker.enable = true;
             nil.enable = true;
             shellcheck.enable = true;
-            stylua.enable = true;
           };
         };
 

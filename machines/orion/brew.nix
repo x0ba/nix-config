@@ -23,9 +23,9 @@ in {
       "1password"
       "appcleaner"
       "bitwarden"
-      "bluej"
       "brave-browser"
       "calibre"
+      "eloston-chromium"
       (skipSha "element")
       "gimp"
       "iina"
@@ -48,7 +48,6 @@ in {
       "tor-browser"
       "uninstallpkg"
       "veracrypt"
-      # "wacom-tablet"
       "yubico-authenticator"
       "yubico-yubikey-manager"
     ];
@@ -56,6 +55,5 @@ in {
       autoUpdate = true;
       upgrade = true;
     };
-    taps = ["homebrew/cask"];
   };
 }

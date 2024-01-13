@@ -19,7 +19,7 @@
         '';
     };
     home.packages = with pkgs; [
-      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "IBMPlexMono"];})
+      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
       ia-writer-quattro
       nur.repos.x0ba.apple-fonts
       ibm-plex

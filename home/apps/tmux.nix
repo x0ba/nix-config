@@ -63,15 +63,12 @@ in {
       set -g set-clipboard on      # use system clipboard
       set -g status-interval 3     # update the status bar every 3 seconds
 
-      set -g status-left "#[fg=blue,bold]#S"
-      set -ga status-left " #[fg=white,nobold]#(gitmux -cfg $HOME/.config/tmux/gitmux.yml)"
-      set -g status-left-length 200
-      set -g status-position top
+      set -g status-style fg=white,bg=default
+      set -g status-left ""
       set -g status-right ""
-      set -g status-style 'bg=default'
-
-      set -g window-status-current-format '👉#[fg=magenta]#W'
-      set -g window-status-format '  #[fg=gray]#W'
+      set -g status-justify centre
+      set -g window-status-current-format "#[fg=cyan]#[fg=black]#[bg=cyan]#I #[bg=brightblack]#[fg=white] #W#[fg=brightblack]#[bg=default] #[bg=default] #[fg=magenta]#[fg=black]#[bg=magenta]λ #[fg=white]#[bg=brightblack] %a %d %b #[fg=magenta]%R#[fg=brightblack]#[bg=default]"
+      set -g window-status-format "#[fg=magenta]#[fg=black]#[bg=magenta]#I #[bg=brightblack]#[fg=white] #W#[fg=brightblack]#[bg=default] "
 
       set -g allow-passthrough on
       set -ga update-environment TERM
@@ -88,8 +85,8 @@ in {
       bind '"' split-window -c '#{pane_current_path}'
       bind c new-window -c '#{pane_current_path}'
       # TODO: repeat this for all bindings
-      bind -N "⌘+g lazygit " g new-window -c "#{pane_current_path}" -n "" "lazygit 2> /dev/null"
-      bind -N "⌘+G gh-dash " G new-window -c "#{pane_current_path}" -n "" "gh-dash 2> /dev/null"
+      bind -N "⌘+g lazygit " g new-window -c "#{pane_current_path}" "lazygit 2> /dev/null"
+      bind -N "⌘+G gh-dash " G new-window -c "#{pane_current_path}" "gh-dash 2> /dev/null"
       bind B new-window -n '👷' b
       bind D new-window -n '👷' d
       bind h select-pane -L
