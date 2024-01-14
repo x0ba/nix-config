@@ -28,7 +28,6 @@ in {
       "eloston-chromium"
       "iina"
       "jetbrains-toolbox"
-      "karabiner-elements"
       "linearmouse"
       "little-snitch"
       "macfuse"

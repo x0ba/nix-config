@@ -19,6 +19,7 @@ in {
         experimental-features = ["auto-allocate-uids" "flakes" "nix-command" "repl-flake"];
         trusted-users = ["@sudo" "@wheel" "daniel"];
         use-xdg-base-directories = true;
+        sandbox = true;
         warn-dirty = false;
       }
       // (import ../../../flake.nix).nixConfig;

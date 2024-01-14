@@ -9,13 +9,13 @@
       settings = with config.colorScheme.colors; {
         window.padding.x = 20;
         window.padding.y = 20;
-        window.decorations = "buttonless";
+        window.decorations = "none";
         mouse.hide_when_typing = true;
         cursor.style = "Beam";
         env.TERM = "xterm-256color";
 
         font = {
-          size = 16;
+          size = 15;
           normal.family = "Liga SFMono Nerd Font";
           normal.style = "Light";
           bold.family = "Liga SFMono Nerd Font";

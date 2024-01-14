@@ -9,16 +9,10 @@
       };
     };
 
-    btop = {
-      enable = true;
-      settings = {
-        theme_background = false;
-        vim_keys = true;
-      };
-    };
-
     direnv.enable = true;
     direnv.nix-direnv.enable = true;
+
+    bottom.enable = true;
 
     fzf = {
       enable = true;

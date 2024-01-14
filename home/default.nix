@@ -20,6 +20,7 @@ in {
       nvd
       ripgrep
       trash-cli
+      xcp
     ];
 
     sessionVariables = lib.mkIf isDarwin {
@@ -56,5 +57,10 @@ in {
     home-manager.enable = true;
     man.enable = true;
     taskwarrior.enable = true;
+  };
+  xdg.configFile = {
+    "karabiner/karabiner.json" = {
+      source = ../configs/karabiner/karabiner.json;
+    };
   };
 }
