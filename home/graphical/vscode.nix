@@ -2,9 +2,7 @@
   config,
   pkgs,
   ...
-}: let
-  inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
-in {
+}: {
   programs.vscode = {
     enable = config.isGraphical;
     extensions =

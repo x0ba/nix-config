@@ -24,6 +24,7 @@ in {
     casks = [
       "1password"
       "calibre"
+      "discord-canary"
       "eloston-chromium"
       "iina"
       "jetbrains-toolbox"
@@ -42,5 +43,6 @@ in {
       "yubico-authenticator"
       "yubico-yubikey-manager"
     ];
+    taps = ["homebrew/cask-versions"];
   };
 }

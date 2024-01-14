@@ -2,8 +2,9 @@
   lib,
   pkgs,
   ...
-}: {
-  # manipulate the global /etc/zshenv for PATH, etc.
+}: let
+  scripts = ../../../configs/sketchybar/scripts;
+in {
   programs.zsh.enable = true;
   programs.fish.enable = true;
   system.activationScripts.postActivation.text = ''
@@ -46,45 +47,35 @@
       enableScriptingAddition = true;
       logFile = "/var/tmp/yabai.log";
       config = {
-        auto_balance = "off";
-        focus_follows_mouse = "off";
+        # Layout
         layout = "bsp";
-        mouse_modifier = "alt";
-        mouse_drop_action = "swap";
-        mouse_follows_focus = "off";
-        window_animation_duration = "0.0";
+        auto_balance = "off";
+        split_ratio = "0.50";
+        window_placement = "second_child";
+        # Gaps
         window_gap = 5;
         left_padding = 5;
         right_padding = 5;
         top_padding = 5;
         bottom_padding = 5;
-        window_origin_display = "default";
-        window_placement = "second_child";
+        # Mouse
+        mouse_modifier = "alt";
+        mouse_drop_action = "swap";
+        mouse_follows_focus = "off";
         window_shadow = "float";
-        external_bar = "all:0:40";
+        focus_follows_mouse = "off";
       };
-      extraConfig = let
-        rule = "yabai -m rule --add";
-        ignored = app: builtins.concatStringsSep "\n" (map (e: ''${rule} app="${e}" manage=off sticky=off layer=above border=off'') app);
-        unmanaged = app: builtins.concatStringsSep "\n" (map (e: ''${rule} app="${e}" manage=off'') app);
-      in
-        /*
-        bash
-        */
-        ''
-          # auto-inject scripting additions
-          yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-          sudo yabai --load-sa
-
-          ${ignored ["JetBrains Toolbox" "ProtonVPN" "Sip" "iStat Menus"]}
-          ${unmanaged ["GOG Galaxy" "Steam" "System Settings"]}
-          yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
-          yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
-
-          # etc.
-          ${rule} manage=off app="CleanShot"
-          ${rule} manage=off sticky=on  app="OBS Studio"
-        '';
+      extraConfig = ''
+        # auto-inject scripting additions
+        yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+        sudo yabai --load-sa
+        # rules
+        yabai -m rule --add app="^(LuLu|Vimac|Calculator|Software Update|Dictionary|VLC|System Preferences|zoom.us|Photo Booth|Archive Utility|Python|LibreOffice|App Store|Steam|Alfred|Activity Monitor)$" manage=off
+        yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
+        yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
+        yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
+        yabai -m rule --add label="Select file to save to" app="^Inkscape$" title="Select file to save to" manage=off
+      '';
     };
     skhd = {
       enable = true;
@@ -128,6 +119,17 @@
         # close windows
         lalt - q : $(yabai -m window $(yabai -m query --windows --window | jq -re ".id") --close)
 
+        ## Stacks (shift + ctrl - ...)
+        # Add the active window to the window or stack to the {direction}: shift + ctrl - {h, j, k, l}
+        shift + ctrl - h    : yabai -m window  west --stack $(yabai -m query --windows --window | jq -r '.id'); sketchybar --trigger window_focus
+        shift + ctrl - j    : yabai -m window south --stack $(yabai -m query --windows --window | jq -r '.id'); sketchybar --trigger window_focus
+        shift + ctrl - k    : yabai -m window north --stack $(yabai -m query --windows --window | jq -r '.id'); sketchybar --trigger window_focus
+        shift + ctrl - l    : yabai -m window  east --stack $(yabai -m query --windows --window | jq -r '.id'); sketchybar --trigger window_focus
+
+        # Stack Navigation: shift + ctrl - {n, p}
+        shift + ctrl - n : yabai -m window --focus stack.next
+        shift + ctrl - p : yabai -m window --focus stack.prev
+
         # open terminal
         lalt - return : open -na Ghostty.app
 
@@ -141,35 +143,64 @@
         ${mapKeymaps "lalt + shift - Num : yabai -m window --space Num; yabai -m space --focus Num"}
       '';
     };
-    spacebar = {
+    sketchybar = {
       enable = true;
-      package = pkgs.spacebar;
-      config = {
-        position = "bottom";
-        height = 40;
-        title = "on";
-        spaces = "on";
-        power = "on";
-        clock = "off";
-        right_shell = "off";
-        padding_left = 20;
-        padding_right = 20;
-        spacing_left = 25;
-        spacing_right = 25;
-        text_font = ''"Menlo:Regular:14.0"'';
-        icon_font = ''"Symbols Nerd Font:Regular:14.0"'';
-        background_color = "0xff161616";
-        foreground_color = "0xffffffff";
-        space_icon_color = "0xff3ddbd9";
-        power_icon_strip = " ";
-        space_icon_strip = "一 二 三 四 五 六 七 八 九 十";
-        spaces_for_all_displays = "on";
-        display_separator = "on";
-        display_separator_icon = "|";
-        clock_format = ''"%d/%m/%y %R"'';
-        right_shell_icon = " ";
-        right_shell_command = "whoami";
-      };
+      package = pkgs.sketchybar;
+      config = ''
+        #!/bin/bash
+
+        ############## BAR ##############
+        sketchybar --bar height=40 \
+                         position=bottom \
+                         topmost=on \
+                         shadow=on \
+                         color=0xff161616 \
+
+        ############## GLOBAL DEFAULTS ##############
+        sketchybar --default updates=when_shown \
+                             icon.font="Liga SFMono Nerd Font:Bold:15.0" \
+                             label.font="Liga SFMono Nerd Font:Regular:15.0" \
+                             icon.color=0xffffffff \
+                             label.color=0xffffffff \
+                             background.color=0xff161616 \
+                             background.padding_left=9 \
+                             background.padding_right=9 \
+                             background.height=40
+
+        ############## ITEMS ###############
+        SPACE_ICONS=("一" "二" "三" "四" "五" "六" "七" "八" "九" "十")
+        SPACES=()
+        sid=0
+        for i in "''${!SPACE_ICONS[@]}"
+        do
+          sid=$(($i+1))
+          sketchybar --add space space.$sid left \
+                     --set space.$sid associated_space=$sid \
+                                      icon=''${SPACE_ICONS[i]} \
+                                      icon.padding_left=12 \
+                                      icon.padding_right=12 \
+                                      icon.highlight_color=0xff3ddbd9 \
+                                      background.padding_left=-4 \
+                                      background.padding_right=-4 \
+                                      background.drawing=on \
+                                      label.drawing=off \
+                                      click_script="yabai -m space --focus \$SID 2>/dev/null"
+        done
+
+        sketchybar --add item text1 center \
+                   --set text1 icon="vroom engineering:" \
+                        icon.font="Liga SFMono Nerd Font:Regular:15.0"
+
+        sketchybar --add item window_title center \
+                   --set window_title    script="${scripts}/window_title.sh" \
+                                         icon.drawing=off \
+                                         label.color=0xffffffff \
+                   --subscribe window_title front_app_switched
+
+
+        ############## FINALIZING THE SETUP ##############
+        sketchybar --update
+      '';
     };
   };
 }

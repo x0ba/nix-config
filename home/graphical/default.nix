@@ -2,7 +2,7 @@
   imports = [
     ./fonts.nix
     ./media.nix
-    ./discord.nix
+    # ./discord.nix
     ./vscode.nix
   ];
 }
