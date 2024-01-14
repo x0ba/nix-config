@@ -4,27 +4,19 @@
     settings = with config.colorScheme.colors; {
       window.padding.x = 20;
       window.padding.y = 20;
-      window.decorations = "none";
+      window.decorations = "buttonless";
       mouse.hide_when_typing = true;
       cursor.style = "Beam";
       env.TERM = "xterm-256color";
 
       font = {
-        size = 15;
-        normal.family = "SF Mono";
+        size = 16;
+        normal.family = "Liga SFMono Nerd Font";
         normal.style = "Light";
-        bold.family = "SF Mono";
+        bold.family = "Liga SFMono Nerd Font";
         bold.style = "Bold";
-        italic.family = "SF Mono";
+        italic.family = "Liga SFMono Nerd Font";
         italic.style = "Italic";
-        offset = {
-          x = 0;
-          y = 5;
-        };
-        glyph_offset = {
-          x = 0;
-          y = 3;
-        };
       };
 
       colors = {

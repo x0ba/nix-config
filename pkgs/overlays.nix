@@ -1,5 +1,4 @@
 {inputs}: [
-  inputs.swayfx.overlays.default
   inputs.nix-vscode-extensions.overlays.default
   (final: prev: {
     yabai = prev.yabai.overrideAttrs (old: rec {

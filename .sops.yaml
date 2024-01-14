@@ -1,6 +1,0 @@
-keys:
-  - &daniel 242CE11D4552BFD795AF94286CB88DB2D39E0378
-creation_rules:
-  - key_groups:
-    - pgp:
-      - *daniel

@@ -32,9 +32,9 @@ in {
       "little-snitch"
       "macfuse"
       "mullvad-browser"
+      (skipSha "nvidia-geforce-now")
       "obs"
       "obsidian"
-      "raycast"
       (skipSha "spotify")
       "tailscale"
       "tor-browser"

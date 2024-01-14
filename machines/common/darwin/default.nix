@@ -125,6 +125,8 @@
         lalt - r : yabai -m space --rotate 90
         # fullscreen
         lalt - f : yabai -m window --toggle zoom-fullscreen
+        # close windows
+        lalt - q : $(yabai -m window $(yabai -m query --windows --window | jq -re ".id") --close)
 
         # open terminal
         lalt - return : open -na Ghostty.app
@@ -167,32 +169,6 @@
         clock_format = ''"%d/%m/%y %R"'';
         right_shell_icon = " ";
         right_shell_command = "whoami";
-      };
-    };
-  };
-  launchd.agents = {
-    "yubikey" = {
-      script = ''
-        #!/usr/bin/env bash
-        yubikey_present=false
-        while true; do
-            if system_profiler SPUSBDataType | grep -q 'YubiKey'; then
-                if [ "$yubikey_present" = false ]; then
-                    launchctl load -w ~/Library/LaunchAgents/org.nix-community.home.sops-nix.plist
-                    yubikey_present=true
-                fi
-            else
-                if [ "$yubikey_present" = true ]; then
-                    launchctl unload -w ~/Library/LaunchAgents/org.nix-community.home.sops-nix.plist
-                    yubikey_present=false
-                fi
-            fi
-            sleep 5
-        done
-      '';
-      serviceConfig = {
-        Label = "org.nix-community.home.yubikey";
-        KeepAlive = true;
       };
     };
   };
