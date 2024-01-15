@@ -1,6 +1,53 @@
 {
   description = "a starry night";
 
+  inputs = {
+    # All packages should follow nixpkgs-unstable
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # Nix-darwin
+    darwin = {
+      url = "github:lnl7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # HM-manager for dotfile/user management
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # nurs
+    nur.url = "github:nix-community/nur";
+    caarlos0-nur = {
+      url = "github:caarlos0/nur";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    x0ba-nur.url = "github:x0ba/nur";
+
+    # installing vscode extensions with home-manager
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs.flake-compat.follows = "";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # declarative color theming
+    nix-colors.url = "github:Misterio77/nix-colors";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    nix-index-database.url = "github:nix-community/nix-index-database";
+
+    # flake utilities
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    flake-utils.url = "github:numtide/flake-utils";
+    pre-commit-hooks = {
+      url = "github:cachix/pre-commit-hooks.nix";
+      inputs.flake-compat.follows = "";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs-stable.follows = "nixpkgs";
+    };
+  };
+
   outputs = {
     flake-parts,
     self,
@@ -92,50 +139,5 @@
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "pre-commit-hooks.cachix.org-1:Pkk3Panw5AW24TOv6kz3PvLhlH8puAsJTBbOPmBo7Rc="
     ];
-  };
-
-  inputs = {
-    # All packages should follow nixpkgs-unstable
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # Nix-darwin
-    darwin = {
-      url = "github:lnl7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    # HM-manager for dotfile/user management
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # nurs
-    nur.url = "github:nix-community/nur";
-    caarlos0-nur = {
-      url = "github:caarlos0/nur";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    x0ba-nur.url = "github:x0ba/nur";
-
-    nix-vscode-extensions = {
-      url = "github:nix-community/nix-vscode-extensions";
-      inputs.flake-compat.follows = "";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # declarative color theming
-    nix-colors.url = "github:Misterio77/nix-colors";
-    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-    nix-index-database.url = "github:nix-community/nix-index-database";
-
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    flake-utils.url = "github:numtide/flake-utils";
-    pre-commit-hooks = {
-      url = "github:cachix/pre-commit-hooks.nix";
-      inputs.flake-compat.follows = "";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nixpkgs-stable.follows = "nixpkgs";
-    };
   };
 }

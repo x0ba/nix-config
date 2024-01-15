@@ -3,6 +3,10 @@
     inherit name;
     args.require_sha = false;
   };
+  noQuarantine = name: {
+    inherit name;
+    args.no_quarantine = true;
+  };
 in {
   # make brew available in PATH
   environment.systemPath = [config.homebrew.brewPrefix];
@@ -23,13 +27,14 @@ in {
     };
     casks = [
       "1password"
+      "appcleaner"
+      "brave-browser"
       "calibre"
-      "discord-canary"
-      "eloston-chromium"
       "iina"
       "jetbrains-toolbox"
+      (noQuarantine "librewolf")
       "linearmouse"
-      "lulu"
+      "little-snitch"
       "macfuse"
       "mullvad-browser"
       (skipSha "nvidia-geforce-now")

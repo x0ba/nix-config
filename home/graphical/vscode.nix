@@ -5,6 +5,7 @@
 }: {
   programs.vscode = {
     enable = config.isGraphical;
+    package = pkgs.vscodium;
     extensions =
       (with pkgs.vscode-extensions; [
         # patches
@@ -110,7 +111,7 @@
       "editor.smoothScrolling" = true;
       "terminal.integrated.smoothScrolling" = true;
       "terminal.integrated.fontSize" = 14;
-      "editor.fontFamily" = "SF Mono, Symbols Nerd Font, monospace";
+      "editor.fontFamily" = "JetBrains Mono, Symbols Nerd Font, monospace";
       "editor.fontLigatures" = "'calt', 'liga', 'dlig'";
       "editor.fontSize" = 15;
       "editor.formatOnSave" = true;

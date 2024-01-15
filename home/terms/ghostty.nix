@@ -7,7 +7,7 @@
     programs.ghostty = {
       enable = true;
       settings = with config.colorScheme.colors; {
-        font-family = "SF Mono";
+        font-family = "JetBrains Mono";
         window-decoration = false;
         window-inherit-working-directory = true;
         unfocused-split-opacity = 0.96;

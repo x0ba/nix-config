@@ -58,6 +58,7 @@ in {
         right_padding = 5;
         top_padding = 5;
         bottom_padding = 5;
+        external_bar = "all:0:40";
         # Mouse
         mouse_modifier = "alt";
         mouse_drop_action = "swap";
@@ -119,17 +120,6 @@ in {
         # close windows
         lalt - q : $(yabai -m window $(yabai -m query --windows --window | jq -re ".id") --close)
 
-        ## Stacks (shift + ctrl - ...)
-        # Add the active window to the window or stack to the {direction}: shift + ctrl - {h, j, k, l}
-        shift + ctrl - h    : yabai -m window  west --stack $(yabai -m query --windows --window | jq -r '.id'); sketchybar --trigger window_focus
-        shift + ctrl - j    : yabai -m window south --stack $(yabai -m query --windows --window | jq -r '.id'); sketchybar --trigger window_focus
-        shift + ctrl - k    : yabai -m window north --stack $(yabai -m query --windows --window | jq -r '.id'); sketchybar --trigger window_focus
-        shift + ctrl - l    : yabai -m window  east --stack $(yabai -m query --windows --window | jq -r '.id'); sketchybar --trigger window_focus
-
-        # Stack Navigation: shift + ctrl - {n, p}
-        shift + ctrl - n : yabai -m window --focus stack.next
-        shift + ctrl - p : yabai -m window --focus stack.prev
-
         # open terminal
         lalt - return : open -na Ghostty.app
 
@@ -152,7 +142,6 @@ in {
         ############## BAR ##############
         sketchybar --bar height=40 \
                          position=bottom \
-                         topmost=on \
                          shadow=on \
                          color=0xff161616 \
 
@@ -203,5 +192,11 @@ in {
       '';
     };
     karabiner-elements.enable = true;
+    nextdns = {
+      enable = true;
+      arguments = [
+        "-profile en0=7b4d8c"
+      ];
+    };
   };
 }

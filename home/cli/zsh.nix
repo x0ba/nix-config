@@ -1,13 +1,8 @@
 {
   config,
   pkgs,
-  flakePath,
   ...
 }: let
-  symlink = fileName: {recursive ? false}: {
-    source = config.lib.file.mkOutOfStoreSymlink "${flakePath}/${fileName}";
-    recursive = recursive;
-  };
   zshPlugins = plugins: (map
     (plugin: rec {
       name = src.name;
@@ -39,12 +34,7 @@ in {
           ZVM_VI_HIGHLIGHT_FOREGROUND=white
         }
       '';
-      initExtra = let
-        functionsDir = "${config.home.homeDirectory}/${config.programs.zsh.dotDir}/functions";
-      in ''
-        for script in "${functionsDir}"/**/*; do
-          source "$script"
-        done
+      initExtra = ''
         bindkey '^F' autosuggest-accept
       '';
       envExtra = ''
@@ -92,9 +82,5 @@ in {
         }
       ]);
     };
-  };
-
-  xdg.configFile = {
-    "zsh/functions" = symlink "home/apps/zsh/functions" {recursive = true;};
   };
 }

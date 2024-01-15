@@ -9,7 +9,6 @@
     ./tmux.nix
     ./zellij.nix
     ./zsh.nix
-    ./zsh.nix
     ./neovim.nix
   ];
 }

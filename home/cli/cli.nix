@@ -16,6 +16,7 @@
 
     fzf = {
       enable = true;
+      enableFishIntegration = true;
       defaultOptions = ["--height=30%" "--layout=reverse" "--info=inline"];
     };
 
