@@ -29,7 +29,7 @@ in {
       "iina"
       "jetbrains-toolbox"
       "linearmouse"
-      "little-snitch"
+      "lulu"
       "macfuse"
       "mullvad-browser"
       (skipSha "nvidia-geforce-now")
@@ -40,7 +40,6 @@ in {
       "tor-browser"
       "veracrypt"
       "yubico-authenticator"
-      "yubico-yubikey-manager"
     ];
     taps = ["homebrew/cask-versions"];
   };

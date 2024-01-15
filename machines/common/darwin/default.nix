@@ -69,14 +69,8 @@ in {
         # auto-inject scripting additions
         yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
         sudo yabai --load-sa
-        # bar
-        yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
-        yabai -m signal --add event=display_added action="sleep 1 && ${scripts}/create_spaces.sh"
-        yabai -m signal --add event=display_removed action="sleep 1 && ${scripts}/create_spaces.sh"
-        yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
-        yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
         # rules
-        yabai -m rule --add app="^(LuLu|Vimac|Calculator|Software Update|Dictionary|VLC|System Preferences|zoom.us|Photo Booth|Archive Utility|Python|LibreOffice|App Store|Steam|Alfred|Activity Monitor)$" manage=off
+        yabai -m rule --add app="^(LuLu|Vimac|Calculator|Software Update|Dictionary|VLC|System Settings|zoom.us|Photo Booth|Archive Utility|Python|LibreOffice|App Store|Steam|Alfred|Activity Monitor)$" manage=off
         yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
         yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
         yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
