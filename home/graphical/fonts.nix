@@ -11,6 +11,7 @@
       nur.repos.x0ba.apple-fonts
       nur.repos.x0ba.liga-sfmono
       jetbrains-mono
+      iosevka
       ibm-plex
     ];
   };

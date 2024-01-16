@@ -30,6 +30,10 @@
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    catppuccin-vsc = {
+      url = "github:catppuccin/vscode";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # declarative color theming
     nix-colors.url = "github:Misterio77/nix-colors";
@@ -125,19 +129,10 @@
     };
 
   nixConfig = {
-    extra-substituters = [
-      "https://cache.garnix.io"
-      "https://mic92.cachix.org"
-      "https://x0ba.cachix.org"
-      "https://nix-community.cachix.org"
-      "https://pre-commit-hooks.cachix.org"
-    ];
+    extra-substituters = ["https://cachix.cachix.org" "https://nix-community.cachix.org"];
     extra-trusted-public-keys = [
-      "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
-      "mic92.cachix.org-1:gi8IhgiT3CYZnJsaW7fxznzTkMUOn1RY4GmXdT/nXYQ="
-      "x0ba.cachix.org-1:+WLqIY3Ygu/++D57/ZeUSO9jbDwnhQ6vzCXtaghpn9E="
+      "cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "pre-commit-hooks.cachix.org-1:Pkk3Panw5AW24TOv6kz3PvLhlH8puAsJTBbOPmBo7Rc="
     ];
   };
 }

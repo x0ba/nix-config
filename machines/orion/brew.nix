@@ -32,16 +32,13 @@ in {
       "calibre"
       "iina"
       "jetbrains-toolbox"
-      (noQuarantine "librewolf")
       "linearmouse"
       "little-snitch"
       "macfuse"
       "mullvad-browser"
-      (skipSha "nvidia-geforce-now")
-      "obs"
       "obsidian"
+      "orion"
       (skipSha "spotify")
-      "tailscale"
       "tor-browser"
       "veracrypt"
       "yubico-authenticator"

@@ -20,7 +20,7 @@ in {
           --font-primary: "IBM Plex Sans", sans-serif;
           --font-headline: "IBM Plex Sans", sans-serif;
           --font-display: "IBM Plex Sans", sans-serif;
-          --font-code: "JetBrains Mono", "Symbols Nerd Font", mono;
+          --font-code: "Iosevka", "Symbols Nerd Font", mono;
         }
       '';
       json = pkgs.writeTextFile {

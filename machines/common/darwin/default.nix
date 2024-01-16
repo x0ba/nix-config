@@ -133,6 +133,36 @@ in {
         ${mapKeymaps "lalt + shift - Num : yabai -m window --space Num; yabai -m space --focus Num"}
       '';
     };
+    spacebar = {
+      enable = false;
+      package = pkgs.spacebar;
+      config = {
+        position = "bottom";
+        height = 40;
+        title = "on";
+        spaces = "on";
+        power = "on";
+        clock = "off";
+        right_shell = "off";
+        padding_left = 20;
+        padding_right = 20;
+        spacing_left = 25;
+        spacing_right = 25;
+        text_font = ''"Liga SFMono Nerd Font:Regular:15.0"'';
+        icon_font = ''"Liga SFMono Nerd Font:Bold:15.0"'';
+        background_color = "0xff131a1c";
+        foreground_color = "0xffc5c8c9";
+        space_icon_color = "0xff8aadf4";
+        power_icon_strip = " ";
+        space_icon_strip = "一 二 三 四 五 六 七 八 九 十";
+        spaces_for_all_displays = "on";
+        display_separator = "on";
+        display_separator_icon = "|";
+        clock_format = ''"%d/%m/%y %R"'';
+        right_shell_icon = " ";
+        right_shell_command = "whoami";
+      };
+    };
     sketchybar = {
       enable = true;
       package = pkgs.sketchybar;
@@ -143,15 +173,15 @@ in {
         sketchybar --bar height=40 \
                          position=bottom \
                          shadow=on \
-                         color=0xff161616 \
+                         color=0xff131a1c \
 
         ############## GLOBAL DEFAULTS ##############
         sketchybar --default updates=when_shown \
                              icon.font="Liga SFMono Nerd Font:Bold:15.0" \
                              label.font="Liga SFMono Nerd Font:Regular:15.0" \
-                             icon.color=0xffffffff \
-                             label.color=0xffffffff \
-                             background.color=0xff161616 \
+                             icon.color=0xffc5c8c9 \
+                             label.color=0xffc5c8c9 \
+                             background.color=0xff131a1c \
                              background.padding_left=9 \
                              background.padding_right=9 \
                              background.height=40
@@ -168,7 +198,7 @@ in {
                                       icon=''${SPACE_ICONS[i]} \
                                       icon.padding_left=12 \
                                       icon.padding_right=12 \
-                                      icon.highlight_color=0xff3ddbd9 \
+                                      icon.highlight_color=0xff8aadf4 \
                                       background.padding_left=-4 \
                                       background.padding_right=-4 \
                                       background.drawing=on \
@@ -183,7 +213,7 @@ in {
         sketchybar --add item window_title center \
                    --set window_title    script="${scripts}/window_title.sh" \
                                          icon.drawing=off \
-                                         label.color=0xffffffff \
+                                         label.color=0xffc5c8c9 \
                    --subscribe window_title front_app_switched
 
 

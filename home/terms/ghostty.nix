@@ -7,11 +7,13 @@
     programs.ghostty = {
       enable = true;
       settings = with config.colorScheme.colors; {
-        font-family = "JetBrains Mono";
+        font-family = "Iosevka";
+        font-feature = "ss14";
+        theme = "catppuccin-macchiato";
         window-decoration = false;
         window-inherit-working-directory = true;
         unfocused-split-opacity = 0.96;
-        font-size = 15;
+        font-size = 16;
         window-theme = "dark";
         confirm-close-surface = false;
         macos-option-as-alt = true;
@@ -25,25 +27,10 @@
         adjust-cell-height = 6;
         adjust-font-baseline = 2;
         background = "${base00}";
-        foreground = "${base06}";
+        foreground = "${base05}";
+        palette = "8=#363d3e";
       };
       extraConfig = with config.colorScheme.colors; ''
-        palette = 0=#${base00}
-        palette = 8=#${base03}
-        palette = 1=#${base0B}
-        palette = 9=#${base0B}
-        palette = 2=#${base0C}
-        palette = 10=#${base0C}
-        palette = 3=#${base0D}
-        palette = 11=#${base0D}
-        palette = 4=#${base07}
-        palette = 12=#${base07}
-        palette = 5=#${base0F}
-        palette = 13=#${base0F}
-        palette = 6=#${base09}
-        palette = 14=#${base09}
-        palette = 7=#${base04}
-        palette = 15=#${base06}
       '';
       keybindings = {
         "super+shift+c" = "text:\\x02\\x43";
