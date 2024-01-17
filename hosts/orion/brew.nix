@@ -35,9 +35,12 @@ in {
       "linearmouse"
       "little-snitch"
       "macfuse"
+      "wacom-tablet"
       "mullvad-browser"
+      "hiddenbar"
       "obsidian"
       "orion"
+      "raycast"
       (skipSha "spotify")
       "tor-browser"
       "veracrypt"

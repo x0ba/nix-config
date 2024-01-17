@@ -14,7 +14,7 @@ in {
   users.users."${config.dotfiles.username}" =
     {
       home = "${homeRoot}/${config.dotfiles.username}";
-      shell = pkgs.zsh;
+      shell = pkgs.fish;
     }
     // (
       if pkgs.stdenv.isLinux

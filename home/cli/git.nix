@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   programs.git = {
     enable = true;
     userName = "x0ba";
@@ -27,6 +27,12 @@
     };
 
     lfs.enable = true;
+
+    package = pkgs.symlinkJoin {
+      name = "git";
+      paths = [pkgs.git];
+      postBuild = "rm $out/etc/gitconfig || true";
+    };
 
     ignores = [
       # general

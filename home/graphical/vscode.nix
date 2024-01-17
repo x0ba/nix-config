@@ -111,7 +111,6 @@ in {
         mkhl.direnv
         ms-kubernetes-tools.vscode-kubernetes-tools
         ms-vscode.live-server
-        oscarotero.vento-syntax
         pkief.material-icon-theme
         redhat.vscode-yaml
         ryanluker.vscode-coverage-gutters

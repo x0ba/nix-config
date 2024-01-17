@@ -13,6 +13,7 @@
     };
     interactiveShellInit = ''
       set -g fish_greeting ""
+      fish_add_path -p /etc/profiles/per-user/daniel/bin
     '';
   };
 }
