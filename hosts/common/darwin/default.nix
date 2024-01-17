@@ -15,6 +15,10 @@ in {
   security.pam.enableSudoTouchIdAuth = true;
   system.stateVersion = 4;
 
+  system.keyboard = {
+    enableKeyMapping = true;
+    remapCapsLockToEscape = true;
+  };
   system.defaults = {
     alf.stealthenabled = 1;
     NSGlobalDomain = {
