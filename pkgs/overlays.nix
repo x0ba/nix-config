@@ -1,6 +1,7 @@
 {inputs}: [
   inputs.nix-vscode-extensions.overlays.default
   inputs.catppuccin-vsc.overlays.default
+  inputs.emacs-overlay.overlays.default
   (final: prev: {
     yabai = prev.yabai.overrideAttrs (old: rec {
       version = "6.0.6";

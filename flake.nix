@@ -4,12 +4,13 @@
   inputs = {
     # All packages should follow nixpkgs-unstable
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # Nix-darwin
+
+    # nix darwin for macos system configuration
     darwin = {
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # HM-manager for dotfile/user management
+    # home-manager for dotfile/user management
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,7 +24,13 @@
     };
     x0ba-nur.url = "github:x0ba/nur";
 
-    # installing vscode extensions with home-manager
+    # emacs
+    emacs-overlay = {
+      url = "github:nix-community/emacs-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # vscode extensions for home manager
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
       inputs.flake-compat.follows = "";

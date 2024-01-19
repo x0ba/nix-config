@@ -7,46 +7,48 @@
 in {
   programs.zsh.enable = true;
   programs.fish.enable = true;
+
   system.activationScripts.postActivation.text = ''
     # Set the default shell as fish for the user. MacOS doesn't do this like nixOS does
     sudo chsh -s ${pkgs.fish}/bin/fish daniel
   '';
 
-  security.pam.enableSudoTouchIdAuth = true;
   system.stateVersion = 4;
 
-  system.keyboard = {
-    enableKeyMapping = true;
-    remapCapsLockToEscape = true;
+  security.pam.enableSudoTouchIdAuth = true;
+  system = {
+    keyboard = {
+      enableKeyMapping = true;
+      remapCapsLockToEscape = true;
+    };
+    defaults = {
+      alf.stealthenabled = 1;
+      NSGlobalDomain = {
+        AppleKeyboardUIMode = 3;
+        ApplePressAndHoldEnabled = false;
+        AppleFontSmoothing = 1;
+        _HIHideMenuBar = true;
+        InitialKeyRepeat = 10;
+        KeyRepeat = 1;
+        "com.apple.mouse.tapBehavior" = 1;
+        "com.apple.swipescrolldirection" = true;
+      };
+      dock = {
+        autohide = true;
+        showhidden = true;
+        mru-spaces = false;
+      };
+      finder = {
+        AppleShowAllExtensions = true;
+        QuitMenuItem = true;
+        FXEnableExtensionChangeWarning = true;
+      };
+    };
   };
-  system.defaults = {
-    alf.stealthenabled = 1;
-    NSGlobalDomain = {
-      AppleKeyboardUIMode = 3;
-      ApplePressAndHoldEnabled = false;
-      AppleFontSmoothing = 1;
-      _HIHideMenuBar = true;
-      InitialKeyRepeat = 10;
-      KeyRepeat = 1;
-      "com.apple.mouse.tapBehavior" = 1;
-      "com.apple.swipescrolldirection" = true;
-    };
-    dock = {
-      autohide = true;
-      showhidden = true;
-      mru-spaces = false;
-    };
-    finder = {
-      AppleShowAllExtensions = true;
-      QuitMenuItem = true;
-      FXEnableExtensionChangeWarning = true;
-    };
-  };
-
-  # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
 
   services = {
+    # Auto upgrade nix package and the daemon service.
+    nix-daemon.enable = true;
     yabai = {
       enable = true;
       enableScriptingAddition = true;
@@ -127,6 +129,7 @@ in {
 
         # open terminal
         lalt - return : open -na Ghostty.app
+        lalt - e : emacsclient -c
 
         # ONLY WORKS WITH SIP DISABLED:
         # fast focus space left/right

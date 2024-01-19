@@ -3,10 +3,6 @@
     inherit name;
     args.require_sha = false;
   };
-  noQuarantine = name: {
-    inherit name;
-    args.no_quarantine = true;
-  };
 in {
   # make brew available in PATH
   environment.systemPath = [config.homebrew.brewPrefix];
@@ -19,6 +15,14 @@ in {
       upgrade = true;
       cleanup = "zap";
     };
+    brews = [
+      {
+        name = "emacs-plus";
+        start_service = true;
+      }
+      "libvterm"
+      "cmake"
+    ];
     masApps = {
       "Skiff Desktop" = 1615488683;
       "Adguard for Safari" = 1440147259;
@@ -30,22 +34,22 @@ in {
       "appcleaner"
       "brave-browser"
       "calibre"
+      "hiddenbar"
       "iina"
       "jetbrains-toolbox"
       "linearmouse"
       "little-snitch"
       "macfuse"
-      "wacom-tablet"
       "mullvad-browser"
-      "hiddenbar"
       "obsidian"
       "orion"
       "raycast"
       (skipSha "spotify")
       "tor-browser"
       "veracrypt"
+      "wacom-tablet"
       "yubico-authenticator"
     ];
-    taps = ["homebrew/cask-versions"];
+    taps = ["d12frosted/emacs-plus" "homebrew/services"];
   };
 }
