@@ -18,10 +18,12 @@ in {
     brews = [
       {
         name = "emacs-plus";
+        args = ["with-native-comp"];
         start_service = true;
       }
       "libvterm"
       "cmake"
+      "gcc"
     ];
     masApps = {
       "Skiff Desktop" = 1615488683;
@@ -37,6 +39,7 @@ in {
       "hiddenbar"
       "iina"
       "jetbrains-toolbox"
+      "firefox"
       "linearmouse"
       "little-snitch"
       "macfuse"

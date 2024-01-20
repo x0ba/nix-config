@@ -7,7 +7,7 @@
     programs.ghostty = {
       enable = true;
       settings = with config.colorScheme.colors; {
-        font-family = "Iosevka";
+        font-family = "Fira Code";
         font-feature = "ss14";
         theme = "catppuccin-macchiato";
         window-decoration = false;
@@ -25,7 +25,7 @@
         clipboard-read = "allow";
         clipboard-paste-protection = false;
         adjust-cell-height = 6;
-        adjust-font-baseline = 2;
+        adjust-font-baseline = 1;
         background = "${base00}";
         foreground = "${base05}";
         palette = "8=#363d3e";

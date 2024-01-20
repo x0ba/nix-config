@@ -17,6 +17,7 @@ in {
       just
       lazygit
       nix-output-monitor
+      nixfmt
       nvd
       ripgrep
       trash-cli

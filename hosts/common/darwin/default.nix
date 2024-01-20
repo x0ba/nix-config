@@ -27,7 +27,7 @@ in {
         AppleKeyboardUIMode = 3;
         ApplePressAndHoldEnabled = false;
         AppleFontSmoothing = 1;
-        _HIHideMenuBar = true;
+        _HIHideMenuBar = false;
         InitialKeyRepeat = 10;
         KeyRepeat = 1;
         "com.apple.mouse.tapBehavior" = 1;
@@ -65,7 +65,7 @@ in {
         right_padding = 5;
         top_padding = 5;
         bottom_padding = 5;
-        external_bar = "all:0:40";
+        # external_bar = "all:0:40";
         # Mouse
         mouse_modifier = "alt";
         mouse_drop_action = "swap";
@@ -83,6 +83,7 @@ in {
         yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
         yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
         yabai -m rule --add label="Select file to save to" app="^Inkscape$" title="Select file to save to" manage=off
+        yabai -m rule --add title="^Emacs Everywhere" title="Select file to save to" manage=off
       '';
     };
     skhd = {
@@ -130,6 +131,7 @@ in {
         # open terminal
         lalt - return : open -na Ghostty.app
         lalt - e : emacsclient -c
+        lalt - v : emacsclient --eval "(emacs-everywhere)"
 
         # ONLY WORKS WITH SIP DISABLED:
         # fast focus space left/right
@@ -138,11 +140,12 @@ in {
         # switch to space
         ${mapKeymaps "lalt - Num : yabai -m space --focus Num"}
         # send window to desktop and follow focus
-        ${mapKeymaps "lalt + shift - Num : yabai -m window --space Num; yabai -m space --focus Num"}
+        ${mapKeymaps
+          "lalt + shift - Num : yabai -m window --space Num; yabai -m space --focus Num"}
       '';
     };
     sketchybar = {
-      enable = true;
+      enable = false;
       package = pkgs.sketchybar;
       config = ''
         #!/bin/bash
@@ -155,8 +158,8 @@ in {
 
         ############## GLOBAL DEFAULTS ##############
         sketchybar --default updates=when_shown \
-                             icon.font="Inter:Bold:15.0" \
-                             label.font="Inter:Regular:15.0" \
+                             icon.font="Overpass:Bold:15.0" \
+                             label.font="Overpass:Regular:15.0" \
                              icon.color=0xffc5c8c9 \
                              label.color=0xffc5c8c9 \
                              background.color=0xff131a1c \
@@ -185,7 +188,7 @@ in {
         done
 
         sketchybar --add item text1 center \
-                        icon.font="Inter:Bold:15.0"
+                        icon.font="Overpass:Bold:15.0"
 
         sketchybar --add item window_title center \
                    --set window_title    script="${scripts}/window_title.sh" \
@@ -201,9 +204,7 @@ in {
     karabiner-elements.enable = true;
     nextdns = {
       enable = true;
-      arguments = [
-        "-profile en0=7b4d8c"
-      ];
+      arguments = ["-profile en0=7b4d8c"];
     };
   };
 }

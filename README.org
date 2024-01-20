@@ -4,13 +4,13 @@
 * x0ba's dotfiles
 
 ** Images
-[[./assets/shot1.png]] [[./assets/shot2.png]]
+[[./extra/assets/shot1.png]] [[./extra/assets/shot2.png]]
 
 ** Software
 - Terminal: [[https://discord.gg/ghostty][Ghostty]]
 - Multiplexer: [[https://github.com/tmux/tmux][tmux]] with [[https://github.com/joshmedeski/t-smart-tmux-session-manager][t-smart-session-manager]]
 - Shell: [[https://fishshell.com/][fish]]
-- Font: [[https://github.com/be5invis/Iosevka][Iosevka]]
+- Font: [[https://github.com/be5invis/Fira Code][Fira Code]]
 - Colorscheme: My Own
 - Window Manager: [[https://github.com/koekeishiya/yabai][Yabai]] with [[https://github.com/koekeishiya/skhd][skhd]]
 - Bar: [[https://github.com/cmacrae/spacebar][Spacebar]]
