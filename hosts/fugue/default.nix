@@ -11,7 +11,7 @@
   };
 
   networking = {
-    hostName = "polaris";
+    hostName = "fugue";
     networkmanager.enable = true;
     firewall.enable = true;
   };

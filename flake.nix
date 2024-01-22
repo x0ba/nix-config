@@ -1,5 +1,5 @@
 {
-  description = "a starry night";
+  description = "can you hear the music?";
 
   inputs = {
     # All packages should follow nixpkgs-unstable
@@ -64,20 +64,20 @@
     flake-parts.lib.mkFlake {inherit self inputs;} {
       flake = mkSystems [
         {
-          host = "orion";
+          host = "fermata";
           system = "aarch64-darwin";
           username = "daniel";
           extraModules = [inputs.x0ba-nur.darwinModules.default];
           isGraphical = true;
         }
         {
-          host = "andromeda";
+          host = "scherzo";
           system = "x86_64-linux";
           username = "daniel";
           isGraphical = true;
         }
         {
-          host = "polaris";
+          host = "fugue";
           system = "x86_64-linux";
           username = "daniel";
           isGraphical = true;

@@ -1,8 +1,8 @@
 {
   imports = [./brew.nix];
 
-  networking.computerName = "orion";
-  networking.hostName = "orion";
+  networking.computerName = "fermata";
+  networking.hostName = "fermata";
 
   nix.settings.extra-platforms = [
     "aarch64-darwin"

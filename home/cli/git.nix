@@ -6,9 +6,7 @@
 
     delta = {
       enable = true;
-      options = {
-        line-numbers = true;
-      };
+      options = {line-numbers = true;};
     };
 
     signing = {
@@ -23,16 +21,11 @@
       gzip = "!git archive --format=tar.gz --output=$(basename $(git rev-parse --show-toplevel)).tar.gz $(git rev-parse --short HEAD)";
       zip = "!git archive --format=zip --output=$(basename $(git rev-parse --show-toplevel)).zip $(git rev-parse --short HEAD)";
       # for those 3am commits
-      yolo = "!git commit -m \"chore: $(curl -s https://whatthecommit.com/index.txt)\"";
+      yolo = ''
+        !git commit -m "chore: $(curl -s https://whatthecommit.com/index.txt)"'';
     };
 
     lfs.enable = true;
-
-    package = pkgs.symlinkJoin {
-      name = "git";
-      paths = [pkgs.git];
-      postBuild = "rm $out/etc/gitconfig || true";
-    };
 
     ignores = [
       # general

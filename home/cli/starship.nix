@@ -1,6 +1,7 @@
 {...}: {
   programs.starship = {
     enable = true;
+    enableFishIntegration = false;
     settings = {
       scan_timeout = 10;
       # prompt

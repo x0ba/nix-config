@@ -6,7 +6,7 @@
   imports = [./hardware.nix];
 
   networking = {
-    hostName = "andromeda";
+    hostName = "scherzo";
     networkmanager.enable = true;
     firewall.enable = true;
   };
