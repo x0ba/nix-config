@@ -8,7 +8,7 @@
     programs.ghostty = {
       enable = true;
       settings = with config.colorScheme.colors; {
-        font-family = "JetBrains Mono";
+        font-family = "Liga SFMono Nerd Font";
         command = "${pkgs.fish}/bin/fish";
         window-inherit-working-directory = true;
         unfocused-split-opacity = 0.96;

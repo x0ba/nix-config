@@ -6,7 +6,7 @@
 }: {
   config = lib.mkIf config.isGraphical {
     home.packages = with pkgs; [
-      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly" "IBMPlexMono"];})
+      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
       ia-writer-quattro
       jetbrains-mono
       fira-code
