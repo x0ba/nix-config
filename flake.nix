@@ -24,12 +24,6 @@
     };
     x0ba-nur.url = "github:x0ba/nur";
 
-    # emacs
-    emacs-overlay = {
-      url = "github:nix-community/emacs-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # vscode extensions for home manager
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
@@ -67,8 +61,7 @@
     inherit (import ./hosts/lib.nix {inherit inputs overlays;}) mkSystems;
     overlays = import ./pkgs/overlays.nix {inherit inputs;};
   in
-    flake-parts.lib.mkFlake {inherit self inputs;}
-    {
+    flake-parts.lib.mkFlake {inherit self inputs;} {
       flake = mkSystems [
         {
           host = "orion";
@@ -114,7 +107,8 @@
         devShells.default = config.pre-commit.devShell.overrideAttrs (_old: {
           buildInputs = with pkgs;
             [alejandra just nil nix-output-monitor nvd]
-            ++ lib.optionals stdenv.isDarwin [inputs.darwin.packages.${system}.darwin-rebuild];
+            ++ lib.optionals stdenv.isDarwin
+            [inputs.darwin.packages.${system}.darwin-rebuild];
         });
 
         legacyPackages.homeConfigurations = let
@@ -136,10 +130,16 @@
     };
 
   nixConfig = {
-    extra-substituters = ["https://cachix.cachix.org" "https://nix-community.cachix.org" "https://x0ba.cachix.org"];
+    extra-substituters = [
+      "https://cachix.cachix.org"
+      "https://nix-community.cachix.org"
+      "https://cachix.org/api/v1/cache/emacs"
+      "https://x0ba.cachix.org"
+    ];
     extra-trusted-public-keys = [
       "cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "emacs.cachix.org-1:b1SMJNLY/mZF6GxQE+eDBeps7WnkT0Po55TAyzwOxTY="
       "x0ba.cachix.org-1:+WLqIY3Ygu/++D57/ZeUSO9jbDwnhQ6vzCXtaghpn9E="
     ];
   };

@@ -1,10 +1,3 @@
 {...}: {
-  imports = [
-    ./fonts.nix
-    ./emacs.nix
-    ./media.nix
-    ./firefox.nix
-    ./discord.nix
-    ./vscode.nix
-  ];
+  imports = [./fonts.nix ./emacs.nix ./media.nix ./firefox.nix ./vscode.nix];
 }

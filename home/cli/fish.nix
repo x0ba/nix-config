@@ -20,6 +20,7 @@
       rm = "trash-put";
       code = "codium";
       neovide = "/Applications/Neovide.app/Contents/MacOS/neovide --frame none";
+      emacs_reload = "launchctl unload -w ~/Library/LaunchAgents/org.nixos.emacs.plist && launchctl load -w ~/Library/LaunchAgents/org.nixos.emacs.plist";
     };
     interactiveShellInit = ''
       set -x EDITOR "nvim"

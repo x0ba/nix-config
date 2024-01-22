@@ -2,6 +2,7 @@
   imports = [
     ./cli.nix
     ./fish.nix
+    ./mail.nix
     ./git.nix
     ./gpg.nix
     ./lf.nix

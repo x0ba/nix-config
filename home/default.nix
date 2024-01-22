@@ -31,26 +31,26 @@ in {
   };
 
   colorScheme = {
-    slug = "darkppuccin";
-    name = "Darkppuccin";
-    author = "x0ba";
+    slug = "oxocarbon";
+    name = "Oxocarbon Dark";
+    author = "Nyoom Engineering";
     colors = {
-      base00 = "131a1c"; # base
-      base01 = "192022"; # mantle
-      base02 = "202729"; # surface0
-      base03 = "363d3e"; # surface1
-      base04 = "4a5051"; # surface2
-      base05 = "c5c8c9"; # text
-      base06 = "f4dbd6"; # rosewater
-      base07 = "b7bdf8"; # lavender
-      base08 = "ed8796"; # red
-      base09 = "f5a97f"; # peach
-      base0A = "eed49f"; # yellow
-      base0B = "a6da95"; # green
-      base0C = "8bd5ca"; # teal
-      base0D = "8aadf4"; # blue
-      base0E = "c6a0f6"; # mauve
-      base0F = "f0c6c6"; # flamingo
+      base00 = "161616";
+      base01 = "262626";
+      base02 = "393939";
+      base03 = "525252";
+      base04 = "dde1e6";
+      base05 = "f2f4f8";
+      base06 = "ffffff";
+      base07 = "08bdba";
+      base08 = "3ddbd9";
+      base09 = "78a9ff";
+      base0A = "ee5396";
+      base0B = "33b1ff";
+      base0C = "ff7eb6";
+      base0D = "42be65";
+      base0E = "be95ff";
+      base0F = "82cfff";
     };
   };
 
