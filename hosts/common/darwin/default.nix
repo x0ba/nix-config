@@ -50,7 +50,7 @@ in {
     # Auto upgrade nix package and the daemon service.
     nix-daemon.enable = true;
     yabai = {
-      enable = false;
+      enable = true;
       enableScriptingAddition = true;
       logFile = "/var/tmp/yabai.log";
       config = {
@@ -60,18 +60,23 @@ in {
         split_ratio = "0.50";
         window_placement = "second_child";
         # Gaps
-        window_gap = 5;
-        left_padding = 5;
-        right_padding = 5;
-        top_padding = 5;
-        bottom_padding = 5;
-        external_bar = "all:0:40";
+        window_gap = 10;
+        left_padding = 10;
+        right_padding = 10;
+        top_padding = 10;
+        bottom_padding = 10;
+        # external_bar = "all:0:40";
+        # Opeacity
+        window_shadow = "on";
+        window_opacity = "on";
+        window_opacity_duration = "0.1";
+        active_window_opacity = "1.0";
+        normal_window_opacity = "1.0";
         # Mouse
         mouse_modifier = "alt";
+        mouse_action1 = "move";
+        mouse_action2 = "resize";
         mouse_drop_action = "swap";
-        mouse_follows_focus = "off";
-        window_shadow = "float";
-        focus_follows_mouse = "off";
       };
       extraConfig = ''
         # auto-inject scripting additions
@@ -102,36 +107,48 @@ in {
               cmd) (lib.range 1 10));
       in ''
         #!/usr/bin/env sh
-        # # focus window
-        # lalt - h : yabai -m window --focus west
-        # lalt - j : yabai -m window --focus south
-        # lalt - k : yabai -m window --focus north
-        # lalt - l : yabai -m window --focus east
-        # # move window
-        # lalt + shift - h : yabai -m window --warp west
-        # lalt + shift - j : yabai -m window --warp south
-        # lalt + shift - k : yabai -m window --warp north
-        # lalt + shift - l : yabai -m window --warp east
-        # # resize window
-        # ctrl + lalt - h    : yabai -m window --resize right:-100:0 || yabai -m window --resize left:-100:0
-        # ctrl + lalt - j    : yabai -m window --resize bottom:0:100 || yabai -m window --resize top:0:100
-        # ctrl + lalt - k    : yabai -m window --resize bottom:0:-100 || yabai -m window --resize top:0:-100
-        # ctrl + lalt - l : yabai -m window --resize right:100:0 || yabai -m window --resize left:100:0
-        # # toggle sticky/floating
-        # lalt - space: yabai -m window --toggle float; yabai -m window --grid 4:4:1:1:2:2
-        # lalt + shift - space: yabai -m window --toggle float
-        # # rotate
-        # lalt + shift - e : yabai -m space --balance
-        # lalt - r : yabai -m space --rotate 90
-        # # fullscreen
-        # lalt - f : yabai -m window --toggle zoom-fullscreen
-        # # close windows
-        # lalt - q : $(yabai -m window $(yabai -m query --windows --window | jq -re ".id") --close)
-        #
-        # open terminal
-        lalt - return : open -na Ghostty.app
-        lalt - e : emacsclient -c
-        lalt - v : emacsclient --eval "(emacs-everywhere)"
+        # focus window
+        lalt - h : yabai -m window --focus west
+        lalt - j : yabai -m window --focus south
+        lalt - k : yabai -m window --focus north
+        lalt - l : yabai -m window --focus east
+        # move window
+        lalt + shift - h : yabai -m window --warp west
+        lalt + shift - j : yabai -m window --warp south
+        lalt + shift - k : yabai -m window --warp north
+        lalt + shift - l : yabai -m window --warp east
+        # resize window
+        ctrl + lalt - h    : yabai -m window --resize right:-100:0 || yabai -m window --resize left:-100:0
+        ctrl + lalt - j    : yabai -m window --resize bottom:0:100 || yabai -m window --resize top:0:100
+        ctrl + lalt - k    : yabai -m window --resize bottom:0:-100 || yabai -m window --resize top:0:-100
+        ctrl + lalt - l : yabai -m window --resize right:100:0 || yabai -m window --resize left:100:0
+        lalt - t : yabai -m window --toggle float;\
+                   yabai -m window --grid 4:4:1:1:2:2
+        # rotate
+        lalt + shift - e : yabai -m space --balance
+        lalt - r : yabai -m space --rotate 90
+        # fullscreen
+        lalt - f : yabai -m window --toggle zoom-fullscreen
+        # close windows
+        lalt - q : $(yabai -m window $(yabai -m query --windows --window | jq -re ".id") --close)
+
+        # ONLY WORKS WITH SIP DISABLED:
+        # fast focus space left/right
+        ctrl - left  : yabai -m space --focus prev
+        ctrl - right : yabai -m space --focus next
+        # switch to space
+        ${mapKeymaps "lalt - Num : yabai -m space --focus Num"}
+        # send window to desktop and follow focus
+        ${mapKeymaps
+          "lalt + shift - Num : yabai -m window --space Num; yabai -m space --focus Num"}
+
+        # Open new Alacritty window
+        cmd - return : alacritty msg create-window || open -na Alacritty.app
+
+        # open emacs
+        cmd - e : emacsclient -c
+        cmd + lalt -e : emacsclient --eval "(emacs-everywhere)"
+        cmd + shift -e : emacsclient --eval "(emacs-everywhere)"
       '';
     };
     spacebar = {
@@ -149,13 +166,13 @@ in {
         padding_right = 20;
         spacing_left = 25;
         spacing_right = 25;
-        text_font = ''"Liga SFMono Nerd Font:Regular:16.0"'';
-        icon_font = ''"Liga SFMono Nerd Font:Regular:16.0"'';
+        text_font = ''"Overpass:Regular:16.0"'';
+        icon_font = ''"Overpass:Regular:16.0"'';
         background_color = "0xff161616";
         foreground_color = "0xffFFFFFF";
         space_icon_color = "0xff3ddbd9";
         power_icon_strip = " ";
-        space_icon_strip = "一 二 三 四 五 六 七 八 九 十";
+        space_icon_strip = "1 2 3 4 5 6 7 8 9 10";
         spaces_for_all_displays = "on";
         display_separator = "on";
         display_separator_icon = "|";
@@ -166,8 +183,8 @@ in {
     };
     karabiner-elements.enable = true;
     emacs = {
-      enable = true;
-      package = pkgs.emacs;
+      enable = false;
+      package = pkgs.emacs-macport;
     };
     nextdns = {
       enable = true;

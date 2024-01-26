@@ -23,6 +23,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     x0ba-nur.url = "github:x0ba/nur";
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
 
     # vscode extensions for home manager
     nix-vscode-extensions = {

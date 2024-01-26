@@ -52,13 +52,12 @@
     pandoc
     (aspellWithDicts (ds: with ds; [en en-computers en-science]))
     sdcv
-    mu
     languagetool
     isync
   ];
   programs.emacs = {
-    enable = true;
-    package = pkgs.emacs;
+    enable = false;
+    package = pkgs.emacs-macport;
     extraPackages = epkgs: [
       epkgs.vterm
       epkgs.pdf-tools

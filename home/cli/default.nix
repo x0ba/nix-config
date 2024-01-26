@@ -9,7 +9,7 @@
     ./starship.nix
     ./tmux.nix
     ./zellij.nix
+    ./nushell.nix
     ./zsh.nix
-    ./neovim.nix
   ];
 }

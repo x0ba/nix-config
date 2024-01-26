@@ -6,6 +6,7 @@
   imports = [
     ./graphical
     ./cli
+    ./editors
     ./terms
   ];
 

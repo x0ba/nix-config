@@ -8,8 +8,9 @@
     programs.ghostty = {
       enable = true;
       settings = with config.colorScheme.colors; {
-        font-family = "Liga SFMono Nerd Font";
+        font-family = "Liga Berkeley Mono";
         command = "${pkgs.fish}/bin/fish";
+        window-decoration = false;
         window-inherit-working-directory = true;
         unfocused-split-opacity = 0.96;
         font-size = 15;

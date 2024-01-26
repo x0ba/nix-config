@@ -9,6 +9,7 @@
         hash = "sha256-G4BbYU4mgV8Jap8a872/YtoXU/hwUhFyLXdcuT1jldI=";
       };
     });
+    emac = prev.callPackage ./emac.nix {};
     nur = import inputs.nur {
       nurpkgs = prev;
       pkgs = prev;
