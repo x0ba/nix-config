@@ -27,7 +27,7 @@ in {
         AppleKeyboardUIMode = 3;
         ApplePressAndHoldEnabled = false;
         AppleFontSmoothing = 1;
-        _HIHideMenuBar = false;
+        _HIHideMenuBar = true;
         InitialKeyRepeat = 10;
         KeyRepeat = 1;
         "com.apple.mouse.tapBehavior" = 1;
@@ -143,7 +143,7 @@ in {
           "lalt + shift - Num : yabai -m window --space Num; yabai -m space --focus Num"}
 
         # Open new Alacritty window
-        cmd - return : alacritty msg create-window || open -na Alacritty.app
+        cmd + shift - return : alacritty msg create-window || open -na Alacritty.app
 
         # open emacs
         cmd - e : emacsclient -c

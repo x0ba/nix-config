@@ -4,9 +4,12 @@ return {
 		"nyoom-engineering/oxocarbon.nvim",
 	},
 	{
+		"romgrk/doom-one.vim",
+	},
+	{
 		"LazyVim/LazyVim",
 		opts = {
-			colorscheme = "oxocarbon",
+			colorscheme = "doom-one",
 		},
 	},
 }

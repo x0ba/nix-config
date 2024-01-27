@@ -55,26 +55,26 @@ in {
   };
 
   colorScheme = {
-    slug = "oxocarbon";
-    name = "Oxocarbon Dark";
-    author = "Nyoom Engineering";
+    slug = "doom-vibrant";
+    name = "Doom Vibrant";
+    author = "Hlissner";
     colors = {
-      base00 = "161616";
-      base01 = "262626";
-      base02 = "393939";
-      base03 = "525252";
-      base04 = "dde1e6";
-      base05 = "f2f4f8";
-      base06 = "ffffff";
-      base07 = "08bdba";
-      base08 = "3ddbd9";
-      base09 = "78a9ff";
-      base0A = "ee5396";
-      base0B = "33b1ff";
-      base0C = "ff7eb6";
-      base0D = "42be65";
-      base0E = "be95ff";
-      base0F = "82cfff";
+      base00 = "2E3440";
+      base01 = "3B4252";
+      base02 = "434C5E";
+      base03 = "4C566A";
+      base04 = "D8DEE9";
+      base05 = "E5E9F0";
+      base06 = "ECEFF4";
+      base07 = "8FBCBB";
+      base08 = "BF616A";
+      base09 = "D08770";
+      base0A = "EBCB8B";
+      base0B = "A3BE8C";
+      base0C = "88C0D0";
+      base0D = "81A1C1";
+      base0E = "B48EAD";
+      base0F = "5E81AC";
     };
   };
 

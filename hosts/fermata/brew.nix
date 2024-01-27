@@ -41,7 +41,6 @@ in {
       "1password"
       "arc"
       "anki"
-      "stats"
       "appcleaner"
       "calibre"
       "hiddenbar"
@@ -53,9 +52,7 @@ in {
       "shottr"
       "little-snitch"
       "macfuse"
-      "mullvad-browser"
       "obsidian"
-      "orion"
       (skipSha "spotify")
       "tor-browser"
       "veracrypt"
