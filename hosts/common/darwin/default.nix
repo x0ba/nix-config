@@ -2,9 +2,7 @@
   lib,
   pkgs,
   ...
-}: let
-  scripts = ../../../configs/sketchybar/scripts;
-in {
+}: {
   programs.zsh.enable = true;
   programs.fish.enable = true;
 
@@ -27,7 +25,7 @@ in {
         AppleKeyboardUIMode = 3;
         ApplePressAndHoldEnabled = false;
         AppleFontSmoothing = 1;
-        _HIHideMenuBar = true;
+        _HIHideMenuBar = false;
         InitialKeyRepeat = 10;
         KeyRepeat = 1;
         "com.apple.mouse.tapBehavior" = 1;
@@ -79,6 +77,8 @@ in {
         mouse_drop_action = "swap";
       };
       extraConfig = ''
+        # Unload the macOS WindowManager process
+        launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist > /dev/null 2>&1 &
         # auto-inject scripting additions
         yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
         sudo yabai --load-sa
@@ -108,29 +108,24 @@ in {
       in ''
         #!/usr/bin/env sh
         # focus window
-        lalt - h : yabai -m window --focus west
-        lalt - j : yabai -m window --focus south
-        lalt - k : yabai -m window --focus north
-        lalt - l : yabai -m window --focus east
+        ctrl + cmd - h : yabai -m window --focus west
+        ctrl + cmd - j : yabai -m window --focus south
+        ctrl + cmd - k : yabai -m window --focus north
+        ctrl + cmd - l : yabai -m window --focus east
         # move window
-        lalt + shift - h : yabai -m window --warp west
-        lalt + shift - j : yabai -m window --warp south
-        lalt + shift - k : yabai -m window --warp north
-        lalt + shift - l : yabai -m window --warp east
-        # resize window
-        ctrl + lalt - h    : yabai -m window --resize right:-100:0 || yabai -m window --resize left:-100:0
-        ctrl + lalt - j    : yabai -m window --resize bottom:0:100 || yabai -m window --resize top:0:100
-        ctrl + lalt - k    : yabai -m window --resize bottom:0:-100 || yabai -m window --resize top:0:-100
-        ctrl + lalt - l : yabai -m window --resize right:100:0 || yabai -m window --resize left:100:0
-        lalt - t : yabai -m window --toggle float;\
+        cmd + shift - h : yabai -m window --warp west
+        cmd + shift - j : yabai -m window --warp south
+        cmd + shift - k : yabai -m window --warp north
+        cmd + shift - l : yabai -m window --warp east
+        ctrl + cmd - t : yabai -m window --toggle float;\
                    yabai -m window --grid 4:4:1:1:2:2
         # rotate
-        lalt + shift - e : yabai -m space --balance
-        lalt - r : yabai -m space --rotate 90
+        cmd + shift - e : yabai -m space --balance
+        cmd + shift - r : yabai -m space --rotate 90
         # fullscreen
-        lalt - f : yabai -m window --toggle zoom-fullscreen
-        # close windows
-        lalt - q : $(yabai -m window $(yabai -m query --windows --window | jq -re ".id") --close)
+        ctrl + cmd - f : yabai -m window --toggle zoom-fullscreen
+        # close current window
+        ctrl + cmd - w : $(yabai -m window $(yabai -m query --windows --window | jq -re ".id") --close)
 
         # ONLY WORKS WITH SIP DISABLED:
         # fast focus space left/right
@@ -143,12 +138,11 @@ in {
           "lalt + shift - Num : yabai -m window --space Num; yabai -m space --focus Num"}
 
         # Open new Alacritty window
-        cmd + shift - return : alacritty msg create-window || open -na Alacritty.app
+        cmd + shift - return : open -na WezTerm.app
 
         # open emacs
         cmd - e : emacsclient -c
-        cmd + lalt -e : emacsclient --eval "(emacs-everywhere)"
-        cmd + shift -e : emacsclient --eval "(emacs-everywhere)"
+        cmd + lalt - e : emacsclient --eval "(emacs-everywhere)"
       '';
     };
     spacebar = {
@@ -184,7 +178,7 @@ in {
     karabiner-elements.enable = true;
     emacs = {
       enable = false;
-      package = pkgs.emacs-macport;
+      package = pkgs.emacs;
     };
     nextdns = {
       enable = true;

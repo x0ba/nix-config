@@ -7,8 +7,12 @@
 }: let
   inherit (pkgs.stdenv.hostPlatform) isDarwin isLinux;
 
-  settingsJSON = config.lib.file.mkOutOfStoreSymlink "${flakePath}/configs/vscode/settings.json";
-  keybindingsJSON = config.lib.file.mkOutOfStoreSymlink "${flakePath}/configs/vscode/keybindings.json";
+  settingsJSON =
+    config.lib.file.mkOutOfStoreSymlink
+    "${flakePath}/configs/vscode/settings.json";
+  keybindingsJSON =
+    config.lib.file.mkOutOfStoreSymlink
+    "${flakePath}/configs/vscode/keybindings.json";
 in {
   programs.vscode = {
     enable = config.isGraphical;
@@ -34,7 +38,9 @@ in {
         # other extensions like Go/Rust are only really used with devShells,
         # nix & shell are universal enough for me to want them everywhere.
         (jnoortheen.nix-ide.overrideAttrs (prev: {
-          nativeBuildInputs = prev.nativeBuildInputs ++ [pkgs.jq pkgs.moreutils];
+          nativeBuildInputs =
+            prev.nativeBuildInputs
+            ++ [pkgs.jq pkgs.moreutils];
           postInstall = ''
             cd "$out/$installPrefix"
             jq -e '
@@ -50,7 +56,9 @@ in {
           '';
         }))
         (mads-hartmann.bash-ide-vscode.overrideAttrs (prev: {
-          nativeBuildInputs = prev.nativeBuildInputs ++ [pkgs.jq pkgs.moreutils];
+          nativeBuildInputs =
+            prev.nativeBuildInputs
+            ++ [pkgs.jq pkgs.moreutils];
           postInstall = ''
             cd "$out/$installPrefix"
             jq -e '
@@ -60,7 +68,9 @@ in {
           '';
         }))
         (mkhl.shfmt.overrideAttrs (prev: {
-          nativeBuildInputs = prev.nativeBuildInputs ++ [pkgs.jq pkgs.moreutils];
+          nativeBuildInputs =
+            prev.nativeBuildInputs
+            ++ [pkgs.jq pkgs.moreutils];
           postInstall = ''
             cd "$out/$installPrefix"
             jq -e '
@@ -70,22 +80,7 @@ in {
           '';
         }))
         adrianwilczynski.alpine-js-intellisense
-        (pkgs.catppuccin-vsc.override {
-          accent = "blue";
-          colorOverrides = {
-            macchiato = {
-              text = "#c5c8c9";
-              base = "#131a1c";
-              mantle = "#192022";
-              crust = "#202729";
-              surface0 = "#202729";
-              surface1 = "#363d3e";
-              surface2 = "#4a5051";
-            };
-          };
-          customUIColors = {};
-        })
-        ibmlover.oxocarbon
+        ntbbloodbath.doom-one
         antfu.icons-carbon
         arcanis.vscode-zipfs
         astro-build.astro-vscode
@@ -125,8 +120,10 @@ in {
     mutableExtensionsDir = true;
   };
   home.file = lib.mkIf isDarwin {
-    "Library/Application Support/VSCodium/User/keybindings.json".source = keybindingsJSON;
-    "Library/Application Support/VSCodium/User/settings.json".source = settingsJSON;
+    "Library/Application Support/VSCodium/User/keybindings.json".source =
+      keybindingsJSON;
+    "Library/Application Support/VSCodium/User/settings.json".source =
+      settingsJSON;
   };
   xdg.configFile = lib.mkIf isLinux {
     "VSCodium/User/keybindings.json".source = keybindingsJSON;

@@ -32,27 +32,28 @@ in {
         start_service = true;
       }
       "cmake"
-      "mu"
-      "libvterm"
       "gcc"
       "libtool"
     ];
     casks = [
       "1password"
-      "arc"
       "anki"
       "appcleaner"
       "calibre"
+      (noQuarantine "easy-move-plus-resize")
+      "flux"
       "hiddenbar"
+      "eloston-chromium"
+      "rectangle"
       "iina"
-      (skipSha "discord")
       "jetbrains-toolbox"
       "linearmouse"
-      "raycast"
-      "shottr"
       "little-snitch"
       "macfuse"
       "obsidian"
+      "orion"
+      "raycast"
+      "shottr"
       (skipSha "spotify")
       "tor-browser"
       "veracrypt"

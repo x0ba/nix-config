@@ -1,15 +1,14 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
+    (ripgrep.override {withPCRE2 = true;})
     sqlite
     cmake
-    gopls
-    gore
-    gotools
-    tree-sitter
     pipenv
+    cargo
     nixfmt
     black
     rust-analyzer
+    nil
     shellcheck
     tectonic
     (texlive.combine {
@@ -57,12 +56,12 @@
   ];
   programs.emacs = {
     enable = false;
-    package = pkgs.emacs-macport;
+    package = pkgs.emacs;
     extraPackages = epkgs: [
       epkgs.vterm
+      epkgs.sqlite
       epkgs.pdf-tools
       epkgs.mu4e
-      epkgs.editorconfig
     ];
   };
 }

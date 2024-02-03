@@ -1,6 +1,5 @@
 // vim:ft=jsonc
 {
-  "catppuccin.extraBordersEnabled": true,
   "debug.onTaskErrors": "debugAnyway",
   "diffEditor.ignoreTrimWhitespace": false,
   "diffEditor.hideUnchangedRegions.enabled": true,
@@ -8,7 +7,7 @@
   "editor.smoothScrolling": true,
   "terminal.integrated.smoothScrolling": true,
   "terminal.integrated.fontSize": 14,
-  "editor.fontFamily": "Fira Code, Symbols Nerd Font, monospace",
+  "editor.fontFamily": "Liga SFMono Nerd Font, Symbols Nerd Font, monospace",
   "editor.fontLigatures": "'calt', 'liga', 'dlig', 'ss14'",
   "editor.fontSize": 16,
   "editor.formatOnSave": true,
@@ -37,7 +36,6 @@
   },
   "window.autoDetectColorScheme": true,
   "window.titleBarStyle": "custom",
-  "workbench.iconTheme": "catppuccin-macchiato",
   "workbench.layoutControl.enabled": false,
   "workbench.productIconTheme": "icons-carbon",
 
@@ -198,5 +196,5 @@
   "git.enableSmartCommit": true,
   "window.commandCenter": false,
   "editor.fontVariations": false,
-  "workbench.colorTheme": "Catppuccin Macchiato"
+  "workbench.colorTheme": "doom-one"
 }

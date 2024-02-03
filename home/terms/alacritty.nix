@@ -7,7 +7,7 @@
   config = lib.mkIf config.isGraphical {
     programs.alacritty = {
       enable = true;
-      settings = with config.colorScheme.colors; {
+      settings = with config.colorScheme.palette; {
         window.padding.x = 45;
         window.padding.y = 45;
         window.decorations = "buttonless";

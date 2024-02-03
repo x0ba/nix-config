@@ -4,7 +4,7 @@ return {
 		"nyoom-engineering/oxocarbon.nvim",
 	},
 	{
-		"romgrk/doom-one.vim",
+		"NTBBloodbath/doom-one.nvim",
 	},
 	{
 		"LazyVim/LazyVim",

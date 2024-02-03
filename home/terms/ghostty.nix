@@ -7,10 +7,10 @@
   config = lib.mkIf config.isGraphical {
     programs.ghostty = {
       enable = true;
-      settings = with config.colorScheme.colors; {
+      settings = with config.colorScheme.palette; {
         font-family = "Liga Berkeley Mono";
         command = "${pkgs.fish}/bin/fish";
-        window-decoration = false;
+        # window-decoration = false;
         window-inherit-working-directory = true;
         unfocused-split-opacity = 0.96;
         font-size = 15;
@@ -29,7 +29,7 @@
         background = "${base00}";
         foreground = "${base05}";
       };
-      extraConfig = with config.colorScheme.colors; ''
+      extraConfig = with config.colorScheme.palette; ''
         palette = 0=#${base00}
         palette = 8=#${base03}
         palette = 1=#${base0B}

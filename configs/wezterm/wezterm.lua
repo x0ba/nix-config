@@ -6,6 +6,7 @@ c.font = wezterm.font_with_fallback({
 	"Liga SFMono Nerd Font",
 	"Symbols Nerd Font",
 })
+c.default_prog = { 'fish' }
 
 c.front_end = "WebGpu"
 c.font_size = 15
@@ -25,6 +26,6 @@ c.default_cursor_style = "BlinkingBar"
 c.inactive_pane_hsb = { brightness = 0.90 }
 c.hide_tab_bar_if_only_one_tab = true
 c.use_fancy_tab_bar = false
-c.color_scheme = "Oxocarbon Dark"
+c.color_scheme = "DoomOne"
 
 return c
