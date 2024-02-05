@@ -97,7 +97,11 @@
           settings.hooks = {
             alejandra.enable = true;
             commitizen.enable = true;
+            editorconfig-checker.enable = true;
+            luacheck.enable = true;
             nil.enable = true;
+            shellcheck.enable = true;
+            stylua.enable = true;
           };
         };
 
@@ -133,6 +137,7 @@
       "https://nix-community.cachix.org"
       "https://numtide.cachix.org"
       "https://x0ba.cachix.org"
+      "https://pre-commit-hooks.cachix.org"
     ];
     extra-trusted-public-keys = [
       "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
@@ -140,6 +145,7 @@
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE="
       "x0ba.cachix.org-1:+WLqIY3Ygu/++D57/ZeUSO9jbDwnhQ6vzCXtaghpn9E="
+      "pre-commit-hooks.cachix.org-1:Pkk3Panw5AW24TOv6kz3PvLhlH8puAsJTBbOPmBo7Rc="
     ];
   };
 }
