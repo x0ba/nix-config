@@ -1,10 +1,10 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: let
-  zshPlugins = plugins: (map
-    (plugin: rec {
+  zshPlugins = plugins: (map (plugin: rec {
       name = src.name;
       inherit (plugin) file src;
     })
@@ -13,14 +13,6 @@ in {
   programs = {
     zsh = {
       dotDir = ".config/zsh";
-      dirHashes = {
-        dl = "${config.home.homeDirectory}/Downloads";
-        docs = "${config.home.homeDirectory}/Documents";
-        code = "${config.home.homeDirectory}/Code";
-        dots = "${config.xdg.configHome}/flake";
-        pics = "${config.home.homeDirectory}/Pictures";
-        cloud = "${config.home.homeDirectory}/Library/Mobile Documents/com~apple~CloudDocs";
-      };
       enable = true;
       enableAutosuggestions = true;
       enableCompletion = true;
@@ -34,8 +26,22 @@ in {
           ZVM_VI_HIGHLIGHT_FOREGROUND=white
         }
       '';
+      oh-my-zsh = {
+        enable = true;
+        plugins =
+          [
+            "colored-man-pages"
+            "colorize"
+            "docker"
+            "docker-compose"
+            "git"
+            "kubectl"
+          ]
+          ++ lib.optionals pkgs.stdenv.isDarwin ["dash" "macos"];
+      };
       initExtra = ''
         bindkey '^F' autosuggest-accept
+        export PATH=$PATH:${config.home.homeDirectory}/.config/emacs/bin
       '';
       envExtra = ''
         export LESSHISTFILE="-"
@@ -44,7 +50,7 @@ in {
         mv = "mv -i";
         cp = "cp -i";
         tree = "${pkgs.lsd}/bin/lsd --tree";
-        cat = "${pkgs.bat}/bin/bat --theme='catppuccin-frappe'";
+        cat = "${pkgs.bat}/bin/bat";
         rm = "${pkgs.trash-cli}/bin/trash-put";
         run = "${pkgs.comma}/bin/,";
         # switch between yubikeys for the same GPG key

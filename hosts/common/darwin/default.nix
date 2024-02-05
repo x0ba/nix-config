@@ -4,21 +4,11 @@
   ...
 }: {
   programs.zsh.enable = true;
-  programs.fish.enable = true;
-
-  system.activationScripts.postActivation.text = ''
-    # Set the default shell as fish for the user. MacOS doesn't do this like nixOS does
-    sudo chsh -s ${pkgs.zsh}/bin/zsh daniel
-  '';
 
   system.stateVersion = 4;
 
   security.pam.enableSudoTouchIdAuth = true;
   system = {
-    keyboard = {
-      enableKeyMapping = true;
-      remapCapsLockToEscape = true;
-    };
     defaults = {
       alf.stealthenabled = 1;
       NSGlobalDomain = {
@@ -63,9 +53,7 @@
         right_padding = 10;
         top_padding = 10;
         bottom_padding = 10;
-        # external_bar = "all:0:40";
         # Opeacity
-        window_shadow = "on";
         window_opacity = "on";
         window_opacity_duration = "0.1";
         active_window_opacity = "1.0";
@@ -108,41 +96,38 @@
       in ''
         #!/usr/bin/env sh
         # focus window
-        ctrl + cmd - h : yabai -m window --focus west
-        ctrl + cmd - j : yabai -m window --focus south
-        ctrl + cmd - k : yabai -m window --focus north
-        ctrl + cmd - l : yabai -m window --focus east
+        cmd + ctrl - h : yabai -m window --focus west
+        cmd + ctrl - j : yabai -m window --focus south
+        cmd + ctrl - k : yabai -m window --focus north
+        cmd + ctrl - l : yabai -m window --focus east
         # move window
         cmd + shift - h : yabai -m window --warp west
         cmd + shift - j : yabai -m window --warp south
         cmd + shift - k : yabai -m window --warp north
         cmd + shift - l : yabai -m window --warp east
-        ctrl + cmd - t : yabai -m window --toggle float;\
-                   yabai -m window --grid 4:4:1:1:2:2
+        # toggle sticky/floating
+        cmd + shift - s: yabai -m window --toggle sticky --toggle float --toggle topmost
+        cmd + shift - d: yabai -m window --toggle float
         # rotate
-        cmd + shift - e : yabai -m space --balance
-        cmd + shift - r : yabai -m space --rotate 90
-        # fullscreen
-        ctrl + cmd - f : yabai -m window --toggle zoom-fullscreen
-        # close current window
-        ctrl + cmd - w : $(yabai -m window $(yabai -m query --windows --window | jq -re ".id") --close)
+        cmd + ctrl - e : yabai -m space --balance
+        cmd + ctrl - r : yabai -m space --rotate 270
+        # open terminal
+        cmd + shift - return : open -na "''${HOME}/Applications/Home Manager Apps/WezTerm.app"
+        # open emacs
+        cmd - e : emacsclient -c
+        cmd + shift - e : emacsclient --eval "(emacs-everywhere)"
+        # restart yabai
+        cmd + alt - r : brew services restart yabai
 
         # ONLY WORKS WITH SIP DISABLED:
         # fast focus space left/right
         ctrl - left  : yabai -m space --focus prev
         ctrl - right : yabai -m space --focus next
         # switch to space
-        ${mapKeymaps "lalt - Num : yabai -m space --focus Num"}
+        ${mapKeymaps "cmd + ctrl - Num : yabai -m space --focus Num"}
         # send window to desktop and follow focus
         ${mapKeymaps
-          "lalt + shift - Num : yabai -m window --space Num; yabai -m space --focus Num"}
-
-        # Open new Alacritty window
-        cmd + shift - return : open -na WezTerm.app
-
-        # open emacs
-        cmd - e : emacsclient -c
-        cmd + lalt - e : emacsclient --eval "(emacs-everywhere)"
+          "cmd + shift - Num : yabai -m window --space Num; yabai -m space --focus Num"}
       '';
     };
     spacebar = {

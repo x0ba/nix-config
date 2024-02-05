@@ -22,9 +22,11 @@
           source = ../../configs/wezterm/config;
           recursive = true;
         };
-        "wezterm/colors" = {
-          source = ../../configs/wezterm/colors;
-          recursive = true;
+        "wezterm/bar".source = pkgs.fetchFromGitHub {
+          owner = "nekowinston";
+          repo = "wezterm-bar";
+          sha256 = "sha256-3acxqJ9HMA5hASWq/sVL9QQjfEw5Xrh2fT9nFuGjzHM=";
+          rev = "e96b81460b3ad11a7461934dcb7889ce5079f97f";
         };
       };
 

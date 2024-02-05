@@ -1,1 +1,1 @@
-{...}: {imports = [./emacs.nix ./neovim.nix];}
+{...}: {imports = [./emacs.nix ./neovim.nix ./vscode.nix];}

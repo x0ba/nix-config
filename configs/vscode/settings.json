@@ -9,7 +9,7 @@
   "terminal.integrated.fontSize": 14,
   "editor.fontFamily": "Liga SFMono Nerd Font, Symbols Nerd Font, monospace",
   "editor.fontLigatures": "'calt', 'liga', 'dlig', 'ss14'",
-  "editor.fontSize": 16,
+  "editor.fontSize": 14,
   "editor.formatOnSave": true,
   "editor.guides.bracketPairs": true,
   "editor.inlayHints.enabled": "onUnlessPressed",
@@ -196,5 +196,5 @@
   "git.enableSmartCommit": true,
   "window.commandCenter": false,
   "editor.fontVariations": false,
-  "workbench.colorTheme": "doom-one"
+  "workbench.colorTheme": "Tokyo Night"
 }

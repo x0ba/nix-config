@@ -27,10 +27,11 @@ in {
           "with-xwidgets"
           "with-poll"
           "with-savchenkovaleriy-big-sur-icon"
-          "with-no-frame-refocus"
         ];
         start_service = true;
       }
+      # nix packages don't really play
+      # nice with this to compile vterm
       "cmake"
       "gcc"
       "libtool"
@@ -41,18 +42,17 @@ in {
       "appcleaner"
       "calibre"
       (noQuarantine "easy-move-plus-resize")
-      "flux"
-      "hiddenbar"
       "eloston-chromium"
-      "rectangle"
+      "hiddenbar"
       "iina"
       "jetbrains-toolbox"
       "linearmouse"
       "little-snitch"
       "macfuse"
+      "mullvad-browser"
       "obsidian"
-      "orion"
       "raycast"
+      "rectangle"
       "shottr"
       (skipSha "spotify")
       "tor-browser"

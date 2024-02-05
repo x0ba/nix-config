@@ -3,11 +3,9 @@ local c = wezterm.config_builder()
 require("config.keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-	"Liga SFMono Nerd Font",
+	"Fira Code",
 	"Symbols Nerd Font",
 })
-c.default_prog = { 'fish' }
-
 c.front_end = "WebGpu"
 c.font_size = 15
 c.line_height = 1.2
@@ -24,8 +22,9 @@ c.adjust_window_size_when_changing_font_size = false
 c.audible_bell = "Disabled"
 c.default_cursor_style = "BlinkingBar"
 c.inactive_pane_hsb = { brightness = 0.90 }
-c.hide_tab_bar_if_only_one_tab = true
+c.hide_tab_bar_if_only_one_tab = false
 c.use_fancy_tab_bar = false
-c.color_scheme = "DoomOne"
+c.color_scheme = "tokyonight_night"
+require("bar.plugin").apply_to_config(c)
 
 return c

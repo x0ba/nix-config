@@ -13,10 +13,11 @@
   keybindingsJSON =
     config.lib.file.mkOutOfStoreSymlink
     "${flakePath}/configs/vscode/keybindings.json";
+  snippetsDir =
+    config.lib.file.mkOutOfStoreSymlink "${flakePath}/configs/vscode/snippets";
 in {
   programs.vscode = {
     enable = config.isGraphical;
-    package = pkgs.vscodium;
     extensions =
       (with pkgs.vscode-extensions; [
         # patches
@@ -80,7 +81,7 @@ in {
           '';
         }))
         adrianwilczynski.alpine-js-intellisense
-        ntbbloodbath.doom-one
+        enkia.tokyo-night
         antfu.icons-carbon
         arcanis.vscode-zipfs
         astro-build.astro-vscode
@@ -119,15 +120,23 @@ in {
       ]);
     mutableExtensionsDir = true;
   };
+
   home.file = lib.mkIf isDarwin {
-    "Library/Application Support/VSCodium/User/keybindings.json".source =
+    "Library/Application Support/Code/User/keybindings.json".source =
       keybindingsJSON;
-    "Library/Application Support/VSCodium/User/settings.json".source =
-      settingsJSON;
+    "Library/Application Support/Code/User/settings.json".source = settingsJSON;
+    "Library/Application Support/Code/User/snippets" = {
+      source = snippetsDir;
+      recursive = true;
+    };
   };
   xdg.configFile = lib.mkIf isLinux {
-    "VSCodium/User/keybindings.json".source = keybindingsJSON;
-    "VSCodium/User/settings.json".source = settingsJSON;
+    "Code/User/keybindings.json".source = keybindingsJSON;
+    "Code/User/settings.json".source = settingsJSON;
+    "Code/User/snippets" = {
+      source = snippetsDir;
+      recursive = true;
+    };
   };
-  xdg.mimeApps.defaultApplications."text/plain" = "codium.desktop";
+  xdg.mimeApps.defaultApplications."text/plain" = "code.desktop";
 }

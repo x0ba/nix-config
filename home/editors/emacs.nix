@@ -5,6 +5,7 @@
     cmake
     pipenv
     cargo
+    lua
     nixfmt
     black
     rust-analyzer
