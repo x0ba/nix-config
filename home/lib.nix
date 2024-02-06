@@ -29,6 +29,7 @@
 
   modules = with inputs;
     [
+      agenix.homeManagerModules.age
       caarlos0-nur.homeManagerModules.default
       nix-colors.homeManagerModules.default
       nix-index-database.hmModules.nix-index

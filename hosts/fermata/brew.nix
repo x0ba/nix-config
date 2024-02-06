@@ -43,6 +43,7 @@ in {
       "calibre"
       (noQuarantine "easy-move-plus-resize")
       "eloston-chromium"
+      "godot"
       "hiddenbar"
       "iina"
       "jetbrains-toolbox"
@@ -59,6 +60,7 @@ in {
       "veracrypt"
       "wacom-tablet"
       "yubico-authenticator"
+      "yubico-yubikey-manager"
     ];
     taps = ["homebrew/services" "d12frosted/emacs-plus"];
   };

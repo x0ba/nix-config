@@ -6,13 +6,15 @@
 }: let
   inherit (pkgs.stdenv.hostPlatform) isDarwin;
 in {
-  imports = [./xdg.nix ./apps.nix];
+  imports = [./xdg.nix ./apps.nix ./secrets];
 
   home = {
     packages = with pkgs; [
+      age-plugin-yubikey
       comma
       fd
       git-lfs
+      git-crypt
       gocryptfs
       just
       lazygit
@@ -27,30 +29,6 @@ in {
       SSH_AUTH_SOCK = "${config.programs.gpg.homedir}/S.gpg-agent.ssh";
     };
     stateVersion = "23.05";
-  };
-
-  # symlinks don't work with finder + spotlight, copy them instead
-  disabledModules = ["targets/darwin/linkapps.nix"];
-  home.activation = lib.mkIf pkgs.stdenv.isDarwin {
-    copyApplications = let
-      apps = pkgs.buildEnv {
-        name = "home-manager-applications";
-        paths = config.home.packages;
-        pathsToLink = "/Applications";
-      };
-    in
-      lib.hm.dag.entryAfter ["writeBoundary"] ''
-        baseDir="$HOME/Applications/Home Manager Apps"
-        if [ -d "$baseDir" ]; then
-          rm -rf "$baseDir"
-        fi
-        mkdir -p "$baseDir"
-        for appFile in ${apps}/Applications/*; do
-          target="$baseDir/$(basename "$appFile")"
-          $DRY_RUN_CMD cp ''${VERBOSE_ARG:+-v} -fHRL "$appFile" "$baseDir"
-          $DRY_RUN_CMD chmod ''${VERBOSE_ARG:+-v} -R +w "$target"
-        done
-      '';
   };
 
   colorScheme = {
@@ -81,6 +59,9 @@ in {
     man.enable = true;
     taskwarrior.enable = true;
   };
+  age.secrets."sshconfig".path = "${config.home.homeDirectory}/.ssh/config";
+  age.secrets."wakatime.cfg".path = "${config.home.homeDirectory}/.wakatime.cfg";
+
   xdg.configFile = {
     "karabiner/karabiner.json" = {
       source = ../configs/karabiner/karabiner.json;

@@ -1,53 +1,61 @@
 {
   description = "can you hear the music?";
 
-  # All packages should follow nixpkgs-unstable
-  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+  inputs = {
+    # All packages should follow nixpkgs-unstable
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-  # nix darwin for macos system configuration
-  inputs.darwin = {
-    url = "github:lnl7/nix-darwin";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
-  # home-manager for dotfile/user management
-  inputs.home-manager = {
-    url = "github:nix-community/home-manager";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
+    # nix darwin for macos system configuration
+    darwin = {
+      url = "github:lnl7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    # home-manager for dotfile/user management
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-  # nurs
-  inputs.nur.url = "github:nix-community/nur";
-  inputs.caarlos0-nur = {
-    url = "github:caarlos0/nur";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
-  inputs.x0ba-nur.url = "github:x0ba/nur";
+    # nurs
+    nur.url = "github:nix-community/nur";
+    caarlos0-nur = {
+      url = "github:caarlos0/nur";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    x0ba-nur.url = "github:x0ba/nur";
 
-  # vscode extensions for home manager
-  inputs.nix-vscode-extensions = {
-    url = "github:nix-community/nix-vscode-extensions";
-    inputs.flake-compat.follows = "";
-    inputs.flake-utils.follows = "flake-utils";
-    inputs.nixpkgs.follows = "nixpkgs";
-  };
+    # vscode extensions for home manager
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs.flake-compat.follows = "";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-  # my neovim config
-  inputs.neovim.url = "github:x0ba/neovim.drv";
+    # agenix
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-  # declarative color theming
-  inputs.nix-colors.url = "github:Misterio77/nix-colors";
-  inputs.nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-  inputs.nix-index-database.url = "github:nix-community/nix-index-database";
+    # my neovim config
+    neovim.url = "github:x0ba/neovim.drv";
 
-  # flake utilities
-  inputs.flake-parts.url = "github:hercules-ci/flake-parts";
-  inputs.flake-utils.url = "github:numtide/flake-utils";
-  inputs.pre-commit-hooks = {
-    url = "github:cachix/pre-commit-hooks.nix";
-    inputs.flake-compat.follows = "";
-    inputs.flake-utils.follows = "flake-utils";
-    inputs.nixpkgs.follows = "nixpkgs";
-    inputs.nixpkgs-stable.follows = "nixpkgs";
+    # declarative color theming
+    nix-colors.url = "github:Misterio77/nix-colors";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    nix-index-database.url = "github:nix-community/nix-index-database";
+
+    # flake utilities
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    flake-utils.url = "github:numtide/flake-utils";
+    pre-commit-hooks = {
+      url = "github:cachix/pre-commit-hooks.nix";
+      inputs.flake-compat.follows = "";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs-stable.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -83,6 +91,8 @@
       imports = [inputs.pre-commit-hooks.flakeModule];
       perSystem = {
         config,
+        self',
+        inputs',
         pkgs,
         system,
         ...
@@ -105,12 +115,13 @@
           };
         };
 
-        devShells.default = config.pre-commit.devShell.overrideAttrs (_old: {
+        devShells.default = pkgs.mkShell {
+          inherit (config.pre-commit.devShell) shellHook;
+          RULES = "./home/secrets/secrets.nix";
           buildInputs = with pkgs;
-            [alejandra just nil nix-output-monitor nvd]
-            ++ lib.optionals stdenv.isDarwin
-            [inputs.darwin.packages.${system}.darwin-rebuild];
-        });
+            [alejandra git-crypt age-plugin-yubikey just nil nix-output-monitor nvd inputs'.agenix.packages.agenix]
+            ++ lib.optionals stdenv.isDarwin [inputs'.darwin.packages.darwin-rebuild];
+        };
 
         legacyPackages.homeConfigurations = let
           homeLib = import ./home/lib.nix {
