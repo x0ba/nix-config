@@ -3,9 +3,6 @@
 
 * x0ba's dotfiles
 
-** Images
-[[./extra/assets/shot1.png]] [[./extra/assets/shot2.png]]
-
 ** Software
 - Terminal: [[https://discord.gg/ghostty][Ghostty]]
 - Multiplexer: [[https://github.com/tmux/tmux][tmux]] with [[https://github.com/joshmedeski/t-smart-tmux-session-manager][t-smart-session-manager]]

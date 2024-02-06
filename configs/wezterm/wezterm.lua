@@ -3,8 +3,8 @@ local c = wezterm.config_builder()
 require("config.keys").apply(c)
 
 c.font = wezterm.font_with_fallback({
-	"Fira Code",
-	"Symbols Nerd Font",
+  "Liga Berkeley Mono",
+  "Symbols Nerd Font",
 })
 c.front_end = "WebGpu"
 c.font_size = 15
@@ -12,8 +12,8 @@ c.line_height = 1.2
 c.harfbuzz_features = { "calt=1" }
 c.command_palette_font_size = c.font_size * 1.1
 c.window_frame = {
-	font = wezterm.font("Overpass"),
-	font_size = c.font_size,
+  font = wezterm.font("Overpass"),
+  font_size = c.font_size,
 }
 
 c.window_decorations = "RESIZE"

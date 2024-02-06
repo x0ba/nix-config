@@ -64,19 +64,29 @@
         mouse_action2 = "resize";
         mouse_drop_action = "swap";
       };
-      extraConfig = ''
+      extraConfig = let
+        rule = "yabai -m rule --add";
+        ignored = app:
+          builtins.concatStringsSep "\n"
+          (map (e: ''${rule} app="${e}" manage=off sticky=off layer=above'')
+            app);
+        unmanaged = app:
+          builtins.concatStringsSep "\n"
+          (map (e: ''${rule} app="${e}" manage=off'') app);
+      in ''
         # Unload the macOS WindowManager process
         launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist > /dev/null 2>&1 &
         # auto-inject scripting additions
         yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
         sudo yabai --load-sa
-        # rules
-        yabai -m rule --add app="^(LuLu|Vimac|Calculator|Software Update|Dictionary|VLC|System Settings|zoom.us|Photo Booth|Archive Utility|Python|LibreOffice|App Store|Steam|Alfred|Activity Monitor)$" manage=off
+        ${ignored ["JetBrains Toolbox" "Mullvad VPN" "Sip" "iStat Menus"]}
+        ${unmanaged ["Godot" "GOG Galaxy" "Steam" "System Settings"]}
         yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
         yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
-        yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
-        yabai -m rule --add label="Select file to save to" app="^Inkscape$" title="Select file to save to" manage=off
-        yabai -m rule --add title="^Emacs Everywhere.*" manage=off
+
+        # etc.
+        ${rule} manage=off app="Shottr"
+        ${rule} manage=off sticky=on  app="OBS Studio"
       '';
     };
     skhd = {

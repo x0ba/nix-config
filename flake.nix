@@ -107,11 +107,8 @@
           settings.hooks = {
             alejandra.enable = true;
             commitizen.enable = true;
-            editorconfig-checker.enable = true;
-            luacheck.enable = true;
             nil.enable = true;
             shellcheck.enable = true;
-            stylua.enable = true;
           };
         };
 
@@ -119,8 +116,18 @@
           inherit (config.pre-commit.devShell) shellHook;
           RULES = "./home/secrets/secrets.nix";
           buildInputs = with pkgs;
-            [alejandra git-crypt age-plugin-yubikey just nil nix-output-monitor nvd inputs'.agenix.packages.agenix]
-            ++ lib.optionals stdenv.isDarwin [inputs'.darwin.packages.darwin-rebuild];
+            [
+              alejandra
+              git-crypt
+              age-plugin-yubikey
+              just
+              nil
+              nix-output-monitor
+              nvd
+              inputs'.agenix.packages.agenix
+            ]
+            ++ lib.optionals stdenv.isDarwin
+            [inputs'.darwin.packages.darwin-rebuild];
         };
 
         legacyPackages.homeConfigurations = let
