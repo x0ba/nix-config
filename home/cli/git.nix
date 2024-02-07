@@ -1,37 +1,12 @@
 {pkgs, ...}: {
+  # use fsmonitor
+  home.packages = [pkgs.rs-git-fsmonitor pkgs.watchman];
   programs.git = {
     enable = true;
     userName = "x0ba";
     userEmail = "dax@omg.lol";
 
-    delta = {
-      enable = true;
-      options = {
-        line-numbers = true;
-
-        width = 1;
-        navigate = false;
-
-        hunk-header-style = "file line-number syntax";
-        hunk-header-decoration-style = "bold black";
-
-        file-modified-label = "modified:";
-
-        zero-style = "dim";
-
-        minus-style = "bold red";
-        minus-non-emph-style = "dim red";
-        minus-emph-style = "bold red";
-        minus-empty-line-marker-style = "normal normal";
-
-        plus-style = "green normal bold";
-        plus-non-emph-style = "dim green";
-        plus-emph-style = "bold green";
-        plus-empty-line-marker-style = "normal normal";
-
-        whitespace-error-style = "reverse red";
-      };
-    };
+    delta = {enable = true;};
 
     signing = {
       signByDefault = true;
@@ -69,6 +44,7 @@
       credential.helper = "gopass";
       init.defaultBranch = "main";
       push.default = "current";
+      core.fsmonitor = "rs-git-fsmonitor";
       push.gpgSign = "if-asked";
       rebase.autosquash = true;
       url = {

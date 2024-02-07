@@ -55,6 +55,7 @@ in {
       "raycast"
       "rectangle"
       "shottr"
+      "stats"
       (skipSha "spotify")
       "tor-browser"
       "veracrypt"

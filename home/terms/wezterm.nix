@@ -1,9 +1,13 @@
 {
   config,
   lib,
+  flakePath,
   pkgs,
   ...
-}: {
+}: let
+  mkSymlink = path:
+    config.lib.file.mkOutOfStoreSymlink "${flakePath}/configs/wezterm/${path}";
+in {
   # use the GUI version & config when we have a gui, else just get terminfo
   config = lib.mkMerge [
     (lib.mkIf (!config.isGraphical) {
@@ -17,9 +21,9 @@
       };
 
       xdg.configFile = {
-        "wezterm/wezterm.lua".source = ../../configs/wezterm/wezterm.lua;
+        "wezterm/wezterm.lua".source = mkSymlink "wezterm.lua";
         "wezterm/config" = {
-          source = ../../configs/wezterm/config;
+          source = mkSymlink "config";
           recursive = true;
         };
         "wezterm/bar".source = pkgs.fetchFromGitHub {
