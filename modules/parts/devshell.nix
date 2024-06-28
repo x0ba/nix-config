@@ -1,0 +1,28 @@
+{
+  systems = [
+    "x86_64-linux"
+    "aarch64-darwin"
+  ];
+
+  perSystem = {
+    config,
+    pkgs,
+    ...
+  }: {
+    devShells.default = pkgs.mkShell {
+      packages = with pkgs; [
+        nil
+        git
+        alejandra
+        deadnix
+        home-manager
+        nvfetcher
+        statix
+      ];
+      DIRENV_LOG_FORMAT = "";
+      shellHook = ''
+        ${config.pre-commit.installationScript}
+      '';
+    };
+  };
+}

@@ -1,0 +1,368 @@
+{
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.accessibilitySupport": "off",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.formatOnSave": true,
+  "editor.guides.bracketPairs": true,
+  "editor.inlayHints.enabled": "onUnlessPressed",
+  "editor.inlayHints.padding": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.lineNumbers": "relative",
+  "editor.minimap.enabled": false,
+  "editor.minimap.renderCharacters": false,
+  "editor.smoothScrolling": true,
+  "git.autofetch": true,
+  "git.openRepositoryInParentFolders": "never",
+  "githubPullRequests.pullBranch": "always",
+  "search.useGlobalIgnoreFiles": true,
+  "search.useParentIgnoreFiles": true,
+  "terminal.integrated.smoothScrolling": true,
+  "terminal.integrated.defaultProfile.osx": "fish",
+  "editor.fontSize": 13,
+  "editor.inlayHints.fontSize": 8,
+  "terminal.integrated.fontSize": 13,
+  "editor.fontFamily": "SF Mono, Symbols Nerd Font, monospace",
+  "markdown.preview.fontFamily": "IBM Plex Sans, sans-serif",
+  "update.mode": "none",
+  "extensions.autoUpdate": false,
+  "extensions.autoCheckUpdates": false,
+  "window.autoDetectColorScheme": true,
+  "window.commandCenter": false,
+  "window.titleBarStyle": "custom",
+  "workbench.colorTheme": "Rosé Pine",
+  "workbench.iconTheme": "rose-pine-icons",
+  "workbench.layoutControl.enabled": false,
+  "workbench.preferredDarkColorTheme": "Rosé Pine",
+  "workbench.preferredLightColorTheme": "Rosé Pine Dawn",
+  "zenMode.centerLayout": false,
+  "zenMode.fullScreen": false,
+  "zenMode.showTabs": "none",
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": true,
+  "explorer.fileNesting.patterns": {
+    "*.c": "$(capture).h",
+    "*.cc": "$(capture).hpp, $(capture).h, $(capture).hxx",
+    "*.cjs": "$(capture).cjs.map, $(capture).*.cjs, $(capture)_*.cjs",
+    "*.component.ts": "$(capture).component.html, $(capture).component.spec.ts, $(capture).component.css, $(capture).component.scss, $(capture).component.sass, $(capture).component.less",
+    "*.cpp": "$(capture).hpp, $(capture).h, $(capture).hxx",
+    "*.cs": "$(capture).*.cs",
+    "*.css": "$(capture).css.map, $(capture).*.css",
+    "*.js": "$(capture).js.map, $(capture).*.js, $(capture)_*.js",
+    "*.jsx": "$(capture).js, $(capture).*.jsx, $(capture)_*.js, $(capture)_*.jsx, $(capture).less, $(capture).module.less",
+    "*.mjs": "$(capture).mjs.map, $(capture).*.mjs, $(capture)_*.mjs",
+    "*.ts": "$(capture).js, $(capture).d.ts.map, $(capture).*.ts, $(capture)_*.js, $(capture)_*.ts",
+    "*.tsx": "$(capture).ts, $(capture).*.tsx, $(capture)_*.ts, $(capture)_*.tsx, $(capture).less, $(capture).module.less, $(capture).scss, $(capture).module.scss",
+    ".env": "*.env, .env.*, .envrc, env.d.ts",
+    "*": "$(capture).license",
+    "cargo.toml": ".clippy.toml, .rustfmt.toml, cargo.lock, clippy.toml, cross.toml, rust-toolchain.toml, rustfmt.toml",
+    "default.nix": "shell.nix",
+    "deno.json": "deno.lock",
+    "flake.nix": "flake.lock",
+    "package.json": "package-lock.json, pnpm-lock.yaml, yarn.lock, yarn.config.cjs, .yarn*, jsconfig.json, tsconfig.json, *config.js, *.config.cjs, *.config.mjs, .pnp.*, .eslint*, .prettier*, .npmrc",
+    "readme*": "authors, backers*, changelog*, citation*, code_of_conduct*, codeowners, contributing*, contributors, copying*, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors*",
+    "release-please-config.json": ".release-please-manifest.json"
+  },
+  "files.associations": {
+    "dep5": "debian-copyright"
+  },
+  "remote.SSH.useLocalServer": false,
+  "remote.SSH.remotePlatform": {
+    "local-nixos": "linux"
+  },
+  "redhat.telemetry.enabled": false,
+  "telemetry.telemetryLevel": "off",
+  "workbench.enableExperiments": false,
+  "workbench.settings.enableNaturalLanguageSearch": false,
+  "ltex.additionalRules.enablePickyRules": true,
+  "ltex.additionalRules.motherTongue": "en-US",
+  "ltex.language": "en-US",
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "svg.preview.mode": "svg",
+  "d.alwaysShowDubStatusButtons": true,
+  "d.servedReleaseChannel": "nightly",
+  "d.stdlibPath": "auto",
+  "gopls": {
+    "ui.semanticTokens": true
+  },
+  "tailwindCSS.emmetCompletions": true,
+  "[javascript]": {
+    "editor.snippetSuggestions": "top",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[less]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[nix]": {
+    "editor.defaultFormatter": "jnoortheen.nix-ide"
+  },
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  "rubyLsp.rubyVersionManager": "none",
+  "[ruby]": {
+    "editor.defaultFormatter": "Shopify.ruby-lsp",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "editor.rulers": [
+      120
+    ],
+    "editor.semanticHighlighting.enabled": true
+  },
+  "rust-analyzer.check.command": "clippy",
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "[typescript]": {
+    "editor.snippetSuggestions": "top",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "vim.camelCaseMotion.enable": true,
+  "vim.handleKeys": {
+    "<C-a>": true,
+    "<C-d>": true,
+    "<C-u>": true,
+    "<C-v>": true,
+    "<C-w>": true,
+    "<C-x>": true
+  },
+  "vim.highlightedyank.color": "rgba(128, 128, 128, 0.8)",
+  "vim.highlightedyank.enable": true,
+  "vim.hlsearch": true,
+  "vim.incsearch": true,
+  "vim.insertModeKeyBindings": [],
+  "vim.leader": "<space>",
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "r",
+        "h"
+      ],
+      "commands": [
+        "git.revertSelectedRanges"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "y"
+      ],
+      "commands": [
+        "editor.action.clipboardCopyAction"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "p"
+      ],
+      "commands": [
+        "editor.action.clipboardPasteAction"
+      ]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "g",
+        "r"
+      ],
+      "commands": [
+        "editor.action.goToReferences"
+      ]
+    },
+    {
+      "before": [
+        "K"
+      ],
+      "commands": [
+        "editor.action.showHover"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "f",
+        "d"
+      ],
+      "commands": [
+        "workbench.action.quickOpen"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "f",
+        "t"
+      ],
+      "commands": [
+        "workbench.action.selectTheme"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "n",
+        "f"
+      ],
+      "commands": [
+        "editor.action.formatDocument"
+      ]
+    },
+    {
+      "before": [
+        "[",
+        "d"
+      ],
+      "commands": [
+        "editor.action.marker.prev"
+      ]
+    },
+    {
+      "before": [
+        "]",
+        "d"
+      ],
+      "commands": [
+        "editor.action.marker.next"
+      ]
+    },
+    {
+      "before": [
+        "[",
+        "c"
+      ],
+      "commands": [
+        "workbench.action.editor.previousChange"
+      ]
+    },
+    {
+      "before": [
+        "]",
+        "c"
+      ],
+      "commands": [
+        "workbench.action.editor.nextChange"
+      ]
+    },
+    {
+      "before": [
+        "K"
+      ],
+      "commands": [
+        "editor.action.showHover"
+      ]
+    },
+    {
+      "before": [
+        "<C-h>"
+      ],
+      "commands": [
+        "workbench.action.focusLeftGroup"
+      ]
+    },
+    {
+      "before": [
+        "<C-j>"
+      ],
+      "commands": [
+        "workbench.action.focusBelowGroup"
+      ]
+    },
+    {
+      "before": [
+        "<C-k>"
+      ],
+      "commands": [
+        "workbench.action.focusAboveGroup"
+      ]
+    },
+    {
+      "before": [
+        "<C-l>"
+      ],
+      "commands": [
+        "workbench.action.focusRightGroup"
+      ]
+    },
+    {
+      "before": [
+        "<C-W>",
+        "\\"
+      ],
+      "commands": [
+        "workbench.action.splitEditorRight"
+      ]
+    },
+    {
+      "before": [
+        "<C-W>",
+        "-"
+      ],
+      "commands": [
+        "workbench.action.splitEditorDown"
+      ]
+    }
+  ],
+  "vim.replaceWithRegister": true,
+  "vim.smartRelativeLine": true,
+  "vscord.app.whitelist": [
+    "505490445468696576"
+  ],
+  "vscord.app.whitelistEnabled": true,
+  "vscord.ignore.workspaces": [
+    "/Users/daniel/Code/freelance",
+    "/Users/daniel/Code/work",
+    "/home/daniel/Code/freelance",
+    "/home/daniel/Code/work"
+  ],
+  "vscord.ignore.workspacesText": {
+    "/Users/winston/Code/freelance": "Freelancing",
+    "/Users/winston/Code/work": "Working",
+    "/home/winston/Code/freelance": "Freelancing",
+    "/home/winston/Code/work": "Working"
+  },
+  "vscord.status.buttons.button1.git.active.enabled": true,
+  "vscord.status.idle.check": true,
+  "vscord.status.idle.timeout": 180,
+  "vscord.status.image.large.idle.key": "https://cdn.discordapp.com/emojis/936610646181695498.png",
+  "vscord.status.image.large.idle.text": "eepy",
+  "vscord.status.image.large.notInFile.key": "https://cdn.discordapp.com/emojis/743724645018107964.png",
+  "vscord.status.image.large.notInFile.text": "comfy",
+  "vscord.status.image.small.debugging.key": "https://cdn.discordapp.com/emojis/743723396692443206.png",
+  "vscord.status.image.small.debugging.text": "thonking",
+  "vscord.status.image.small.editing.key": "https://cdn.discordapp.com/emojis/886512498772168755.gif",
+  "vscord.status.image.small.editing.text": "hecking",
+  "vscord.status.image.small.viewing.key": "https://cdn.discordapp.com/emojis/903437275881439285.png",
+  "vscord.status.image.small.viewing.text": "looking",
+  "vs-kubernetes": {
+    "vs-kubernetes.crd-code-completion": "enabled",
+    "vs-kubernetes.minikube-show-information-expiration": "2024-06-09T06:56:22.175Z"
+  },
+  "editor.tokenColorCustomizations": {
+    "[Catppuccin Mocha]": {
+      "textMateRules": [
+        {
+          "scope": "storage.type.dhall",
+          "settings": {
+            "foreground": "#FF0000"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,5 @@
+\#*
+result*
+*.swp
+.DS_Store
+/.pre-commit-config.yaml
