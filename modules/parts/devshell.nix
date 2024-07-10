@@ -15,6 +15,7 @@
         git
         alejandra
         deadnix
+        gum
         home-manager
         nvfetcher
         statix

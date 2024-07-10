@@ -10,45 +10,40 @@ in {
   homebrew = {
     enable = true;
     caskArgs.require_sha = true;
-    brews = [
-      "podman"
-      "gnu-sed"
-      "bitwarden-cli"
-    ];
     taps = [
-      "d12frosted/emacs-plus"
-      "homebrew/services"
+      "borgbackup/tap"
+    ];
+    brews = [
+      "bitwarden-cli"
+      "borgbackup-fuse"
     ];
     casks = [
-      "1password"
       "appcleaner"
       "bettertouchtool"
-      "alt-tab"
-      "brave-browser"
       "element"
-      "keepassxc"
-      "karabiner-elements"
       "firefox"
+      "brave-browser"
+      "firefox@developer-edition"
       "lulu"
       "discord"
+      "keepassxc"
       "calibre"
       "grandperspective"
       "tailscale"
+      "veracrypt"
       "linearmouse"
       "shottr"
       "iina"
+      "ticktick"
+      "selfcontrol"
       "jetbrains-toolbox"
+      "macfuse"
       "keka"
-      "mac-mouse-fix"
-      "shottr"
-      "protonvpn"
       "latest"
       "mullvad-browser"
       "netnewswire"
-      "notion-calendar"
       "obsidian"
       "syncthing"
-      "qbittorrent"
       "raycast"
       "tor-browser"
       "wacom-tablet"
@@ -56,8 +51,10 @@ in {
       "yubico-authenticator"
       "zed"
       (skipSha "spotify")
+      (skipSha "steam")
     ];
     onActivation = {
+      cleanup = "zap";
       autoUpdate = true;
       upgrade = true;
     };

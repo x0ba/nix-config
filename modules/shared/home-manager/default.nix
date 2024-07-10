@@ -13,11 +13,15 @@ Useful links:
 - Appendix A. Configuration Options: https://nix-community.gitlab.io/home-manager/options.html
 */
 {
+  imports = [
+    ./config/vscode/extensions.nix
+  ];
   home = {
     packages = lib.attrValues {
       inherit
         (pkgs)
         bat
+        gopass
         ripgrep
         difftastic
         ;
@@ -53,7 +57,6 @@ Useful links:
     vscode = {
       enable = true;
       package = pkgs.vscodium;
-      extensions = import ./config/vscode/extensions.nix {inherit pkgs;};
       userSettings = builtins.fromJSON (lib.readFile ./config/vscode/settings.json);
       keybindings = builtins.fromJSON (lib.readFile ./config/vscode/keybindings.json);
     };
@@ -77,7 +80,7 @@ Useful links:
     git = {
       enable = true;
       userName = "x0ba";
-      userEmail = "hey@x0ba.net";
+      userEmail = "x0ba@tuta.io";
       signing = {
         signByDefault = true;
         key = "5C5C1EFB439B554A81341B1F20347137CA846F7F";
@@ -123,6 +126,42 @@ Useful links:
           difftastic.cmd = ''${lib.getExe pkgs.difftastic} "$LOCAL" "$REMOTE"'';
         };
       };
+    };
+
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
+    bat = {
+      enable = true;
+    };
+
+    zsh = {
+      enable = true;
+      autocd = true;
+      dotDir = ".config/zsh";
+      autosuggestion.enable = true;
+      autosuggestion.highlight = "fg=8";
+      enableCompletion = true;
+      historySubstringSearch.enable = true;
+      syntaxHighlighting.enable = true;
+      shellAliases = import ./config/sh-aliases.nix;
+      initExtra = ''
+        printf "\033[90mWelcome to %s, %s.\nIt's currently %s.\n\033[92m---,--'-{\033[91m@\033[m\n" "$(hostname)" "$USER" "$(date +'%A, %B %-d, %Y')"
+      '';
+      plugins = [
+        {
+          name = "zsh-nix-shell";
+          src = pkgs.zsh-nix-shell;
+          file = "share/zsh-nix-shell/nix-shell.plugin.zsh";
+        }
+        {
+          name = "zsh-fzf-tab";
+          src = pkgs.zsh-fzf-tab;
+          file = "share/fzf-tab/fzf-tab.plugin.zsh";
+        }
+      ];
     };
 
     gpg = {
@@ -183,6 +222,10 @@ Useful links:
 
     nix-index-database.comma.enable = lib.mkDefault true;
 
+    msmtp.enable = true;
+    mbsync.enable = true;
+    mu.enable = true;
+
     starship = {
       enable = true;
       settings = import ./config/starship.nix;
@@ -200,6 +243,26 @@ Useful links:
       interactiveShellInit = ''
         set -U fish_greeting
       '';
+    };
+  };
+  accounts.email = {
+    maildirBasePath = "${config.home.homeDirectory}/.mail";
+    accounts = {
+      personalgmail = {
+        address = "danielxu0307@gmail.com";
+        userName = "danielxu0307@gmail.com";
+        flavor = "gmail.com";
+        passwordCommand = "${pkgs.gopass}/bin/gopass mail/personalgmail";
+        primary = true;
+        mbsync = {
+          enable = true;
+          create = "both";
+          expunge = "both";
+          patterns = ["*" "[Gmail]*"];
+        };
+        realName = "Daniel Xu";
+        msmtp.enable = true;
+      };
     };
   };
 }

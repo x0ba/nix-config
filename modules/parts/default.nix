@@ -21,7 +21,7 @@
     _module.args = rec {
       # nix the package manager configuration
       nix = import ./nix-settings.nix {
-        inherit lib inputs inputs';
+        inherit lib inputs inputs' pkgs;
         inherit (pkgs) stdenv;
       };
 
@@ -41,6 +41,7 @@
         overlays = lib.mkForce [
           inputs.emacs.overlay
           inputs.nix-vscode-extensions.overlays.default
+          inputs.lix-module.overlays.default
           inputs.nixpkgs-f2k.overlays.stdenvs
           self.overlays.default
         ];

@@ -11,7 +11,7 @@ end
 
 require("config.keys").apply(c)
 
-c.default_prog = { "/Users/daniel/.nix-profile/bin/fish" }
+c.default_prog = { "/Users/daniel/.nix-profile/bin/fish", "-l" }
 
 c.font = wezterm.font_with_fallback({
   "SF Mono",
@@ -19,14 +19,7 @@ c.font = wezterm.font_with_fallback({
 })
 c.front_end = "WebGpu"
 c.font_size = 13
--- c.harfbuzz_features = { "calt=1", "ss01=1" }
 c.command_palette_font_size = c.font_size * 1.1
-c.window_frame = {
-  font = wezterm.font("IBM Plex Sans"),
-}
-
--- c.window_background_opacity = 0.85
--- c.macos_window_background_blur = 20
 
 c.window_decorations = "RESIZE"
 c.window_padding = { left = 15, right = 15, top = 15, bottom = 15 }

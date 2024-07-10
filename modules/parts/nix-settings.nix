@@ -14,7 +14,6 @@
   '';
 
   nixPath = ["nixpkgs=${inputs.nixpkgs}"];
-  # package = inputs'.lix.packages.default;
 
   registry = {
     system.flake = inputs.self;

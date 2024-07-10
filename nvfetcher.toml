@@ -1,3 +1,3 @@
 [rose-pine-wezterm]
-fetch.github = "x0ba/wezterm"
-src.git = "https://github.com/x0ba/wezterm"
+fetch.github = "x0ba/wezterm-rose-pine"
+src.git = "https://github.com/x0ba/wezterm-rose-pine"

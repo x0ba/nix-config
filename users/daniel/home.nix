@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   inputs',
   pkgs,
   lib,
@@ -18,24 +19,13 @@ in
       packages = lib.attrValues {
         inherit
           (pkgs)
-          asitop
-          avrdude
-          blisp
           coreutils-prefixed
           curl
-          doctl
-          dua
-          exiv2
-          fanbox-dl
           fd
           ffmpeg
           gnugrep
-          helix
           jq
           lazygit
-          libheif
-          nodejs_22
-          oci-cli
           pandoc
           pfetch
           pinentry_mac
@@ -86,13 +76,21 @@ in
         '';
       };
 
-      wezterm.enable = true;
+      wezterm = {
+        enable = true;
+        package = inputs.wezterm.packages.${pkgs.system}.default;
+      };
+
+      emacs = {
+        enable = true;
+        package = pkgs.emacs-macport;
+        extraPackages = epkgs: [epkgs.vterm epkgs.mu4e];
+      };
 
       ghostty = {
         enable = true;
 
         settings = {
-          command = "${pkgs.fish}/bin/fish";
           mouse-hide-while-typing = true;
           unfocused-split-opacity = 0.8;
 
@@ -109,15 +107,12 @@ in
           clipboard-paste-protection = false;
           confirm-close-surface = false;
 
-          font-family = "Cascadia Code";
+          font-family = "SF Mono";
           font-size = 13;
+          adjust-cell-width = "-5%";
 
           window-padding-x = 4;
           window-padding-y = 4;
-          font-feature = [
-            "calt"
-            "ss01"
-          ];
         };
 
         keybindings = {

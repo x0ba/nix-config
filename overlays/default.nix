@@ -1,4 +1,4 @@
-_: {
+{...}: {
   flake.overlays.default = _final: prev: {
     asitop = prev.callPackage ./derivations/asitop.nix {};
 

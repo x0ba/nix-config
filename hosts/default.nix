@@ -4,7 +4,6 @@
     system = "aarch64-darwin";
     stateVersion = 4; # only change this if you know what you are doing.
     modules = [
-      inputs.lix-module.nixosModules.default
       ./fermata/configuration.nix
     ];
   };
