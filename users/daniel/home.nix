@@ -83,7 +83,7 @@ in
 
       emacs = {
         enable = true;
-        package = pkgs.emacs-macport;
+        package = pkgs.emacs;
         extraPackages = epkgs: [epkgs.vterm epkgs.mu4e];
       };
 
@@ -97,7 +97,7 @@ in
           quit-after-last-window-closed = true;
           macos-titlebar-style = "tabs";
           window-theme = "auto";
-          theme = "GruvboxDark";
+          # theme = "GruvboxDark";
 
           cursor-style = "block";
           cursor-style-blink = false;

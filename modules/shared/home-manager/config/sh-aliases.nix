@@ -22,10 +22,10 @@
   gms = "git switch (git main-branch); and git sync";
   egms = "e; git switch (git main-branch); and git sync";
   gwc = "git switch -c";
-  e = "nvim";
   v = "nvim";
   sf = "sesh connect $(sesh list | fzf)";
   sc = "sesh connect";
   s = "sesh";
   bat = "bat --theme gruvbox-dark";
+  e = "emacsclient -c -a ''";
 }

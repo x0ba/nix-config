@@ -1,4 +1,4 @@
-{
+{...}: {
   systems = [
     "x86_64-linux"
     "aarch64-darwin"
@@ -17,6 +17,7 @@
         deadnix
         gum
         home-manager
+        age-plugin-yubikey
         nvfetcher
         statix
       ];

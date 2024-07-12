@@ -26,6 +26,8 @@
         description = "System architecture for the configuration.";
       };
 
+      agenix = lib.mkEnableOption "agenix";
+
       stateVersion = lib.mkOption {
         type = types.str;
         description = "home-manager state version, changing this value DOES NOT update your config.";
@@ -79,6 +81,16 @@
                   };
                 }
               )
+            ]
+            ++ lib.optionals config.agenix [
+              inputs.agenix.homeManagerModules.age
+
+              ({config, ...}: {
+                age.identityPaths = [
+                  "${config.home.homeDirectory}/.ssh/id_ed25519"
+                  "/etc/ssh/ssh_host_ed25519_key"
+                ];
+              })
             ];
         }
     );

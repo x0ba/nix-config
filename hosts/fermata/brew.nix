@@ -20,10 +20,11 @@ in {
     casks = [
       "appcleaner"
       "bettertouchtool"
+      "bitwarden"
       "element"
-      "firefox"
       "brave-browser"
-      "firefox@developer-edition"
+      "firefox"
+      "pictogram"
       "lulu"
       "discord"
       "keepassxc"
@@ -31,6 +32,7 @@ in {
       "grandperspective"
       "tailscale"
       "veracrypt"
+      "iterm2"
       "linearmouse"
       "shottr"
       "iina"
@@ -47,6 +49,7 @@ in {
       "raycast"
       "tor-browser"
       "wacom-tablet"
+      "chatgpt"
       "yubico-yubikey-manager"
       "yubico-authenticator"
       "zed"
@@ -54,7 +57,6 @@ in {
       (skipSha "steam")
     ];
     onActivation = {
-      cleanup = "zap";
       autoUpdate = true;
       upgrade = true;
     };

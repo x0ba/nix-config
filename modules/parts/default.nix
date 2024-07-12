@@ -41,7 +41,6 @@
         overlays = lib.mkForce [
           inputs.emacs.overlay
           inputs.nix-vscode-extensions.overlays.default
-          inputs.lix-module.overlays.default
           inputs.nixpkgs-f2k.overlays.stdenvs
           self.overlays.default
         ];

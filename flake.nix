@@ -20,6 +20,7 @@
     # Flake inputs
     darwin.url = "github:lnl7/nix-darwin";
     ghostty.url = "github:clo4/ghostty-hm-module";
+    agenix.url = "github:ryantm/agenix";
     emacs.url = "github:nix-community/emacs-overlay";
     home.url = "github:nix-community/home-manager";
     nil.url = "github:oxalica/nil";
@@ -28,7 +29,6 @@
     wezterm.url = "github:x0ba/wezterm?ref=flake-darwin-app-bundle&dir=nix";
     nix-index-database.url = "github:Mic92/nix-index-database";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
-    lix-module.url = "https://git.lix.systems/lix-project/nixos-module/archive/2.90.0-rc1.tar.gz";
     nixos-wsl.url = "github:nix-community/nixos-wsl";
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
     apple-fonts.url = "github:x0ba/apple-fonts-flake";
@@ -38,6 +38,7 @@
     nvim.url = "github:nix-community/neovim-nightly-overlay";
     statix.url = "github:nerdypepper/statix";
     pre-commit-hooks.url = "github:cachix/pre-commit-hooks.nix";
+    nix-parallel.url = "github:DeterminateSystems/nix-src/multithreaded-eval";
 
     # Nixpkgs branches
     master.url = "github:nixos/nixpkgs/master";
@@ -52,8 +53,9 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     emacs.inputs.nixpkgs.follows = "nixpkgs";
     home.inputs.nixpkgs.follows = "nixpkgs";
+    agenix.inputs.nixpkgs.follows = "nixpkgs";
+    agenix.inputs.darwin.follows = "darwin";
     nvim.inputs.flake-parts.follows = "parts";
-    lix-module.inputs.nixpkgs.follows = "nixpkgs";
     nix-vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
     apple-fonts.inputs.nixpkgs.follows = "nixpkgs";
     apple-fonts.inputs.flake-parts.follows = "parts";

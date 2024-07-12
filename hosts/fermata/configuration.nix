@@ -13,6 +13,11 @@
 
   security.pam.enableSudoTouchIdAuth = true;
 
+  services.emacs = {
+    enable = true;
+    package = pkgs.emacs;
+  };
+
   system = {
     defaults = {
       alf = {
