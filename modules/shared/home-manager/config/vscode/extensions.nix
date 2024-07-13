@@ -72,8 +72,7 @@
         '';
       }))
       adrianwilczynski.alpine-js-intellisense
-      jdinhlife.gruvbox
-      mvllow.rose-pine
+      akamud.vscode-theme-onedark
       antfu.icons-carbon
       arcanis.vscode-zipfs
       astro-build.astro-vscode
@@ -112,7 +111,6 @@
       unifiedjs.vscode-mdx
       usernamehw.errorlens
       vscodevim.vim
-      wakatime.vscode-wakatime
       webfreak.code-d
     ]);
 }

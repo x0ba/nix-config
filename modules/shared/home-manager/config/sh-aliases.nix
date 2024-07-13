@@ -26,6 +26,6 @@
   sf = "sesh connect $(sesh list | fzf)";
   sc = "sesh connect";
   s = "sesh";
-  bat = "bat --theme gruvbox-dark";
+  cat = "bat --theme OneHalfDark";
   e = "emacsclient -c -a ''";
 }

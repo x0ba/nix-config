@@ -18,12 +18,10 @@ in {
       "borgbackup-fuse"
     ];
     casks = [
-      "appcleaner"
       "bettertouchtool"
       "bitwarden"
       "element"
       "brave-browser"
-      "firefox"
       "pictogram"
       "lulu"
       "discord"
@@ -32,15 +30,16 @@ in {
       "grandperspective"
       "tailscale"
       "veracrypt"
-      "iterm2"
       "linearmouse"
       "shottr"
       "iina"
-      "ticktick"
       "selfcontrol"
       "jetbrains-toolbox"
       "macfuse"
       "keka"
+      "knockknock"
+      "blockblock"
+      "ransomwhere"
       "latest"
       "mullvad-browser"
       "netnewswire"
@@ -55,6 +54,7 @@ in {
       "zed"
       (skipSha "spotify")
       (skipSha "steam")
+      (skipSha "alienator88/homebrew-cask/pearcleaner")
     ];
     onActivation = {
       autoUpdate = true;

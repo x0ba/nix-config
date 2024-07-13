@@ -30,11 +30,10 @@
   "window.autoDetectColorScheme": true,
   "window.commandCenter": false,
   "window.titleBarStyle": "custom",
-  "workbench.colorTheme": "Rosé Pine",
-  "workbench.iconTheme": "rose-pine-icons",
+  "workbench.colorTheme": "Atom One Dark",
   "workbench.layoutControl.enabled": false,
-  "workbench.preferredDarkColorTheme": "Rosé Pine",
-  "workbench.preferredLightColorTheme": "Rosé Pine Dawn",
+  "workbench.preferredDarkColorTheme": "Atom One Dark",
+  "workbench.preferredLightColorTheme": "Atom One Dark",
   "zenMode.centerLayout": false,
   "zenMode.fullScreen": false,
   "zenMode.showTabs": "none",
@@ -352,17 +351,5 @@
   "vs-kubernetes": {
     "vs-kubernetes.crd-code-completion": "enabled",
     "vs-kubernetes.minikube-show-information-expiration": "2024-06-09T06:56:22.175Z"
-  },
-  "editor.tokenColorCustomizations": {
-    "[Catppuccin Mocha]": {
-      "textMateRules": [
-        {
-          "scope": "storage.type.dhall",
-          "settings": {
-            "foreground": "#FF0000"
-          }
-        }
-      ]
-    }
   }
 }
