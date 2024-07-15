@@ -13,9 +13,9 @@ Useful links:
 - Appendix A. Configuration Options: https://nix-community.gitlab.io/home-manager/options.html
 */
 {
-  imports = [
-    ./config/vscode/extensions.nix
-  ];
+  # imports = [
+  #   ./config/vscode/extensions.nix
+  # ];
   home = {
     packages = lib.attrValues {
       inherit
@@ -56,8 +56,7 @@ Useful links:
     };
 
     vscode = {
-      enable = true;
-      package = pkgs.vscodium;
+      enable = false;
       userSettings = builtins.fromJSON (lib.readFile ./config/vscode/settings.json);
       keybindings = builtins.fromJSON (lib.readFile ./config/vscode/keybindings.json);
     };
@@ -148,9 +147,6 @@ Useful links:
       historySubstringSearch.enable = true;
       syntaxHighlighting.enable = true;
       shellAliases = import ./config/sh-aliases.nix;
-      initExtra = ''
-        printf "\033[90mWelcome to %s, %s.\nIt's currently %s.\n\033[92m---,--'-{\033[91m@\033[m\n" "$(hostname)" "$USER" "$(date +'%A, %B %-d, %Y')"
-      '';
       plugins = [
         {
           name = "zsh-nix-shell";

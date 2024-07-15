@@ -26,7 +26,6 @@
     nil.url = "github:oxalica/nil";
     nix-colors.url = "github:Misterio77/nix-colors";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-    wezterm.url = "github:x0ba/wezterm?ref=flake-darwin-app-bundle&dir=nix";
     nix-index-database.url = "github:Mic92/nix-index-database";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     nixos-wsl.url = "github:nix-community/nixos-wsl";
@@ -60,7 +59,6 @@
     apple-fonts.inputs.nixpkgs.follows = "nixpkgs";
     apple-fonts.inputs.flake-parts.follows = "parts";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-    wezterm.inputs.nixpkgs.follows = "nixpkgs";
     nix-minecraft.inputs.nixpkgs.follows = "nixpkgs";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
     pre-commit-hooks.inputs.nixpkgs.follows = "nixpkgs";

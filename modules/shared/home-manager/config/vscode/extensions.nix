@@ -73,6 +73,7 @@
       }))
       adrianwilczynski.alpine-js-intellisense
       akamud.vscode-theme-onedark
+      tomphilbin.gruvbox-themes
       antfu.icons-carbon
       arcanis.vscode-zipfs
       astro-build.astro-vscode
@@ -89,9 +90,6 @@
       editorconfig.editorconfig
       esbenp.prettier-vscode
       geequlim.godot-tools
-      github.copilot
-      github.vscode-github-actions
-      gitlab.gitlab-workflow
       golang.go
       graphql.vscode-graphql-syntax
       gruntfuggly.todo-tree
