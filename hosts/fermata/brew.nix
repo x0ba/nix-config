@@ -14,23 +14,15 @@ in {
       "borgbackup/tap"
     ];
     brews = [
-      "bitwarden-cli"
       "borgbackup-fuse"
     ];
     casks = [
       "bettertouchtool"
-      "bitwarden"
-      "element"
       "brave-browser"
-      "lulu"
       "keepassxc"
       "calibre"
-      "sublime-text"
-      "grandperspective"
-      "tailscale"
       "veracrypt"
-      "omnifocus"
-      "linearmouse"
+      "protonvpn"
       "visual-studio-code"
       "shottr"
       "iina"
@@ -38,22 +30,18 @@ in {
       "jetbrains-toolbox"
       "macfuse"
       "keka"
-      "ransomwhere"
-      "latest"
       "mullvad-browser"
-      "netnewswire"
       "obsidian"
       "syncthing"
       "raycast"
-      "tor-browser"
       "wacom-tablet"
       "yubico-yubikey-manager"
       "yubico-authenticator"
       "zed"
-      (skipSha "steam")
       (skipSha "alienator88/homebrew-cask/pearcleaner")
     ];
     onActivation = {
+      cleanup = "zap";
       autoUpdate = true;
       upgrade = true;
     };

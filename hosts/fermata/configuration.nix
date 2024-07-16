@@ -56,32 +56,6 @@
     };
   };
 
-  # launchd.agents.dnscrypt-proxy = {
-  #   serviceConfig.RunAtLoad = true;
-  #   serviceConfig.KeepAlive = true;
-  #   serviceConfig.ProgramArguments = [
-  #     "${pkgs.dnscrypt-proxy2}/bin/dnscrypt-proxy"
-  #     "-config"
-  #     (toString (pkgs.writeText "dnscrypt-proxy.toml" ''
-  #       server_names = ["mullvad"]
-  #       listen_addresses = ["127.0.0.1:53"]
-  #       ignore_system_dns = true
-  #       [static.mullvad]
-  #       stamp = "sdns://AgcAAAAAAAAACzE5NC4yNDIuMi4yAA9kbnMubXVsbHZhZC5uZXQKL2Rucy1xdWVyeQ"
-  #     ''))
-  #   ];
-  # };
-
-  # networking = {
-  #   dns = [
-  #     "127.0.0.1"
-  #   ];
-  #   knownNetworkServices = [
-  #     "Wi-Fi"
-  #     "Thunderbolt Bridge"
-  #   ];
-  # };
-
   nix = {
     gc = {
       user = "root";
@@ -107,6 +81,6 @@
         inter
         atkinson-hyperlegible
       ]
-      ++ [inputs.apple-fonts.packages.${pkgs.system}.sf-mono];
+      ++ [inputs.apple-fonts.packages.${pkgs.system}.sf-mono inputs.apple-fonts.packages.${pkgs.system}.sf-pro];
   };
 }
