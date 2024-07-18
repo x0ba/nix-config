@@ -21,6 +21,9 @@ Useful links:
       inherit
         (pkgs)
         bat
+        yubikey-personalization
+        yubikey-manager
+        borgmatic
         gopass
         ripgrep
         difftastic
@@ -80,10 +83,10 @@ Useful links:
     git = {
       enable = true;
       userName = "x0ba";
-      userEmail = "x0ba@tuta.io";
+      userEmail = "danielxu0307@proton.me";
       signing = {
         signByDefault = true;
-        key = "5C5C1EFB439B554A81341B1F20347137CA846F7F";
+        key = "0x660DBDE129F4E1D9";
       };
 
       lfs.enable = true;
@@ -147,6 +150,20 @@ Useful links:
       historySubstringSearch.enable = true;
       syntaxHighlighting.enable = true;
       shellAliases = import ./config/sh-aliases.nix;
+      initExtra = ''
+        export GPG_TTY="$(tty)"
+        gpg-connect-agent updatestartuptty /bye > /dev/null
+        secret () {
+          output=~/"$${1}".$(date +%s).enc
+          gpg --encrypt --armor --output $${output} \
+            -r $KEYID "$${1}" && echo "$${1} -> $${output}"
+        }
+        reveal () {
+          output=$(echo "$${1}" | rev | cut -c16- | rev)
+          gpg --decrypt --output $${output} "$${1}" && \
+            echo "$${1} -> $${output}"
+        }
+      '';
       plugins = [
         {
           name = "zsh-nix-shell";

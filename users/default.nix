@@ -6,8 +6,8 @@
       stateVersion = "23.05";
 
       modules = [
-        inputs.ghostty.homeModules.default
         ./daniel/home.nix
+        inputs.ghostty.homeModules.default
       ];
     };
 

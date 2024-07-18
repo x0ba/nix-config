@@ -12,36 +12,42 @@ in {
     caskArgs.require_sha = true;
     taps = [
       "borgbackup/tap"
+      "homebrew/services"
     ];
     brews = [
       "borgbackup-fuse"
+      "php"
     ];
     casks = [
       "bettertouchtool"
       "brave-browser"
-      "keepassxc"
       "calibre"
-      "veracrypt"
-      "protonvpn"
-      "visual-studio-code"
-      "shottr"
+      "sublime-text"
+      "iterm2"
+      "jordanbaird-ice"
+      "sublime-merge"
       "iina"
-      "selfcontrol"
       "jetbrains-toolbox"
-      "macfuse"
+      "keepassxc"
       "keka"
+      "macfuse"
       "mullvad-browser"
+      "santa"
       "obsidian"
-      "syncthing"
+      "protonvpn"
       "raycast"
+      "selfcontrol"
+      "shottr"
+      "syncthing"
+      "veracrypt"
+      "visual-studio-code"
       "wacom-tablet"
-      "yubico-yubikey-manager"
       "yubico-authenticator"
+      "yubico-yubikey-manager"
       "zed"
       (skipSha "alienator88/homebrew-cask/pearcleaner")
     ];
     onActivation = {
-      cleanup = "zap";
       autoUpdate = true;
       upgrade = true;
     };
