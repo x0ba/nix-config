@@ -1,24 +1,34 @@
-{inputs, ...}: {
-  imports = [inputs.pre-commit-hooks.flakeModule];
+{ inputs, ... }:
+{
+  imports = [ inputs.pre-commit-hooks.flakeModule ];
 
-  perSystem.pre-commit = {
-    check.enable = true;
+  perSystem =
+    { self', ... }:
+    {
+      pre-commit = {
+        check.enable = true;
 
-    settings.excludes = ["flake.lock" "_sources/"];
-
-    settings.hooks = {
-      alejandra.enable = true;
-      commitizen.enable = true;
-      deadnix.enable = true;
-      nil.enable = true;
-      prettier = {
-        enable = true;
-        excludes = [
-          ".js"
-          ".md"
-          ".ts"
+        settings.excludes = [
+          "flake.lock"
+          "_sources/"
+          ".git-crypt/"
         ];
+
+        settings.hooks = {
+          nixfmt.enable = true;
+          nixfmt.package = self'.formatter;
+          commitizen.enable = true;
+          deadnix.enable = true;
+          nil.enable = true;
+          prettier = {
+            enable = true;
+            excludes = [
+              ".js"
+              ".md"
+              ".ts"
+            ];
+          };
+        };
       };
     };
-  };
 }

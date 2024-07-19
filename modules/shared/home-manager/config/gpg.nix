@@ -47,8 +47,8 @@
   # throw-keyids = true;
 
   # Default/trusted key ID to use (helpful with throw-keyids)
-  default-key = "0x20347137CA846F7F";
-  trusted-key = "0x20347137CA846F7F";
+  default-key = "0x660DBDE129F4E1D9";
+  trusted-key = "0x660DBDE129F4E1D9";
   # Group recipient keys (preferred ID last)
   #group keygroup = 0xFF00000000000001 0xFF00000000000002 0xFF3E7D88647EBCDB
   # Keyserver URL

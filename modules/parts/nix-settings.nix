@@ -14,7 +14,7 @@
     http-connections = 0
   '';
 
-  nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+  nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
   package = inputs'.nix-parallel.packages.default.override {
     pname = "nix-parallel";
@@ -26,6 +26,7 @@
   registry = {
     system.flake = inputs.self;
     default.flake = inputs.nixpkgs;
+    templates.flake = inputs.templates;
     home-manager.flake = inputs.home;
   };
 
@@ -34,7 +35,7 @@
       accept-flake-config = true;
       flake-registry = builtins.toFile "begone-evil.json" (
         builtins.toJSON {
-          flakes = [];
+          flakes = [ ];
           version = 2;
         }
       );
@@ -81,6 +82,6 @@
       use-xdg-base-directories = true;
     }
 
-    (lib.mkIf (stdenv.isDarwin && stdenv.isAarch64) {extra-platforms = "x86_64-darwin";})
+    (lib.mkIf (stdenv.isDarwin && stdenv.isAarch64) { extra-platforms = "x86_64-darwin"; })
   ];
 }

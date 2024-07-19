@@ -2,8 +2,9 @@
   description = "NixOS/nix-darwin/home-manager configuration.";
   nixConfig.commit-lockfile-summary = "chore: bump flake.lock";
 
-  outputs = inputs:
-    inputs.parts.lib.mkFlake {inherit inputs;} {
+  outputs =
+    inputs:
+    inputs.parts.lib.mkFlake { inherit inputs; } {
       systems = [
         "aarch64-darwin"
         "x86_64-linux"
@@ -24,6 +25,7 @@
     emacs.url = "github:nix-community/emacs-overlay";
     home.url = "github:nix-community/home-manager";
     nil.url = "github:oxalica/nil";
+    templates.url = "github:nixos/templates";
     nix-colors.url = "github:Misterio77/nix-colors";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     nix-index-database.url = "github:Mic92/nix-index-database";

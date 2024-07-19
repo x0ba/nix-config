@@ -7,10 +7,10 @@
   ...
 }:
 /*
-home-manager configuration
-Useful links:
-- Home Manager Manual: https://nix-community.gitlab.io/home-manager/
-- Appendix A. Configuration Options: https://nix-community.gitlab.io/home-manager/options.html
+  home-manager configuration
+  Useful links:
+  - Home Manager Manual: https://nix-community.gitlab.io/home-manager/
+  - Appendix A. Configuration Options: https://nix-community.gitlab.io/home-manager/options.html
 */
 {
   # imports = [
@@ -18,8 +18,7 @@ Useful links:
   # ];
   home = {
     packages = lib.attrValues {
-      inherit
-        (pkgs)
+      inherit (pkgs)
         bat
         yubikey-personalization
         yubikey-manager
@@ -38,6 +37,11 @@ Useful links:
       EDITOR = "nvim";
       MANPAGER = "nvim +Man! -c 'nnoremap i <nop>'";
     };
+  };
+
+  xdg.configFile = {
+    "wezterm/wezterm.lua".source = ./config/wezterm/wezterm.lua;
+    "wezterm/config".source = ./config/wezterm/config;
   };
 
   programs = {
@@ -79,6 +83,8 @@ Useful links:
       enable = true;
       enableFishIntegration = config.programs.fish.enable;
     };
+
+    neovim.enable = true;
 
     git = {
       enable = true;
@@ -140,6 +146,8 @@ Useful links:
       enable = true;
     };
 
+    wezterm.enable = true;
+
     zsh = {
       enable = true;
       autocd = true;
@@ -151,17 +159,18 @@ Useful links:
       syntaxHighlighting.enable = true;
       shellAliases = import ./config/sh-aliases.nix;
       initExtra = ''
+        export KEYID=0x660DBDE129F4E1D9
         export GPG_TTY="$(tty)"
         gpg-connect-agent updatestartuptty /bye > /dev/null
-        secret () {
-          output=~/"$${1}".$(date +%s).enc
-          gpg --encrypt --armor --output $${output} \
-            -r $KEYID "$${1}" && echo "$${1} -> $${output}"
+        function secret {
+          output="''${1}".$(date +%s).enc
+          gpg --encrypt --armor --output ''${output} \
+            -r $KEYID "''${1}" && echo "''${1} -> ''${output}"
         }
-        reveal () {
-          output=$(echo "$${1}" | rev | cut -c16- | rev)
-          gpg --decrypt --output $${output} "$${1}" && \
-            echo "$${1} -> $${output}"
+        function reveal {
+          output=$(echo "''${1}" | rev | cut -c16- | rev)
+          gpg --decrypt --output ''${output} "''${1}" && \
+            echo "''${1} -> ''${output}"
         }
       '';
       plugins = [
@@ -178,78 +187,11 @@ Useful links:
       ];
     };
 
-    tmux = {
-      enable = true;
-      sensibleOnTop = false;
-      extraConfig = ''
-        set -g default-terminal "xterm-256color"
-        set -ag terminal-overrides ",xterm-256color:RGB"
-        set-option -g default-shell ${pkgs.zsh}/bin/zsh
-        set -g status-keys vi
-
-
-        set-window-option -g mode-keys vi
-        bind h select-pane -L
-        bind j select-pane -D
-        bind k select-pane -U
-        bind l select-pane -R
-
-        bind-key x kill-pane
-
-        set -g set-titles-string ' #{pane_title} '
-
-        bind-key / copy-mode \; send-key ?
-
-        bind -n M-Left select-pane -L
-        bind -n M-Right select-pane -R
-        bind -n M-Up select-pane -U
-        bind -n M-Down select-pane -D
-        set -g mouse on
-        set-option -g visual-activity off
-        set-option -g visual-bell off
-        set-option -g visual-silence off
-        set-window-option -g monitor-activity off
-        set-window-option -g mode-style bg=0,fg=default,noreverse
-        set-window-option -g window-status-current-style bg=green,fg=black
-        setw -g window-status-format " #I:#W#F "
-        setw -g window-status-current-format " #I:#W#F "
-        set-window-option -g window-status-style fg=green
-        set-option -g renumber-windows on
-
-        bind-key r source-file ~/.tmux.conf \; display-message "tmux.conf reloaded."
-
-
-        # remap prefix from 'C-b' to 'C-s'
-        unbind C-b
-        set -g prefix C-s
-        bind-key C-s send-prefix
-
-        set-option -g bell-action none
-        set -g status-position bottom
-        set -g status-justify left
-        set -g status-bg colour8
-        set -g status-fg blue
-        set -g status-right ' #(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD)    #{=50:pane_current_path}   %b %d %H:%M '
-        set -g status-right-length 200
-        set -g status-left '''
-        set -sg escape-time 0
-
-        set -g base-index 1
-        setw -g pane-base-index 1
-        set -g pane-border-format " #P: #{pane_current_command} "
-      '';
-      plugins = with pkgs.tmuxPlugins; [
-        yank
-      ];
-    };
-
     gpg = {
       enable = true;
       scdaemonSettings."disable-ccid" = true;
       settings = import ./config/gpg.nix;
     };
-
-    taskwarrior.enable = true;
 
     home-manager = {
       enable = true;
@@ -285,19 +227,19 @@ Useful links:
         }
         // (
           with config.lib.htop;
-            leftMeters [
-              (bar "AllCPUs")
-              (bar "Memory")
-              (bar "Swap")
-            ]
+          leftMeters [
+            (bar "AllCPUs")
+            (bar "Memory")
+            (bar "Swap")
+          ]
         )
         // (
           with config.lib.htop;
-            rightMeters [
-              (text "Tasks")
-              (text "LoadAverage")
-              (text "Uptime")
-            ]
+          rightMeters [
+            (text "Tasks")
+            (text "LoadAverage")
+            (text "Uptime")
+          ]
         );
     };
 
@@ -309,7 +251,7 @@ Useful links:
 
     starship = {
       enable = true;
-      settings = import ./config/starship.nix;
+      # settings = import ./config/starship.nix;
     };
 
     zoxide = {
@@ -339,7 +281,10 @@ Useful links:
           enable = true;
           create = "both";
           expunge = "both";
-          patterns = ["*" "[Gmail]*"];
+          patterns = [
+            "*"
+            "[Gmail]*"
+          ];
         };
         realName = "Daniel Xu";
         msmtp.enable = true;
