@@ -15,7 +15,7 @@
         git
         alejandra
         deadnix
-        gum
+        git-crypt
         home-manager
         age-plugin-yubikey
         nvfetcher

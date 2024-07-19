@@ -5,24 +5,40 @@
   ...
 }: {
   home = {
-    packages = lib.attrValues {
-      inherit
-        (pkgs)
-        coreutils-prefixed
-        curl
-        fd
-        ffmpeg
-        gnugrep
-        jq
-        nil
-        lazygit
-        pandoc
-        pfetch
-        pinentry_mac
-        ripgrep
-        ;
+    activation = {
+      installCustomFonts = let
+        fontDirectory =
+          if pkgs.stdenv.isDarwin
+          then "${config.home.homeDirectory}/Library/Fonts"
+          else "${config.xdg.dataHome}/fonts";
+        fontPath = ../../secrets/fonts;
+      in
+        lib.hm.dag.entryAfter ["writeBoundary"] ''
+          mkdir -p "${fontDirectory}"
+          install -Dm644 ${fontPath}/* "${fontDirectory}"
+        '';
     };
+    packages = with pkgs; [
+      coreutils-prefixed
+      curl
+      fd
+      ffmpeg
+      gnugrep
+      jq
+      nil
+      lazygit
+      pandoc
+      pfetch
+      pinentry_mac
+      ripgrep
 
+      # fonts
+      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+      ibm-plex
+      alegreya
+      inter
+      atkinson-hyperlegible
+    ];
     sessionVariables = {
       MODULAR_HOME = "/Users/daniel/.local/share/modular";
       SSH_AUTH_SOCK = "${config.programs.gpg.homedir}/S.gpg-agent.ssh";
@@ -84,9 +100,8 @@
         clipboard-paste-protection = false;
         confirm-close-surface = false;
 
-        font-family = "SF Mono";
+        font-family = "Berkeley Mono";
         font-size = 13;
-        adjust-cell-width = "-5%";
 
         window-padding-x = 4;
         window-padding-y = 4;

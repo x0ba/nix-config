@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   system,
   ...
@@ -73,14 +72,12 @@
   services.nix-daemon.enable = true;
 
   fonts = {
-    packages = with pkgs;
-      [
-        (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
-        ibm-plex
-        alegreya
-        inter
-        atkinson-hyperlegible
-      ]
-      ++ [inputs.apple-fonts.packages.${pkgs.system}.sf-mono inputs.apple-fonts.packages.${pkgs.system}.sf-pro];
+    packages = with pkgs; [
+      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+      ibm-plex
+      alegreya
+      inter
+      atkinson-hyperlegible
+    ];
   };
 }

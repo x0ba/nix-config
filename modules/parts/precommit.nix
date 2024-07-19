@@ -9,7 +9,6 @@
     settings.hooks = {
       alejandra.enable = true;
       commitizen.enable = true;
-      editorconfig-checker.enable = true;
       deadnix.enable = true;
       nil.enable = true;
       prettier = {
