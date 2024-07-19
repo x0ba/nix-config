@@ -20,6 +20,7 @@
           commitizen.enable = true;
           deadnix.enable = true;
           nil.enable = true;
+          editorconfig-checker.enable = true;
           prettier = {
             enable = true;
             excludes = [
