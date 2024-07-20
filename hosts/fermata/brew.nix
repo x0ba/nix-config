@@ -1,11 +1,17 @@
-{config, ...}: let
+{ config, ... }:
+let
+  noQuarantine = name: {
+    inherit name;
+    args.no_quarantine = true;
+  };
   skipSha = name: {
     inherit name;
     args.require_sha = false;
   };
-in {
+in
+{
   # make brew available in PATH
-  environment.systemPath = [config.homebrew.brewPrefix];
+  environment.systemPath = [ config.homebrew.brewPrefix ];
 
   homebrew = {
     enable = true;
@@ -14,20 +20,17 @@ in {
       "borgbackup/tap"
       "homebrew/services"
     ];
-    brews = [
-      "borgbackup-fuse"
-      "php"
-    ];
+    brews = [ "borgbackup-fuse" ];
     casks = [
       "bettertouchtool"
       "brave-browser"
       "calibre"
       "sublime-text"
       "iterm2"
-      "jordanbaird-ice"
       "sublime-merge"
       "iina"
       "jetbrains-toolbox"
+      "hiddenbar"
       "keepassxc"
       "keka"
       "macfuse"
@@ -46,6 +49,7 @@ in {
       "yubico-yubikey-manager"
       "zed"
       (skipSha "alienator88/homebrew-cask/pearcleaner")
+      (noQuarantine "hiddenbar")
     ];
     onActivation = {
       autoUpdate = true;

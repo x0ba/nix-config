@@ -8,6 +8,8 @@
   perSystem =
     {
       config,
+      lib,
+      inputs',
       self',
       pkgs,
       ...
@@ -19,7 +21,6 @@
           [
             nil
             git
-            alejandra
             lua-language-server
             deadnix
             git-crypt
@@ -28,7 +29,8 @@
             nvfetcher
             statix
           ]
-          ++ [ self'.formatter ];
+          ++ [ self'.formatter ]
+          ++ lib.optionals pkgs.stdenv.isDarwin [ inputs'.darwin.packages.darwin-rebuild ];
         DIRENV_LOG_FORMAT = "";
         shellHook = ''
           ${config.pre-commit.installationScript}

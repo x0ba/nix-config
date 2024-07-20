@@ -754,22 +754,6 @@
         "type": "github"
       }
     },
-    "mu-rev": {
-      "locked": {
-        "lastModified": 1699727611,
-        "narHash": "sha256-DC87SGNV0oaAygifBa81IeTUaQZYKahHvhiTdZV3aRE=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "99298c3da07f53464bc1a24b4b7d0882f1acf060",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "99298c3da07f53464bc1a24b4b7d0882f1acf060",
-        "type": "github"
-      }
-    },
     "neovim-src": {
       "flake": false,
       "locked": {
@@ -1407,7 +1391,6 @@
         "ghostty": "ghostty",
         "home": "home",
         "master": "master",
-        "mu-rev": "mu-rev",
         "nil": "nil",
         "nix-colors": "nix-colors",
         "nix-index-database": "nix-index-database",

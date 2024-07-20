@@ -44,7 +44,6 @@
     # Nixpkgs branches
     master.url = "github:nixos/nixpkgs/master";
     stable.url = "github:nixos/nixpkgs/release-23.05";
-    mu-rev.url = "github:nixos/nixpkgs/99298c3da07f53464bc1a24b4b7d0882f1acf060";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Default Nixpkgs for packages and modules

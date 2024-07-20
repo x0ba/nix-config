@@ -10,7 +10,6 @@
 
         settings.excludes = [
           "flake.lock"
-          "_sources/"
           ".git-crypt/"
         ];
 
