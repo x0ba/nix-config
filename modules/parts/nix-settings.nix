@@ -26,6 +26,7 @@
   registry = {
     system.flake = inputs.self;
     default.flake = inputs.nixpkgs;
+    nixpkgs.flake = inputs.nixpkgs;
     templates.flake = inputs.templates;
     home-manager.flake = inputs.home;
   };

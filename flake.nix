@@ -32,7 +32,6 @@
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     nixos-wsl.url = "github:nix-community/nixos-wsl";
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
-    apple-fonts.url = "github:x0ba/apple-fonts-flake";
     nixpkgs-fmt.url = "github:nix-community/nixpkgs-fmt";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
     parts.url = "github:hercules-ci/flake-parts";
@@ -57,8 +56,6 @@
     agenix.inputs.darwin.follows = "darwin";
     nvim.inputs.flake-parts.follows = "parts";
     nix-vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
-    apple-fonts.inputs.nixpkgs.follows = "nixpkgs";
-    apple-fonts.inputs.flake-parts.follows = "parts";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     nix-minecraft.inputs.nixpkgs.follows = "nixpkgs";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";

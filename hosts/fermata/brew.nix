@@ -35,7 +35,6 @@ in
       "keka"
       "macfuse"
       "mullvad-browser"
-      "santa"
       "obsidian"
       "protonvpn"
       "raycast"
@@ -49,6 +48,7 @@ in
       "yubico-yubikey-manager"
       "zed"
       (skipSha "alienator88/homebrew-cask/pearcleaner")
+      (skipSha "spotify")
       (noQuarantine "hiddenbar")
     ];
     onActivation = {
