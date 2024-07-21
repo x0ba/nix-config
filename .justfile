@@ -1,7 +1,7 @@
 default:
   just --list
 
-home:
+home *args:
   home-manager switch --flake . |& nom
 
 check:
