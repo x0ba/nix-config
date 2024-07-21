@@ -19,7 +19,9 @@
         packages =
           with pkgs;
           [
-            nil
+            nixd
+            nix-output-monitor
+            nvd
             git
             lua-language-server
             deadnix

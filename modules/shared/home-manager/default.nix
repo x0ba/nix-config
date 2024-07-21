@@ -21,6 +21,7 @@
       inherit (pkgs)
         bat
         rs-git-fsmonitor
+        nixd
         watchman
         yubikey-personalization
         yubikey-manager
