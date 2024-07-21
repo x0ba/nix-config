@@ -49,6 +49,7 @@ in
       "zed"
       (skipSha "alienator88/homebrew-cask/pearcleaner")
       (skipSha "spotify")
+      (skipSha "discord")
       (noQuarantine "hiddenbar")
     ];
     onActivation = {

@@ -20,6 +20,8 @@
     packages = lib.attrValues {
       inherit (pkgs)
         bat
+        rs-git-fsmonitor
+        watchman
         yubikey-personalization
         yubikey-manager
         borgmatic
@@ -97,6 +99,8 @@
 
       lfs.enable = true;
 
+      diff-so-fancy.enable = true;
+
       aliases = {
         df = "difftool";
         a = "add";
@@ -126,13 +130,15 @@
       ];
 
       extraConfig = {
+        core.fsmonitor = "rs-git-fsmonitor";
         init.defaultBranch = "main";
-        diff.tool = "difftastic";
-        pager.difftool = true;
-
-        difftool = {
-          prompt = false;
-          difftastic.cmd = ''${lib.getExe pkgs.difftastic} "$LOCAL" "$REMOTE"'';
+        push.default = "current";
+        push.gpgSign = "if-asked";
+        rebase.autosquash = true;
+        url = {
+          "https://github.com/".insteadOf = "gh:";
+          "https://github.com/x0ba/".insteadOf = "x0ba:";
+          "https://gitlab.com/".insteadOf = "gl:";
         };
       };
     };
