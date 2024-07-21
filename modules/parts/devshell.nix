@@ -23,6 +23,7 @@
             nix-output-monitor
             nvd
             git
+            just
             lua-language-server
             deadnix
             git-crypt

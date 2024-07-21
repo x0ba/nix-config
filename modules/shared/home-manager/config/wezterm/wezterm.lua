@@ -13,23 +13,20 @@ c.command_palette_font_size = c.font_size * 1.1
 c.window_frame = {
   font = wezterm.font("IBM Plex Sans"),
 }
--- c.colors = {
---   tab_bar = {
---     background = "#3c3836",
---     active_tab = {
---       bg_color = "#282828",
---       fg_color = "#EBDbb2",
---     },
---     inactive_tab = {
---       bg_color = "#3c3836",
---       fg_color = "#928374",
---     },
---   },
--- }
--- c.color_scheme = "GruvboxDark"
-
-c.colors = {}
-c.colors.background = '#111111'
+c.colors = {
+  tab_bar = {
+    background = "#3c3836",
+    active_tab = {
+      bg_color = "#282828",
+      fg_color = "#EBDbb2",
+    },
+    inactive_tab = {
+      bg_color = "#3c3836",
+      fg_color = "#928374",
+    },
+  },
+}
+c.color_scheme = "GruvboxDark"
 
 c.window_decorations = "RESIZE|INTEGRATED_BUTTONS"
 c.window_padding = { left = 15, right = 15, top = 50, bottom = 0 }

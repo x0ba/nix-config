@@ -3,17 +3,20 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   home = {
     activation = {
-      installCustomFonts = let
-        fontDirectory =
-          if pkgs.stdenv.isDarwin
-          then "${config.home.homeDirectory}/Library/Fonts"
-          else "${config.xdg.dataHome}/fonts";
-        fontPath = ../../secrets/fonts;
-      in
-        lib.hm.dag.entryAfter ["writeBoundary"] ''
+      installCustomFonts =
+        let
+          fontDirectory =
+            if pkgs.stdenv.isDarwin then
+              "${config.home.homeDirectory}/Library/Fonts"
+            else
+              "${config.xdg.dataHome}/fonts";
+          fontPath = ../../secrets/fonts;
+        in
+        lib.hm.dag.entryAfter [ "writeBoundary" ] ''
           mkdir -p "${fontDirectory}"
           install -Dm644 ${fontPath}/* "${fontDirectory}"
         '';
@@ -33,7 +36,7 @@
       ripgrep
 
       # fonts
-      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+      (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
       ibm-plex
       alegreya
       inter
@@ -77,7 +80,10 @@
     emacs = {
       enable = true;
       package = pkgs.emacs-macport;
-      extraPackages = epkgs: [epkgs.vterm epkgs.mu4e];
+      extraPackages = epkgs: [
+        epkgs.vterm
+        epkgs.mu4e
+      ];
     };
 
     ghostty = {
