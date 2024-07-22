@@ -41,24 +41,7 @@
     };
   };
 
-  xdg.configFile = {
-    "wezterm/wezterm.lua".source = ./config/wezterm/wezterm.lua;
-    "wezterm/config".source = ./config/wezterm/config;
-  };
-
   programs = {
-    dircolors = {
-      enable = true;
-      enableZshIntegration = config.programs.zsh.enable;
-
-      extraConfig = lib.readFile (
-        pkgs.fetchurl {
-          url = "https://raw.githubusercontent.com/trapd00r/LS_COLORS/3d833761506d6396f8331fcd11a32d9e3ad3ee80/LS_COLORS";
-          hash = "sha256-r70V0JvQ/zlI/uYZ33OGl99qphCXtAgj6+Y3TXbJTLU=";
-        }
-      );
-    };
-
     direnv = {
       enable = true;
       nix-direnv.enable = true;
@@ -79,11 +62,6 @@
         "--no-permissions"
         "--octal-permissions"
       ];
-    };
-
-    yazi = {
-      enable = true;
-      enableZshIntegration = config.programs.zsh.enable;
     };
 
     neovim.enable = true;
@@ -148,11 +126,7 @@
       enableZshIntegration = true;
     };
 
-    bat = {
-      enable = true;
-    };
-
-    wezterm.enable = true;
+    bat.enable = true;
 
     zsh = {
       enable = true;
@@ -165,9 +139,11 @@
       syntaxHighlighting.enable = true;
       shellAliases = import ./config/sh-aliases.nix;
       initExtra = ''
-        export KEYID=0x660DBDE129F4E1D9
         export GPG_TTY="$(tty)"
-        gpg-connect-agent updatestartuptty /bye > /dev/null
+        export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+        gpgconf --launch gpg-agent
+        gpg-connect-agent UPDATESTARTUPTTY /bye > /dev/null
+
         function secret {
           output="''${1}".$(date +%s).enc
           gpg --encrypt --armor --output ''${output} \

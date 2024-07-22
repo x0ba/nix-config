@@ -42,10 +42,6 @@
       inter
       atkinson-hyperlegible
     ];
-    sessionVariables = {
-      MODULAR_HOME = "/Users/daniel/.local/share/modular";
-      SSH_AUTH_SOCK = "${config.programs.gpg.homedir}/S.gpg-agent.ssh";
-    };
   };
 
   programs = {
