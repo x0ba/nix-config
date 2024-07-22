@@ -1,15 +1,21 @@
-{...}: {
+{ inputs, ... }:
+{
   flake.overlays.default = _final: prev: {
-    asitop = prev.callPackage ./derivations/asitop.nix {};
+    asitop = prev.callPackage ./derivations/asitop.nix { };
 
     python3 = prev.python3.override {
       packageOverrides = pfinal: _pprev: {
-        pydashing = pfinal.callPackage ./derivations/dashing.nix {};
+        pydashing = pfinal.callPackage ./derivations/dashing.nix { };
       };
     };
 
+    nur = import inputs.nur {
+      nurpkgs = prev;
+      pkgs = prev;
+    };
+
     firefox-unwrapped = prev.firefox-unwrapped.overrideAttrs (old: {
-      patches = (old.patches or []) ++ [./patches/D164578.diff];
+      patches = (old.patches or [ ]) ++ [ ./patches/D164578.diff ];
     });
 
     iosevka-ft = prev.iosevka.override {

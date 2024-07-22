@@ -18,7 +18,6 @@
   "search.useGlobalIgnoreFiles": true,
   "search.useParentIgnoreFiles": true,
   "terminal.integrated.smoothScrolling": true,
-  "terminal.integrated.defaultProfile.osx": "fish",
   "editor.fontSize": 13,
   "editor.inlayHints.fontSize": 8,
   "terminal.integrated.fontSize": 13,

@@ -1,7 +1,7 @@
 {
   lib,
+  pkgs,
   stdenv,
-  inputs',
   inputs,
   ...
 }:
@@ -16,12 +16,7 @@
 
   nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
-  package = inputs'.nix-parallel.packages.default.override {
-    pname = "nix-parallel";
-    doCheck = false;
-    doInstallCheck = false;
-    installUnitTests = false;
-  };
+  package = pkgs.nixVersions.latest;
 
   registry = {
     system.flake = inputs.self;

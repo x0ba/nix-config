@@ -5,11 +5,11 @@
   ...
 }:
 /*
-NixOS configuration
+  NixOS configuration
 
-Useful links:
-- Package Search: https://search.nixos.org/packages?channel=unstable
-- Options Search: https://search.nixos.org/options?channel=unstable
+  Useful links:
+  - Package Search: https://search.nixos.org/packages?channel=unstable
+  - Options Search: https://search.nixos.org/options?channel=unstable
 */
 {
   imports = [
@@ -20,7 +20,7 @@ Useful links:
   ];
 
   boot = {
-    kernelModules = ["amd-pstate"];
+    kernelModules = [ "amd-pstate" ];
 
     kernelParams = [
       "amd_pstate=passive"
@@ -33,11 +33,11 @@ Useful links:
     cpu.amd.updateMicrocode = true;
 
     /*
-    hardware-configuration.nix enables this by default because of this line:
+      hardware-configuration.nix enables this by default because of this line:
 
-    >  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+      >  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-    See https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/installer/scan/not-detected.nix
+      See https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/installer/scan/not-detected.nix
     */
     enableRedistributableFirmware = true;
 
@@ -65,8 +65,7 @@ Useful links:
     };
 
     systemPackages = lib.attrValues {
-      inherit
-        (pkgs)
+      inherit (pkgs)
         file
         ntfs3g
         pavucontrol
@@ -109,21 +108,6 @@ Useful links:
   # https://github.com/nix-community/home-manager/issues/1288#issuecomment-636352427
   programs.sway.enable = true;
 
-  programs.fish = {
-    enable = true;
-    interactiveShellInit = ''
-      function export
-        if [ $argv ]
-          set var (echo $argv | cut -f1 -d=)
-          set val (echo $argv | cut -f2 -d=)
-          set -g -x $var $val
-        else
-          echo 'export var=value'
-        end
-      end
-    '';
-  };
-
   services = {
     avahi = {
       enable = true;
@@ -156,19 +140,21 @@ Useful links:
     greetd = {
       enable = true;
 
-      settings = let
-        sway-cmd = lib.concatStringsSep [
-          (lib.getExe config.programs.sway.package)
-          "--unsupported-gpu"
-        ];
-      in {
-        default_session.command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd '${sway-cmd}'";
+      settings =
+        let
+          sway-cmd = lib.concatStringsSep [
+            (lib.getExe config.programs.sway.package)
+            "--unsupported-gpu"
+          ];
+        in
+        {
+          default_session.command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd '${sway-cmd}'";
 
-        initial_session = {
-          command = "${sway-cmd}";
-          user = "daniel";
+          initial_session = {
+            command = "${sway-cmd}";
+            user = "daniel";
+          };
         };
-      };
     };
 
     samba = {
@@ -194,7 +180,7 @@ Useful links:
 
     samba-wsdd.enable = true;
 
-    xserver.videoDrivers = ["nvidia"];
+    xserver.videoDrivers = [ "nvidia" ];
   };
 
   xdg.portal = {

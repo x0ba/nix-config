@@ -4,12 +4,11 @@
   lib,
   pkgs,
   ...
-}: {
-  imports =
-    lib.optional (lib.pathExists ./do-userdata.nix) ./do-userdata.nix
-    ++ [
-      (modulesPath + "/virtualisation/digital-ocean-config.nix")
-    ];
+}:
+{
+  imports = lib.optional (lib.pathExists ./do-userdata.nix) ./do-userdata.nix ++ [
+    (modulesPath + "/virtualisation/digital-ocean-config.nix")
+  ];
 
   boot = {
     # NOTE: replace this with your desired kernel, see: https://nixos.wiki/wiki/Linux_kernel for reference.
@@ -23,15 +22,13 @@
     ];
   };
 
-  environment.systemPackages = [pkgs.tmux];
+  environment.systemPackages = [ pkgs.tmux ];
 
-  nixpkgs.overlays = lib.mkOverride 10 [inputs.nix-minecraft.overlay];
-
-  programs.fish.enable = true;
+  nixpkgs.overlays = lib.mkOverride 10 [ inputs.nix-minecraft.overlay ];
 
   networking.firewall = {
-    allowedTCPPorts = [4747];
-    allowedUDPPorts = [4747];
+    allowedTCPPorts = [ 4747 ];
+    allowedUDPPorts = [ 4747 ];
   };
 
   services = {
@@ -43,7 +40,7 @@
       settings = {
         cache-path = "/var/cache/gonic";
         listen-addr = "128.199.204.196:4747";
-        music-path = ["/mnt/music"];
+        music-path = [ "/mnt/music" ];
         podcast-path = "/mnt/podcasts";
       };
     };
@@ -200,7 +197,7 @@
   users.users.daniel = {
     isNormalUser = true;
     home = "/home/daniel";
-    shell = pkgs.fish;
-    extraGroups = ["wheel"];
+    shell = pkgs.zsh;
+    extraGroups = [ "wheel" ];
   };
 }

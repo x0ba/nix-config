@@ -7,11 +7,11 @@
   ...
 }:
 /*
-NixOS configuration
+  NixOS configuration
 
-Useful links:
-- Package Search: https://search.nixos.org/packages?channel=unstable
-- Options Search: https://search.nixos.org/options?channel=unstable
+  Useful links:
+  - Package Search: https://search.nixos.org/packages?channel=unstable
+  - Options Search: https://search.nixos.org/options?channel=unstable
 */
 {
   boot = {
@@ -23,9 +23,9 @@ Useful links:
     };
 
     /*
-    NOTE: replace this with your desired kernel, see: https://nixos.wiki/wiki/Linux_kernel for reference.
+      NOTE: replace this with your desired kernel, see: https://nixos.wiki/wiki/Linux_kernel for reference.
 
-    If you're not me or a XanMod kernel maintainer in Nixpkgs, use pkgs.linuxKernel.packages.linux_xanmod instead to avoid compilation.
+      If you're not me or a XanMod kernel maintainer in Nixpkgs, use pkgs.linuxKernel.packages.linux_xanmod instead to avoid compilation.
     */
     kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_latest;
 
@@ -85,10 +85,12 @@ Useful links:
   console = {
     keyMap = "us";
 
-    colors = let
-      colorscheme = inputs.nix-colors.colorSchemes.material-darker;
-    in
-      with colorscheme.colors; [
+    colors =
+      let
+        colorscheme = inputs.nix-colors.colorSchemes.material-darker;
+      in
+      with colorscheme.colors;
+      [
         base01
         base08
         base0B
@@ -108,38 +110,39 @@ Useful links:
       ];
   };
 
-  documentation.man = let
-    activeManOutputs = ["man"] ++ lib.optionals config.documentation.dev.enable ["devman"];
-  in {
-    generateCaches = true;
+  documentation.man =
+    let
+      activeManOutputs = [ "man" ] ++ lib.optionals config.documentation.dev.enable [ "devman" ];
+    in
+    {
+      generateCaches = true;
 
-    man-db.manualPages = pkgs.buildEnv {
-      name = "man-paths";
-      paths = config.environment.systemPackages;
-      pathsToLink = ["/share/man"];
-      extraOutputsToInstall = activeManOutputs;
-      ignoreCollisions = true;
+      man-db.manualPages = pkgs.buildEnv {
+        name = "man-paths";
+        paths = config.environment.systemPackages;
+        pathsToLink = [ "/share/man" ];
+        extraOutputsToInstall = activeManOutputs;
+        ignoreCollisions = true;
+      };
     };
-  };
 
   environment = {
     /*
-    NOTE: This isn't found in https://search.nixos.org/options.
+      NOTE: This isn't found in https://search.nixos.org/options.
 
-    Here's the warning that came with it:
+      Here's the warning that came with it:
 
-    "Please note that NixOS assumes all over the place that shell to be Bash,
-    so override the default setting only if you know exactly what you're doing."
+      "Please note that NixOS assumes all over the place that shell to be Bash,
+      so override the default setting only if you know exactly what you're doing."
     */
     binsh = "${pkgs.zsh}/bin/zsh";
-    pathsToLink = ["/share/zsh"];
-    shells = with pkgs; [zsh];
+    pathsToLink = [ "/share/zsh" ];
+    shells = with pkgs; [ zsh ];
   };
 
   fonts = {
     packages = lib.attrValues {
-      inherit
-        (pkgs)
+      inherit (pkgs)
         emacs-all-the-icons-fonts
         fantasque-sans-mono
         sarasa-gothic
@@ -182,14 +185,14 @@ Useful links:
           "Sarasa Mono K"
         ];
 
-        emoji = ["Twitter Color Emoji"];
+        emoji = [ "Twitter Color Emoji" ];
       };
     };
   };
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
-    supportedLocales = ["en_US.UTF-8/UTF-8"];
+    supportedLocales = [ "en_US.UTF-8/UTF-8" ];
   };
 
   powerManagement.cpuFreqGovernor = "performance";
@@ -198,8 +201,7 @@ Useful links:
     bash.interactiveShellInit = ''export HISTFILE=$HOME/.config/.bash_history'';
     command-not-found.enable = false;
     dconf.enable = true;
-    ssh.pubkeyAcceptedKeyTypes = ["ssh-ed25519"];
-    fish.enable = true;
+    ssh.pubkeyAcceptedKeyTypes = [ "ssh-ed25519" ];
   };
 
   qt.platformTheme = "qt5ct";
@@ -257,8 +259,8 @@ Useful links:
     ];
 
     user.services = {
-      pipewire.wantedBy = ["default.target"];
-      pipewire-pulse.wantedBy = ["default.target"];
+      pipewire.wantedBy = [ "default.target" ];
+      pipewire-pulse.wantedBy = [ "default.target" ];
     };
   };
 
@@ -270,7 +272,7 @@ Useful links:
   users.users.daniel = {
     isNormalUser = true;
     home = "/home/daniel";
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
 
     extraGroups = [
       "wheel"

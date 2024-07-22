@@ -4,6 +4,9 @@ default:
 home *args:
   home-manager switch --flake . |& nom
 
+fetch:
+  @./scripts/fetch.sh
+
 check:
   nix flake check |& nom
 

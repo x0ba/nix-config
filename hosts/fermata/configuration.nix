@@ -1,21 +1,8 @@
+{ system, ... }:
 {
-  pkgs,
-  system,
-  ...
-}: {
-  imports = [./brew.nix];
+  imports = [ ./brew.nix ];
 
-  programs = {
-    fish.enable = true;
-    zsh.enable = true;
-  };
-
-  security.pam.enableSudoTouchIdAuth = true;
-
-  # services.emacs = {
-  #   enable = true;
-  #   package = pkgs.emacs;
-  # };
+  programs.zsh.enable = true;
 
   system = {
     defaults = {
@@ -70,14 +57,4 @@
 
   system.checks.verifyNixPath = false;
   services.nix-daemon.enable = true;
-
-  fonts = {
-    packages = with pkgs; [
-      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
-      ibm-plex
-      alegreya
-      inter
-      atkinson-hyperlegible
-    ];
-  };
 }

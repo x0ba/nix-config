@@ -30,7 +30,6 @@
             home-manager
             age-plugin-yubikey
             nvfetcher
-            statix
           ]
           ++ [ self'.formatter ]
           ++ lib.optionals pkgs.stdenv.isDarwin [ inputs'.darwin.packages.darwin-rebuild ];

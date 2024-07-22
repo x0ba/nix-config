@@ -32,7 +32,6 @@
         ;
 
       inherit (pkgs.gitAndTools) gh;
-      inherit (inputs'.agenix.packages) agenix;
       inherit (inputs'.nvim.packages) neovim;
     };
 
@@ -50,7 +49,7 @@
   programs = {
     dircolors = {
       enable = true;
-      enableFishIntegration = config.programs.fish.enable;
+      enableZshIntegration = config.programs.zsh.enable;
 
       extraConfig = lib.readFile (
         pkgs.fetchurl {
@@ -84,7 +83,7 @@
 
     yazi = {
       enable = true;
-      enableFishIntegration = config.programs.fish.enable;
+      enableZshIntegration = config.programs.zsh.enable;
     };
 
     neovim.enable = true;
@@ -179,6 +178,14 @@
           gpg --decrypt --output ''${output} "''${1}" && \
             echo "''${1} -> ''${output}"
         }
+
+        function onefetch_in_git_dir {
+          if [[ -d '.git' ]]; then
+            ${pkgs.onefetch}/bin/onefetch --no-merges --no-bots --no-color-palette --true-color=never --text-colors 1 1 3 4 4
+          fi
+        }
+
+        add-zsh-hook chpwd onefetch_in_git_dir
       '';
       plugins = [
         {
@@ -263,16 +270,7 @@
 
     zoxide = {
       enable = true;
-      enableFishIntegration = config.programs.fish.enable;
-    };
-
-    fish = {
-      enable = true;
-      shellAbbrs = import ./config/sh-aliases.nix;
-
-      interactiveShellInit = ''
-        set -U fish_greeting
-      '';
+      enableZshIntegration = config.programs.zsh.enable;
     };
   };
   accounts.email = {
