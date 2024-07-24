@@ -35,6 +35,7 @@ in
       "macfuse"
       "mullvad-browser"
       "obsidian"
+      "onionshare"
       "protonvpn"
       "raycast"
       "selfcontrol"

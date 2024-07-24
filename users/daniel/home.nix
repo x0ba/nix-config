@@ -45,6 +45,10 @@
   };
 
   programs = {
+    emacs = {
+      enable = true;
+      package = pkgs.emacs-macport;
+    };
     firefox = {
       enable = true;
       package = (pkgs.writeScriptBin "__dummy-firefox" "");
@@ -82,9 +86,9 @@
           "network.cookie.cookieBehavior" = 1;
           "network.cookie.lifetimePolicy" = 2;
           "network.proxy.socks_remote_dns" = true;
-          "network.trr.custom_uri" = "https://doh.mullvad.net/dns-query";
-          "network.trr.mode" = 3;
-          "network.trr.uri" = "https://doh.mullvad.net/dns-query";
+          # "network.trr.custom_uri" = "https://doh.mullvad.net/dns-query";
+          # "network.trr.mode" = 3;
+          # "network.trr.uri" = "https://doh.mullvad.net/dns-query";
           "places.history.enabled" = false;
           "privacy.donottrackheader.enabled" = true;
           "privacy.history.custom" = true;
