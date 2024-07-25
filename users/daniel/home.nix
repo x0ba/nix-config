@@ -47,6 +47,10 @@
   programs = {
     emacs = {
       enable = true;
+      extraPackages = epkgs: [
+        epkgs.vterm
+        epkgs.mu4e
+      ];
       package = pkgs.emacs-macport;
     };
     firefox = {

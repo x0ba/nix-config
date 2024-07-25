@@ -22,16 +22,18 @@ in
     ];
     brews = [ "borgbackup-fuse" ];
     casks = [
+      "battery"
       "bettertouchtool"
       "brave-browser"
       "calibre"
       "firefox"
       "hiddenbar"
       "iina"
-      "iterm2"
       "jetbrains-toolbox"
+      "kap"
       "keepassxc"
       "keka"
+      "krita"
       "macfuse"
       "mullvad-browser"
       "obsidian"
