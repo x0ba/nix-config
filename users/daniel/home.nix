@@ -16,6 +16,7 @@
               "${config.xdg.dataHome}/fonts";
           fontPath = ../../secrets/fonts;
         in
+
         lib.hm.dag.entryAfter [ "writeBoundary" ] ''
           mkdir -p "${fontDirectory}"
           install -Dm644 ${fontPath}/* "${fontDirectory}"
@@ -165,8 +166,6 @@
 
         quit-after-last-window-closed = true;
         macos-titlebar-style = "tabs";
-        window-theme = "auto";
-        theme = "GruvboxDark";
 
         cursor-style = "block";
         cursor-style-blink = false;

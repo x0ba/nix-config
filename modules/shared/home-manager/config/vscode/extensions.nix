@@ -1,6 +1,7 @@
-{pkgs, ...}: {
-  programs.vscode.extensions = with pkgs.vscode-extensions;
-    [
+{ pkgs, ... }:
+{
+  programs.vscode.extensions =
+    (with pkgs.vscode-extensions; [
       # patches
       ms-python.python
       ms-python.vscode-pylance
@@ -14,7 +15,8 @@
       github.vscode-pull-request-github
       # pulling in extra binaries, patched for nix
       valentjn.vscode-ltex
-    ]
+    ])
+    # pinned releases; these install the latest rather than the nightly version
     ++ (with pkgs.vscode-marketplace-release; [
       eamodio.gitlens
       rust-lang.rust-analyzer
@@ -25,81 +27,68 @@
       # other extensions like Go/Rust are only really used with devShells,
       # nix & shell are universal enough for me to want them everywhere.
       (jnoortheen.nix-ide.overrideAttrs (prev: {
-        nativeBuildInputs =
-          prev.nativeBuildInputs
-          ++ [
-            pkgs.jq
-            pkgs.moreutils
-          ];
+        nativeBuildInputs = prev.nativeBuildInputs ++ [
+          pkgs.jq
+          pkgs.moreutils
+        ];
         postInstall = ''
           cd "$out/$installPrefix"
           jq -e '
-          .contributes.configuration.properties."nix.enableLanguageServer".default =
-          "true" |
-          .contributes.configuration.properties."nix.serverPath".default =
-          "${pkgs.nixd}/bin/nixd"
+            .contributes.configuration.properties."nix.enableLanguageServer".default =
+              "true" |
+            .contributes.configuration.properties."nix.serverPath".default =
+              "${pkgs.nixd}/bin/nixd"
           ' < package.json | sponge package.json
         '';
       }))
       (mads-hartmann.bash-ide-vscode.overrideAttrs (prev: {
-        nativeBuildInputs =
-          prev.nativeBuildInputs
-          ++ [
-            pkgs.jq
-            pkgs.moreutils
-          ];
+        nativeBuildInputs = prev.nativeBuildInputs ++ [
+          pkgs.jq
+          pkgs.moreutils
+        ];
         postInstall = ''
           cd "$out/$installPrefix"
           jq -e '
-          .contributes.configuration.properties."bashIde.shellcheckPath".default =
-          "${pkgs.shellcheck}/bin/shellcheck"
+            .contributes.configuration.properties."bashIde.shellcheckPath".default =
+              "${pkgs.shellcheck}/bin/shellcheck"
           ' < package.json | sponge package.json
         '';
       }))
       (mkhl.shfmt.overrideAttrs (prev: {
-        nativeBuildInputs =
-          prev.nativeBuildInputs
-          ++ [
-            pkgs.jq
-            pkgs.moreutils
-          ];
+        nativeBuildInputs = prev.nativeBuildInputs ++ [
+          pkgs.jq
+          pkgs.moreutils
+        ];
         postInstall = ''
           cd "$out/$installPrefix"
           jq -e '
-          .contributes.configuration.properties."shfmt.executablePath".default =
-          "${pkgs.shfmt}/bin/shfmt"
+            .contributes.configuration.properties."shfmt.executablePath".default =
+              "${pkgs.shfmt}/bin/shfmt"
           ' < package.json | sponge package.json
         '';
       }))
-      adrianwilczynski.alpine-js-intellisense
-      akamud.vscode-theme-onedark
-      tomphilbin.gruvbox-themes
       antfu.icons-carbon
+      beardedbear.beardedicons
       arcanis.vscode-zipfs
       astro-build.astro-vscode
       bashmish.es6-string-css
-      enkia.tokyo-night
+      biomejs.biome
       bradlc.vscode-tailwindcss
       charliermarsh.ruff
-      mustafamohamad.min-tomorrow-theme
-      raillyhugo.one-hunter
       dbaeumer.vscode-eslint
-      denoland.vscode-deno
-      dhall.dhall-lang
-      dhall.vscode-dhall-lsp-server
       editorconfig.editorconfig
       esbenp.prettier-vscode
-      geequlim.godot-tools
+      zhuangtongfa.material-theme
+      github.vscode-github-actions
+      haskell.haskell
+      justusadam.language-haskell
       golang.go
       graphql.vscode-graphql-syntax
       gruntfuggly.todo-tree
       hbenl.vscode-test-explorer
       jock.svg
-      leonardssh.vscord
-      lunuan.kubernetes-templates
       mikestead.dotenv
       mkhl.direnv
-      oscarotero.vento-syntax
       redhat.vscode-yaml
       ryanluker.vscode-coverage-gutters
       serayuzgur.crates
@@ -109,6 +98,5 @@
       unifiedjs.vscode-mdx
       usernamehw.errorlens
       vscodevim.vim
-      webfreak.code-d
     ]);
 }

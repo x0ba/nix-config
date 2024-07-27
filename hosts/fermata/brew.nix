@@ -39,6 +39,7 @@ in
       "obsidian"
       "onionshare"
       "protonvpn"
+      "tor-browser"
       "raycast"
       "selfcontrol"
       "shottr"
