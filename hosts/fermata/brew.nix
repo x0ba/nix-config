@@ -37,6 +37,7 @@ in
       "macfuse"
       "mullvad-browser"
       "obsidian"
+      "utm"
       "onionshare"
       "protonvpn"
       "tor-browser"
@@ -55,6 +56,7 @@ in
       (skipSha "alienator88/homebrew-cask/pearcleaner")
       (skipSha "spotify")
       (skipSha "discord")
+      (skipSha "onyx")
       (noQuarantine "hiddenbar")
     ];
     onActivation = {
