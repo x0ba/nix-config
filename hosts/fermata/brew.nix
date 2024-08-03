@@ -53,6 +53,7 @@ in
       "yubico-authenticator"
       "yubico-yubikey-manager"
       "zed"
+      (skipSha "istat-menus")
       (skipSha "alienator88/homebrew-cask/pearcleaner")
       (skipSha "spotify")
       (skipSha "discord")

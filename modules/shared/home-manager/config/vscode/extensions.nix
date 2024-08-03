@@ -69,6 +69,17 @@
       }))
       antfu.icons-carbon
       beardedbear.beardedicons
+      (pkgs.catppuccin-vsc.override {
+        accent = "rosewater";
+        boldKeywords = true;
+        italicComments = true;
+        italicKeywords = true;
+        extraBordersEnabled = false;
+        workbenchMode = "default";
+        bracketMode = "rainbow";
+        colorOverrides = { };
+        customUIColors = { };
+      })
       arcanis.vscode-zipfs
       astro-build.astro-vscode
       bashmish.es6-string-css

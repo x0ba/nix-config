@@ -19,7 +19,10 @@
   "search.useParentIgnoreFiles": true,
   "terminal.integrated.smoothScrolling": true,
 
-  "workbench.preferredDarkColorTheme": "One Dark Pro",
+  "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
+  "editor.semanticHighlighting.enabled": true,
+  "terminal.integrated.minimumContrastRatio": 1,
+  "window.titleBarStyle": "custom",
 
   "editor.fontSize": 13,
   "editor.inlayHints.fontSize": 8,

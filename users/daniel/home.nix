@@ -79,9 +79,9 @@
 
         quit-after-last-window-closed = true;
         macos-titlebar-style = "tabs";
+        window-save-state = "never";
 
-        cursor-style = "block";
-        cursor-style-blink = false;
+        cursor-style = "bar";
 
         macos-option-as-alt = true;
         clipboard-read = "allow";
@@ -91,8 +91,11 @@
         font-family = "Berkeley Mono";
         font-size = 13;
 
-        window-padding-x = 4;
-        window-padding-y = 4;
+        theme = "catppuccin-mocha";
+
+        window-padding-x = 10;
+        window-height = 30;
+        window-width = 120;
       };
 
       keybindings = {

@@ -26,7 +26,6 @@
         borgmatic
         gopass
         ripgrep
-        difftastic
         ;
 
       inherit (pkgs.gitAndTools) gh;
@@ -138,9 +137,8 @@
       shellAliases = import ./config/sh-aliases.nix;
       initExtra = ''
         export GPG_TTY="$(tty)"
-        export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-        gpgconf --launch gpg-agent
-        gpg-connect-agent UPDATESTARTUPTTY /bye > /dev/null
+        export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
+        gpg-connect-agent updatestartuptty /bye > /dev/null
 
         function secret {
           output="''${1}".$(date +%s).enc

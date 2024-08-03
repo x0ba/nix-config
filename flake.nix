@@ -34,6 +34,7 @@
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
     nixpkgs-fmt.url = "github:nix-community/nixpkgs-fmt";
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+    catppuccin-vsc.url = "https://flakehub.com/f/catppuccin/vscode/*.tar.gz";
     parts.url = "github:hercules-ci/flake-parts";
     nvim.url = "github:nix-community/neovim-nightly-overlay";
     statix.url = "github:nerdypepper/statix";
