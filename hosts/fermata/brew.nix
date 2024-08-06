@@ -30,11 +30,14 @@ in
       "hiddenbar"
       "iina"
       "jetbrains-toolbox"
+      "prismlauncher"
       "kap"
       "keepassxc"
       "keka"
       "krita"
       "macfuse"
+      "knockknock"
+      "ransomwhere"
       "mullvad-browser"
       "obsidian"
       "utm"
@@ -56,7 +59,6 @@ in
       (skipSha "istat-menus")
       (skipSha "alienator88/homebrew-cask/pearcleaner")
       (skipSha "spotify")
-      (skipSha "discord")
       (skipSha "onyx")
       (noQuarantine "hiddenbar")
     ];

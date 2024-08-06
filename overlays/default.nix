@@ -3,6 +3,10 @@
   flake.overlays.default = _final: prev: {
     asitop = prev.callPackage ./derivations/asitop.nix { };
 
+    nushellPlugins = (prev.nushellPlugins or { }) // {
+      clipboard = prev.callPackage ./derivations/nu_plugin_clipboard.nix { };
+    };
+
     python3 = prev.python3.override {
       packageOverrides = pfinal: _pprev: {
         pydashing = pfinal.callPackage ./derivations/dashing.nix { };
