@@ -22,4 +22,5 @@
   discord.enable = true;
   fonts.enable = true;
   emacs.enable = true;
+  spicetify.enable = true;
 }

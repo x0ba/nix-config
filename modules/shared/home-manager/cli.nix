@@ -75,10 +75,14 @@
 
       fzf = {
         enable = true;
+        catppuccin.enable = true;
         enableZshIntegration = true;
       };
 
-      bat.enable = true;
+      bat = {
+        enable = true;
+        catppuccin.enable = true;
+      };
 
       gpg = {
         enable = true;

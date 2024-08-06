@@ -23,9 +23,11 @@
     ghostty.url = "github:clo4/ghostty-hm-module";
     emacs.url = "github:nix-community/emacs-overlay";
     home.url = "github:nix-community/home-manager";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     nil.url = "github:oxalica/nil";
     nur.url = "github:nix-community/nur";
     templates.url = "github:nixos/templates";
+    catppuccin.url = "github:catppuccin/nix";
     nix-colors.url = "github:Misterio77/nix-colors";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     nix-index-database.url = "github:Mic92/nix-index-database";
@@ -54,6 +56,7 @@
     home.inputs.nixpkgs.follows = "nixpkgs";
     nvim.inputs.flake-parts.follows = "parts";
     nix-vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
+    spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     nix-minecraft.inputs.nixpkgs.follows = "nixpkgs";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";

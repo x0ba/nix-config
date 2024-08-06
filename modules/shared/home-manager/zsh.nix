@@ -18,7 +18,10 @@
       autosuggestion.highlight = "fg=8";
       enableCompletion = true;
       historySubstringSearch.enable = true;
-      syntaxHighlighting.enable = true;
+      syntaxHighlighting = {
+        enable = true;
+        catppuccin.enable = true;
+      };
       shellAliases = import ./config/sh-aliases.nix;
       initExtra = ''
         export GPG_TTY="$(tty)"

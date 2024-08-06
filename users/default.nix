@@ -1,14 +1,12 @@
-{inputs, ...}: {
+{ inputs, ... }:
+{
   # home-manager configurations
   parts.homeConfigurations = {
     "daniel@fermata" = {
       system = "aarch64-darwin";
       stateVersion = "23.05";
 
-      modules = [
-        ./daniel/home.nix
-        inputs.ghostty.homeModules.default
-      ];
+      modules = [ ./daniel/home.nix ];
     };
 
     "daniel@sonata" = {
@@ -24,13 +22,13 @@
     "daniel@symphony" = {
       system = "x86_64-linux";
       stateVersion = "23.05";
-      modules = [./volta/home.nix];
+      modules = [ ./volta/home.nix ];
     };
 
     "zero@fugue" = {
       system = "x86_64-linux";
       stateVersion = "21.11";
-      modules = [./zero/home.nix];
+      modules = [ ./zero/home.nix ];
     };
   };
 }

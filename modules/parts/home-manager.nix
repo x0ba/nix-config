@@ -54,6 +54,9 @@ let
 
           modules = config.modules ++ [
             inputs.nix-index-database.hmModules.nix-index
+            inputs.spicetify-nix.homeManagerModules.default
+            inputs.ghostty.homeModules.default
+            inputs.catppuccin.homeManagerModules.catppuccin
 
             # Shared configuration across all users
             ../shared/home-manager

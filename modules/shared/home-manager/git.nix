@@ -17,7 +17,10 @@
 
       lfs.enable = true;
 
-      diff-so-fancy.enable = true;
+      delta = {
+        enable = true;
+        catppuccin.enable = true;
+      };
 
       aliases = {
         df = "difftool";

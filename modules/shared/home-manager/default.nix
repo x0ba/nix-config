@@ -10,11 +10,14 @@
     ./discord.nix
     ./fonts.nix
     ./emacs.nix
+    ./spicetify.nix
   ];
 
   cli.enable = lib.mkDefault true;
   zsh.enable = lib.mkDefault true;
   nu.enable = lib.mkDefault true;
+
+  catppuccin.flavor = "mocha";
 
   home = {
     packages = with pkgs; [

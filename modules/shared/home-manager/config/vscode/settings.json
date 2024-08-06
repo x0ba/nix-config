@@ -19,7 +19,7 @@
   "search.useParentIgnoreFiles": true,
   "terminal.integrated.smoothScrolling": true,
 
-  "workbench.preferredDarkColorTheme": "oxocarbon-5",
+  "workbench.preferredDarkColorTheme": "Catppuccin mocha",
   "editor.semanticHighlighting.enabled": true,
   "terminal.integrated.minimumContrastRatio": 1,
   "window.titleBarStyle": "custom",
