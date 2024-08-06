@@ -23,4 +23,5 @@
   fonts.enable = true;
   emacs.enable = true;
   spicetify.enable = true;
+  kitty.enable = true;
 }

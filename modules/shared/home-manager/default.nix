@@ -11,6 +11,7 @@
     ./fonts.nix
     ./emacs.nix
     ./spicetify.nix
+    ./kitty.nix
   ];
 
   cli.enable = lib.mkDefault true;

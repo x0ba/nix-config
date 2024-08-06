@@ -90,6 +90,14 @@
         settings = import ./config/gpg.nix;
       };
 
+      btop = {
+        enable = true;
+        catppuccin.enable = true;
+        settings = {
+          vim_keys = true;
+        };
+      };
+
       htop = {
         enable = true;
 

@@ -22,7 +22,6 @@ in
     ];
     brews = [ "borgbackup-fuse" ];
     casks = [
-      "battery"
       "bettertouchtool"
       "brave-browser"
       "calibre"

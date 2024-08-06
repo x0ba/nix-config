@@ -19,6 +19,8 @@
         enable = true;
         enabledExtensions = with spicePkgs.extensions; [
           keyboardShortcut
+          powerBar
+          history
           oldSidebar
           hidePodcasts
           shuffle

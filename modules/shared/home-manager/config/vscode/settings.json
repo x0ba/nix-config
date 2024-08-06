@@ -19,7 +19,7 @@
   "search.useParentIgnoreFiles": true,
   "terminal.integrated.smoothScrolling": true,
 
-  "workbench.preferredDarkColorTheme": "Catppuccin mocha",
+  "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
   "editor.semanticHighlighting.enabled": true,
   "terminal.integrated.minimumContrastRatio": 1,
   "window.titleBarStyle": "custom",
@@ -36,7 +36,6 @@
 
   "window.autoDetectColorScheme": true,
   "window.commandCenter": false,
-  "window.titleBarStyle": "custom",
   "workbench.iconTheme": "bearded-icons",
   "workbench.layoutControl.enabled": false,
   "workbench.productIconTheme": "icons-carbon",

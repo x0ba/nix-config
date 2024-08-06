@@ -15,7 +15,6 @@
       autocd = true;
       dotDir = ".config/zsh";
       autosuggestion.enable = true;
-      autosuggestion.highlight = "fg=8";
       enableCompletion = true;
       historySubstringSearch.enable = true;
       syntaxHighlighting = {

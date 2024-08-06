@@ -17,13 +17,9 @@
         macos-titlebar-style = "tabs";
         window-save-state = "never";
 
-        cursor-style = "bar";
         window-padding-color = "extend";
 
         macos-option-as-alt = true;
-        clipboard-read = "allow";
-        clipboard-paste-protection = false;
-        confirm-close-surface = false;
 
         font-family = "Berkeley Mono";
         font-size = 13;
