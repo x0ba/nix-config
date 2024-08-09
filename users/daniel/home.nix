@@ -19,9 +19,9 @@
   vscode.enable = true;
   git.enable = true;
   ghostty.enable = true;
-  discord.enable = true;
   fonts.enable = true;
   emacs.enable = true;
   spicetify.enable = true;
   kitty.enable = true;
+  tmux.enable = true;
 }

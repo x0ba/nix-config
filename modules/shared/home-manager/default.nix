@@ -12,6 +12,7 @@
     ./emacs.nix
     ./spicetify.nix
     ./kitty.nix
+    ./tmux.nix
   ];
 
   cli.enable = lib.mkDefault true;
@@ -29,6 +30,7 @@
       yubikey-manager
       borgmatic
       gopass
+      sesh
       ripgrep
     ];
     sessionVariables = {

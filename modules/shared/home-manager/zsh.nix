@@ -25,7 +25,9 @@
       initExtra = ''
         export GPG_TTY="$(tty)"
         export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-        gpgconf --launch gpg-agent
+        if ! pgrep -x "gpg-agent" > /dev/null; then
+            gpgconf --launch gpg-agent
+        fi
 
         function secret {
           output="''${1}".$(date +%s).enc

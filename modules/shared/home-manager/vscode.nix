@@ -11,6 +11,11 @@
 
   config = lib.mkIf config.vscode.enable {
     programs.vscode = {
+      enable = true;
+      package = pkgs.vscodium;
+      userSettings = builtins.fromJSON (lib.readFile ./config/vscode/settings.json);
+      keybindings = builtins.fromJSON (lib.readFile ./config/vscode/keybindings.json);
+
       extensions =
         (with pkgs.vscode-extensions; [
           # patches
@@ -122,10 +127,6 @@
           usernamehw.errorlens
           vscodevim.vim
         ]);
-
-      enable = true;
-      userSettings = builtins.fromJSON (lib.readFile ./config/vscode/settings.json);
-      keybindings = builtins.fromJSON (lib.readFile ./config/vscode/keybindings.json);
     };
   };
 }

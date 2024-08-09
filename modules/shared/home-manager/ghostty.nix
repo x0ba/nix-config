@@ -17,7 +17,7 @@
         macos-titlebar-style = "tabs";
         window-save-state = "never";
 
-        window-padding-color = "extend";
+        # window-padding-color = "extend";
 
         macos-option-as-alt = true;
 
