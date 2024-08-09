@@ -1,4 +1,4 @@
-{ system, ... }:
+{ ... }:
 {
   imports = [ ./brew.nix ];
 
@@ -10,14 +10,7 @@
         stealthenabled = 1;
         globalstate = 1;
       };
-      finder = {
-        AppleShowAllExtensions = true;
-        FXEnableExtensionChangeWarning = true;
-      };
       NSGlobalDomain = {
-        AppleShowAllExtensions = true;
-        ApplePressAndHoldEnabled = false;
-
         InitialKeyRepeat = 10;
         KeyRepeat = 1;
 

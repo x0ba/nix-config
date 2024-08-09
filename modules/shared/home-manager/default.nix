@@ -17,7 +17,7 @@
 
   cli.enable = lib.mkDefault true;
   zsh.enable = lib.mkDefault true;
-  nu.enable = lib.mkDefault true;
+  nushell.enable = lib.mkDefault true;
 
   catppuccin.flavor = "mocha";
 
@@ -33,9 +33,5 @@
       sesh
       ripgrep
     ];
-    sessionVariables = {
-      EDITOR = "nvim";
-      MANPAGER = "nvim +Man! -c 'nnoremap i <nop>'";
-    };
   };
 }

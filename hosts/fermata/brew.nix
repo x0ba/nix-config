@@ -39,6 +39,7 @@ in
       "ransomwhere"
       "mullvad-browser"
       "obsidian"
+      "linearmouse"
       "utm"
       "onionshare"
       "protonvpn"

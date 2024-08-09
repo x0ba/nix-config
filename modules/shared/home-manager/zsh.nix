@@ -12,10 +12,10 @@
   config = lib.mkIf config.zsh.enable {
     programs.zsh = {
       enable = true;
+
       autocd = true;
       dotDir = ".config/zsh";
       autosuggestion.enable = true;
-      enableCompletion = true;
       historySubstringSearch.enable = true;
       syntaxHighlighting = {
         enable = true;
@@ -28,6 +28,7 @@
         if ! pgrep -x "gpg-agent" > /dev/null; then
             gpgconf --launch gpg-agent
         fi
+
 
         function secret {
           output="''${1}".$(date +%s).enc
@@ -49,15 +50,31 @@
         add-zsh-hook chpwd onefetch_in_git_dir
       '';
       plugins = [
+
+        {
+          name = "nix-zsh-completions";
+          src = pkgs.nix-zsh-completions;
+          file = "share/zsh/plugins/nix/nix-zsh-completions.plugin.zsh";
+        }
         {
           name = "zsh-nix-shell";
           src = pkgs.zsh-nix-shell;
           file = "share/zsh-nix-shell/nix-shell.plugin.zsh";
         }
         {
+          name = "zsh-autopair";
+          src = pkgs.zsh-autopair;
+          file = "share/zsh/zsh-autopair/autopair.zsh";
+        }
+        {
           name = "zsh-fzf-tab";
           src = pkgs.zsh-fzf-tab;
           file = "share/fzf-tab/fzf-tab.plugin.zsh";
+        }
+        {
+          name = "zsh-completions";
+          src = pkgs.zsh-completions;
+          file = "share/zsh-completions/zsh-completions.plugin.zsh";
         }
       ];
     };
