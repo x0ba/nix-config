@@ -9,11 +9,12 @@ let
   name = "Daniel Xu";
   user = "daniel";
   email = "64868985+x0ba@users.noreply.github.com";
+  inherit (pkgs.stdenv) isDarwin isLinux;
 in
 {
   ghostty = {
     enable = true;
-    package = null;
+    package = pkgs.ghostty-bin;
     enableZshIntegration = true;
     settings = {
       theme = "Oxocarbon";

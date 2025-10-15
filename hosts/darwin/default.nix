@@ -56,7 +56,7 @@ in
   environment.systemPackages =
     with pkgs;
     [
-      emacs-unstable
+      emacs
       agenix.packages."${pkgs.system}".default
     ]
     ++ (import ../../modules/shared/packages.nix { inherit pkgs; });
@@ -73,6 +73,9 @@ in
     StandardOutPath = "/tmp/emacs.out.log";
   };
 
+  # use touch id for sudo
+  security.pam.services.sudo_local.touchIdAuth = true;
+
   system = {
     checks.verifyNixPath = false;
     primaryUser = user;
@@ -82,6 +85,12 @@ in
       NSGlobalDomain = {
         AppleShowAllExtensions = true;
         ApplePressAndHoldEnabled = false;
+        NSAutomaticCapitalizationEnabled = false;
+        NSAutomaticDashSubstitutionEnabled = false;
+        NSAutomaticInlinePredictionEnabled = false;
+        NSAutomaticPeriodSubstitutionEnabled = false;
+        NSAutomaticQuoteSubstitutionEnabled = false;
+        NSAutomaticSpellingCorrectionEnabled = false;
 
         # 120, 90, 60, 30, 12, 6, 2
         KeyRepeat = 2;

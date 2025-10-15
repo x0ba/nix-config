@@ -16,7 +16,7 @@ _:
       "balenaetcher"
       "claude"
       "discord"
-      "ghostty"
+      # "ghostty"
       "iina"
       "ollama-app"
       "istat-menus"
