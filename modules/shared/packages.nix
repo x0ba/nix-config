@@ -46,6 +46,7 @@ with pkgs; [
   terraform
   kubectl
   awscli2
+  claude-code
   lazygit
   fzf
   direnv

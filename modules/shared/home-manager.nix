@@ -75,6 +75,11 @@ let name = "Daniel Xu";
     '';
   };
 
+  direnv = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   eza = {
     enable = true;
     enableZshIntegration = true;
