@@ -27,24 +27,24 @@ in
     enable = true;
     autocd = false;
     syntaxHighlighting.enable = true;
+    autosuggestion = {
+      enable = true;
+      strategy = [
+        "history"
+        "completion"
+      ];
+    };
+    enableCompletion = true;
     cdpath = [ "~/Code" ];
-    plugins = [
-      {
-        name = "powerlevel10k";
-        src = pkgs.zsh-powerlevel10k;
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
-      {
-        name = "powerlevel10k-config";
-        src = lib.cleanSource ./config;
-        file = "p10k.zsh";
-      }
-    ];
     initContent = lib.mkBefore ''
       if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
         . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
         . /nix/var/nix/profiles/default/etc/profile.d/nix.sh
       fi
+
+      source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
+      source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh
+      source ${pkgs.zsh-nix-shell}/share/zsh-nix-shell/nix-shell.plugin.zsh
 
       # Define variables for directories
       export PATH=$HOME/.pnpm-packages/bin:$HOME/.pnpm-packages:$PATH
@@ -57,19 +57,30 @@ in
       # Ripgrep alias
       alias search=rg -p --glob '!node_modules/*'  $@
 
+      # Bat alias
+      alias cat=bat
+
+      set -k
+      setopt auto_cd
+      setopt NO_NOMATCH   # disable some globbing
+
+      precmd() {
+        printf '\033]0;%s\007' "$(dirs)"
+      }
+
+      command_not_found_handler() {
+        printf 'Command not found ->\033[32;05;16m %s\033[0m \n' "$0" >&2
+        return 127
+      }
+
+      export SUDO_PROMPT=$'Password for ->\033[32;05;16m %u\033[0m  '
+
       # Emacs is my editor
       export ALTERNATE_EDITOR=""
-      export EDITOR="emacsclient -t"
-      export VISUAL="emacsclient -c -a emacs"
+      export EDITOR="code"
+      export VISUAL="code"
 
-      e() {
-          emacsclient -t "$@"
-      }
-
-      # nix shortcuts
-      shell() {
-          nix-shell '<nixpkgs>' -A "$1"
-      }
+      alias c=code
 
       # pnpm is a javascript package manager
       alias pn=pnpm
@@ -97,6 +108,47 @@ in
   zoxide = {
     enable = true;
     enableZshIntegration = true;
+  };
+
+  atuin = {
+    enable = true;
+    daemon.enable = true;
+    enableZshIntegration = true;
+  };
+
+  starship = {
+    enable = true;
+    enableZshIntegration = true;
+    settings = {
+      character = {
+        error_symbol = "[>>](bold red)";
+        success_symbol = "[>>](bold green)";
+        vicmd_symbol = "[>>](bold yellow)";
+        format = "$symbol ";
+      };
+
+      format = "$all";
+      add_newline = false;
+
+      hostname = {
+        ssh_only = true;
+        format = "[$hostname](bold blue) ";
+        disabled = false;
+      };
+
+      line_break.disabled = false;
+      directory.disabled = false;
+      nodejs.disabled = true;
+      nix_shell.symbol = "[](blue) ";
+      python.symbol = "[](blue) ";
+      rust.symbol = "[](red) ";
+      lua.symbol = "[](blue) ";
+      package.symbol = "📦  ";
+    };
+  };
+
+  bat = {
+    enable = true;
   };
 
   git = {

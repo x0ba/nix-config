@@ -34,7 +34,6 @@ with pkgs;
   htop
   jetbrains-mono
   jq
-  comma
   ripgrep
   tree
   tmux

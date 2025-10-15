@@ -21,7 +21,7 @@ _:
       "ollama-app"
       "istat-menus"
       "jetbrains-toolbox"
-      "jordanbaird-ice"
+      "jordanbaird-ice@beta"
       "keka"
       "logi-options+"
       "notion"

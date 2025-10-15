@@ -83,6 +83,7 @@ in
 
     defaults = {
       NSGlobalDomain = {
+        AppleInterfaceStyleSwitchesAutomatically = true;
         AppleShowAllExtensions = true;
         ApplePressAndHoldEnabled = false;
         NSAutomaticCapitalizationEnabled = false;
@@ -113,6 +114,7 @@ in
 
       finder = {
         _FXShowPosixPathInTitle = false;
+        FXPreferredViewStyle = "clmv";
       };
 
       trackpad = {

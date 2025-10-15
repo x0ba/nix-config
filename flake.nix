@@ -4,6 +4,10 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     agenix.url = "github:ryantm/agenix";
     home-manager.url = "github:nix-community/home-manager";
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     darwin = {
       url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,6 +29,7 @@
       nixpkgs,
       disko,
       agenix,
+      nix-index-database,
       secrets,
     }@inputs:
     let
@@ -103,6 +108,8 @@
           specialArgs = inputs;
           modules = [
             home-manager.darwinModules.home-manager
+            nix-index-database.darwinModules.nix-index
+            { programs.nix-index-database.comma.enable = true; }
             ./hosts/darwin
           ];
         }
