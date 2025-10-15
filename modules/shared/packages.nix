@@ -1,6 +1,7 @@
 { pkgs }:
 
-with pkgs; [
+with pkgs;
+[
   # General packages for development and system management
   bash-completion
   bat
@@ -39,7 +40,7 @@ with pkgs; [
   unrar
   unzip
   zsh-powerlevel10k
-  
+
   # Development tools
   curl
   gh
@@ -50,7 +51,7 @@ with pkgs; [
   lazygit
   fzf
   direnv
-  
+
   # Programming languages and runtimes
   go
   rustc

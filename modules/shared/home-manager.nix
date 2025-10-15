@@ -1,8 +1,15 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
-let name = "Daniel Xu";
-    user = "daniel";
-    email = "64868985+x0ba@users.noreply.github.com"; in
+let
+  name = "Daniel Xu";
+  user = "daniel";
+  email = "64868985+x0ba@users.noreply.github.com";
+in
 {
   ghostty = {
     enable = true;
@@ -22,14 +29,14 @@ let name = "Daniel Xu";
     cdpath = [ "~/Code" ];
     plugins = [
       {
-          name = "powerlevel10k";
-          src = pkgs.zsh-powerlevel10k;
-          file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+        name = "powerlevel10k";
+        src = pkgs.zsh-powerlevel10k;
+        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
       }
       {
-          name = "powerlevel10k-config";
-          src = lib.cleanSource ./config;
-          file = "p10k.zsh";
+        name = "powerlevel10k-config";
+        src = lib.cleanSource ./config;
+        file = "p10k.zsh";
       }
     ];
     initContent = lib.mkBefore ''
@@ -93,7 +100,10 @@ let name = "Daniel Xu";
 
   git = {
     enable = true;
-    ignores = [ "*.swp" ".DS_Store" ];
+    ignores = [
+      "*.swp"
+      ".DS_Store"
+    ];
     userName = name;
     userEmail = email;
     lfs = {
@@ -102,7 +112,7 @@ let name = "Daniel Xu";
     extraConfig = {
       init.defaultBranch = "main";
       core = {
-	    editor = "vim";
+        editor = "vim";
         autocrlf = "input";
       };
       pull.rebase = true;
@@ -112,8 +122,15 @@ let name = "Daniel Xu";
 
   vim = {
     enable = true;
-    plugins = with pkgs.vimPlugins; [ vim-airline vim-airline-themes vim-startify vim-tmux-navigator ];
-    settings = { ignorecase = true; };
+    plugins = with pkgs.vimPlugins; [
+      vim-airline
+      vim-airline-themes
+      vim-startify
+      vim-tmux-navigator
+    ];
+    settings = {
+      ignorecase = true;
+    };
     extraConfig = ''
       "" General
       set number
@@ -218,8 +235,8 @@ let name = "Daniel Xu";
 
       let g:airline_theme='bubblegum'
       let g:airline_powerline_fonts = 1
-      '';
-     };
+    '';
+  };
 
   tmux = {
     enable = true;
@@ -231,7 +248,7 @@ let name = "Daniel Xu";
       {
         plugin = power-theme;
         extraConfig = ''
-           set -g @tmux_power_theme 'gold'
+          set -g @tmux_power_theme 'gold'
         '';
       }
       {
@@ -302,6 +319,6 @@ let name = "Daniel Xu";
       bind-key -T copy-mode-vi 'C-k' select-pane -U
       bind-key -T copy-mode-vi 'C-l' select-pane -R
       bind-key -T copy-mode-vi 'C-\' select-pane -l
-      '';
-    };
+    '';
+  };
 }
