@@ -3,6 +3,11 @@ _:
 {
   homebrew = {
     enable = true;
+    onActivation = {
+      autoUpdate = true;
+      cleanup = "uninstall";
+      upgrade = true;
+    };
     casks = [
       "1password"
       "anki"
@@ -13,6 +18,7 @@ _:
       "discord"
       "ghostty"
       "iina"
+      "ollama-app"
       "istat-menus"
       "jetbrains-toolbox"
       "jordanbaird-ice"
