@@ -4,7 +4,7 @@ _: {
   disko.devices = {
     disk = {
       vdb = {
-        device = "/dev/%DISK%";
+        device = "/dev/sda";
         type = "disk";
         content = {
           type = "gpt";

@@ -19,6 +19,8 @@ in
     settings = {
       theme = "Oxocarbon";
       font-family = "Berkeley Mono";
+      window-padding-x = 10;
+      window-padding-y = 10;
     };
   };
 

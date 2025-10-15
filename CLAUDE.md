@@ -18,7 +18,10 @@ nix run .#build
 nix run .#build-switch
 
 # Alternative: Direct darwin-rebuild
-darwin-rebuild switch --flake .#aarch64-darwin  # or x86_64-darwin
+darwin-rebuild switch --flake .#mba
+
+# Or using nh (recommended for better UX)
+nh darwin switch . -H mba
 ```
 
 ### Building and Switching (NixOS)
@@ -49,8 +52,11 @@ nix run .#rollback
 # Format Nix files
 nixfmt **/*.nix
 
-# Check flake
-nix flake check
+# Check flake (Note: cross-platform checks will fail - use system-specific checks instead)
+# On macOS:
+nix build .#darwinConfigurations.mba.system --dry-run
+# On NixOS:
+nix build .#nixosConfigurations.tp.config.system.build.toplevel --dry-run
 ```
 
 ### Secrets Management
@@ -72,7 +78,7 @@ nix run .#check-keys
 
 The repository follows a modular flake-based architecture with clear separation between Darwin (macOS) and NixOS configurations:
 
-- **flake.nix**: Main entry point. Defines inputs (nixpkgs, home-manager, agenix, nix-darwin, disko, nix-index-database, secrets), outputs (darwinConfigurations, nixosConfigurations), and flake apps for common operations.
+- **flake.nix**: Main entry point. Defines inputs (nixpkgs, home-manager, agenix, nix-darwin, disko, nix-index-database, secrets), outputs (darwinConfigurations.mba for macOS, nixosConfigurations.tp for NixOS), and flake apps for common operations.
 - **flake.lock**: Pinned versions of all inputs.
 
 ### Host Configurations
@@ -130,7 +136,7 @@ Located in `apps/{architecture}/` directories, these are bash scripts for system
 ## Development Notes
 
 - **System variable**: The primary user is "daniel", defined in host configurations.
-- **Architecture support**: Flake supports aarch64-darwin, x86_64-darwin, aarch64-linux, x86_64-linux.
+- **Host configurations**: Named configurations are "mba" (macOS on aarch64-darwin) and "tp" (NixOS on x86_64-linux).
 - **Experimental features**: Requires `nix-command` and `flakes` experimental features enabled.
 - **State versions**: Darwin stateVersion is 5, NixOS is 21.05 (set in host configs).
 - **Emacs daemon**: Runs as a launchd service on macOS, systemd service on NixOS (currently commented out).

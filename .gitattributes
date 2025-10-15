@@ -1,0 +1,5 @@
+# noisy diffs
+flake.lock -diff
+
+# treat age files as binarys
+*.age -text -diff

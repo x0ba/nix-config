@@ -33,22 +33,9 @@ if [ -n "$HOST" ]; then
   FLAKE_TARGET="$HOST"
   echo -e "${YELLOW}Building for named host: $HOST${NC}"
 else
-  # Default behavior: detect system architecture
-  SYSTEM=$(uname -m)
-  
-  case "$SYSTEM" in
-    x86_64)
-      FLAKE_TARGET="x86_64-linux"
-      ;;
-    aarch64)
-      FLAKE_TARGET="aarch64-linux"
-      ;;
-    *)
-      echo -e "${RED}Unsupported architecture: $SYSTEM${NC}"
-      exit 1
-      ;;
-  esac
-  echo -e "${YELLOW}Building for platform: $FLAKE_TARGET${NC}"
+  # Default to tp host
+  FLAKE_TARGET="tp"
+  echo -e "${YELLOW}Building for host: $FLAKE_TARGET${NC}"
 fi
 
 echo -e "${YELLOW}Starting...${NC}"
