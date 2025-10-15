@@ -73,8 +73,14 @@ in
     StandardOutPath = "/tmp/emacs.out.log";
   };
 
-  # use touch id for sudo
-  security.pam.services.sudo_local.touchIdAuth = true;
+  programs.zsh.enable = true;
+
+  # use touch id & watch for sudo
+  security.pam.services.sudo_local = {
+    reattach = true;
+    touchIdAuth = true;
+    watchIdAuth = true;
+  };
 
   system = {
     checks.verifyNixPath = false;
