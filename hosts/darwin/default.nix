@@ -113,8 +113,10 @@ in
         "com.apple.sound.beep.feedback" = 0;
       };
 
+      ".GlobalPreferences"."com.apple.mouse.scaling" = 0.5;
+
       dock = {
-        autohide = false;
+        autohide = true;
         show-recents = false;
         launchanim = true;
         orientation = "left";
