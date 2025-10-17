@@ -45,6 +45,8 @@ with pkgs;
   curl
   gh
   terraform
+  nixfmt
+  nixd
   kubectl
   awscli2
   claude-code
