@@ -58,6 +58,7 @@ with pkgs;
   go
   rustc
   cargo
+  cmake
   jdk11
 
   # Python packages

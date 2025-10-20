@@ -143,6 +143,8 @@
           modules = [
             disko.nixosModules.disko
             home-manager.nixosModules.home-manager
+            nix-index-database.darwinModules.nix-index
+            { programs.nix-index-database.comma.enable = true; }
             {
               home-manager = {
                 useGlobalPkgs = true;
