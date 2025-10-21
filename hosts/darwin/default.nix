@@ -3,14 +3,9 @@
   config,
   pkgs,
   ...
-}:
-
-let
+}: let
   user = "daniel";
-in
-
-{
-
+in {
   imports = [
     ../../modules/darwin/secrets.nix
     ../../modules/darwin/home-manager.nix
@@ -56,15 +51,14 @@ in
   # Turn off NIX_PATH warnings now that we're using flakes
 
   # Load configuration that is shared across systems
-  environment.systemPackages =
-    with pkgs;
+  environment.systemPackages = with pkgs;
     [
       emacs
       agenix.packages."${pkgs.system}".default
     ]
-    ++ (import ../../modules/shared/packages.nix { inherit pkgs; });
+    ++ (import ../../modules/shared/packages.nix {inherit pkgs;});
 
-  launchd.user.agents.emacs.path = [ config.environment.systemPath ];
+  launchd.user.agents.emacs.path = [config.environment.systemPath];
   launchd.user.agents.emacs.serviceConfig = {
     KeepAlive = true;
     ProgramArguments = [

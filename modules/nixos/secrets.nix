@@ -4,12 +4,9 @@
   agenix,
   secrets,
   ...
-}:
-
-let
+}: let
   user = "daniel";
-in
-{
+in {
   age.identityPaths = [
     "/home/${user}/.ssh/id_ed25519"
   ];
@@ -33,5 +30,4 @@ in
   #   owner = "${user}";
   #   group = "wheel";
   # };
-
 }

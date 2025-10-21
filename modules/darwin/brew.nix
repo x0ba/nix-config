@@ -1,6 +1,4 @@
-_:
-
-{
+_: {
   homebrew = {
     enable = true;
     onActivation = {
@@ -16,6 +14,7 @@ _:
       "balenaetcher"
       "claude"
       "discord"
+      "logi-options+"
       "iina"
       "ollama-app"
       "istat-menus"
@@ -31,7 +30,6 @@ _:
       "steam"
       "yubico-authenticator"
       "rectangle"
-      "visual-studio-code"
       "vivaldi"
       "zed"
       "zoom"

@@ -3,21 +3,17 @@
   pkgs,
   lib,
   ...
-}:
-
-let
+}: let
   name = "Daniel Xu";
   user = "daniel";
   email = "64868985+x0ba@users.noreply.github.com";
   inherit (pkgs.stdenv) isDarwin isLinux;
-in
-{
+in {
   ghostty = {
     enable = true;
     package = pkgs.ghostty-bin;
     enableZshIntegration = true;
     settings = {
-      theme = "Oxocarbon";
       font-family = "Berkeley Mono";
       window-padding-x = 10;
       window-padding-y = 10;
@@ -37,7 +33,7 @@ in
       ];
     };
     enableCompletion = true;
-    cdpath = [ "~/Code" ];
+    cdpath = ["~/Code"];
     initContent = lib.mkBefore ''
       if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
         . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
@@ -159,12 +155,7 @@ in
       "*.swp"
       ".DS_Store"
     ];
-    userName = name;
-    userEmail = email;
-    lfs = {
-      enable = true;
-    };
-    extraConfig = {
+    settings = {
       init.defaultBranch = "main";
       core = {
         editor = "vim";
@@ -172,6 +163,86 @@ in
       };
       pull.rebase = true;
       rebase.autoStash = true;
+      user = {
+        name = name;
+        email = email;
+      };
+    };
+    lfs = {
+      enable = true;
+    };
+  };
+
+  vscode = {
+    enable = true;
+    mutableExtensionsDir = true;
+
+    profiles.default = {
+      extensions = with pkgs.vscode-extensions; [
+        esbenp.prettier-vscode
+        github.github-vscode-theme
+        redhat.java
+        vscjava.vscode-java-debug
+        vscjava.vscode-java-test
+        vscjava.vscode-maven
+        vscjava.vscode-gradle
+        vscjava.vscode-java-dependency
+        visualstudioexptteam.vscodeintellicode
+        github.codespaces
+        github.copilot-chat
+        jnoortheen.nix-ide
+        kamadorueda.alejandra
+        mshr-h.veriloghdl
+        ms-python.python
+        ms-vscode.cpptools
+        ms-vscode-remote.vscode-remote-extensionpack
+        zhuangtongfa.material-theme
+        mkhl.direnv
+        anthropic.claude-code
+        sumneko.lua
+        pkief.material-icon-theme
+        xaver.clang-format
+      ];
+
+      userSettings = {
+        "[nix]".editor.defaultFormatter = "kamadorueda.alejandra";
+        "[python]".editor.formatOnType = true;
+        nix.serverPath = "${lib.getExe pkgs.nixd}";
+
+        breadcrumbs.enabled = false;
+        terminal.integrated = {
+          cursorBlinking = true;
+          cursorStyle = "line";
+          fontLigatures.enabled = true;
+          smoothScrolling = true;
+          stickyScroll.enabled = false;
+        };
+        workbench = {
+          colorTheme = lib.mkForce "One Dark Pro";
+          iconTheme = lib.mkForce "material-icon-theme";
+          list.smoothScrolling = true;
+          smoothScrolling = true;
+        };
+        editor = {
+          cursorBlinking = "smooth";
+          fontFamily = "'Berkeley Mono', 'Symbols Nerd Font', monospace";
+          fontLigatures = true;
+          formatOnSave = true;
+          lineNumbers = "on";
+          minimap.enabled = false;
+          smoothScrolling = true;
+          stickyScroll.enabled = false;
+          rulers = [
+            80
+            120
+          ];
+
+          bracketPairColorization = {
+            enabled = true;
+            independentColorPoolPerBracketType = true;
+          };
+        };
+      };
     };
   };
 

@@ -4,13 +4,10 @@
   pkgs,
   agenix,
   ...
-}:
-
-let
+}: let
   user = "daniel";
-  keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOk8iAnIaa1deoc7jw8YACPNVka1ZFJxhnU4G74TmS+p" ];
-in
-{
+  keys = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOk8iAnIaa1deoc7jw8YACPNVka1ZFJxhnU4G74TmS+p"];
+in {
   imports = [
     ../../modules/nixos/secrets.nix
     ../../modules/nixos/disk-config.nix
@@ -38,7 +35,7 @@ in
     # Uncomment for AMD GPU
     # initrd.kernelModules = [ "amdgpu" ];
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelModules = [ "uinput" ];
+    kernelModules = ["uinput"];
   };
 
   # Set your time zone.
@@ -54,9 +51,9 @@ in
   };
 
   nix = {
-    nixPath = [ "nixos-config=/home/${user}/.local/share/src/nixos-config:/etc/nixos" ];
+    nixPath = ["nixos-config=/home/${user}/.local/share/src/nixos-config:/etc/nixos"];
     settings = {
-      allowed-users = [ "${user}" ];
+      allowed-users = ["${user}"];
       trusted-users = [
         "@admin"
         "${user}"
@@ -65,7 +62,7 @@ in
         "https://nix-community.cachix.org"
         "https://cache.nixos.org"
       ];
-      trusted-public-keys = [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
+      trusted-public-keys = ["cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="];
     };
 
     package = pkgs.nix;
@@ -141,7 +138,7 @@ in
       overrideDevices = true;
 
       settings = {
-        devices = { };
+        devices = {};
         options.globalAnnounceEnabled = false; # Only sync on LAN
       };
     };
@@ -175,8 +172,8 @@ in
           "class_g = 'i3lock'"
         ];
         round-borders = 3;
-        round-borders-exclude = [ ];
-        round-borders-rule = [ ];
+        round-borders-exclude = [];
+        round-borders-rule = [];
         shadow = true;
         shadow-radius = 8;
         shadow-opacity = 0.4;
@@ -318,10 +315,10 @@ in
         commands = [
           {
             command = "${pkgs.systemd}/bin/reboot";
-            options = [ "NOPASSWD" ];
+            options = ["NOPASSWD"];
           }
         ];
-        groups = [ "wheel" ];
+        groups = ["wheel"];
       }
     ];
   };

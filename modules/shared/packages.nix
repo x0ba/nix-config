@@ -1,7 +1,5 @@
-{ pkgs }:
-
-with pkgs;
-[
+{pkgs}:
+with pkgs; [
   # General packages for development and system management
   bash-completion
   bat
@@ -45,7 +43,7 @@ with pkgs;
   curl
   gh
   terraform
-  nixfmt
+  alejandra
   nixd
   kubectl
   awscli2
