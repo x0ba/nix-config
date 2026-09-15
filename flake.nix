@@ -44,5 +44,15 @@
         ];
       };
       formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-tree;
+      devShells.aarch64-darwin.default =
+        let
+          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+        in
+        pkgs.mkShell {
+          packages = with pkgs; [
+            nixd
+            nixfmt
+          ];
+        };
     };
 }
