@@ -88,7 +88,7 @@ in
   programs.starship = {
     enable = true;
     enableTransience = true;
-    settings = builtins.fromTOML (builtins.readFile ./starship.toml);
+    settings = fromTOML (builtins.readFile ./starship.toml);
   };
   programs.direnv = {
     enable = true;
