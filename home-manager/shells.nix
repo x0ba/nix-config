@@ -82,6 +82,10 @@ in
         enabled = true;
         autostart = false;
       };
+      # Atuin's interactive AI opt-in writes this setting itself.  The config is
+      # managed by Home Manager (and therefore read-only in the Nix store), so
+      # declare the opt-in here instead.
+      ai.enabled = true;
     };
     daemon.enable = true;
   };
