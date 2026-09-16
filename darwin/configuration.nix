@@ -23,7 +23,7 @@
   # The existing Determinate installation owns the Nix daemon.
   nix.enable = false;
   # This macOS installation rejects replacing the system PAM include.
-  security.pam.services.sudo_local.enable = false;
+  security.pam.services.sudo_local.enable = true;
   system.primaryUser = "daniel";
   system.stateVersion = 6;
   networking.computerName = "Daniel’s MacBook Pro";

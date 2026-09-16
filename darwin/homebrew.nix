@@ -31,6 +31,7 @@
       "balenaetcher"
       "blip"
       "cleanshot"
+      "google-gemini"
       "cmux"
       "cursor"
       "discord"
