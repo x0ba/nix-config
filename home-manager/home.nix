@@ -29,6 +29,7 @@
       pi-coding-agent
       _1password-cli
       (pkgs.callPackage ../pkgs/skl.nix { })
+      (pkgs.callPackage ../pkgs/deja.nix { })
     ];
   };
   xdg.enable = true;

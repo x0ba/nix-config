@@ -17,6 +17,14 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+    mikker-tap = {
+      url = "github:mikker/homebrew-tap";
+      flake = false;
+    };
+    saragordic-tap = {
+      url = "github:saragordic/homebrew-tap";
+      flake = false;
+    };
   };
 
   outputs =

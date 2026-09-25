@@ -11,11 +11,23 @@
     taps = {
       "homebrew/homebrew-core" = inputs.homebrew-core;
       "homebrew/homebrew-cask" = inputs.homebrew-cask;
+      "mikker/homebrew-tap" = inputs.mikker-tap;
+      "saragordic/homebrew-tap" = inputs.saragordic-tap;
     };
   };
   homebrew = {
     enable = true;
-    taps = builtins.attrNames config.nix-homebrew.taps;
+    taps = map (
+      name:
+      if name == "mikker/homebrew-tap" || name == "saragordic/homebrew-tap" then
+        {
+          inherit name;
+          # Homebrew 6 skips casks from untrusted third-party taps.
+          trusted = true;
+        }
+      else
+        name
+    ) (builtins.attrNames config.nix-homebrew.taps);
     onActivation = {
       autoUpdate = false;
       upgrade = false;
@@ -25,32 +37,27 @@
       "chatgpt"
       "raycast"
       "grok-bot"
-      "t3-code@nightly"
       "1password"
       "adobe-creative-cloud"
-      "balenaetcher"
       "blip"
       "cleanshot"
-      "google-gemini"
-      "cmux"
       "cursor"
       "discord"
-      "fluidvoice"
+      "notion-calendar"
+      # "fluidvoice" trying out the beta rn, will reinstall via brew once it's stable
+      "mikker/tap/fst"
       "fuse-t"
       "ghostty"
       "google-chrome"
       "granola"
-      "helium-browser"
-      "homebrew-app"
       "imageoptim"
       "intellij-idea"
       "logi-options+"
       "notion"
-      "notion-calendar"
       "ollama-app"
       "orbstack"
       "paper-design"
-      "pycharm"
+      "saragordic/tap/rooms"
       "slack"
       "spotify"
       "tailscale-app"

@@ -24,7 +24,6 @@ in
     shellAliases = aliases;
     defaultKeymap = "emacs";
     enableCompletion = true;
-    autosuggestion.enable = true;
     historySubstringSearch.enable = true;
     syntaxHighlighting.enable = true;
     # Keep the completion UI declarative through Home Manager's zsh module.
@@ -45,6 +44,14 @@ in
         ${pkgs.gnupg}/bin/gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1
       fi
       [[ -r "$HOME/.orbstack/shell/init.zsh" ]] && source "$HOME/.orbstack/shell/init.zsh"
+
+      # deja reads these only when its init script is sourced; Tab stays with fzf-tab.
+      export DEJA_CYCLE_KEY='^N'
+      if [[ -r "$HOME/.local/share/deja/init.zsh" ]]; then
+        source "$HOME/.local/share/deja/init.zsh"
+      else
+        eval "$(deja init zsh)"
+      fi
     '';
   };
   programs.bash = {
