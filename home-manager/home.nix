@@ -18,15 +18,14 @@
       fd
       jq
       ncdu
-      libimobiledevice
       herdr
       hunk
-      starship-jj
-      fx
       uv
-      codex
-      cursor-cli
-      pi-coding-agent
+      # these are installed via vp
+      # codex
+      # cursor-cli
+      # pi-coding-agent
+      # claude-code
       _1password-cli
       (pkgs.callPackage ../pkgs/skl.nix { })
       (pkgs.callPackage ../pkgs/deja.nix { })

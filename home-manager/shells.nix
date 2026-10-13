@@ -18,6 +18,8 @@ let
   };
 in
 {
+  # Non-interactive shells (coding agents, scripts) skip the env script below.
+  home.sessionPath = [ "$HOME/.local/share/vite-plus/bin" ];
   programs.zsh = {
     enable = true;
     dotDir = config.home.homeDirectory;
@@ -44,6 +46,9 @@ in
         ${pkgs.gnupg}/bin/gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1
       fi
       [[ -r "$HOME/.orbstack/shell/init.zsh" ]] && source "$HOME/.orbstack/shell/init.zsh"
+      # Vite+ manages itself outside Nix; its env script adds the `vp env use`
+      # wrapper and completions on top of the PATH entry in home.sessionPath.
+      [[ -r "$HOME/.config/vite-plus/env" ]] && source "$HOME/.config/vite-plus/env"
 
       # deja reads these only when its init script is sourced; Tab stays with fzf-tab.
       export DEJA_CYCLE_KEY='^N'
@@ -51,6 +56,12 @@ in
         source "$HOME/.local/share/deja/init.zsh"
       else
         eval "$(deja init zsh)"
+      fi
+    '';
+    # needed for coding agents to have access to dependencies installed through nix flakes
+    envExtra = ''
+      if [[ ! -o interactive ]] && command -v direnv >/dev/null; then
+        eval "$(direnv export zsh 2>/dev/null)"
       fi
     '';
   };
@@ -65,6 +76,9 @@ in
       set -g fish_greeting
       if test -r "$HOME/.orbstack/shell/init2.fish"
         source "$HOME/.orbstack/shell/init2.fish"
+      end
+      if test -r "$HOME/.config/vite-plus/env.fish"
+        source "$HOME/.config/vite-plus/env.fish"
       end
     '';
   };

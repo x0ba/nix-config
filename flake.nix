@@ -25,6 +25,10 @@
       url = "github:saragordic/homebrew-tap";
       flake = false;
     };
+    penso-tap = {
+      url = "github:penso/homebrew-tap";
+      flake = false;
+    };
   };
 
   outputs =

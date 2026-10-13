@@ -3,7 +3,6 @@
     NSGlobalDomain = {
       InitialKeyRepeat = 15;
       KeyRepeat = 2;
-      AppleInterfaceStyleSwitchesAutomatically = true;
       NSAutomaticCapitalizationEnabled = false;
       NSAutomaticSpellingCorrectionEnabled = false;
       NSAutomaticPeriodSubstitutionEnabled = true;
@@ -14,7 +13,7 @@
       FXRemoveOldTrashItems = true;
     };
     dock = {
-      magnification = false;
+      autohide = true;
       tilesize = 64;
       show-recents = true;
       showhidden = true;

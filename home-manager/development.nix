@@ -15,7 +15,15 @@
       key = "6F5289366A8018FAFEAE1C468BE6AC395444462A";
       signByDefault = true;
     };
+    # GitHub Desktop runs `git lfs install`, which fails on the read-only
+    # config unless the filter values already match exactly. A null package
+    # writes plain `git-lfs ...` commands instead of store paths.
+    lfs = {
+      enable = true;
+      package = null;
+    };
   };
+  home.packages = [ pkgs.git-lfs ];
   programs.delta = {
     enable = true;
     enableGitIntegration = true;
