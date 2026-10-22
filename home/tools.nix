@@ -1,4 +1,10 @@
-{ lib, pkgs, repoOutOfStoreSymlink, inputs, ... }:
+{
+  lib,
+  pkgs,
+  repoOutOfStoreSymlink,
+  inputs,
+  ...
+}:
 {
   imports = [ inputs.direnv-instant.homeModules.direnv-instant ];
 
@@ -9,9 +15,13 @@
   programs.direnv-instant = {
     enable = true;
     # Adds Rex as a supported multiplexer, so direnv runs in the background
-    # in Rex terminals instead of blocking the prompt.
+    # in Rex terminals instead of blocking the prompt. Also keeps a separate
+    # cache per shell so fish never loads a zsh-format env file.
     package = (pkgs.callPackage "${inputs.direnv-instant}/default.nix" { }).overrideAttrs (old: {
-      patches = (old.patches or [ ]) ++ [ ../patches/direnv-instant-rex.patch ];
+      patches = (old.patches or [ ]) ++ [
+        ../patches/direnv-instant-rex.patch
+        ../patches/direnv-instant-shell-cache.patch
+      ];
     });
   };
 
@@ -31,16 +41,23 @@
       ui.default-command = "log";
       aliases = {
         n = [ "new" ];
-        tug = [ "bookmark" "move" "--from" "closest_bookmark(@-)" "--to" "@-" ];
-        retrunk = [ "rebase" "-d" "trunk()" ];
+        tug = [
+          "bookmark"
+          "move"
+          "--from"
+          "closest_bookmark(@-)"
+          "--to"
+          "@-"
+        ];
+        retrunk = [
+          "rebase"
+          "-d"
+          "trunk()"
+        ];
       };
       revset-aliases."closest_bookmark(to)" = "heads(::to & bookmarks())";
       template-aliases."format_timestamp(timestamp)" = "timestamp.ago()";
     };
-  };
-
-  programs.starship = {
-    enable = true;
   };
 
   programs.atuin = {
@@ -57,9 +74,13 @@
   };
 
   programs.zoxide.enable = true;
-  programs.fzf = {
+  programs.fzf.enable = true;
+
+  programs.gpg.enable = true;
+  services.gpg-agent = {
     enable = true;
-    historyWidget.command = ""; # atuin owns Ctrl-R
+    pinentry.package =
+      if pkgs.stdenv.hostPlatform.isDarwin then pkgs.pinentry_mac else pkgs.pinentry-tty;
   };
   programs.mise.enable = true;
   programs.yazi.enable = true;
@@ -69,9 +90,6 @@
     enable = true;
     defaultEditor = true;
   };
-  # Link the whole LazyVim config from the repo (writable, so lazy-lock.json
-  # updates land in git). Its own init.lua replaces the one Home Manager
-  # would generate.
   xdg.configFile."nvim".source = repoOutOfStoreSymlink "home/config/nvim";
   xdg.configFile."nvim/init.lua".enable = lib.mkForce false;
 }

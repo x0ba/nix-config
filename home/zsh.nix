@@ -1,6 +1,5 @@
-{ ... }:
+{ pkgs, ... }:
 {
-  # Replaces the hand-written ~/.bashrc so atuin etc. hook into bash via Nix too.
   programs.bash.enable = true;
 
   programs.zsh = {
@@ -26,6 +25,14 @@
 
     historySubstringSearch.enable = true;
 
+    plugins = [
+      {
+        name = "agkozak-zsh-prompt";
+        src = "${pkgs.agkozak-zsh-prompt}/share/zsh/site-functions";
+        file = "agkozak-zsh-prompt.plugin.zsh";
+      }
+    ];
+
     history = {
       size = 10000;
       save = 10000;
@@ -35,12 +42,6 @@
       ignoreAllDups = true;
       ignoreSpace = true;
       expireDuplicatesFirst = true;
-    };
-
-    shellAliases = {
-      clde = "claude --dangerously-skip-permissions";
-      ll = "ls -lh";
-      la = "ls -lAh";
     };
 
     initContent = ''

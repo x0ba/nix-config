@@ -19,8 +19,10 @@
   programs.zsh.profileExtra = ''
     source ~/.orbstack/shell/init.zsh 2>/dev/null || :
   '';
+  programs.fish.loginShellInit = ''
+    source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+  '';
 
-  # Ghostty itself comes from the Homebrew cask; Nix only writes the config.
   programs.ghostty = {
     enable = true;
     package = null;

@@ -6,7 +6,6 @@ let
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
-      # Existing dotfiles (e.g. ~/.zshrc) get renamed instead of blocking the switch.
       backupFileExtension = "before-nix";
       extraSpecialArgs = { inherit inputs user; };
       users.${user}.imports = [

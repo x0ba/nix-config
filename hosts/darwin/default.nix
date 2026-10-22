@@ -10,9 +10,7 @@
   networking.hostName = "Daniels-MacBook-Pro";
   networking.localHostName = "Daniels-MacBook-Pro";
 
-  # Determinate Nix manages the Nix install and daemon (flakes are on by
-  # default), so nix-darwin must not. Extra Nix settings go in
-  # /etc/nix/nix.custom.conf, which Determinate creates.
+  # Determinate Nix manages the Nix installation.
   nix.enable = false;
 
   system.primaryUser = user;
@@ -24,6 +22,13 @@
 
   programs.zsh.enable = true;
   programs.fish.enable = true;
+
+  # workaround for rex cli not being in path
+  environment.interactiveShellInit = ''
+    if [ -n "$REX_BIN_DIR" ]; then
+      export PATH="$REX_BIN_DIR:$PATH"
+    fi
+  '';
 
   system.stateVersion = 6;
 }

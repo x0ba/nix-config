@@ -1,0 +1,40 @@
+diff --git a/hooks/bash.sh b/hooks/bash.sh
+index 768b595..5cbc98e 100644
+--- a/hooks/bash.sh
++++ b/hooks/bash.sh
+@@ -25,6 +25,8 @@ _direnv_handler() {
+ 
+ # Main hook called on directory changes and prompts
+ _direnv_hook() {
++  # Set explicitly: a value inherited from a parent fish would be wrong here.
++  export DIRENV_INSTANT_SHELL=bash
+   export DIRENV_INSTANT_SHELL_PID=$$
+ 
+   # Load cached environment immediately if available and caching is enabled
+diff --git a/hooks/zsh.sh b/hooks/zsh.sh
+index 8ec4bfe..a3d0bfd 100644
+--- a/hooks/zsh.sh
++++ b/hooks/zsh.sh
+@@ -42,6 +42,8 @@ TRAPUSR1() {
+ 
+ # Main hook called on directory changes and prompts
+ _direnv_hook() {
++  # Set explicitly: a value inherited from a parent fish would be wrong here.
++  export DIRENV_INSTANT_SHELL=zsh
+   export DIRENV_INSTANT_SHELL_PID=$$
+ 
+   # Load cached environment immediately if available and caching is enabled
+diff --git a/src/daemon.rs b/src/daemon.rs
+index ebbacea..d9cedd0 100644
+--- a/src/daemon.rs
++++ b/src/daemon.rs
+@@ -35,6 +35,9 @@ const PTY_WINSIZE: Winsize = Winsize {
+ pub fn get_runtime_dir(envrc_dir: &Path) -> PathBuf {
+     let mut hasher = DefaultHasher::new();
+     envrc_dir.hash(&mut hasher);
++    // Separate daemon and env cache per export syntax: a zsh-format env file
++    // sourced by fish (or vice versa) is a syntax error.
++    Shell::from_env().direnv_export_arg().hash(&mut hasher);
+     let dir_hash = hasher.finish();
+ 
+     let cache_base = env::var("XDG_CACHE_HOME")

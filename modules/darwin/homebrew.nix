@@ -1,7 +1,5 @@
 { lib, ... }:
 {
-  # Keeps `brew` and cask CLIs (ngrok, etc.) on PATH, after the Nix paths so
-  # Nix versions always win.
   environment.systemPath = lib.mkAfter [ "/opt/homebrew/bin" ];
 
   homebrew = {
@@ -18,6 +16,7 @@
       "aside"
       "balenaetcher"
       "bambu-studio"
+      "claude"
       "cleanshot"
       "cursor"
       "discord"
@@ -27,6 +26,7 @@
       "granola"
       "grok-bot"
       "homebrew-app"
+      "istat-menus"
       "logi-options+"
       "ngrok"
       "notion"

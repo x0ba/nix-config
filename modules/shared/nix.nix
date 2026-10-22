@@ -1,13 +1,42 @@
-{ lib, pkgs, user, ... }:
 {
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    lib.elem (lib.getName pkg) [
-      "claude-code"
-      "cursor-cli"
-    ];
+  lib,
+  pkgs,
+  inputs,
+  user,
+  ...
+}:
+let
+  unfreePackages = [
+    "claude-code"
+    "cursor-cli"
+  ];
+  allowUnfreePredicate = pkg: lib.elem (lib.getName pkg) unfreePackages;
+in
+{
+  nixpkgs.config = { inherit allowUnfreePredicate; };
 
-  # On the Mac, Determinate Nix owns nix.conf, so only NixOS sets these.
+  nixpkgs.overlays = [
+    (
+      _final: prev:
+      let
+        unstable = import inputs.nixpkgs-unstable {
+          system = prev.stdenv.hostPlatform.system;
+          config = { inherit allowUnfreePredicate; };
+        };
+      in
+      {
+        inherit (unstable)
+          gh
+          claude-code
+          cursor-cli
+          opencode
+          hunk
+          atuin
+          ;
+      }
+    )
+  ];
+
   nix.settings = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
     experimental-features = [
       "nix-command"

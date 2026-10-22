@@ -2,7 +2,7 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
-  nixpkgs.hostPlatform = "x86_64-linux"; # change to "aarch64-linux" for ARM / VMs on the Mac
+  nixpkgs.hostPlatform = "x86_64-linux";
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -24,6 +24,8 @@
 
   programs.zsh.enable = true;
   programs.fish.enable = true;
+
+  programs.nix-ld.enable = true;
 
   services.openssh = {
     enable = true;

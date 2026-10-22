@@ -1,17 +1,23 @@
-{ lib, pkgs, user, ... }:
+{
+  lib,
+  pkgs,
+  user,
+  ...
+}:
 {
   imports = [
     ./lib.nix
+    ./aliases.nix
     ./packages.nix
     ./zsh.nix
     ./fish.nix
     ./git.nix
     ./tools.nix
   ];
-  # darwin.nix / linux.nix are added per machine in hosts/default.nix.
 
   home.username = user;
-  home.homeDirectory = if pkgs.stdenv.hostPlatform.isDarwin then "/Users/${user}" else "/home/${user}";
+  home.homeDirectory =
+    if pkgs.stdenv.hostPlatform.isDarwin then "/Users/${user}" else "/home/${user}";
 
   home.sessionVariables = {
     EDITOR = "nvim";

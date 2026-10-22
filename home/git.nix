@@ -21,7 +21,6 @@
 
   programs.gh = {
     enable = true;
-    # Only config.yml is managed. Your login (hosts.yml) is left untouched.
     settings = {
       git_protocol = "https";
       prompt = "enabled";

@@ -10,7 +10,5 @@ in
     };
 
     finder.FXPreferredViewStyle = finderListView;
-
-    NSGlobalDomain.AppleInterfaceStyle = null; # null = Light (macOS has no "Light" value)
   };
 }
