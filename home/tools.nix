@@ -1,4 +1,4 @@
-{ lib, repoOutOfStoreSymlink, inputs, ... }:
+{ lib, pkgs, repoOutOfStoreSymlink, inputs, ... }:
 {
   imports = [ inputs.direnv-instant.homeModules.direnv-instant ];
 
@@ -6,7 +6,14 @@
     enable = true;
     nix-direnv.enable = true;
   };
-  programs.direnv-instant.enable = true;
+  programs.direnv-instant = {
+    enable = true;
+    # Adds Rex as a supported multiplexer, so direnv runs in the background
+    # in Rex terminals instead of blocking the prompt.
+    package = (pkgs.callPackage "${inputs.direnv-instant}/default.nix" { }).overrideAttrs (old: {
+      patches = (old.patches or [ ]) ++ [ ../patches/direnv-instant-rex.patch ];
+    });
+  };
 
   programs.bat.enable = true;
   home.sessionVariables.MANPAGER = "sh -c 'col -bx | bat -l man -p'";
@@ -34,16 +41,6 @@
 
   programs.starship = {
     enable = true;
-    settings = {
-      format = "$username$hostname$directory$git_branch$git_status$character";
-      add_newline = false;
-      username = {
-        show_always = false;
-        format = "[$user@]($style)";
-      };
-      hostname.format = "[$hostname ]($style)";
-      directory.truncation_length = 3;
-    };
   };
 
   programs.atuin = {

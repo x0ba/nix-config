@@ -1,0 +1,67 @@
+diff --git a/src/mux.rs b/src/mux.rs
+index 2eb15b0..d8b2cfa 100644
+--- a/src/mux.rs
++++ b/src/mux.rs
+@@ -22,6 +22,7 @@ pub enum Multiplexer {
+     Wezterm,
+     Kitty,
+     Herdr,
++    Rex,
+ }
+ 
+ impl Multiplexer {
+@@ -46,6 +47,10 @@ impl Multiplexer {
+             return Some(Self::Herdr);
+         }
+ 
++        if env::var("REX_SESSION").is_ok() && env::var("REX_BLOCK").is_ok() {
++            return Some(Self::Rex);
++        }
++
+         None
+     }
+ 
+@@ -60,6 +65,26 @@ impl Multiplexer {
+ 
+         match self {
+             Multiplexer::Herdr => return spawn_herdr(&bin, ctx),
++            Multiplexer::Rex => {
++                let session = env::var("REX_SESSION").map_err(|e| Error::other(e.to_string()))?;
++                let block = env::var("REX_BLOCK").map_err(|e| Error::other(e.to_string()))?;
++                command = Command::new(rex_bin());
++                command.args([
++                    "split",
++                    "-s",
++                    &session,
++                    "-b",
++                    &block,
++                    "--split=below",
++                    "--ratio",
++                    "25",
++                    "--focus=false",
++                    "--shell=none",
++                    "--label",
++                    "direnv",
++                    "--",
++                ]);
++            }
+             Multiplexer::Tmux => {
+                 command = Command::new("tmux");
+                 command.args(["split-window", "-d", "-l", PANE_HEIGHT]);
+@@ -184,6 +209,16 @@ fn parse_pane_id(json: &str) -> Option<String> {
+         .cloned()
+ }
+ 
++/// Rex sets REX_BIN_DIR in its terminals; the CLI isn't always on PATH.
++fn rex_bin() -> String {
++    env::var("REX_BIN_DIR")
++        .ok()
++        .map(|dir| std::path::Path::new(&dir).join("rex"))
++        .filter(|path| path.is_file())
++        .map(|path| path.to_string_lossy().into_owned())
++        .unwrap_or_else(|| "rex".to_string())
++}
++
+ fn shell_quote(s: &str) -> String {
+     format!("'{}'", s.replace('\'', "'\\''"))
+ }
