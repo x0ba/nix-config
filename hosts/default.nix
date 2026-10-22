@@ -17,7 +17,7 @@ let
 in
 {
   flake = {
-    darwinConfigurations."Daniels-MacBook-Pro-3" = inputs.nix-darwin.lib.darwinSystem {
+    darwinConfigurations."Daniels-MacBook-Pro" = inputs.nix-darwin.lib.darwinSystem {
       specialArgs = { inherit inputs user; };
       modules = [
         ../modules/shared/nix.nix

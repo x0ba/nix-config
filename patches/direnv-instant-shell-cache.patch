@@ -38,3 +38,19 @@ index ebbacea..d9cedd0 100644
      let dir_hash = hasher.finish();
  
      let cache_base = env::var("XDG_CACHE_HOME")
+diff --git a/hooks/nushell.nu b/hooks/nushell.nu
+index 81dfbcb..12f118e 100644
+--- a/hooks/nushell.nu
++++ b/hooks/nushell.nu
+@@ -11,7 +11,10 @@
+ 
+ def _direnv_instant_load_file [path: string]: nothing -> record {
+     if ($path | is-empty) or not ($path | path exists) { return {} }
+-    open --raw $path | from json | default {}
++    # The path may be inherited from a parent zsh/fish, whose env file is
++    # shell syntax, not JSON. Only accept a record.
++    let data = (try { open --raw $path | from json } catch { null })
++    if ($data | describe | str starts-with "record") { $data } else { {} }
+ }
+ 
+ def --env _direnv_instant_apply [data: record] {

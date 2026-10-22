@@ -45,7 +45,7 @@
           "bookmark"
           "move"
           "--from"
-          "closest_bookmark(@-)"
+          "heads(::@- & bookmarks())"
           "--to"
           "@-"
         ];

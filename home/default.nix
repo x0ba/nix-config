@@ -11,6 +11,7 @@
     ./packages.nix
     ./zsh.nix
     ./fish.nix
+    ./nushell.nix
     ./git.nix
     ./tools.nix
   ];

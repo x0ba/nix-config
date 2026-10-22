@@ -52,6 +52,7 @@
             packages = with pkgs; [
               nixfmt
               nil
+              just
             ];
           };
         };

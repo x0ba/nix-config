@@ -31,6 +31,11 @@ in
   programs.bash.shellAliases = aliases;
   programs.zsh.shellAliases = aliases;
   programs.fish.shellAliases = aliases;
+  # Skip the ls aliases: nushell's own `ls` has no -h flag.
+  programs.nushell.shellAliases = removeAttrs aliases [
+    "ll"
+    "la"
+  ];
 
   home.packages = lib.optionals pkgs.stdenv.hostPlatform.isLinux [ pkgs.xclip ];
 }
