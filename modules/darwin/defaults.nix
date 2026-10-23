@@ -5,8 +5,9 @@ in
 {
   system.defaults = {
     dock = {
-      autohide = true;
-      show-recents = false;
+      autohide = false;
+      show-recents = true;
+      tilesize = 64;
     };
 
     finder.FXPreferredViewStyle = finderListView;

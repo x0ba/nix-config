@@ -1,6 +1,9 @@
 { pkgs, user, ... }:
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ./home-storage.nix
+  ];
 
   nixpkgs.hostPlatform = "x86_64-linux";
 
@@ -15,6 +18,7 @@
 
   users.users.${user} = {
     isNormalUser = true;
+    home = "/home/${user}";
     extraGroups = [
       "wheel"
       "networkmanager"

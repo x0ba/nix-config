@@ -13,12 +13,14 @@
 
     casks = [
       "1password"
-      "aside"
       "balenaetcher"
       "bambu-studio"
+      "aside"
       "claude"
       "cleanshot"
+      "zoom"
       "cursor"
+      "tailscale"
       "discord"
       "fluidvoice"
       "ghostty"
@@ -36,7 +38,6 @@
       "slack"
       "spotify"
       "t3-code@nightly"
-      "thebrowsercompany-dia"
       "todoist-app"
       "visual-studio-code"
       "zed"

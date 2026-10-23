@@ -175,25 +175,7 @@
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-unstable": "nixpkgs-unstable",
-        "theme-bobthefish": "theme-bobthefish"
-      }
-    },
-    "theme-bobthefish": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1727184317,
-        "narHash": "sha256-cXOYvdn74H4rkMWSC7G6bT4wa9d3/3vRnKed2ixRnuA=",
-        "owner": "oh-my-fish",
-        "repo": "theme-bobthefish",
-        "rev": "e3b4d4eafc23516e35f162686f08a42edf844e40",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oh-my-fish",
-        "repo": "theme-bobthefish",
-        "rev": "e3b4d4eafc23516e35f162686f08a42edf844e40",
-        "type": "github"
+        "nixpkgs-unstable": "nixpkgs-unstable"
       }
     },
     "treefmt-nix": {

@@ -10,6 +10,7 @@
       ripgrep
       tree
       watch
+      uv
 
       claude-code
       cursor-cli

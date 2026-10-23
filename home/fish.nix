@@ -11,7 +11,6 @@
         })
         [
           "fish-foreign-env"
-          "theme-bobthefish"
         ];
 
     # No greeting on startup.
@@ -21,74 +20,6 @@
     shellAliases.fnix = "nix-shell --run fish";
 
     interactiveShellInit = ''
-      source ${inputs.theme-bobthefish}/functions/fish_prompt.fish
-      source ${inputs.theme-bobthefish}/functions/fish_right_prompt.fish
-      source ${inputs.theme-bobthefish}/functions/fish_title.fish
-
-      set -g theme_color_scheme dracula
-
-      set -g fish_color_normal normal
-      set -g fish_color_command F8F8F2
-      set -g fish_color_quote F1FA8C
-      set -g fish_color_redirection 8BE9FD
-      set -g fish_color_end 50FA7B
-      set -g fish_color_error FF5555
-      set -g fish_color_param 5FFFFF
-      set -g fish_color_comment 6272A4
-      set -g fish_color_match --background=brblue
-      set -g fish_color_selection white --bold --background=brblack
-      set -g fish_color_search_match bryellow --background=brblack
-      set -g fish_color_history_current --bold
-      set -g fish_color_operator 00a6b2
-      set -g fish_color_escape 00a6b2
-      set -g fish_color_cwd green
-      set -g fish_color_cwd_root red
-      set -g fish_color_valid_path --underline
-      set -g fish_color_autosuggestion BD93F9
-      set -g fish_color_user brgreen
-      set -g fish_color_host normal
-      set -g fish_color_cancel -r
-      set -g fish_pager_color_completion normal
-      set -g fish_pager_color_description B3A06D yellow
-      set -g fish_pager_color_prefix white --bold --underline
-      set -g fish_pager_color_progress brwhite --background=cyan
-
-      # Shorter nix-shell segment in the prompt: just "N".
-      function __bobthefish_prompt_nix -S -d 'Display current nix environment'
-          [ "$theme_display_nix" = 'no' -o -z "$IN_NIX_SHELL" ]
-          and return
-
-          __bobthefish_start_segment $color_nix
-          echo -ns N ' '
-
-          set_color normal
-      end
-
-      # In colocated jj repos, show just "jj" instead of git branch/status.
-      functions -c __bobthefish_prompt_git __bobthefish_prompt_git_orig
-      function __bobthefish_prompt_git -S -a git_root_dir -a real_pwd
-          if not test -d "$git_root_dir/.jj"
-              __bobthefish_prompt_git_orig $git_root_dir $real_pwd
-              return
-          end
-
-          __bobthefish_path_segment $git_root_dir project
-
-          __bobthefish_start_segment $color_repo
-          echo -ns jj ' '
-          set_color normal
-
-          set -l project_pwd (__bobthefish_project_pwd $git_root_dir $real_pwd)
-          if [ "$project_pwd" ]
-              if [ -w "$real_pwd" ]
-                  __bobthefish_start_segment $color_path
-              else
-                  __bobthefish_start_segment $color_path_nowrite
-              end
-              echo -ns $project_pwd ' '
-          end
-      end
-
       # Ghostty can't auto-inject its shell integration because nix-darwin
       # overwrites XDG_DATA_DIRS, so source it by hand.
       if set -q GHOSTTY_RESOURCES_DIR
@@ -103,4 +34,69 @@
       set -g SHELL ${pkgs.fish}/bin/fish
     '';
   };
+
+  # Fish only. Zsh keeps agkozak.
+  # Starship's pure preset: blue path, gray VCS info, purple ❯ on the next line.
+  # jj-starship covers git and jj, so the built-in git modules stay off.
+  # In a colocated repo git is usually detached, which would also surface git_commit.
+  programs.starship = {
+    enable = true;
+    enableFishIntegration = true;
+    enableBashIntegration = false;
+    enableZshIntegration = false;
+    enableNushellIntegration = false;
+    enableIonIntegration = false;
+
+    extraPackages = [ pkgs.jj-starship ];
+    settings = {
+      format = "$username$hostname$directory\${custom.jj}$git_state$cmd_duration$line_break$python$character";
+
+      directory.style = "blue";
+
+      character = {
+        success_symbol = "[❯](purple)";
+        error_symbol = "[❯](red)";
+        vimcmd_symbol = "[❮](green)";
+      };
+
+      git_branch.disabled = true;
+      git_commit.disabled = true;
+      git_status.disabled = true;
+
+      git_state = {
+        format = ''\([$state( $progress_current/$progress_total)]($style)\) '';
+        style = "bright-black";
+      };
+
+      cmd_duration = {
+        format = "[$duration]($style) ";
+        style = "yellow";
+      };
+
+      # Virtualenv name only, same as the pure preset.
+      python = {
+        format = "[$virtualenv]($style) ";
+        style = "bright-black";
+        detect_extensions = [ ];
+        detect_files = [ ];
+      };
+
+      custom.jj = {
+        when = "jj-starship detect";
+        shell = [
+          "jj-starship"
+          "--no-color"
+          "--no-symbol"
+          "--no-jj-prefix"
+          "--no-git-prefix"
+          "--no-jj-id"
+          "--no-git-id"
+        ];
+        style = "bright-black";
+        format = "[$output]($style) ";
+      };
+    };
+  };
+
+  home.packages = [ pkgs.jj-starship ];
 }
