@@ -64,6 +64,31 @@
           set_color normal
       end
 
+      # In colocated jj repos, show just "jj" instead of git branch/status.
+      functions -c __bobthefish_prompt_git __bobthefish_prompt_git_orig
+      function __bobthefish_prompt_git -S -a git_root_dir -a real_pwd
+          if not test -d "$git_root_dir/.jj"
+              __bobthefish_prompt_git_orig $git_root_dir $real_pwd
+              return
+          end
+
+          __bobthefish_path_segment $git_root_dir project
+
+          __bobthefish_start_segment $color_repo
+          echo -ns jj ' '
+          set_color normal
+
+          set -l project_pwd (__bobthefish_project_pwd $git_root_dir $real_pwd)
+          if [ "$project_pwd" ]
+              if [ -w "$real_pwd" ]
+                  __bobthefish_start_segment $color_path
+              else
+                  __bobthefish_start_segment $color_path_nowrite
+              end
+              echo -ns $project_pwd ' '
+          end
+      end
+
       # Ghostty can't auto-inject its shell integration because nix-darwin
       # overwrites XDG_DATA_DIRS, so source it by hand.
       if set -q GHOSTTY_RESOURCES_DIR

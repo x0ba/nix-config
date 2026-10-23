@@ -15,9 +15,12 @@
 
   system.primaryUser = user;
 
+  # Listing the user in knownUsers lets nix-darwin apply the login shell.
+  users.knownUsers = [ user ];
   users.users.${user} = {
+    uid = 501;
     home = "/Users/${user}";
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
   };
 
   programs.zsh.enable = true;

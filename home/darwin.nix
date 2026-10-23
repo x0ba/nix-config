@@ -1,4 +1,9 @@
-{ config, repoOutOfStoreSymlink, ... }:
+{
+  config,
+  lib,
+  repoOutOfStoreSymlink,
+  ...
+}:
 {
   home.sessionVariables = {
     BROWSER = "open";
@@ -7,11 +12,17 @@
 
   # Tools not packaged in nixpkgs; they install and update themselves.
   home.sessionPath = [ "$HOME/.grok/bin" ];
-  programs.zsh.initContent = ''
-    fpath=(~/.grok/completions/zsh $fpath)
-    [ -f ~/.config/vite-plus/env ] && . ~/.config/vite-plus/env
-  '';
-  programs.fish.interactiveShellInit = ''
+  # Vite+ must go on PATH before direnv-instant starts. direnv-instant saves
+  # the PATH it sees and puts it back at every prompt, which would drop vp.
+  programs.zsh.initContent = lib.mkMerge [
+    (lib.mkBefore ''
+      [ -f ~/.config/vite-plus/env ] && . ~/.config/vite-plus/env
+    '')
+    ''
+      fpath=(~/.grok/completions/zsh $fpath)
+    ''
+  ];
+  programs.fish.interactiveShellInit = lib.mkBefore ''
     test -f ~/.config/vite-plus/env.fish; and source ~/.config/vite-plus/env.fish
   '';
 

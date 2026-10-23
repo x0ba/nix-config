@@ -51,6 +51,18 @@
       zstyle ':completion:*' menu select
       zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
       zstyle ':completion:*' list-colors "''${(s.:.)LS_COLORS}"
+
+      # In colocated jj repos, show just "jj" instead of git branch/status.
+      functions -c _agkozak_branch_status _agkozak_git_branch_status
+      _agkozak_branch_status() {
+        local root
+        root=$(command git rev-parse --show-toplevel 2> /dev/null) || return
+        if [[ -d $root/.jj ]]; then
+          printf -- '%s(jj)' "''${AGKOZAK_BRANCH_STATUS_SEPARATOR- }"
+        else
+          _agkozak_git_branch_status
+        fi
+      }
     '';
   };
 }

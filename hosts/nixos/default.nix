@@ -19,7 +19,7 @@
       "wheel"
       "networkmanager"
     ];
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
   };
 
   programs.zsh.enable = true;
