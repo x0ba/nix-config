@@ -23,6 +23,7 @@
       "tailscale"
       "discord"
       "fluidvoice"
+      "figma"
       "ghostty"
       "google-chrome"
       "granola"
