@@ -5,7 +5,7 @@ in
 {
   system.defaults = {
     dock = {
-      autohide = false;
+      autohide = true;
       show-recents = true;
       tilesize = 64;
     };
