@@ -1,17 +1,7 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
   programs.fish = {
     enable = true;
-
-    plugins =
-      map
-        (name: {
-          inherit name;
-          src = inputs.${name};
-        })
-        [
-          "fish-foreign-env"
-        ];
 
     # No greeting on startup.
     functions.fish_greeting = "";

@@ -21,11 +21,6 @@
       url = "github:Mic92/direnv-instant";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    fish-foreign-env = {
-      url = "github:oh-my-fish/plugin-foreign-env/dddd9213272a0ab848d474d0cbde12ad034e65bc";
-      flake = false;
-    };
   };
 
   outputs =

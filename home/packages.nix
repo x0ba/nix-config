@@ -8,14 +8,11 @@
       hunk
       qpdf
       ripgrep
+      lazygit
       tree
       watch
       uv
       nodejs_26
-
-      claude-code
-      cursor-cli
-      opencode
     ]
     ++ lib.optionals stdenv.hostPlatform.isDarwin [ coreutils-prefixed ];
 }

@@ -22,23 +22,6 @@
         "type": "github"
       }
     },
-    "fish-foreign-env": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1547655379,
-        "narHash": "sha256-er1KI2xSUtTlQd9jZl1AjqeArrfBxrgBLcw5OqinuAM=",
-        "owner": "oh-my-fish",
-        "repo": "plugin-foreign-env",
-        "rev": "dddd9213272a0ab848d474d0cbde12ad034e65bc",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oh-my-fish",
-        "repo": "plugin-foreign-env",
-        "rev": "dddd9213272a0ab848d474d0cbde12ad034e65bc",
-        "type": "github"
-      }
-    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -170,7 +153,6 @@
     "root": {
       "inputs": {
         "direnv-instant": "direnv-instant",
-        "fish-foreign-env": "fish-foreign-env",
         "flake-parts": "flake-parts_2",
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",
