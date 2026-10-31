@@ -11,6 +11,7 @@
       tree
       watch
       uv
+      nodejs_26
 
       claude-code
       cursor-cli
