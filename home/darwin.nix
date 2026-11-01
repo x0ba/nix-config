@@ -21,6 +21,9 @@
   programs.ghostty = {
     enable = true;
     package = null;
-    settings.theme = "Flexoki Dark";
+    settings = {
+      theme = "TokyoNight";
+      "font-family" = "Maple Mono";
+    };
   };
 }

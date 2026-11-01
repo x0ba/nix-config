@@ -12,6 +12,7 @@
     ./zsh.nix
     ./fish.nix
     ./nushell.nix
+    ./starship.nix
     ./git.nix
     ./tools.nix
   ];
@@ -29,6 +30,10 @@
   };
 
   home.sessionPath = [ "$HOME/.local/bin" ];
+
+  # Darwin copies the fonts in home.packages into ~/Library/Fonts; on Linux
+  # fontconfig needs to be told about them.
+  fonts.fontconfig.enable = pkgs.stdenv.hostPlatform.isLinux;
 
   home.stateVersion = "26.05";
 }

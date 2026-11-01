@@ -16,6 +16,7 @@
       "balenaetcher"
       "bambu-studio"
       "thebrowsercompany-dia"
+      "readdle-spark"
       "claude"
       "cleanshot"
       "zoom"
