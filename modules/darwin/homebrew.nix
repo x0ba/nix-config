@@ -15,7 +15,7 @@
       "1password"
       "balenaetcher"
       "bambu-studio"
-      "aside"
+      "thebrowsercompany-dia"
       "claude"
       "cleanshot"
       "zoom"

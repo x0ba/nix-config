@@ -32,7 +32,6 @@ in
           opencode
           hunk
           atuin
-          jj-starship
           ;
       }
     )
