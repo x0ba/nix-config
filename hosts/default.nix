@@ -2,16 +2,14 @@
 let
   user = "daniel";
 
-  homeManagerFor = platformModule: {
+  # The shared home config plus any platform-specific home modules.
+  homeManagerFor = platformModules: {
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
       backupFileExtension = "before-nix";
       extraSpecialArgs = { inherit inputs user; };
-      users.${user}.imports = [
-        ../home
-        platformModule
-      ];
+      users.${user}.imports = [ ../home ] ++ platformModules;
     };
   };
 in
@@ -23,7 +21,7 @@ in
         ../modules/shared/nix.nix
         ./darwin
         inputs.home-manager.darwinModules.home-manager
-        (homeManagerFor ../home/darwin.nix)
+        (homeManagerFor [ ../home/darwin.nix ])
       ];
     };
 
@@ -33,7 +31,7 @@ in
         ../modules/shared/nix.nix
         ./nixos
         inputs.home-manager.nixosModules.home-manager
-        (homeManagerFor ../home/linux.nix)
+        (homeManagerFor [ ])
       ];
     };
   };

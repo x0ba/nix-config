@@ -1,10 +1,20 @@
 # Aliases shared by all shells.
 { lib, pkgs, ... }:
 let
+  # eza is the maintained fork of exa and stands in for ls. The flags are
+  # spelled out here rather than left to programs.eza's aliases, which only
+  # add their options to `eza` itself: bash and zsh don't re-expand `ls` into
+  # `eza` into `eza <options>`.
+  eza = "eza --group-directories-first --icons=auto";
+
   aliases = {
     clde = "claude --dangerously-skip-permissions";
-    ll = "ls -lh";
-    la = "ls -lAh";
+
+    ls = eza;
+    ll = "${eza} -l";
+    la = "${eza} -a";
+    lla = "${eza} -la";
+    lt = "${eza} --tree";
 
     ga = "git add";
     gc = "git commit";
@@ -31,11 +41,7 @@ in
   programs.bash.shellAliases = aliases;
   programs.zsh.shellAliases = aliases;
   programs.fish.shellAliases = aliases;
-  # Skip the ls aliases: nushell's own `ls` has no -h flag.
-  programs.nushell.shellAliases = removeAttrs aliases [
-    "ll"
-    "la"
-  ];
+  programs.nushell.shellAliases = aliases;
 
   home.packages = lib.optionals pkgs.stdenv.hostPlatform.isLinux [ pkgs.xclip ];
 }

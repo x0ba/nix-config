@@ -28,6 +28,8 @@
   programs.bat.enable = true;
   home.sessionVariables.MANPAGER = "sh -c 'col -bx | bat -l man -p'";
 
+  # Installs eza (the maintained fork of exa); the ls/ll/la/lla/lt aliases
+  # every shell uses are defined in aliases.nix.
   programs.eza.enable = true;
   programs.jq.enable = true;
 
