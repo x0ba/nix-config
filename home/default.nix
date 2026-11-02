@@ -9,6 +9,7 @@
     ./lib.nix
     ./aliases.nix
     ./packages.nix
+    ./bash.nix
     ./zsh.nix
     ./fish.nix
     ./nushell.nix

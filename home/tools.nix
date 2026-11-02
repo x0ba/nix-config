@@ -11,9 +11,18 @@
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
+    # The shells use direnv-instant's hook instead, added from the cached
+    # init scripts in zsh.nix/bash.nix/fish.nix.
+    enableBashIntegration = false;
+    enableFishIntegration = false;
+    enableZshIntegration = false;
   };
   programs.direnv-instant = {
     enable = true;
+    # Hooks are sourced from the per-shell cached init scripts instead.
+    enableBashIntegration = false;
+    enableFishIntegration = false;
+    enableZshIntegration = false;
     # Adds Rex as a supported multiplexer, so direnv runs in the background
     # in Rex terminals instead of blocking the prompt. Also keeps a separate
     # cache per shell so fish never loads a zsh-format env file.
@@ -64,6 +73,10 @@
 
   programs.atuin = {
     enable = true;
+    # fish's integration is a static file and costs nothing to source, so keep
+    # it. zsh/bash go through the cached init scripts in zsh.nix/bash.nix.
+    enableBashIntegration = false;
+    enableZshIntegration = false;
     settings = {
       enter_accept = true;
       search_mode = "daemon-fuzzy";
@@ -75,8 +88,18 @@
     };
   };
 
+  # Shell integrations for the tools below are sourced from the cached init
+  # scripts in zsh.nix/bash.nix/fish.nix instead of being eval'd on every
+  # startup; the modules' own init lines are disabled here.
   programs.zoxide.enable = true;
+  programs.zoxide.enableBashIntegration = false;
+  programs.zoxide.enableFishIntegration = false;
+  programs.zoxide.enableZshIntegration = false;
+
   programs.fzf.enable = true;
+  programs.fzf.enableBashIntegration = false;
+  programs.fzf.enableFishIntegration = false;
+  programs.fzf.enableZshIntegration = false;
 
   programs.gpg.enable = true;
   services.gpg-agent = {
@@ -85,6 +108,9 @@
       if pkgs.stdenv.hostPlatform.isDarwin then pkgs.pinentry_mac else pkgs.pinentry-tty;
   };
   programs.mise.enable = true;
+  programs.mise.enableBashIntegration = false;
+  programs.mise.enableFishIntegration = false;
+  programs.mise.enableZshIntegration = false;
   programs.yazi.enable = true;
   programs.btop.enable = true;
 

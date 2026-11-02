@@ -59,8 +59,9 @@
       };
     };
 
-    enableFishIntegration = true;
-    enableZshIntegration = true;
+    # The shells source a cached copy of `starship init` instead.
+    enableFishIntegration = false;
+    enableZshIntegration = false;
     enableNushellIntegration = true;
     enableBashIntegration = false;
   };

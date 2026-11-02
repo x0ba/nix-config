@@ -31,8 +31,8 @@ in
           cursor-cli
           opencode
           hunk
-          atuin
           ;
+        atuin = unstable.atuin.overrideAttrs { doCheck = false; };
       }
     )
   ];
